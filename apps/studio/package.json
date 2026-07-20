@@ -1,0 +1,29 @@
+{
+  "name": "studio",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "render": "node scripts/render.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"(no lint configured yet)\"",
+    "test": "echo \"(no tests yet)\""
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.494",
+    "@remotion/transitions": "4.0.494",
+    "@remotion/zod-types": "4.0.494",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.494",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.2"
+  }
+}

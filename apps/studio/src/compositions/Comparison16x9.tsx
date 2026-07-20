@@ -1,0 +1,91 @@
+import React, { useMemo } from "react";
+import { AbsoluteFill, Sequence, useVideoConfig } from "remotion";
+import { TransitionSeries, springTiming } from "@remotion/transitions";
+import { slide } from "@remotion/transitions/slide";
+import { fade } from "@remotion/transitions/fade";
+import { parseVideoInput, type VideoInput } from "../schema";
+import { getTheme } from "../theme";
+import { TIMING_SECONDS, secondsToFrames } from "../timing";
+import { AudioTrack } from "../audio/AudioTrack";
+import type { SfxCue } from "../audio/types";
+import * as IntroScene from "../scenes/Intro";
+import * as ContenderRevealScene from "../scenes/ContenderReveal";
+import * as SpecBattleScene from "../scenes/SpecBattle";
+import * as ScoreboardScene from "../scenes/Scoreboard";
+import * as WinnerRevealScene from "../scenes/WinnerReveal";
+import * as OutroScene from "../scenes/Outro";
+
+const SEQUENTIAL_SCENES = [IntroScene, ContenderRevealScene, SpecBattleScene, WinnerRevealScene, OutroScene];
+
+export function computeTotalDurationInFrames(input: VideoInput): number {
+  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, input.meta.fps);
+  const durations = SEQUENTIAL_SCENES.map((scene) => scene.getDuration(input));
+  const totalRaw = durations.reduce((sum, d) => sum + d, 0);
+  return totalRaw - transitionFrames * (SEQUENTIAL_SCENES.length - 1);
+}
+
+function computeSceneStartFrames(input: VideoInput): number[] {
+  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, input.meta.fps);
+  const durations = SEQUENTIAL_SCENES.map((scene) => scene.getDuration(input));
+  const starts: number[] = [0];
+  for (let i = 1; i < durations.length; i++) {
+    starts.push(starts[i - 1] + durations[i - 1] - transitionFrames);
+  }
+  return starts;
+}
+
+function computeAllSfxCues(input: VideoInput): SfxCue[] {
+  const starts = computeSceneStartFrames(input);
+  return SEQUENTIAL_SCENES.flatMap((scene, index) =>
+    scene.getSfxCues(input).map((cue) => ({ ...cue, frame: cue.frame + starts[index] })),
+  );
+}
+
+export const Comparison16x9: React.FC<VideoInput> = (props) => {
+  const input = parseVideoInput(props);
+  const { fps } = useVideoConfig();
+  const theme = getTheme(input.meta.theme);
+  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, fps);
+
+  const [introD, revealD, battleD, winnerD, outroD] = SEQUENTIAL_SCENES.map((scene) =>
+    scene.getDuration(input),
+  );
+  const sceneStarts = useMemo(() => computeSceneStartFrames(input), [input]);
+  const totalDuration = useMemo(() => computeTotalDurationInFrames(input), [input]);
+  const sfxCues = useMemo(() => computeAllSfxCues(input), [input]);
+  const scoreboardDuration = ScoreboardScene.getDuration(input);
+
+  const transitionTiming = () => springTiming({ config: { damping: 200 }, durationInFrames: transitionFrames });
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: theme.backgroundFrom }}>
+      <TransitionSeries>
+        <TransitionSeries.Sequence durationInFrames={introD}>
+          <IntroScene.Intro input={input} theme={theme} />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={fade()} timing={transitionTiming()} />
+        <TransitionSeries.Sequence durationInFrames={revealD}>
+          <ContenderRevealScene.ContenderReveal input={input} theme={theme} />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide()} timing={transitionTiming()} />
+        <TransitionSeries.Sequence durationInFrames={battleD}>
+          <SpecBattleScene.SpecBattle input={input} theme={theme} />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide({ direction: "from-right" })} timing={transitionTiming()} />
+        <TransitionSeries.Sequence durationInFrames={winnerD}>
+          <WinnerRevealScene.WinnerReveal input={input} theme={theme} />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={fade()} timing={transitionTiming()} />
+        <TransitionSeries.Sequence durationInFrames={outroD}>
+          <OutroScene.Outro input={input} theme={theme} />
+        </TransitionSeries.Sequence>
+      </TransitionSeries>
+
+      <Sequence from={sceneStarts[2]} durationInFrames={scoreboardDuration} layout="none">
+        <ScoreboardScene.Scoreboard input={input} theme={theme} />
+      </Sequence>
+
+      <AudioTrack music={input.music} cues={sfxCues} totalDurationInFrames={totalDuration} fps={fps} />
+    </AbsoluteFill>
+  );
+};

@@ -1,0 +1,203 @@
+// Versus Engine — category-agnostic comparison data model
+// PostgreSQL 16 · Prisma ORM
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────── Catalog ───────────────────────────────
+
+model Category {
+  id          String           @id @default(cuid())
+  slug        String           @unique // "cars", "phones", "laptops", "motorcycles"
+  name        String
+  themeKey    String           @default("default") // maps to studio theme
+  products    Product[]
+  specDefs    SpecDefinition[]
+  comparisons Comparison[]
+  createdAt   DateTime         @default(now())
+}
+
+model Brand {
+  id       String    @id @default(cuid())
+  slug     String    @unique
+  name     String
+  logoUrl  String?
+  country  String?
+  products Product[]
+}
+
+enum ProductStatus {
+  DRAFT     // scraped or AI-researched, unreviewed
+  VERIFIED  // human-approved, render-eligible
+  ARCHIVED
+}
+
+model Product {
+  id           String         @id @default(cuid())
+  categoryId   String
+  category     Category       @relation(fields: [categoryId], references: [id])
+  brandId      String
+  brand        Brand          @relation(fields: [brandId], references: [id])
+  slug         String         @unique // "toyota-gr-corolla-2026"
+  name         String         // "GR Corolla"
+  variant      String?        // "Circuit Edition"
+  releaseYear  Int?
+  priceUsd     Decimal?       @db.Decimal(12, 2)
+  status       ProductStatus  @default(DRAFT)
+  source       String?        // "vpic" | "csv" | "scraper:gsmarena" | "ai-research"
+  sourceUrl    String?
+  verifiedAt   DateTime?
+  specs        Json           // raw spec blob, untouched from source
+  accentColor  String?        // dominant color extracted from hero image
+  images       ProductImage[]
+  specValues   SpecValue[]
+  contenders   ComparisonContender[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  @@index([categoryId, status])
+}
+
+model ProductImage {
+  id          String  @id @default(cuid())
+  productId   String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  kind        String  // "hero" | "side" | "front" | "detail" | "cutout"
+  url         String  // R2/S3 URL (processed, bg-removed for "cutout")
+  originalUrl String?
+  license     String? // "press-kit" | "cc0" | "cc-by-4.0" | "purchased"
+  attribution String?
+  width       Int?
+  height      Int?
+}
+
+// ─────────────────────── Spec system (the scalability core) ───────────────────────
+
+enum SpecDataType {
+  NUMBER
+  TEXT
+  BOOLEAN
+}
+
+enum SpecVisualization {
+  BAR      // horizontal bar race
+  GAUGE    // radial gauge fill
+  COUNTER  // big animated number
+  BADGE    // text/boolean face-off card
+}
+
+model SpecDefinition {
+  id             String            @id @default(cuid())
+  categoryId     String
+  category       Category          @relation(fields: [categoryId], references: [id])
+  key            String            // "zero_to_100_kmh"
+  label          String            // "0–100 km/h"
+  unit           String?           // "s", "hp", "km", "mAh", "GB"
+  dataType       SpecDataType      @default(NUMBER)
+  higherIsBetter Boolean           @default(true) // false for 0-100 time, price, weight
+  visualization  SpecVisualization @default(BAR)
+  displayFormat  String?           // "{value} s", "${value}"
+  icon           String?           // lucide icon name
+  priorityWeight Float             @default(1.0) // round-selection weighting
+  sortOrder      Int               @default(0)
+  values         SpecValue[]
+
+  @@unique([categoryId, key])
+}
+
+model SpecValue {
+  id           String         @id @default(cuid())
+  productId    String
+  product      Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  specDefId    String
+  specDef      SpecDefinition @relation(fields: [specDefId], references: [id])
+  numberValue  Float?         // normalized to SI/canonical unit
+  textValue    String?
+  boolValue    Boolean?
+  displayValue String         // human string as shown on screen, e.g. "4.9 s"
+  confidence   Float          @default(1.0) // <1.0 for AI-researched values
+
+  @@unique([productId, specDefId])
+}
+
+// ─────────────────────────────── Comparisons & videos ───────────────────────────────
+
+enum ComparisonStatus {
+  BUILDING
+  READY      // videoJson frozen, render-eligible
+  RENDERED
+  PUBLISHED
+}
+
+model Comparison {
+  id          String                @id @default(cuid())
+  categoryId  String
+  category    Category              @relation(fields: [categoryId], references: [id])
+  slug        String                @unique
+  title       String                // AI-generated: "GR Corolla vs Civic Type R — There's a Clear Winner"
+  description String?               // YouTube description (AI-generated)
+  tags        String[]              // YouTube tags
+  tagline     String?               // verdict line shown in video
+  status      ComparisonStatus      @default(BUILDING)
+  videoJson   Json?                 // FROZEN VideoInput payload actually rendered
+  winnerIndex Int?
+  scores      Int[]                 // per-contender round wins
+  contenders  ComparisonContender[]
+  renderJobs  RenderJob[]
+  uploads     Upload[]
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+}
+
+model ComparisonContender {
+  id           String     @id @default(cuid())
+  comparisonId String
+  comparison   Comparison @relation(fields: [comparisonId], references: [id], onDelete: Cascade)
+  productId    String
+  product      Product    @relation(fields: [productId], references: [id])
+  position     Int        // 0 = left/first, 1 = right/second
+
+  @@unique([comparisonId, position])
+}
+
+enum JobStatus {
+  QUEUED
+  RUNNING
+  DONE
+  FAILED
+}
+
+model RenderJob {
+  id           String     @id @default(cuid())
+  comparisonId String
+  comparison   Comparison @relation(fields: [comparisonId], references: [id])
+  composition  String     // "Comparison16x9" | "ComparisonShort9x16"
+  templateVer  String     // studio git tag/version for reproducibility
+  status       JobStatus  @default(QUEUED)
+  progress     Float      @default(0)
+  outputUrl    String?    // rendered MP4 in R2
+  thumbnailUrl String?    // renderStill() output
+  error        String?
+  startedAt    DateTime?
+  finishedAt   DateTime?
+  createdAt    DateTime   @default(now())
+}
+
+model Upload {
+  id           String     @id @default(cuid())
+  comparisonId String
+  comparison   Comparison @relation(fields: [comparisonId], references: [id])
+  platform     String     @default("youtube")
+  videoId      String?    // YouTube video id after upload
+  scheduledAt  DateTime?
+  publishedAt  DateTime?
+  status       JobStatus  @default(QUEUED)
+  error        String?
+  createdAt    DateTime   @default(now())
+}

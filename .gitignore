@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.turbo/
+.env
+.env.local
+output/
+*.log
+.DS_Store
+apps/studio/out/
+apps/dashboard/.next/
+packages/db/generated/
+.remotion-cache/
