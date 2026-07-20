@@ -7,6 +7,7 @@ output/
 *.log
 .DS_Store
 apps/studio/out/
+apps/studio/build/
 apps/dashboard/.next/
 packages/db/generated/
 .remotion-cache/

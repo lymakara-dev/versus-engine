@@ -1,0 +1,37 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "dotenv -e ../../.env -- next dev",
+    "build": "dotenv -e ../../.env -- next build",
+    "start": "dotenv -e ../../.env -- next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"(no lint configured yet)\"",
+    "test": "echo \"(no tests yet)\""
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.3",
+    "@remotion/player": "4.0.494",
+    "@versus-engine/comparison": "workspace:*",
+    "@versus-engine/db": "workspace:*",
+    "@versus-engine/shared": "workspace:*",
+    "bullmq": "^5.34.4",
+    "ioredis": "^5.4.2",
+    "next": "15.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "studio": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "dotenv-cli": "^8.0.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}

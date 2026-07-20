@@ -6,14 +6,19 @@
   "scripts": {
     "ingest": "dotenv -e ../../.env -- tsx src/cli/ingest.ts",
     "batch": "dotenv -e ../../.env -- tsx src/cli/batch.ts",
+    "worker": "dotenv -e ../../.env -- tsx src/cli/worker.ts",
     "typecheck": "tsc --noEmit",
     "lint": "echo \"(no lint configured yet)\"",
     "test": "vitest run"
   },
   "dependencies": {
+    "@remotion/bundler": "4.0.494",
+    "@remotion/renderer": "4.0.494",
     "@versus-engine/db": "workspace:*",
     "@versus-engine/ingestion": "workspace:*",
-    "@versus-engine/shared": "workspace:*"
+    "@versus-engine/shared": "workspace:*",
+    "bullmq": "^5.34.4",
+    "ioredis": "^5.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
