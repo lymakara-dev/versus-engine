@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 /**
- * `pnpm batch --category <slug> --pairs top-<N> [--schedule now|hourly|daily|weekly] [--aspect 16:9|9:16]`
+ * `pnpm batch --category <slug> --pairs top-<N> [--schedule now|hourly|daily|weekly] [--aspect 16:9|9:16] [--narration]`
  *
  * Builds+renders a batch of comparisons in one category, and (unless
  * --schedule now) stages their publish times so `pnpm worker`'s publish
  * worker rolls them out at a steady cadence (PROJECT_PLAN.md §6 step 6 /
- * §8 Phase 4 batch CLI).
+ * §8 Phase 4 batch CLI). --narration opts into Phase 5's TTS narration
+ * track (requires OPENAI_API_KEY).
  */
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 import { prisma, ProductStatus, JobStatus } from "@versus-engine/db";
-import { buildAndSaveComparison } from "@versus-engine/comparison";
+import { buildAndSaveComparison, type BuildComparisonOptions } from "@versus-engine/comparison";
+import { OpenAiTtsProvider, synthesizeNarration } from "@versus-engine/narration";
 import { renderJobPayloadSchema, compositionIdSchema, type CompositionId } from "@versus-engine/shared";
 import { parsePairsSpec } from "./parse-pairs-spec.js";
 import { pairTopRanked } from "./pair-products.js";
@@ -21,8 +25,16 @@ import { getRenderQueue } from "../lib/render-queue-client.js";
 // by comparison id + template version").
 const TEMPLATE_VERSION = "phase-4";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, "../../../..");
+// apps/studio/public/assets symlinks to this same repo-root assets/ folder
+// (see apps/studio/remotion.config.ts), so staticFile("assets/narration/...")
+// resolves at render time — mirrors assets/music and assets/sfx.
+const NARRATION_OUTPUT_DIR = path.resolve(repoRoot, "assets/narration");
+const NARRATION_ASSET_PREFIX = "assets/narration";
+
 const USAGE =
-  "Usage: pnpm batch --category <slug> --pairs top-<N> [--schedule now|hourly|daily|weekly] [--aspect 16:9|9:16]";
+  "Usage: pnpm batch --category <slug> --pairs top-<N> [--schedule now|hourly|daily|weekly] [--aspect 16:9|9:16] [--narration]";
 
 async function main() {
   const { values } = parseArgs({
@@ -31,12 +43,25 @@ async function main() {
       pairs: { type: "string" },
       schedule: { type: "string", default: "now" },
       aspect: { type: "string", default: "16:9" },
+      narration: { type: "boolean", default: false },
     },
   });
 
   if (!values.category || !values.pairs) {
     throw new Error(USAGE);
   }
+
+  const narration: BuildComparisonOptions["narration"] = values.narration
+    ? {
+        synthesize: (videoInput, slugHint) =>
+          synthesizeNarration(videoInput, {
+            provider: new OpenAiTtsProvider(),
+            outputDir: NARRATION_OUTPUT_DIR,
+            assetPathPrefix: NARRATION_ASSET_PREFIX,
+            slugHint,
+          }),
+      }
+    : undefined;
 
   const pairsSpec = parsePairsSpec(values.pairs);
   const intervalMs = parseScheduleIntervalMs(values.schedule);
@@ -72,7 +97,7 @@ async function main() {
   let succeeded = 0;
   for (const [index, [a, b]] of pairs.entries()) {
     try {
-      const { built, comparison } = await buildAndSaveComparison({ productIds: [a.id, b.id], aspect });
+      const { built, comparison } = await buildAndSaveComparison({ productIds: [a.id, b.id], aspect, narration });
 
       const renderJob = await prisma.renderJob.create({
         data: { comparisonId: comparison.id, composition, templateVer: TEMPLATE_VERSION, status: JobStatus.QUEUED },

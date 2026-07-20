@@ -4,6 +4,7 @@ dist/
 .env
 .env.local
 output/
+assets/narration/
 *.log
 .DS_Store
 apps/studio/out/

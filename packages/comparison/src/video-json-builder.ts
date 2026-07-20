@@ -38,6 +38,7 @@ function buildRound(candidate: RoundCandidate): Round {
     displayValues: candidate.values.map((v) => v.displayValue),
     winnerIndex,
     sfx: pickSfxForRound(candidate),
+    specKey: candidate.key,
   };
 }
 

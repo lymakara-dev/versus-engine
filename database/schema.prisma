@@ -174,30 +174,72 @@ enum JobStatus {
 }
 
 model RenderJob {
-  id           String     @id @default(cuid())
-  comparisonId String
-  comparison   Comparison @relation(fields: [comparisonId], references: [id])
-  composition  String     // "Comparison16x9" | "ComparisonShort9x16"
-  templateVer  String     // studio git tag/version for reproducibility
-  status       JobStatus  @default(QUEUED)
-  progress     Float      @default(0)
-  outputUrl    String?    // rendered MP4 in R2
-  thumbnailUrl String?    // renderStill() output
-  error        String?
-  startedAt    DateTime?
-  finishedAt   DateTime?
-  createdAt    DateTime   @default(now())
+  id             String     @id @default(cuid())
+  comparisonId   String
+  comparison     Comparison @relation(fields: [comparisonId], references: [id])
+  composition    String     // "Comparison16x9" | "ComparisonShort9x16"
+  templateVer    String     // studio git tag/version for reproducibility
+  status         JobStatus  @default(QUEUED)
+  progress       Float      @default(0)
+  outputUrl      String?    // rendered MP4 in R2
+  // renderStill() output per thumbnail variant, in Thumbnail16x9/Thumbnail16x9B
+  // order (index 0 = variant A, the default). Phase 5 A/B thumbnail testing.
+  thumbnailUrls  String[]   @default([])
+  error          String?
+  startedAt      DateTime?
+  finishedAt     DateTime?
+  createdAt      DateTime   @default(now())
 }
 
 model Upload {
-  id           String     @id @default(cuid())
-  comparisonId String
-  comparison   Comparison @relation(fields: [comparisonId], references: [id])
-  platform     String     @default("youtube")
-  videoId      String?    // YouTube video id after upload
-  scheduledAt  DateTime?
-  publishedAt  DateTime?
-  status       JobStatus  @default(QUEUED)
-  error        String?
-  createdAt    DateTime   @default(now())
+  id               String     @id @default(cuid())
+  comparisonId     String
+  comparison       Comparison @relation(fields: [comparisonId], references: [id])
+  platform         String     @default("youtube")
+  videoId          String?    // YouTube video id after upload
+  // Index into the render's thumbnailUrls chosen at publish time (Phase 5 A/B thumbnails).
+  thumbnailVariant Int        @default(0)
+  scheduledAt      DateTime?
+  publishedAt      DateTime?
+  status           JobStatus  @default(QUEUED)
+  error            String?
+  createdAt        DateTime   @default(now())
+  analytics        VideoAnalytics?
+}
+
+// ─────────────────────── Analytics feedback loop (Phase 5) ───────────────────────
+
+model VideoAnalytics {
+  id                  String   @id @default(cuid())
+  uploadId            String   @unique
+  upload              Upload   @relation(fields: [uploadId], references: [id])
+  views               Int      @default(0)
+  impressions         Int      @default(0)
+  impressionsCtr      Float?   // YouTube "impressions click-through rate", 0-1
+  avgViewDurationSec  Float?
+  avgViewPercentage   Float?   // 0-100
+  // Raw audienceRetention report: [{ elapsedVideoTimeRatio, audienceWatchRatio }, ...]
+  retentionCurve      Json?
+  fetchedAt           DateTime @default(now())
+  roundRetention      RoundRetention[]
+}
+
+model RoundRetention {
+  id               String         @id @default(cuid())
+  videoAnalyticsId String
+  videoAnalytics   VideoAnalytics @relation(fields: [videoAnalyticsId], references: [id], onDelete: Cascade)
+  comparisonId     String
+  roundIndex       Int
+  label            String
+  // SpecDefinition.key this round was built from, when known (Round.specKey
+  // in the frozen videoJson) — null for non-spec rounds like price badges
+  // without a matching key. Lets the round-selection heuristic aggregate
+  // retention by spec across many comparisons in a category.
+  specKey          String?
+  categoryId       String
+  retentionAtStart Float // average audienceWatchRatio at the round's first frame
+  retentionAtEnd   Float // average audienceWatchRatio at the round's last frame
+  dropOff          Float // retentionAtStart - retentionAtEnd (higher = more viewers lost)
+
+  @@index([categoryId, specKey])
 }

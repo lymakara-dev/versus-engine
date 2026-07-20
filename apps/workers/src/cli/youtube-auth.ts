@@ -9,7 +9,12 @@
  */
 import http from "node:http";
 
-const SCOPES = ["https://www.googleapis.com/auth/youtube.upload"];
+// yt-analytics.readonly (Phase 5) powers `pnpm analytics:sync` — re-run this
+// command if an existing refresh token predates that scope being added.
+const SCOPES = [
+  "https://www.googleapis.com/auth/youtube.upload",
+  "https://www.googleapis.com/auth/yt-analytics.readonly",
+];
 
 async function main() {
   const { getOAuthClient } = await import("../lib/youtube-client.js");

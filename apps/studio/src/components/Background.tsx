@@ -48,6 +48,26 @@ const Circuit: React.FC<{ theme: Theme }> = ({ theme }) => (
   </svg>
 );
 
+const Grid: React.FC<{ theme: Theme }> = ({ theme }) => {
+  const frame = useCurrentFrame();
+  const drift = interpolate(frame, [0, 240], [0, -120], { extrapolateRight: "extend" });
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        opacity: 0.14,
+        backgroundImage: `linear-gradient(${theme.neutralAccent} 1px, transparent 1px), linear-gradient(90deg, ${theme.neutralAccent} 1px, transparent 1px)`,
+        backgroundSize: "80px 80px",
+        backgroundPosition: `${drift}px ${drift}px`,
+        maskImage: "radial-gradient(ellipse at center, black 0%, transparent 75%)",
+        WebkitMaskImage: "radial-gradient(ellipse at center, black 0%, transparent 75%)",
+      }}
+    />
+  );
+};
+
 export const Background: React.FC<{ theme: Theme }> = ({ theme }) => (
   <div
     style={{
@@ -58,5 +78,6 @@ export const Background: React.FC<{ theme: Theme }> = ({ theme }) => (
   >
     {theme.motif === "speed-lines" && <SpeedLines theme={theme} />}
     {theme.motif === "circuit" && <Circuit theme={theme} />}
+    {theme.motif === "grid" && <Grid theme={theme} />}
   </div>
 );

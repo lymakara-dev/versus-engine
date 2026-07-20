@@ -6,7 +6,7 @@ interface RenderJobState {
   status: "QUEUED" | "RUNNING" | "DONE" | "FAILED";
   progress: number;
   outputUrl: string | null;
-  thumbnailUrl: string | null;
+  thumbnailUrls: string[];
   error: string | null;
 }
 
@@ -42,6 +42,17 @@ export function RenderStatus({ renderJobId, initial }: { renderJobId: string; in
       )}
       {state.error && <p className="text-sm text-red-400">{state.error}</p>}
       {state.outputUrl && <p className="text-sm text-white/60">Output: {state.outputUrl}</p>}
+      {state.thumbnailUrls.length > 0 && (
+        <p className="text-sm text-white/60">
+          Thumbnails:{" "}
+          {state.thumbnailUrls.map((url, index) => (
+            <span key={url}>
+              {index > 0 && ", "}
+              {String.fromCharCode(65 + index)}: {url}
+            </span>
+          ))}
+        </p>
+      )}
     </div>
   );
 }

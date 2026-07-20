@@ -19,7 +19,10 @@
     "ingest": "pnpm --filter workers ingest",
     "batch": "pnpm --filter workers batch",
     "worker": "pnpm --filter workers worker",
-    "youtube:auth": "pnpm --filter workers youtube:auth"
+    "youtube:auth": "pnpm --filter workers youtube:auth",
+    "lambda:deploy-function": "pnpm --filter workers lambda:deploy-function",
+    "lambda:deploy-site": "pnpm --filter workers lambda:deploy-site",
+    "analytics:sync": "pnpm --filter workers analytics:sync"
   },
   "devDependencies": {
     "@prisma/client": "6.19.3",

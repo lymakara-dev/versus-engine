@@ -43,6 +43,21 @@ function computeAllSfxCues(input: VideoInput): SfxCue[] {
 }
 
 /**
+ * Optional TTS narration (PROJECT_PLAN.md Phase 5) — each clip's
+ * startSec/durationSec are already absolute positions on the full
+ * composition timeline (computed once by packages/narration using the same
+ * @versus-engine/shared timing math), so no per-scene offsetting is needed
+ * here the way computeAllSfxCues needs it.
+ */
+function computeNarrationCues(input: VideoInput): SfxCue[] {
+  return (input.narration ?? []).map((clip) => ({
+    frame: secondsToFrames(clip.startSec, input.meta.fps),
+    src: clip.audioSrc,
+    durationInFrames: secondsToFrames(clip.durationSec, input.meta.fps),
+  }));
+}
+
+/**
  * Renders both the 16:9 and 9:16 (Shorts) aspect ratios — the scene
  * components are identical either way and adapt via the `layout` prop
  * (derived from `input.meta.aspect`); only the `<Composition>` registration
@@ -61,7 +76,10 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
   );
   const sceneStarts = useMemo(() => computeSceneStartFrames(input), [input]);
   const totalDuration = useMemo(() => computeTotalDurationInFrames(input), [input]);
-  const sfxCues = useMemo(() => computeAllSfxCues(input), [input]);
+  const audioCues = useMemo(
+    () => [...computeAllSfxCues(input), ...computeNarrationCues(input)],
+    [input],
+  );
   const scoreboardDuration = ScoreboardScene.getDuration(input);
 
   const transitionTiming = () => springTiming({ config: { damping: 200 }, durationInFrames: transitionFrames });
@@ -94,7 +112,7 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
         <ScoreboardScene.Scoreboard input={input} theme={theme} layout={layout} />
       </Sequence>
 
-      <AudioTrack music={input.music} cues={sfxCues} totalDurationInFrames={totalDuration} fps={fps} />
+      <AudioTrack music={input.music} cues={audioCues} totalDurationInFrames={totalDuration} fps={fps} />
     </AbsoluteFill>
   );
 };

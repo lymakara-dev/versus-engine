@@ -338,7 +338,7 @@ async function main() {
     await seedDemoProduct(phonesCategory.id, phoneSpecDefs, demo);
   }
 
-  const laptopsCategory = await upsertCategory("laptops", "Laptops", "default");
+  const laptopsCategory = await upsertCategory("laptops", "Laptops", "grid");
   const laptopSpecDefs = await upsertSpecDefinitions(laptopsCategory.id, LAPTOP_SPEC_DEFINITIONS);
   for (const demo of LAPTOP_PRODUCTS) {
     await seedDemoProduct(laptopsCategory.id, laptopSpecDefs, demo);

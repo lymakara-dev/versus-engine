@@ -6,10 +6,11 @@
  * (CLAUDE.md "Idempotent jobs").
  */
 import { prisma, ProductStatus, ComparisonStatus, type Comparison } from "@versus-engine/db";
-import { slugify, type VideoInput } from "@versus-engine/shared";
+import { slugify, videoInputSchema, type NarrationClip, type VideoInput } from "@versus-engine/shared";
 import { computeRoundWinner, selectRounds, type RoundCandidate } from "./round-selection.js";
 import { computeVerdict } from "./scoring.js";
 import { buildVideoInput, type ContenderInput } from "./video-json-builder.js";
+import { getRetentionBoosts } from "./retention-boost.js";
 import {
   fallbackComparisonMetadata,
   generateComparisonMetadata,
@@ -26,6 +27,15 @@ export interface BuildComparisonOptions {
   aspect?: "16:9" | "9:16";
   client?: AnthropicLike;
   model?: string;
+  /**
+   * Optional TTS narration (PROJECT_PLAN.md Phase 5). Inversion of control —
+   * this package never depends on @versus-engine/narration or any TTS
+   * provider directly; the caller supplies a synthesize function built from
+   * one (see apps/workers/src/cli/batch.ts's --narration flag).
+   */
+  narration?: {
+    synthesize: (videoInput: VideoInput, slugHint: string) => Promise<NarrationClip[]>;
+  };
 }
 
 export interface BuiltComparison {
@@ -103,7 +113,8 @@ export async function buildComparison(options: BuildComparisonOptions): Promise<
     });
   }
 
-  const selectedRounds = selectRounds(candidates);
+  const retentionBoosts = await getRetentionBoosts(categoryId);
+  const selectedRounds = selectRounds(candidates, { retentionBoosts });
   if (selectedRounds.length === 0) {
     throw new Error("No comparable spec data found for these products — verify SpecValues are seeded for this category");
   }
@@ -135,7 +146,7 @@ export async function buildComparison(options: BuildComparisonOptions): Promise<
     ? await generateComparisonMetadata({ input: metadataInput, client: options.client, model: options.model })
     : fallbackComparisonMetadata(metadataInput);
 
-  const videoInput = buildVideoInput({
+  const builtVideoInput = buildVideoInput({
     title: ordered.map((p) => p.name).join(" vs "),
     category: category.slug,
     theme: category.themeKey,
@@ -145,6 +156,13 @@ export async function buildComparison(options: BuildComparisonOptions): Promise<
     selectedRounds,
     tagline: metadata.tagline,
   });
+
+  const videoInput = options.narration
+    ? videoInputSchema.parse({
+        ...builtVideoInput,
+        narration: await options.narration.synthesize(builtVideoInput, slugify(builtVideoInput.meta.title)),
+      })
+    : builtVideoInput;
 
   return {
     videoInput,

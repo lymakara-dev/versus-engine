@@ -30,6 +30,12 @@ export const roundSchema = z
     displayValues: z.array(z.string()),
     winnerIndex: z.number().int().nullable(),
     sfx: z.string().optional(),
+    // SpecDefinition.key this round was built from (Phase 5 analytics feedback
+    // loop uses it to correlate YouTube retention data back to specs across
+    // many comparisons). The renderer itself never reads this field — it's
+    // purely a breadcrumb for the comparison/analytics packages, so adding it
+    // doesn't leak category logic into the studio (CLAUDE.md prime directive #1).
+    specKey: z.string().nullable().optional(),
   })
   .refine((round) => round.values.length === round.displayValues.length, {
     message: "values and displayValues must be parallel arrays of equal length",
@@ -43,6 +49,21 @@ export const verdictSchema = z.object({
   sfx: z.string().optional(),
 });
 export type Verdict = z.infer<typeof verdictSchema>;
+
+/**
+ * One synthesized narration line (Phase 5, optional — omitted entirely for
+ * videos rendered without TTS narration). `startSec`/`durationSec` are
+ * absolute positions on the full composition timeline, computed once at
+ * build time by packages/narration so the renderer only has to place audio,
+ * never re-derive timing.
+ */
+export const narrationClipSchema = z.object({
+  text: z.string(),
+  audioSrc: z.string(),
+  startSec: z.number(),
+  durationSec: z.number(),
+});
+export type NarrationClip = z.infer<typeof narrationClipSchema>;
 
 export const videoInputSchema = z
   .object({
@@ -65,6 +86,7 @@ export const videoInputSchema = z
     contenders: z.array(contenderSchema).min(2),
     rounds: z.array(roundSchema).min(1),
     verdict: verdictSchema,
+    narration: z.array(narrationClipSchema).optional(),
   })
   .refine(
     (input) =>

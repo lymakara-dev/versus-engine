@@ -3,7 +3,7 @@ import { prisma } from "@versus-engine/db";
 import { parseVideoInput } from "@versus-engine/shared";
 import { PreviewPlayer } from "@/components/PreviewPlayer";
 import { RenderStatus } from "@/components/RenderStatus";
-import { queueRender } from "./actions";
+import { queueRender, setThumbnailVariant } from "./actions";
 
 export default async function ComparisonDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -14,6 +14,7 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
       category: true,
       contenders: { include: { product: { include: { brand: true } } }, orderBy: { position: "asc" } },
       renderJobs: { orderBy: { createdAt: "desc" }, take: 1 },
+      uploads: { orderBy: { createdAt: "desc" }, take: 1 },
     },
   });
 
@@ -21,6 +22,7 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
 
   const videoInput = comparison.videoJson ? parseVideoInput(comparison.videoJson) : null;
   const latestRenderJob = comparison.renderJobs[0] ?? null;
+  const latestUpload = comparison.uploads[0] ?? null;
 
   return (
     <div className="space-y-6">
@@ -69,10 +71,39 @@ export default async function ComparisonDetailPage({ params }: { params: Promise
               status: latestRenderJob.status,
               progress: latestRenderJob.progress,
               outputUrl: latestRenderJob.outputUrl,
-              thumbnailUrl: latestRenderJob.thumbnailUrl,
+              thumbnailUrls: latestRenderJob.thumbnailUrls,
               error: latestRenderJob.error,
             }}
           />
+        )}
+
+        {latestRenderJob && latestRenderJob.thumbnailUrls.length > 1 && latestUpload && (
+          <div className="rounded-lg border border-white/10 p-4 space-y-2">
+            <span className="text-sm font-medium">Thumbnail (A/B test):</span>
+            <div className="flex gap-4">
+              {latestRenderJob.thumbnailUrls.map((url, index) => (
+                <form
+                  key={url}
+                  action={async () => {
+                    "use server";
+                    await setThumbnailVariant(comparison.id, latestUpload.id, index);
+                  }}
+                >
+                  <button
+                    type="submit"
+                    className={`rounded-md px-3 py-1.5 text-sm border ${
+                      latestUpload.thumbnailVariant === index
+                        ? "border-emerald-500 bg-emerald-600/20"
+                        : "border-white/10 hover:border-white/30"
+                    }`}
+                  >
+                    Variant {String.fromCharCode(65 + index)}
+                    {latestUpload.thumbnailVariant === index ? " (selected)" : ""}
+                  </button>
+                </form>
+              ))}
+            </div>
+          </div>
         )}
       </div>
     </div>

@@ -45,3 +45,12 @@ export async function queueRender(comparisonId: string): Promise<RenderJob> {
   revalidatePath(`/comparisons/${comparisonId}`);
   return renderJob;
 }
+
+/** A/B thumbnail testing (PROJECT_PLAN.md Phase 5): pick which rendered thumbnail variant the publish worker uploads. */
+export async function setThumbnailVariant(comparisonId: string, uploadId: string, variant: number): Promise<void> {
+  await prisma.upload.update({
+    where: { id: uploadId, comparisonId },
+    data: { thumbnailVariant: variant },
+  });
+  revalidatePath(`/comparisons/${comparisonId}`);
+}

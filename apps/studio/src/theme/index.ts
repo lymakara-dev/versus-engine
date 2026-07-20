@@ -8,7 +8,7 @@ export interface Theme {
   neutralAccent: string;
   fontDisplay: string;
   fontBody: string;
-  motif: "speed-lines" | "circuit" | "none";
+  motif: "speed-lines" | "circuit" | "grid" | "none";
 }
 
 const themes: Record<string, Theme> = {
@@ -35,6 +35,18 @@ const themes: Record<string, Theme> = {
     fontDisplay: "'Archivo Black', 'Arial Black', sans-serif",
     fontBody: "'Inter', sans-serif",
     motif: "circuit",
+  },
+  grid: {
+    key: "grid",
+    backgroundFrom: "#0a0c0a",
+    backgroundTo: "#141d16",
+    surface: "#101410",
+    textPrimary: "#f2f5f0",
+    textSecondary: "#8fa08f",
+    neutralAccent: "#7dffb0",
+    fontDisplay: "'Archivo Black', 'Arial Black', sans-serif",
+    fontBody: "'Inter', sans-serif",
+    motif: "grid",
   },
   default: {
     key: "default",

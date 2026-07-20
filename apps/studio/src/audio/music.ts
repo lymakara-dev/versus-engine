@@ -33,9 +33,12 @@ export function createMusicVolumeFn(
     let gain = baseLinear;
 
     for (const cue of cues) {
+      // Narration cues (Phase 5) carry their own durationInFrames — the
+      // music should stay ducked for the whole spoken line, not just the
+      // default blip-length hold used for one-shot SFX.
       const duckStart = cue.frame - attackFrames;
       const duckBottom = cue.frame;
-      const duckHoldEnd = cue.frame + holdFrames;
+      const duckHoldEnd = cue.frame + (cue.durationInFrames ?? holdFrames);
       const duckEnd = duckHoldEnd + releaseFrames;
 
       if (frame >= duckStart && frame <= duckEnd) {

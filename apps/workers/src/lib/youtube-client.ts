@@ -1,6 +1,6 @@
 import { google, type youtube_v3 } from "googleapis";
 
-function requireEnv(name: string): string {
+export function requireEnv(name: string): string {
   const value = process.env[name];
   if (!value) {
     throw new Error(`Missing ${name} env var — see .env.example (Phase 4: YouTube Data API v3)`);

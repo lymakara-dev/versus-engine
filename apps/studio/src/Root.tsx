@@ -3,6 +3,7 @@ import { Composition, Still } from "remotion";
 import { Comparison16x9, computeTotalDurationInFrames } from "./compositions/Comparison16x9";
 import { ComparisonShort9x16 } from "./compositions/ComparisonShort9x16";
 import { Thumbnail16x9 } from "./compositions/Thumbnail16x9";
+import { Thumbnail16x9B } from "./compositions/Thumbnail16x9B";
 import { videoInputSchema, parseVideoInput, type VideoInput } from "./schema";
 import exampleProps from "../../../examples/comparison-example.json";
 import examplePropsShort from "../../../examples/comparison-example-9x16.json";
@@ -54,6 +55,14 @@ export const RemotionRoot: React.FC = () => {
       <Still
         id="Thumbnail16x9"
         component={Thumbnail16x9}
+        schema={videoInputSchema}
+        defaultProps={defaultProps}
+        width={1280}
+        height={720}
+      />
+      <Still
+        id="Thumbnail16x9B"
+        component={Thumbnail16x9B}
         schema={videoInputSchema}
         defaultProps={defaultProps}
         width={1280}

@@ -11,7 +11,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
     status: renderJob.status,
     progress: renderJob.progress,
     outputUrl: renderJob.outputUrl,
-    thumbnailUrl: renderJob.thumbnailUrl,
+    thumbnailUrls: renderJob.thumbnailUrls,
     error: renderJob.error,
   });
 }

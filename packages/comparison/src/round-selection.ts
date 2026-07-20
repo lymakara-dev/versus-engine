@@ -62,8 +62,17 @@ export function normalizedDifference(candidate: RoundCandidate): number {
   return distinctValues.size > 1 ? 1 : 0;
 }
 
-export function scoreCandidate(candidate: RoundCandidate): number {
-  return candidate.priorityWeight * normalizedDifference(candidate);
+/**
+ * `retentionBoosts` (Phase 5 analytics feedback loop) is an optional
+ * specKey -> multiplier map, aggregated from historical YouTube retention
+ * data (packages/comparison/src/retention-boost.ts). Missing keys — no data
+ * yet, or a spec that's never been analyzed — default to 1 (no-op), so this
+ * is purely an additive nudge on top of CLAUDE.md's
+ * priorityWeight × normalizedDifference heuristic, never a replacement for it.
+ */
+export function scoreCandidate(candidate: RoundCandidate, retentionBoosts: Record<string, number> = {}): number {
+  const boost = retentionBoosts[candidate.key] ?? 1;
+  return candidate.priorityWeight * normalizedDifference(candidate) * boost;
 }
 
 /**
@@ -88,6 +97,8 @@ export function computeRoundWinner(candidate: RoundCandidate): number | null {
 export interface SelectRoundsOptions {
   min?: number;
   max?: number;
+  /** specKey -> score multiplier, from historical retention (Phase 5). Defaults to no-op. */
+  retentionBoosts?: Record<string, number>;
 }
 
 /**
@@ -100,13 +111,14 @@ export interface SelectRoundsOptions {
 export function selectRounds(candidates: RoundCandidate[], options: SelectRoundsOptions = {}): RoundCandidate[] {
   const min = options.min ?? MIN_ROUNDS;
   const max = options.max ?? MAX_ROUNDS;
+  const retentionBoosts = options.retentionBoosts ?? {};
 
   const priceCandidate = candidates.find((c) => c.key === PRICE_KEY) ?? null;
   const isBadge = (c: RoundCandidate) => c.visualization === "BADGE";
 
   const scored = candidates
     .filter((c) => c !== priceCandidate)
-    .map((c) => ({ candidate: c, score: scoreCandidate(c) }))
+    .map((c) => ({ candidate: c, score: scoreCandidate(c, retentionBoosts) }))
     .sort((a, b) => b.score - a.score);
 
   const selected: RoundCandidate[] = [];
@@ -135,7 +147,7 @@ export function selectRounds(candidates: RoundCandidate[], options: SelectRounds
     }
   }
 
-  const withGuarantees = guaranteeEachContenderAWin(selected, candidates, badgeCount);
+  const withGuarantees = guaranteeEachContenderAWin(selected, candidates, badgeCount, retentionBoosts);
 
   // Preserve input order, with price moved to the end as the closing round.
   const priceKey = priceCandidate?.key;
@@ -148,6 +160,7 @@ function guaranteeEachContenderAWin(
   selected: RoundCandidate[],
   allCandidates: RoundCandidate[],
   badgeCount: number,
+  retentionBoosts: Record<string, number>,
 ): RoundCandidate[] {
   if (selected.length === 0) return selected;
   const contenderCount = selected[0].values.length;
@@ -171,12 +184,12 @@ function guaranteeEachContenderAWin(
     const notSelected = allCandidates.filter((c) => !result.includes(c));
     const candidateWinner = notSelected
       .filter((c) => (!isBadgeCandidate(c) || currentBadgeCount < 1) && computeRoundWinner(c) === contenderIndex)
-      .sort((a, b) => scoreCandidate(b) - scoreCandidate(a))[0];
+      .sort((a, b) => scoreCandidate(b, retentionBoosts) - scoreCandidate(a, retentionBoosts))[0];
     if (!candidateWinner) continue; // data doesn't allow it — leave as-is
 
     // Swap out the lowest-scoring round that isn't price and whose removal
     // doesn't strip another contender's only win.
-    const swapOutIndex = findSwapOutIndex(result, contenderCount);
+    const swapOutIndex = findSwapOutIndex(result, contenderCount, retentionBoosts);
     if (swapOutIndex === -1) continue;
 
     const removed = result[swapOutIndex];
@@ -192,7 +205,11 @@ function isBadgeCandidate(candidate: RoundCandidate): boolean {
   return candidate.visualization === "BADGE";
 }
 
-function findSwapOutIndex(selected: RoundCandidate[], contenderCount: number): number {
+function findSwapOutIndex(
+  selected: RoundCandidate[],
+  contenderCount: number,
+  retentionBoosts: Record<string, number>,
+): number {
   const wins = new Array(contenderCount).fill(0);
   const winnerByRound = selected.map((c) => computeRoundWinner(c));
   for (const winner of winnerByRound) {
@@ -205,7 +222,7 @@ function findSwapOutIndex(selected: RoundCandidate[], contenderCount: number): n
     if (candidate.key === PRICE_KEY) return;
     const winner = winnerByRound[index];
     if (winner !== null && wins[winner] <= 1) return; // sole win for that contender — keep it
-    const score = scoreCandidate(candidate);
+    const score = scoreCandidate(candidate, retentionBoosts);
     if (score < bestScore) {
       bestScore = score;
       bestIndex = index;
