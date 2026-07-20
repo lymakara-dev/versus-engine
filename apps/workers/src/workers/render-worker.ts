@@ -12,7 +12,13 @@ import { renderMedia, renderStill, selectComposition } from "@remotion/renderer"
 import { Worker, type Job } from "bullmq";
 import IORedis from "ioredis";
 import { prisma, JobStatus } from "@versus-engine/db";
-import { RENDER_QUEUE_NAME, renderJobPayloadSchema, type RenderJobPayload } from "@versus-engine/shared";
+import {
+  RENDER_QUEUE_NAME,
+  renderJobPayloadSchema,
+  publishJobPayloadSchema,
+  type RenderJobPayload,
+} from "@versus-engine/shared";
+import { getPublishQueue } from "../lib/publish-queue-client.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../../..");
@@ -21,7 +27,7 @@ const studioEntryPoint = path.resolve(studioDir, "src/index.ts");
 const outputDir = path.resolve(repoRoot, "output");
 
 const PROGRESS_UPDATE_INTERVAL_MS = 2000;
-const THUMBNAIL_FRAME_FRACTION = 0.8; // land the thumbnail near the winner reveal
+const THUMBNAIL_COMPOSITION_ID = "Thumbnail16x9";
 
 let bundleLocationPromise: Promise<string> | null = null;
 function getBundleLocation(): Promise<string> {
@@ -84,12 +90,16 @@ async function processRenderJob(payload: RenderJobPayload): Promise<void> {
     },
   });
 
+  const thumbnailComposition = await selectComposition({
+    serveUrl,
+    id: THUMBNAIL_COMPOSITION_ID,
+    inputProps,
+  });
   await renderStill({
-    composition: compositionDef,
+    composition: thumbnailComposition,
     serveUrl,
     output: thumbnailPath,
     inputProps,
-    frame: Math.floor(compositionDef.durationInFrames * THUMBNAIL_FRAME_FRACTION),
   });
 
   await prisma.renderJob.update({
@@ -102,6 +112,27 @@ async function processRenderJob(payload: RenderJobPayload): Promise<void> {
       finishedAt: new Date(),
     },
   });
+
+  await enqueuePendingPublish(comparisonId);
+}
+
+/**
+ * Batch/scheduled comparisons (`pnpm batch --schedule ...`) get a QUEUED
+ * Upload row up front, before the render exists. Once the render lands,
+ * kick off the publish job here — delayed until `scheduledAt` so YouTube
+ * upload timing matches the requested cadence (BullMQ delayed jobs, per
+ * CLAUDE.md's Redis + BullMQ stack decision).
+ */
+async function enqueuePendingPublish(comparisonId: string): Promise<void> {
+  const upload = await prisma.upload.findFirst({
+    where: { comparisonId, status: JobStatus.QUEUED, videoId: null },
+    orderBy: { createdAt: "asc" },
+  });
+  if (!upload) return;
+
+  const delay = upload.scheduledAt ? Math.max(0, upload.scheduledAt.getTime() - Date.now()) : 0;
+  const payload = publishJobPayloadSchema.parse({ uploadId: upload.id, comparisonId });
+  await getPublishQueue().add("publish", payload, { jobId: upload.id, delay });
 }
 
 export function startRenderWorker(): Worker<RenderJobPayload> {

@@ -8,7 +8,7 @@ import { getRenderQueue } from "@/lib/queue";
 // Bump when the studio's rendering behavior changes in a way that should
 // invalidate a previously-rendered output for the same comparison
 // (CLAUDE.md "renders keyed by comparison id + template version").
-const TEMPLATE_VERSION = "phase-3";
+const TEMPLATE_VERSION = "phase-4";
 const COMPOSITION: CompositionId = "Comparison16x9";
 
 export async function queueRender(comparisonId: string): Promise<RenderJob> {

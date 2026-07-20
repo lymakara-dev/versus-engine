@@ -18,7 +18,8 @@
     "db:generate": "pnpm --filter @versus-engine/db generate",
     "ingest": "pnpm --filter workers ingest",
     "batch": "pnpm --filter workers batch",
-    "worker": "pnpm --filter workers worker"
+    "worker": "pnpm --filter workers worker",
+    "youtube:auth": "pnpm --filter workers youtube:auth"
   },
   "devDependencies": {
     "@prisma/client": "6.19.3",

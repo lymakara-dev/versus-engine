@@ -6,6 +6,7 @@ import { sfxSrc, type SfxCue } from "../audio/types";
 import { contenderRevealSeconds, secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
+import type { SceneLayout } from "../layout";
 
 export function getDuration(input: VideoInput): number {
   return secondsToFrames(contenderRevealSeconds(input.contenders.length), input.meta.fps);
@@ -20,7 +21,8 @@ const ContenderCard: React.FC<{
   index: number;
   total: number;
   theme: Theme;
-}> = ({ contender, index, total, theme }) => {
+  isPortrait: boolean;
+}> = ({ contender, index, theme, isPortrait }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const delay = index * fps * 0.35;
@@ -32,7 +34,11 @@ const ContenderCard: React.FC<{
     config: { damping: 16, mass: 0.8 },
   });
 
-  const translateX = (1 - progress) * (fromLeft ? -400 : 400);
+  // Landscape: cards slide in from alternating sides. Portrait: cards are
+  // stacked, so they all slide up from below instead.
+  const translateX = isPortrait ? 0 : (1 - progress) * (fromLeft ? -400 : 400);
+  const translateY = isPortrait ? (1 - progress) * 160 : 0;
+  const imageSize = isPortrait ? 220 : 340;
 
   return (
     <div
@@ -41,15 +47,15 @@ const ContenderCard: React.FC<{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 20,
+        gap: isPortrait ? 12 : 20,
         opacity: progress,
-        transform: `translateX(${translateX}px)`,
+        transform: `translate(${translateX}px, ${translateY}px)`,
       }}
     >
       <div
         style={{
-          width: 340,
-          height: 340,
+          width: imageSize,
+          height: imageSize,
           borderRadius: 24,
           background: contender.accentColor,
           display: "flex",
@@ -67,7 +73,7 @@ const ContenderCard: React.FC<{
       <div
         style={{
           fontFamily: theme.fontDisplay,
-          fontSize: 48,
+          fontSize: isPortrait ? 36 : 48,
           color: theme.textPrimary,
           textAlign: "center",
         }}
@@ -80,7 +86,7 @@ const ContenderCard: React.FC<{
           alignItems: "center",
           gap: 12,
           fontFamily: theme.fontBody,
-          fontSize: 28,
+          fontSize: isPortrait ? 22 : 28,
           color: theme.textSecondary,
         }}
       >
@@ -92,29 +98,39 @@ const ContenderCard: React.FC<{
   );
 };
 
-export const ContenderReveal: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => (
-  <div style={{ position: "absolute", inset: 0 }}>
-    <Background theme={theme} />
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 80,
-        padding: "0 120px",
-      }}
-    >
-      {input.contenders.map((contender, index) => (
-        <ContenderCard
-          key={contender.name}
-          contender={contender}
-          index={index}
-          total={input.contenders.length}
-          theme={theme}
-        />
-      ))}
+export const ContenderReveal: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
+  const isPortrait = layout.orientation === "portrait";
+
+  return (
+    <div style={{ position: "absolute", inset: 0 }}>
+      <Background theme={theme} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          flexDirection: isPortrait ? "column" : "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: isPortrait ? 36 : 80,
+          padding: isPortrait ? "80px 60px" : "0 120px",
+        }}
+      >
+        {input.contenders.map((contender, index) => (
+          <ContenderCard
+            key={contender.name}
+            contender={contender}
+            index={index}
+            total={input.contenders.length}
+            theme={theme}
+            isPortrait={isPortrait}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};

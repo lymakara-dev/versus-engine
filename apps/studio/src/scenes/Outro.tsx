@@ -6,6 +6,7 @@ import { sfxSrc, type SfxCue } from "../audio/types";
 import { TIMING_SECONDS, secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
+import type { SceneLayout } from "../layout";
 
 export function getDuration(input: VideoInput): number {
   return secondsToFrames(TIMING_SECONDS.outro, input.meta.fps);
@@ -15,9 +16,14 @@ export function getSfxCues(): SfxCue[] {
   return [{ frame: 0, src: sfxSrc("whoosh") }];
 }
 
-export const Outro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => {
+export const Outro: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const isPortrait = layout.orientation === "portrait";
 
   const bellRing = spring({ frame, fps, config: { damping: 8, mass: 0.5 } });
   const bellRotation = interpolate(bellRing, [0, 1], [-25, 0]);
@@ -45,18 +51,20 @@ export const Outro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, th
           alignItems: "center",
           justifyContent: "center",
           gap: 28,
+          padding: isPortrait ? "0 60px" : 0,
         }}
       >
         <div style={{ transform: `rotate(${bellRotation}deg)` }}>
-          <Icon name="bell-ring" size={90} color={theme.neutralAccent} />
+          <Icon name="bell-ring" size={isPortrait ? 70 : 90} color={theme.neutralAccent} />
         </div>
         <div
           style={{
             opacity: textOpacity,
             fontFamily: theme.fontDisplay,
-            fontSize: 56,
+            fontSize: isPortrait ? 42 : 56,
             color: theme.textPrimary,
             letterSpacing: 2,
+            textAlign: "center",
           }}
         >
           SUBSCRIBE FOR MORE HEAD-TO-HEADS
@@ -65,8 +73,9 @@ export const Outro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, th
           style={{
             opacity: teaserOpacity,
             fontFamily: theme.fontBody,
-            fontSize: 30,
+            fontSize: isPortrait ? 24 : 30,
             color: theme.textSecondary,
+            textAlign: "center",
           }}
         >
           Next up: which {input.meta.category} takes the crown?

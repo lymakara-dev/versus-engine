@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-/** `pnpm worker` — long-running BullMQ consumer for the render queue (PROJECT_PLAN.md §3 RENDER worker). */
+/** `pnpm worker` — long-running BullMQ consumers for the render + publish queues (PROJECT_PLAN.md §3 RENDER/PUBLISHER workers). */
 import { startRenderWorker } from "../workers/render-worker.js";
+import { startPublishWorker } from "../workers/publish-worker.js";
 
-const worker = startRenderWorker();
-console.log("Render worker listening for jobs...");
+const renderWorker = startRenderWorker();
+const publishWorker = startPublishWorker();
+console.log("Render + publish workers listening for jobs...");
 
 async function shutdown() {
-  await worker.close();
+  await Promise.all([renderWorker.close(), publishWorker.close()]);
   process.exit(0);
 }
 

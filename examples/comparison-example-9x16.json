@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "title": "Toyota GR Corolla vs Honda Civic Type R",
+    "category": "cars",
+    "theme": "speed",
+    "aspect": "9:16",
+    "fps": 30,
+    "resolution": { "width": 1080, "height": 1920 }
+  },
+  "music": {
+    "src": "assets/music/drive-loop-128bpm.mp3",
+    "loop": true,
+    "volumeDb": -14
+  },
+  "contenders": [
+    {
+      "name": "GR Corolla",
+      "brand": "Toyota",
+      "price": "$39,995",
+      "imageUrl": "assets/products/toyota-gr-corolla-2026-cutout.png",
+      "logoUrl": "assets/brands/toyota.png",
+      "accentColor": "#EB0A1E"
+    },
+    {
+      "name": "Civic Type R",
+      "brand": "Honda",
+      "price": "$45,895",
+      "imageUrl": "assets/products/honda-civic-type-r-2026-cutout.png",
+      "logoUrl": "assets/brands/honda.png",
+      "accentColor": "#CC0000"
+    }
+  ],
+  "rounds": [
+    {
+      "label": "Horsepower",
+      "icon": "zap",
+      "visualization": "bar",
+      "unit": "hp",
+      "higherIsBetter": true,
+      "values": [300, 315],
+      "displayValues": ["300 hp", "315 hp"],
+      "winnerIndex": 1,
+      "sfx": "ding"
+    },
+    {
+      "label": "0–100 km/h",
+      "icon": "timer",
+      "visualization": "counter",
+      "unit": "s",
+      "higherIsBetter": false,
+      "values": [4.9, 5.3],
+      "displayValues": ["4.9 s", "5.3 s"],
+      "winnerIndex": 0,
+      "sfx": "whoosh-ding"
+    },
+    {
+      "label": "Drivetrain",
+      "icon": "cog",
+      "visualization": "badge",
+      "unit": null,
+      "higherIsBetter": true,
+      "values": [1, 0],
+      "displayValues": ["AWD", "FWD"],
+      "winnerIndex": 0,
+      "sfx": "ding"
+    },
+    {
+      "label": "Torque",
+      "icon": "gauge",
+      "visualization": "gauge",
+      "unit": "Nm",
+      "higherIsBetter": true,
+      "values": [400, 420],
+      "displayValues": ["400 Nm", "420 Nm"],
+      "winnerIndex": 1,
+      "sfx": "ding"
+    },
+    {
+      "label": "Weight",
+      "icon": "scale",
+      "visualization": "bar",
+      "unit": "kg",
+      "higherIsBetter": false,
+      "values": [1475, 1429],
+      "displayValues": ["1,475 kg", "1,429 kg"],
+      "winnerIndex": 1,
+      "sfx": "ding"
+    },
+    {
+      "label": "Price",
+      "icon": "dollar-sign",
+      "visualization": "bar",
+      "unit": "USD",
+      "higherIsBetter": false,
+      "values": [39995, 45895],
+      "displayValues": ["$39,995", "$45,895"],
+      "winnerIndex": 0,
+      "sfx": "cash"
+    }
+  ],
+  "verdict": {
+    "winnerIndex": 1,
+    "scores": [3, 3],
+    "tagline": "Dead heat on points — but the Type R takes it on track pace.",
+    "sfx": "drumroll-confetti"
+  }
+}

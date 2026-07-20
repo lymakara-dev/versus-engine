@@ -4,6 +4,7 @@ import { TIMING_SECONDS, specBattleSeconds, secondsToFrames } from "../timing";
 import type { SfxCue } from "../audio/types";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
+import type { SceneLayout } from "../layout";
 
 /** Spans the spec-battle + winner-reveal window as a persistent corner overlay. */
 export function getDuration(input: VideoInput): number {
@@ -14,10 +15,15 @@ export function getSfxCues(): SfxCue[] {
   return [];
 }
 
-export const Scoreboard: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => {
+export const Scoreboard: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const roundFrames = secondsToFrames(TIMING_SECONDS.specBattleRound, fps);
+  const isPortrait = layout.orientation === "portrait";
 
   const roundsElapsed = Math.min(Math.floor(frame / roundFrames) + 1, input.rounds.length);
 
@@ -34,11 +40,11 @@ export const Scoreboard: React.FC<{ input: VideoInput; theme: Theme }> = ({ inpu
     <div
       style={{
         position: "absolute",
-        top: 48,
-        right: 48,
+        top: isPortrait ? 32 : 48,
+        right: isPortrait ? 32 : 48,
         display: "flex",
-        gap: 20,
-        padding: "18px 28px",
+        gap: isPortrait ? 12 : 20,
+        padding: isPortrait ? "12px 18px" : "18px 28px",
         borderRadius: 18,
         background: `${theme.surface}dd`,
         boxShadow: `0 4px 24px #00000066`,

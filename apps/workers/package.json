@@ -7,6 +7,7 @@
     "ingest": "dotenv -e ../../.env -- tsx src/cli/ingest.ts",
     "batch": "dotenv -e ../../.env -- tsx src/cli/batch.ts",
     "worker": "dotenv -e ../../.env -- tsx src/cli/worker.ts",
+    "youtube:auth": "dotenv -e ../../.env -- tsx src/cli/youtube-auth.ts",
     "typecheck": "tsc --noEmit",
     "lint": "echo \"(no lint configured yet)\"",
     "test": "vitest run"
@@ -14,10 +15,12 @@
   "dependencies": {
     "@remotion/bundler": "4.0.494",
     "@remotion/renderer": "4.0.494",
+    "@versus-engine/comparison": "workspace:*",
     "@versus-engine/db": "workspace:*",
     "@versus-engine/ingestion": "workspace:*",
     "@versus-engine/shared": "workspace:*",
     "bullmq": "^5.34.4",
+    "googleapis": "^144.0.0",
     "ioredis": "^5.4.2"
   },
   "devDependencies": {

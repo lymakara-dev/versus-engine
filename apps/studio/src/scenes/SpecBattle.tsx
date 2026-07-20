@@ -11,6 +11,7 @@ import { TIMING_SECONDS, specBattleSeconds, secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { Round, VideoInput } from "../schema";
 import type { RoundContenderVisual } from "../components/types";
+import type { SceneLayout } from "../layout";
 
 const IMPACT_SECONDS = 1.5;
 
@@ -35,11 +36,12 @@ const VISUALIZATION_COMPONENTS = {
   badge: Badge,
 };
 
-const RoundCard: React.FC<{ round: Round; contenders: VideoInput["contenders"]; theme: Theme }> = ({
-  round,
-  contenders,
-  theme,
-}) => {
+const RoundCard: React.FC<{
+  round: Round;
+  contenders: VideoInput["contenders"];
+  theme: Theme;
+  isPortrait: boolean;
+}> = ({ round, contenders, theme, isPortrait }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -64,8 +66,8 @@ const RoundCard: React.FC<{ round: Round; contenders: VideoInput["contenders"]; 
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: 56,
-        padding: "0 220px",
+        gap: isPortrait ? 40 : 56,
+        padding: isPortrait ? "0 64px" : "0 220px",
       }}
     >
       <div
@@ -77,8 +79,15 @@ const RoundCard: React.FC<{ round: Round; contenders: VideoInput["contenders"]; 
           transform: `translateY(${(1 - headerProgress) * -30}px)`,
         }}
       >
-        <Icon name={round.icon} size={44} color={theme.neutralAccent} />
-        <span style={{ fontFamily: theme.fontDisplay, fontSize: 52, color: theme.textPrimary }}>
+        <Icon name={round.icon} size={isPortrait ? 36 : 44} color={theme.neutralAccent} />
+        <span
+          style={{
+            fontFamily: theme.fontDisplay,
+            fontSize: isPortrait ? 40 : 52,
+            color: theme.textPrimary,
+            textAlign: "center",
+          }}
+        >
           {round.label}
         </span>
       </div>
@@ -89,16 +98,21 @@ const RoundCard: React.FC<{ round: Round; contenders: VideoInput["contenders"]; 
   );
 };
 
-export const SpecBattle: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => {
+export const SpecBattle: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
   const { fps } = useVideoConfig();
   const roundFrames = secondsToFrames(TIMING_SECONDS.specBattleRound, fps);
+  const isPortrait = layout.orientation === "portrait";
 
   return (
     <div style={{ position: "absolute", inset: 0 }}>
       <Background theme={theme} />
       {input.rounds.map((round, index) => (
         <Sequence key={round.label} from={index * roundFrames} durationInFrames={roundFrames}>
-          <RoundCard round={round} contenders={input.contenders} theme={theme} />
+          <RoundCard round={round} contenders={input.contenders} theme={theme} isPortrait={isPortrait} />
         </Sequence>
       ))}
     </div>

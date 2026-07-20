@@ -29,16 +29,19 @@ const slug = (input?.meta?.title ?? "output")
   .toLowerCase()
   .replace(/[^a-z0-9]+/g, "-")
   .replace(/(^-|-$)/g, "");
+const compositionId = input?.meta?.aspect === "9:16" ? "ComparisonShort9x16" : "Comparison16x9";
 
 const outputDir = path.resolve(repoRoot, "output");
 fs.mkdirSync(outputDir, { recursive: true });
 const outputPath = path.join(outputDir, `${slug}.mp4`);
 
-console.log(`Rendering "${input?.meta?.title ?? jsonPath}" -> ${path.relative(repoRoot, outputPath)}`);
+console.log(
+  `Rendering "${input?.meta?.title ?? jsonPath}" (${compositionId}) -> ${path.relative(repoRoot, outputPath)}`,
+);
 
 execFileSync(
   "npx",
-  ["remotion", "render", "src/index.ts", "Comparison16x9", outputPath, `--props=${jsonPath}`],
+  ["remotion", "render", "src/index.ts", compositionId, outputPath, `--props=${jsonPath}`],
   { stdio: "inherit", cwd: studioDir },
 );
 

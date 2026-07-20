@@ -6,6 +6,7 @@ import { sfxSrc, type SfxCue } from "../audio/types";
 import { TIMING_SECONDS, secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
+import type { SceneLayout } from "../layout";
 
 export function getDuration(input: VideoInput): number {
   return secondsToFrames(TIMING_SECONDS.intro, input.meta.fps);
@@ -15,9 +16,16 @@ export function getSfxCues(): SfxCue[] {
   return [{ frame: 0, src: sfxSrc("whoosh") }];
 }
 
-export const Intro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => {
+export const Intro: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const isPortrait = layout.orientation === "portrait";
+  const titleSize = isPortrait ? 68 : 96;
+  const vsSize = isPortrait ? 40 : 56;
 
   const logoOpacity = interpolate(frame, [fps * 0.9, fps * 1.4], [1, 0], {
     extrapolateLeft: "clamp",
@@ -56,10 +64,11 @@ export const Intro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, th
         <div
           style={{
             fontFamily: theme.fontDisplay,
-            fontSize: 96,
+            fontSize: titleSize,
             color: theme.textPrimary,
             textAlign: "center",
             lineHeight: 1.05,
+            padding: "0 40px",
           }}
         >
           {left ?? input.meta.title}
@@ -67,7 +76,7 @@ export const Intro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, th
         <div
           style={{
             fontFamily: theme.fontDisplay,
-            fontSize: 56,
+            fontSize: vsSize,
             color: theme.neutralAccent,
             letterSpacing: 6,
           }}
@@ -77,10 +86,11 @@ export const Intro: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, th
         <div
           style={{
             fontFamily: theme.fontDisplay,
-            fontSize: 96,
+            fontSize: titleSize,
             color: theme.textPrimary,
             textAlign: "center",
             lineHeight: 1.05,
+            padding: "0 40px",
           }}
         >
           {right ?? ""}

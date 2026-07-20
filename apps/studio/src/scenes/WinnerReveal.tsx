@@ -7,6 +7,7 @@ import { sfxSrc, type SfxCue } from "../audio/types";
 import { TIMING_SECONDS, secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
+import type { SceneLayout } from "../layout";
 
 export function getDuration(input: VideoInput): number {
   return secondsToFrames(TIMING_SECONDS.winnerReveal, input.meta.fps);
@@ -16,9 +17,15 @@ export function getSfxCues(input: VideoInput): SfxCue[] {
   return [{ frame: 0, src: sfxSrc(input.verdict.sfx ?? "drumroll-confetti") }];
 }
 
-export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme }> = ({ input, theme }) => {
+export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
+  input,
+  theme,
+  layout,
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const isPortrait = layout.orientation === "portrait";
+  const nameSize = isPortrait ? 60 : 88;
 
   const winner = input.verdict.winnerIndex !== null ? input.contenders[input.verdict.winnerIndex] : null;
   const winnerColor = winner?.accentColor ?? theme.neutralAccent;
@@ -61,7 +68,7 @@ export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme }> = ({ in
           alignItems: "stretch",
           justifyContent: "center",
           gap: 20,
-          padding: "0 160px",
+          padding: isPortrait ? "0 60px" : "0 160px",
           boxSizing: "border-box",
         }}
       >
@@ -92,7 +99,7 @@ export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme }> = ({ in
               opacity: nameOpacity,
               transform: `scale(${nameScale})`,
               fontFamily: theme.fontDisplay,
-              fontSize: 88,
+              fontSize: nameSize,
               color: winnerColor,
               textShadow: `0 0 40px ${winnerColor}`,
               textAlign: "center",
