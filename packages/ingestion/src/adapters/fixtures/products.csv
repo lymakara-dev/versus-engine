@@ -1,0 +1,4 @@
+category,brand,name,variant,releaseYear,priceUsd,source,sourceUrl,verified,spec_display_size,spec_battery_capacity,spec_weight,spec_has_5g
+phones,Apple,iPhone 17 Pro,,2026,1099,csv,https://example.com/iphone-17-pro,true,6.3,3650,199,true
+phones,Samsung,Galaxy S26 Ultra,,2026,1299,csv,https://example.com/galaxy-s26-ultra,true,6.9,5000,232,true
+phones,Nothing,Phone (3),,2026,799,csv,,false,6.67,5150,201,true

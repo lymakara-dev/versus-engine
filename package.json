@@ -16,8 +16,8 @@
     "db:seed": "pnpm --filter @versus-engine/db seed",
     "db:migrate": "pnpm --filter @versus-engine/db migrate",
     "db:generate": "pnpm --filter @versus-engine/db generate",
-    "ingest": "pnpm --filter workers ingest --",
-    "batch": "pnpm --filter workers batch --"
+    "ingest": "pnpm --filter workers ingest",
+    "batch": "pnpm --filter workers batch"
   },
   "devDependencies": {
     "@prisma/client": "6.19.3",

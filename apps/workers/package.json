@@ -1,0 +1,25 @@
+{
+  "name": "workers",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ingest": "dotenv -e ../../.env -- tsx src/cli/ingest.ts",
+    "batch": "dotenv -e ../../.env -- tsx src/cli/batch.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"(no lint configured yet)\"",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@versus-engine/db": "workspace:*",
+    "@versus-engine/ingestion": "workspace:*",
+    "@versus-engine/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "dotenv-cli": "^8.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.10"
+  }
+}

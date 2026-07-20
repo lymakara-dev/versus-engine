@@ -1,7 +1,10 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { prisma, SpecDataType, SpecVisualization, ComparisonStatus, ProductStatus } from "./index.js";
+import { slugify, keyify, type SpecDefinitionSeed } from "@versus-engine/shared";
+import { prisma, SpecDataType, SpecVisualization, ComparisonStatus, ProductStatus, type SpecDefinition } from "./index.js";
+import { CAR_SPEC_DEFINITIONS, PHONE_SPEC_DEFINITIONS, LAPTOP_SPEC_DEFINITIONS } from "./seed-data/spec-definitions.js";
+import { EXTRA_CAR_PRODUCTS, PHONE_PRODUCTS, LAPTOP_PRODUCTS, type DemoProduct } from "./seed-data/products.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const examplePath = path.resolve(__dirname, "../../../examples/comparison-example.json");
@@ -39,23 +42,123 @@ const VISUALIZATION_MAP: Record<VideoInputRound["visualization"], SpecVisualizat
   badge: SpecVisualization.BADGE,
 };
 
-function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-function keyify(label: string): string {
-  return label
-    .toLowerCase()
-    .replace(/[°–—]/g, "-")
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/(^_|_$)/g, "");
-}
-
 function parsePriceUsd(price: string): number {
   return Number(price.replace(/[^0-9.]/g, ""));
+}
+
+async function upsertCategory(slug: string, name: string, themeKey: string) {
+  return prisma.category.upsert({
+    where: { slug },
+    update: { name, themeKey },
+    create: { slug, name, themeKey },
+  });
+}
+
+async function upsertSpecDefinitions(
+  categoryId: string,
+  defs: SpecDefinitionSeed[],
+): Promise<Map<string, SpecDefinition>> {
+  const byKey = new Map<string, SpecDefinition>();
+  for (const def of defs) {
+    const specDef = await prisma.specDefinition.upsert({
+      where: { categoryId_key: { categoryId, key: def.key } },
+      update: {
+        label: def.label,
+        unit: def.unit ?? undefined,
+        dataType: def.dataType as SpecDataType,
+        higherIsBetter: def.higherIsBetter,
+        visualization: def.visualization as SpecVisualization,
+        displayFormat: def.displayFormat ?? undefined,
+        icon: def.icon ?? undefined,
+        priorityWeight: def.priorityWeight,
+        sortOrder: def.sortOrder,
+      },
+      create: {
+        categoryId,
+        key: def.key,
+        label: def.label,
+        unit: def.unit ?? undefined,
+        dataType: def.dataType as SpecDataType,
+        higherIsBetter: def.higherIsBetter,
+        visualization: def.visualization as SpecVisualization,
+        displayFormat: def.displayFormat ?? undefined,
+        icon: def.icon ?? undefined,
+        priorityWeight: def.priorityWeight,
+        sortOrder: def.sortOrder,
+      },
+    });
+    byKey.set(def.key, specDef);
+  }
+  return byKey;
+}
+
+/**
+ * Seeds one hand-authored demo Product + its SpecValues. No ProductImage is
+ * created — these catalog rows (unlike the example.json cars) have no
+ * licensed image asset yet, so they're render-ineligible until one is added.
+ */
+async function seedDemoProduct(
+  categoryId: string,
+  specDefsByKey: Map<string, SpecDefinition>,
+  demo: DemoProduct,
+) {
+  const brand = await prisma.brand.upsert({
+    where: { slug: slugify(demo.brand) },
+    update: { name: demo.brand },
+    create: { slug: slugify(demo.brand), name: demo.brand },
+  });
+
+  const productSlug = slugify(`${demo.brand}-${demo.name}${demo.variant ? `-${demo.variant}` : ""}`);
+  const specsBlob: Record<string, string> = {};
+  for (const [key, spec] of Object.entries(demo.specs)) {
+    specsBlob[key] = spec.displayValue;
+  }
+
+  const productFields = {
+    categoryId,
+    brandId: brand.id,
+    name: demo.name,
+    variant: demo.variant ?? undefined,
+    releaseYear: demo.releaseYear,
+    priceUsd: demo.priceUsd,
+    accentColor: demo.accentColor,
+    specs: specsBlob,
+    status: ProductStatus.VERIFIED,
+    source: "manual",
+    verifiedAt: new Date(),
+  };
+
+  const product = await prisma.product.upsert({
+    where: { slug: productSlug },
+    update: productFields,
+    create: { slug: productSlug, ...productFields },
+  });
+
+  for (const [key, spec] of Object.entries(demo.specs)) {
+    const specDef = specDefsByKey.get(key);
+    if (!specDef) {
+      throw new Error(`Unknown spec key "${key}" for demo product "${productSlug}" — add it to the category's SpecDefinition seed first.`);
+    }
+    await prisma.specValue.upsert({
+      where: { productId_specDefId: { productId: product.id, specDefId: specDef.id } },
+      update: {
+        numberValue: spec.numberValue ?? null,
+        textValue: spec.textValue ?? null,
+        boolValue: spec.boolValue ?? null,
+        displayValue: spec.displayValue,
+      },
+      create: {
+        productId: product.id,
+        specDefId: specDef.id,
+        numberValue: spec.numberValue ?? null,
+        textValue: spec.textValue ?? null,
+        boolValue: spec.boolValue ?? null,
+        displayValue: spec.displayValue,
+      },
+    });
+  }
+
+  return product;
 }
 
 async function main() {
@@ -222,7 +325,30 @@ async function main() {
     });
   }
 
-  console.log(`Seeded category "${category.slug}" with ${products.length} products and comparison "${comparison.slug}".`);
+  // Full car SpecDefinition catalog (adds "top_speed" on top of the 6 the
+  // video payload already produced) + the rest of the 4-car demo roster.
+  const carSpecDefs = await upsertSpecDefinitions(category.id, CAR_SPEC_DEFINITIONS);
+  for (const demo of EXTRA_CAR_PRODUCTS) {
+    await seedDemoProduct(category.id, carSpecDefs, demo);
+  }
+
+  const phonesCategory = await upsertCategory("phones", "Phones", "circuit");
+  const phoneSpecDefs = await upsertSpecDefinitions(phonesCategory.id, PHONE_SPEC_DEFINITIONS);
+  for (const demo of PHONE_PRODUCTS) {
+    await seedDemoProduct(phonesCategory.id, phoneSpecDefs, demo);
+  }
+
+  const laptopsCategory = await upsertCategory("laptops", "Laptops", "default");
+  const laptopSpecDefs = await upsertSpecDefinitions(laptopsCategory.id, LAPTOP_SPEC_DEFINITIONS);
+  for (const demo of LAPTOP_PRODUCTS) {
+    await seedDemoProduct(laptopsCategory.id, laptopSpecDefs, demo);
+  }
+
+  console.log(
+    `Seeded category "${category.slug}" with ${products.length + EXTRA_CAR_PRODUCTS.length} products and comparison "${comparison.slug}".`,
+  );
+  console.log(`Seeded category "phones" with ${PHONE_PRODUCTS.length} products.`);
+  console.log(`Seeded category "laptops" with ${LAPTOP_PRODUCTS.length} products.`);
 }
 
 main()
