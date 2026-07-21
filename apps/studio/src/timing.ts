@@ -6,4 +6,11 @@
  * individual rounds using the exact same timing, without depending on this
  * Remotion-only package.
  */
-export { TIMING_SECONDS, secondsToFrames, contenderRevealSeconds, specBattleSeconds } from "@versus-engine/shared";
+export {
+  TIMING_SECONDS,
+  secondsToFrames,
+  contenderRevealSeconds,
+  specBattleSeconds,
+  paceSeconds,
+  outroSeconds,
+} from "@versus-engine/shared";

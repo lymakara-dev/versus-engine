@@ -6,6 +6,7 @@ import type { RoundContenderVisual } from "./types";
 
 const ANTICIPATION_SECONDS = 0.3;
 const COUNT_SECONDS = 1.4;
+const SETTLE_SECONDS = 0.3;
 
 function suffixOf(displayValue: string): string {
   return displayValue.replace(/^-?[\d,.]+/, "");
@@ -24,6 +25,7 @@ export const Counter: React.FC<{
 
   const holdFrames = secondsToFrames(ANTICIPATION_SECONDS, fps);
   const countFrames = secondsToFrames(COUNT_SECONDS, fps);
+  const settleFrames = secondsToFrames(SETTLE_SECONDS, fps);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", gap: 96 }}>
@@ -37,10 +39,29 @@ export const Counter: React.FC<{
           { easing: Easing.out(Easing.cubic), extrapolateLeft: "clamp", extrapolateRight: "clamp" },
         );
 
+        const settleProgress = interpolate(
+          frame,
+          [holdFrames + countFrames, holdFrames + countFrames + settleFrames],
+          [0, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+        const winnerPulse = contender.isWinner
+          ? interpolate(settleProgress, [0, 0.5, 1], [1, 1.06, 1])
+          : 1;
+        const loserFade = contender.isWinner ? 1 : interpolate(settleProgress, [0, 1], [1, 0.8]);
+
         return (
           <div
             key={contender.name}
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 12,
+              opacity: loserFade,
+              filter: `saturate(${loserFade})`,
+              transform: `scale(${winnerPulse})`,
+            }}
           >
             <div
               style={{

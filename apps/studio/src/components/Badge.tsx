@@ -1,7 +1,11 @@
 import React from "react";
-import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { secondsToFrames } from "../timing";
 import type { Theme } from "../theme";
 import type { RoundContenderVisual } from "./types";
+
+const SETTLE_START_SECONDS = 0.6;
+const SETTLE_SECONDS = 0.3;
 
 export const Badge: React.FC<{
   contenders: RoundContenderVisual[];
@@ -9,6 +13,8 @@ export const Badge: React.FC<{
 }> = ({ contenders, theme }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const settleStartFrames = secondsToFrames(SETTLE_START_SECONDS, fps);
+  const settleFrames = secondsToFrames(SETTLE_SECONDS, fps);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", gap: 48 }}>
@@ -19,6 +25,17 @@ export const Badge: React.FC<{
           config: { damping: 12, mass: 0.6 },
         });
 
+        const settleProgress = interpolate(
+          frame,
+          [settleStartFrames, settleStartFrames + settleFrames],
+          [0, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+        const winnerPulse = contender.isWinner
+          ? interpolate(settleProgress, [0, 0.5, 1], [1, 1.05, 1])
+          : 1;
+        const loserFade = contender.isWinner ? 1 : interpolate(settleProgress, [0, 1], [1, 0.8]);
+
         return (
           <div
             key={contender.name}
@@ -27,7 +44,9 @@ export const Badge: React.FC<{
               flexDirection: "column",
               alignItems: "center",
               gap: 14,
-              transform: `scale(${scale})`,
+              opacity: loserFade,
+              filter: `saturate(${loserFade})`,
+              transform: `scale(${scale * winnerPulse})`,
             }}
           >
             <div

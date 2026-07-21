@@ -16,6 +16,10 @@ export const contenderSchema = z.object({
   imageUrl: z.string(),
   logoUrl: z.string(),
   accentColor: z.string(),
+  // Shown as a respect tag for non-winning contenders during WinnerReveal
+  // (e.g. "Best for: battery life"). Omitted entirely when absent — never
+  // fabricated by the renderer.
+  bestFor: z.string().optional(),
 });
 export type Contender = z.infer<typeof contenderSchema>;
 
@@ -65,6 +69,18 @@ export const narrationClipSchema = z.object({
 });
 export type NarrationClip = z.infer<typeof narrationClipSchema>;
 
+/**
+ * Audience-interaction devices for Outro (the real "interactivity" a
+ * rendered video can offer — YouTube CTA/teaser copy). All optional with
+ * generic renderer-side fallbacks, so existing frozen payloads without this
+ * field still render their previous default copy unchanged.
+ */
+export const engagementSchema = z.object({
+  ctaText: z.string().optional(),
+  nextTeaser: z.string().optional(),
+});
+export type Engagement = z.infer<typeof engagementSchema>;
+
 export const videoInputSchema = z
   .object({
     meta: z.object({
@@ -77,6 +93,10 @@ export const videoInputSchema = z
         width: z.number().int().positive(),
         height: z.number().int().positive(),
       }),
+      // Intro's matchup hook line, e.g. "GR Corolla vs Civic Type R — which
+      // wins in 2026?". Falls back to a generic "Which {category} wins?"
+      // line built from existing fields when absent.
+      hookQuestion: z.string().optional(),
     }),
     music: z.object({
       src: z.string(),
@@ -87,6 +107,11 @@ export const videoInputSchema = z
     rounds: z.array(roundSchema).min(1),
     verdict: verdictSchema,
     narration: z.array(narrationClipSchema).optional(),
+    engagement: engagementSchema.optional(),
+    // Optional per-round chapter titles for YouTube chapter markers,
+    // parallel to `rounds`. Falls back to round.label per index when a
+    // given entry is absent or the array is shorter than `rounds`.
+    chapterTitles: z.array(z.string()).optional(),
   })
   .refine(
     (input) =>

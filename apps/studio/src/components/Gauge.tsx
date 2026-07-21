@@ -6,6 +6,7 @@ import type { RoundContenderVisual } from "./types";
 
 const ANTICIPATION_SECONDS = 0.4;
 const RACE_SECONDS = 1.2;
+const SETTLE_SECONDS = 0.3;
 const RADIUS = 90;
 const STROKE = 18;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -19,6 +20,7 @@ export const Gauge: React.FC<{
 
   const holdFrames = secondsToFrames(ANTICIPATION_SECONDS, fps);
   const raceFrames = secondsToFrames(RACE_SECONDS, fps);
+  const settleFrames = secondsToFrames(SETTLE_SECONDS, fps);
   const maxValue = Math.max(...contenders.map((c) => Math.abs(c.value)), 1);
 
   return (
@@ -32,10 +34,29 @@ export const Gauge: React.FC<{
         });
         const dashOffset = CIRCUMFERENCE * (1 - fillFraction);
 
+        const settleProgress = interpolate(
+          frame,
+          [holdFrames + raceFrames, holdFrames + raceFrames + settleFrames],
+          [0, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+        const winnerPulse = contender.isWinner
+          ? interpolate(settleProgress, [0, 0.5, 1], [1, 1.05, 1])
+          : 1;
+        const loserFade = contender.isWinner ? 1 : interpolate(settleProgress, [0, 1], [1, 0.8]);
+
         return (
           <div
             key={contender.name}
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 16,
+              opacity: loserFade,
+              filter: `saturate(${loserFade})`,
+              transform: `scale(${winnerPulse})`,
+            }}
           >
             <svg width={220} height={220} viewBox="0 0 220 220">
               <circle

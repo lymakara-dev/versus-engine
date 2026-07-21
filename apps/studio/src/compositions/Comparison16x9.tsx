@@ -6,27 +6,35 @@ import { fade } from "@remotion/transitions/fade";
 import { parseVideoInput, type VideoInput } from "../schema";
 import { getTheme } from "../theme";
 import { getLayout } from "../layout";
-import { TIMING_SECONDS, secondsToFrames } from "../timing";
+import { TIMING_SECONDS, secondsToFrames, paceSeconds } from "../timing";
 import { AudioTrack } from "../audio/AudioTrack";
 import type { SfxCue } from "../audio/types";
 import * as IntroScene from "../scenes/Intro";
 import * as ContenderRevealScene from "../scenes/ContenderReveal";
 import * as SpecBattleScene from "../scenes/SpecBattle";
-import * as ScoreboardScene from "../scenes/Scoreboard";
+import * as RoundRecapScene from "../scenes/RoundRecap";
+import * as ScoreboardHUDScene from "../scenes/ScoreboardHUD";
 import * as WinnerRevealScene from "../scenes/WinnerReveal";
 import * as OutroScene from "../scenes/Outro";
 
-const SEQUENTIAL_SCENES = [IntroScene, ContenderRevealScene, SpecBattleScene, WinnerRevealScene, OutroScene];
+const SEQUENTIAL_SCENES = [
+  IntroScene,
+  ContenderRevealScene,
+  SpecBattleScene,
+  RoundRecapScene,
+  WinnerRevealScene,
+  OutroScene,
+];
 
 export function computeTotalDurationInFrames(input: VideoInput): number {
-  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, input.meta.fps);
+  const transitionFrames = secondsToFrames(paceSeconds(TIMING_SECONDS.sceneTransition, input), input.meta.fps);
   const durations = SEQUENTIAL_SCENES.map((scene) => scene.getDuration(input));
   const totalRaw = durations.reduce((sum, d) => sum + d, 0);
   return totalRaw - transitionFrames * (SEQUENTIAL_SCENES.length - 1);
 }
 
 function computeSceneStartFrames(input: VideoInput): number[] {
-  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, input.meta.fps);
+  const transitionFrames = secondsToFrames(paceSeconds(TIMING_SECONDS.sceneTransition, input), input.meta.fps);
   const durations = SEQUENTIAL_SCENES.map((scene) => scene.getDuration(input));
   const starts: number[] = [0];
   for (let i = 1; i < durations.length; i++) {
@@ -69,9 +77,9 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
   const { fps } = useVideoConfig();
   const theme = getTheme(input.meta.theme);
   const layout = getLayout(input);
-  const transitionFrames = secondsToFrames(TIMING_SECONDS.sceneTransition, fps);
+  const transitionFrames = secondsToFrames(paceSeconds(TIMING_SECONDS.sceneTransition, input), fps);
 
-  const [introD, revealD, battleD, winnerD, outroD] = SEQUENTIAL_SCENES.map((scene) =>
+  const [introD, revealD, battleD, recapD, winnerD, outroD] = SEQUENTIAL_SCENES.map((scene) =>
     scene.getDuration(input),
   );
   const sceneStarts = useMemo(() => computeSceneStartFrames(input), [input]);
@@ -80,7 +88,7 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
     () => [...computeAllSfxCues(input), ...computeNarrationCues(input)],
     [input],
   );
-  const scoreboardDuration = ScoreboardScene.getDuration(input);
+  const scoreboardHUDDuration = ScoreboardHUDScene.getDuration(input);
 
   const transitionTiming = () => springTiming({ config: { damping: 200 }, durationInFrames: transitionFrames });
 
@@ -98,6 +106,10 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
         <TransitionSeries.Sequence durationInFrames={battleD}>
           <SpecBattleScene.SpecBattle input={input} theme={theme} layout={layout} />
         </TransitionSeries.Sequence>
+        <TransitionSeries.Transition presentation={slide()} timing={transitionTiming()} />
+        <TransitionSeries.Sequence durationInFrames={recapD}>
+          <RoundRecapScene.RoundRecap input={input} theme={theme} layout={layout} />
+        </TransitionSeries.Sequence>
         <TransitionSeries.Transition presentation={slide({ direction: "from-right" })} timing={transitionTiming()} />
         <TransitionSeries.Sequence durationInFrames={winnerD}>
           <WinnerRevealScene.WinnerReveal input={input} theme={theme} layout={layout} />
@@ -108,8 +120,8 @@ export const Comparison16x9: React.FC<VideoInput> = (props) => {
         </TransitionSeries.Sequence>
       </TransitionSeries>
 
-      <Sequence from={sceneStarts[2]} durationInFrames={scoreboardDuration} layout="none">
-        <ScoreboardScene.Scoreboard input={input} theme={theme} layout={layout} />
+      <Sequence from={sceneStarts[2]} durationInFrames={scoreboardHUDDuration} layout="none">
+        <ScoreboardHUDScene.ScoreboardHUD input={input} theme={theme} layout={layout} />
       </Sequence>
 
       <AudioTrack music={input.music} cues={audioCues} totalDurationInFrames={totalDuration} fps={fps} />

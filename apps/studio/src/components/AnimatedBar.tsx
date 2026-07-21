@@ -6,6 +6,7 @@ import type { RoundContenderVisual } from "./types";
 
 const ANTICIPATION_SECONDS = 0.4;
 const RACE_SECONDS = 1.1;
+const SETTLE_SECONDS = 0.3;
 
 export const AnimatedBar: React.FC<{
   contenders: RoundContenderVisual[];
@@ -16,6 +17,7 @@ export const AnimatedBar: React.FC<{
 
   const holdFrames = secondsToFrames(ANTICIPATION_SECONDS, fps);
   const raceFrames = secondsToFrames(RACE_SECONDS, fps);
+  const settleFrames = secondsToFrames(SETTLE_SECONDS, fps);
   const maxValue = Math.max(...contenders.map((c) => Math.abs(c.value)), 1);
 
   return (
@@ -35,6 +37,17 @@ export const AnimatedBar: React.FC<{
           },
         );
 
+        const settleProgress = interpolate(
+          frame,
+          [holdFrames + raceFrames, holdFrames + raceFrames + settleFrames],
+          [0, 1],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+        );
+        const winnerPulse = contender.isWinner
+          ? interpolate(settleProgress, [0, 0.5, 1], [1, 1.03, 1])
+          : 1;
+        const loserFade = contender.isWinner ? 1 : interpolate(settleProgress, [0, 1], [1, 0.8]);
+
         return (
           <div
             key={contender.name}
@@ -42,6 +55,9 @@ export const AnimatedBar: React.FC<{
               width: "100%",
               boxSizing: "border-box",
               marginBottom: index < contenders.length - 1 ? 28 : 0,
+              opacity: loserFade,
+              filter: `saturate(${loserFade})`,
+              transform: `scale(${winnerPulse})`,
             }}
           >
             <div

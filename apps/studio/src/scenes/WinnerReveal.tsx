@@ -4,17 +4,20 @@ import { Background } from "../components/Background";
 import { Crown } from "../components/Crown";
 import { Confetti } from "../components/Confetti";
 import { sfxSrc, type SfxCue } from "../audio/types";
-import { TIMING_SECONDS, secondsToFrames } from "../timing";
+import { TIMING_SECONDS, secondsToFrames, paceSeconds } from "../timing";
 import type { Theme } from "../theme";
 import type { VideoInput } from "../schema";
 import type { SceneLayout } from "../layout";
 
+/** Deeper than the default -6dB duck — the drumroll is the video's biggest suspense beat. */
+const DRUMROLL_DUCK_DB = -10;
+
 export function getDuration(input: VideoInput): number {
-  return secondsToFrames(TIMING_SECONDS.winnerReveal, input.meta.fps);
+  return secondsToFrames(paceSeconds(TIMING_SECONDS.winnerReveal, input), input.meta.fps);
 }
 
 export function getSfxCues(input: VideoInput): SfxCue[] {
-  return [{ frame: 0, src: sfxSrc(input.verdict.sfx ?? "drumroll-confetti") }];
+  return [{ frame: 0, src: sfxSrc(input.verdict.sfx ?? "drumroll-confetti"), duckDb: DRUMROLL_DUCK_DB }];
 }
 
 export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme; layout: SceneLayout }> = ({
@@ -54,6 +57,16 @@ export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme; layout: S
   const scoreLine = input.verdict.scores
     .map((score, index) => `${input.contenders[index].name} ${score}`)
     .join("  –  ");
+
+  // Respect tags for non-winning contenders — only rendered when authored data actually
+  // supplies a strength; never fabricated by the renderer.
+  const respectTags = input.contenders
+    .map((contender, index) => ({ contender, index }))
+    .filter(({ index }) => index !== input.verdict.winnerIndex && input.contenders[index].bestFor);
+  const respectOpacity = interpolate(frame, [fps * 2.6, fps * 3.1], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
 
   return (
     <div style={{ position: "absolute", inset: 0 }}>
@@ -134,6 +147,35 @@ export const WinnerReveal: React.FC<{ input: VideoInput; theme: Theme; layout: S
         >
           {input.verdict.tagline}
         </div>
+        {respectTags.length > 0 && (
+          <div
+            style={{
+              width: "100%",
+              boxSizing: "border-box",
+              opacity: respectOpacity,
+              display: "flex",
+              justifyContent: "center",
+              gap: 16,
+              marginTop: 16,
+            }}
+          >
+            {respectTags.map(({ contender }) => (
+              <div
+                key={contender.name}
+                style={{
+                  padding: "8px 20px",
+                  borderRadius: 999,
+                  border: `1.5px solid ${contender.accentColor}`,
+                  fontFamily: theme.fontBody,
+                  fontSize: 20,
+                  color: theme.textSecondary,
+                }}
+              >
+                {contender.name} — Best for: {contender.bestFor}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

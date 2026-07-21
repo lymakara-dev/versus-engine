@@ -15,11 +15,13 @@ export const AudioTrack: React.FC<{
   return (
     <>
       <Audio src={staticFile(music.src)} loop={music.loop} volume={musicVolume} />
-      {cues.map((cue, index) => (
-        <Sequence key={index} from={cue.frame} durationInFrames={cue.durationInFrames ?? fps}>
-          <Audio src={staticFile(cue.src)} />
-        </Sequence>
-      ))}
+      {cues
+        .filter((cue) => !cue.silent)
+        .map((cue, index) => (
+          <Sequence key={index} from={cue.frame} durationInFrames={cue.durationInFrames ?? fps}>
+            <Audio src={staticFile(cue.src)} />
+          </Sequence>
+        ))}
     </>
   );
 };

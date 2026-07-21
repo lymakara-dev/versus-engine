@@ -17,16 +17,16 @@
       "name": "GR Corolla",
       "brand": "Toyota",
       "price": "$39,995",
-      "imageUrl": "assets/products/toyota-gr-corolla-2026-cutout.png",
-      "logoUrl": "assets/brands/toyota.png",
+      "imageUrl": "assets/products/toyota-gr-corolla-2025.jpeg",
+      "logoUrl": "assets/brands/toyota.jpeg",
       "accentColor": "#EB0A1E"
     },
     {
       "name": "Civic Type R",
       "brand": "Honda",
       "price": "$45,895",
-      "imageUrl": "assets/products/honda-civic-type-r-2026-cutout.png",
-      "logoUrl": "assets/brands/honda.png",
+      "imageUrl": "assets/products/honda-civic-type-r-2025.jpeg",
+      "logoUrl": "assets/brands/honda.jpg",
       "accentColor": "#CC0000"
     }
   ],
