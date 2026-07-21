@@ -20,7 +20,7 @@ TypeScript everywhere. pnpm workspaces + Turborepo. Remotion 4.x for video (use 
 - Entrances use `spring()`; value animations (bar races, counters) use `interpolate()` with `Easing.out(Easing.cubic)`; scene changes use `@remotion/transitions`.
 - Each scene exports `getDuration(input)` and `getSfxCues(input)` so audio placement is computed, not eyeballed.
 - Music: one looping `<Audio>` at the composition root with a volume envelope that ducks −6dB during SFX cues and fades out over the last 2 seconds.
-- Colors/typography come from `theme/` (category theme) + contender `accentColor`. Never hardcode hex values in scenes.
+- Colors/typography come from theme/ (category theme) + contender accentColor. theme/ is GENERATED from the root DESIGN.md (google-labs-code/design.md format) via pnpm design:tokens — never edit generated theme files or hardcode hex values in scenes or the dashboard. Edit DESIGN.md, regenerate, run pnpm design:lint.
 - Validate props with the Zod schema in `schema.ts` at composition entry; fail loudly with a readable error.
 
 ## Data conventions
@@ -29,6 +29,7 @@ TypeScript everywhere. pnpm workspaces + Turborepo. Remotion 4.x for video (use 
 - Every product records `source`, `sourceUrl`, `verifiedAt`. Only products with `status = VERIFIED` are eligible for rendering.
 - AI-assisted research output is always `status = DRAFT` until a human approves in the dashboard.
 - Seed data must include: 4 cars, 4 phones, 2 laptops with full SpecDefinitions per category, so demos work out of the box.
+- All CSV imports (CLI and dashboard wizard) go through packages/ingestion's csv adapter + normalization — one code path. Dashboard bulk-create supports a group column that creates one comparison per group value.
 
 ## Round selection heuristic (comparison package)
 
@@ -50,4 +51,6 @@ pnpm ingest vpic ...     # vehicle ingestion
 pnpm ingest csv <file>   # bulk import
 pnpm batch ...           # queue many comparisons
 pnpm db:seed             # demo data
+pnpm design:lint         # validate DESIGN.md
+pnpm design:tokens       # regenerate studio theme + tailwind theme from DESIGN.md
 ```

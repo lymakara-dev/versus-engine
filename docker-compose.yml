@@ -37,8 +37,8 @@ services:
       MINIO_ROOT_USER: versus
       MINIO_ROOT_PASSWORD: versus-secret
     ports:
-      - "9002:9000"
-      - "9003:9001"
+      - "9000:9000"
+      - "9001:9001"
     volumes:
       - minio-data:/data
     healthcheck:
