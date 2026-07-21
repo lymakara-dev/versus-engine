@@ -1,0 +1,457 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 10,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "packages/shared/src/csv.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "isSpecColumn",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "column"
+          ]
+        },
+        {
+          "name": "specKeyFromColumn",
+          "startLine": 29,
+          "endLine": 31,
+          "params": [
+            "column"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "csvRowSchema",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "SPEC_COLUMN_PREFIX",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "isSpecColumn",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "specKeyFromColumn",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isSpecColumn",
+          "callee": "column.startsWith",
+          "lineNumber": 26
+        },
+        {
+          "caller": "specKeyFromColumn",
+          "callee": "column.slice",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/publish-queue.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 8,
+      "exports": [
+        {
+          "name": "PUBLISH_QUEUE_NAME",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "publishJobPayloadSchema",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/render-queue.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 11,
+      "exports": [
+        {
+          "name": "RENDER_QUEUE_NAME",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "compositionIdSchema",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "renderJobPayloadSchema",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/slug.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 22,
+      "nonEmptyLines": 18,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/slug.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 15,
+      "functions": [
+        {
+          "name": "slugify",
+          "startLine": 2,
+          "endLine": 7,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "keyify",
+          "startLine": 10,
+          "endLine": 16,
+          "params": [
+            "label"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "slugify",
+          "line": 2,
+          "isDefault": false
+        },
+        {
+          "name": "keyify",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "slugify",
+          "callee": "value\n    .toLowerCase()\n    .replace(/[^a-z0-9]+/g, \"-\")\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "slugify",
+          "callee": "value\n    .toLowerCase()\n    .replace",
+          "lineNumber": 3
+        },
+        {
+          "caller": "slugify",
+          "callee": "value\n    .toLowerCase",
+          "lineNumber": 3
+        },
+        {
+          "caller": "keyify",
+          "callee": "label\n    .toLowerCase()\n    .replace(/[°–—]/g, \"-\")\n    .replace(/[^a-z0-9]+/g, \"_\")\n    .replace",
+          "lineNumber": 11
+        },
+        {
+          "caller": "keyify",
+          "callee": "label\n    .toLowerCase()\n    .replace(/[°–—]/g, \"-\")\n    .replace",
+          "lineNumber": 11
+        },
+        {
+          "caller": "keyify",
+          "callee": "label\n    .toLowerCase()\n    .replace",
+          "lineNumber": 11
+        },
+        {
+          "caller": "keyify",
+          "callee": "label\n    .toLowerCase",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/specs.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 56,
+      "exports": [
+        {
+          "name": "specDataTypeSchema",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "normalizedSpecValueSchema",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "productStatusSchema",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "normalizedProductSchema",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "specDefinitionSeedSchema",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/units.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/units.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "lbToKg",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "lb"
+          ]
+        },
+        {
+          "name": "mphToKmh",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "mph"
+          ]
+        },
+        {
+          "name": "inToCm",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "inches"
+          ]
+        },
+        {
+          "name": "inToMm",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "inches"
+          ]
+        },
+        {
+          "name": "ozToG",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "oz"
+          ]
+        },
+        {
+          "name": "ftLbToNm",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "ftLb"
+          ]
+        },
+        {
+          "name": "fToC",
+          "startLine": 31,
+          "endLine": 33,
+          "params": [
+            "fahrenheit"
+          ]
+        },
+        {
+          "name": "round",
+          "startLine": 35,
+          "endLine": 38,
+          "params": [
+            "value",
+            "decimals"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "lbToKg",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "mphToKmh",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "inToCm",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "inToMm",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "ozToG",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "ftLbToNm",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "fToC",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "round",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "round",
+          "callee": "Math.round",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

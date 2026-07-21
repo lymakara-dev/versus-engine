@@ -1,0 +1,1288 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 14,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 14,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 14,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/studio/src/audio/AudioTrack.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "AudioTrack",
+          "startLine": 7,
+          "endLine": 25,
+          "params": [
+            "{ music, cues, totalDurationInFrames, fps }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AudioTrack",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AudioTrack",
+          "callee": "createMusicVolumeFn",
+          "lineNumber": 13
+        },
+        {
+          "caller": "AudioTrack",
+          "callee": "staticFile",
+          "lineNumber": 17
+        },
+        {
+          "caller": "AudioTrack",
+          "callee": "cues.map",
+          "lineNumber": 18
+        },
+        {
+          "caller": "AudioTrack",
+          "callee": "staticFile",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/audio/music.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "dbToLinear",
+          "startLine": 10,
+          "endLine": 12,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "createMusicVolumeFn",
+          "startLine": 19,
+          "endLine": 64,
+          "params": [
+            "cues",
+            "baseVolumeDb",
+            "totalDurationInFrames",
+            "fps"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dbToLinear",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "createMusicVolumeFn",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "dbToLinear",
+          "lineNumber": 25
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "dbToLinear",
+          "lineNumber": 26
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "Math.round",
+          "lineNumber": 27
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "Math.round",
+          "lineNumber": 28
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "Math.round",
+          "lineNumber": 29
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "Math.round",
+          "lineNumber": 30
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "interpolate",
+          "lineNumber": 45
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "Math.min",
+          "lineNumber": 51
+        },
+        {
+          "caller": "createMusicVolumeFn",
+          "callee": "interpolate",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/audio/types.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 9,
+      "functions": [
+        {
+          "name": "sfxSrc",
+          "startLine": 8,
+          "endLine": 10,
+          "params": [
+            "name"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "sfxSrc",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Background.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "SpeedLines",
+          "startLine": 5,
+          "endLine": 27,
+          "params": [
+            "{ theme }"
+          ]
+        },
+        {
+          "name": "Circuit",
+          "startLine": 29,
+          "endLine": 49,
+          "params": [
+            "{ theme }"
+          ]
+        },
+        {
+          "name": "Grid",
+          "startLine": 51,
+          "endLine": 69,
+          "params": [
+            "{ theme }"
+          ]
+        },
+        {
+          "name": "Background",
+          "startLine": 71,
+          "endLine": 83,
+          "params": [
+            "{ theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Background",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SpeedLines",
+          "callee": "useCurrentFrame",
+          "lineNumber": 6
+        },
+        {
+          "caller": "SpeedLines",
+          "callee": "interpolate",
+          "lineNumber": 7
+        },
+        {
+          "caller": "SpeedLines",
+          "callee": "new Array(14).fill(0).map",
+          "lineNumber": 11
+        },
+        {
+          "caller": "SpeedLines",
+          "callee": "new Array(14).fill",
+          "lineNumber": 11
+        },
+        {
+          "caller": "Grid",
+          "callee": "useCurrentFrame",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Grid",
+          "callee": "interpolate",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Confetti.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "Confetti",
+          "startLine": 16,
+          "endLine": 74,
+          "params": [
+            "{\n  colors,\n  delayFrames = 0,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Confetti",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Confetti",
+          "callee": "useCurrentFrame",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Confetti",
+          "callee": "useVideoConfig",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Confetti",
+          "callee": "useMemo",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Confetti",
+          "callee": "new Array(PARTICLE_COUNT).fill(0).map",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Confetti",
+          "callee": "new Array(PARTICLE_COUNT).fill",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Confetti",
+          "callee": "random",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Confetti",
+          "callee": "particles.map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Confetti",
+          "callee": "Math.max",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Confetti",
+          "callee": "Math.sin",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Confetti",
+          "callee": "Math.cos",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Confetti",
+          "callee": "interpolate",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/compositions/Comparison16x9.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 107,
+      "functions": [
+        {
+          "name": "computeTotalDurationInFrames",
+          "startLine": 21,
+          "endLine": 26,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "computeSceneStartFrames",
+          "startLine": 28,
+          "endLine": 36,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "computeAllSfxCues",
+          "startLine": 38,
+          "endLine": 43,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "computeNarrationCues",
+          "startLine": 52,
+          "endLine": 58,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "Comparison16x9",
+          "startLine": 67,
+          "endLine": 118,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "computeTotalDurationInFrames",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "Comparison16x9",
+          "line": 67,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "computeTotalDurationInFrames",
+          "callee": "secondsToFrames",
+          "lineNumber": 22
+        },
+        {
+          "caller": "computeTotalDurationInFrames",
+          "callee": "SEQUENTIAL_SCENES.map",
+          "lineNumber": 23
+        },
+        {
+          "caller": "computeTotalDurationInFrames",
+          "callee": "scene.getDuration",
+          "lineNumber": 23
+        },
+        {
+          "caller": "computeTotalDurationInFrames",
+          "callee": "durations.reduce",
+          "lineNumber": 24
+        },
+        {
+          "caller": "computeSceneStartFrames",
+          "callee": "secondsToFrames",
+          "lineNumber": 29
+        },
+        {
+          "caller": "computeSceneStartFrames",
+          "callee": "SEQUENTIAL_SCENES.map",
+          "lineNumber": 30
+        },
+        {
+          "caller": "computeSceneStartFrames",
+          "callee": "scene.getDuration",
+          "lineNumber": 30
+        },
+        {
+          "caller": "computeSceneStartFrames",
+          "callee": "starts.push",
+          "lineNumber": 33
+        },
+        {
+          "caller": "computeAllSfxCues",
+          "callee": "computeSceneStartFrames",
+          "lineNumber": 39
+        },
+        {
+          "caller": "computeAllSfxCues",
+          "callee": "SEQUENTIAL_SCENES.flatMap",
+          "lineNumber": 40
+        },
+        {
+          "caller": "computeAllSfxCues",
+          "callee": "scene.getSfxCues(input).map",
+          "lineNumber": 41
+        },
+        {
+          "caller": "computeAllSfxCues",
+          "callee": "scene.getSfxCues",
+          "lineNumber": 41
+        },
+        {
+          "caller": "computeNarrationCues",
+          "callee": "(input.narration ?? []).map",
+          "lineNumber": 53
+        },
+        {
+          "caller": "computeNarrationCues",
+          "callee": "secondsToFrames",
+          "lineNumber": 54
+        },
+        {
+          "caller": "computeNarrationCues",
+          "callee": "secondsToFrames",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "parseVideoInput",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "useVideoConfig",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "getTheme",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "getLayout",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "secondsToFrames",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "SEQUENTIAL_SCENES.map",
+          "lineNumber": 74
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "scene.getDuration",
+          "lineNumber": 75
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "useMemo",
+          "lineNumber": 77
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "computeSceneStartFrames",
+          "lineNumber": 77
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "useMemo",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "useMemo",
+          "lineNumber": 79
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "computeAllSfxCues",
+          "lineNumber": 80
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "computeNarrationCues",
+          "lineNumber": 80
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "ScoreboardScene.getDuration",
+          "lineNumber": 83
+        },
+        {
+          "caller": "transitionTiming",
+          "callee": "springTiming",
+          "lineNumber": 85
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "fade",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "transitionTiming",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "slide",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "transitionTiming",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "slide",
+          "lineNumber": 101
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "transitionTiming",
+          "lineNumber": 101
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "fade",
+          "lineNumber": 105
+        },
+        {
+          "caller": "Comparison16x9",
+          "callee": "transitionTiming",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 2,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/layout.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "getLayout",
+          "startLine": 12,
+          "endLine": 14,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getLayout",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/ContenderReveal.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 128,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "ContenderCard",
+          "startLine": 19,
+          "endLine": 99,
+          "params": [
+            "{ contender, index, theme, isPortrait }"
+          ]
+        },
+        {
+          "name": "ContenderReveal",
+          "startLine": 101,
+          "endLine": 136,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ContenderReveal",
+          "line": 101,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getDuration",
+          "callee": "contenderRevealSeconds",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "sfxSrc",
+          "lineNumber": 16
+        },
+        {
+          "caller": "ContenderCard",
+          "callee": "useCurrentFrame",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ContenderCard",
+          "callee": "useVideoConfig",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ContenderCard",
+          "callee": "spring",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ContenderCard",
+          "callee": "staticFile",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ContenderCard",
+          "callee": "staticFile",
+          "lineNumber": 93
+        },
+        {
+          "caller": "ContenderReveal",
+          "callee": "input.contenders.map",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/Intro.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "Intro",
+          "startLine": 19,
+          "endLine": 104,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Intro",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "sfxSrc",
+          "lineNumber": 16
+        },
+        {
+          "caller": "Intro",
+          "callee": "useCurrentFrame",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Intro",
+          "callee": "useVideoConfig",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Intro",
+          "callee": "interpolate",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Intro",
+          "callee": "interpolate",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Intro",
+          "callee": "Easing.out",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Intro",
+          "callee": "interpolate",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Intro",
+          "callee": "input.meta.title.split",
+          "lineNumber": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/Outro.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 15,
+          "endLine": 17,
+          "params": []
+        },
+        {
+          "name": "Outro",
+          "startLine": 19,
+          "endLine": 86,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Outro",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "sfxSrc",
+          "lineNumber": 16
+        },
+        {
+          "caller": "Outro",
+          "callee": "useCurrentFrame",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Outro",
+          "callee": "useVideoConfig",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Outro",
+          "callee": "spring",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Outro",
+          "callee": "interpolate",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Outro",
+          "callee": "interpolate",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Outro",
+          "callee": "interpolate",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Outro",
+          "callee": "Easing.out",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/Scoreboard.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 10,
+          "endLine": 12,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 14,
+          "endLine": 16,
+          "params": []
+        },
+        {
+          "name": "Scoreboard",
+          "startLine": 18,
+          "endLine": 86,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Scoreboard",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 11
+        },
+        {
+          "caller": "getDuration",
+          "callee": "specBattleSeconds",
+          "lineNumber": 11
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "useCurrentFrame",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "useVideoConfig",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "secondsToFrames",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "Math.min",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "Math.floor",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "input.contenders.map",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "input.rounds\n      .slice(0, roundsElapsed)\n      .filter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "input.rounds\n      .slice",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "input.contenders.map",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Scoreboard",
+          "callee": "spring",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/WinnerReveal.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 130,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 12,
+          "endLine": 14,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "WinnerReveal",
+          "startLine": 20,
+          "endLine": 140,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "WinnerReveal",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 13
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "sfxSrc",
+          "lineNumber": 17
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "useCurrentFrame",
+          "lineNumber": 25
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "useVideoConfig",
+          "lineNumber": 26
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "interpolate",
+          "lineNumber": 33
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "interpolate",
+          "lineNumber": 38
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "Easing.out",
+          "lineNumber": 39
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "Easing.back",
+          "lineNumber": 39
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "interpolate",
+          "lineNumber": 44
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "interpolate",
+          "lineNumber": 49
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "input.verdict.scores\n    .map((score, index) => `${input.contenders[index].name} ${score}`)\n    .join",
+          "lineNumber": 54
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "input.verdict.scores\n    .map",
+          "lineNumber": 54
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "input.contenders.map((c) => c.accentColor).concat",
+          "lineNumber": 61
+        },
+        {
+          "caller": "WinnerReveal",
+          "callee": "input.contenders.map",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 8,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/schema.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/timing.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "exports": [
+        {
+          "name": "TIMING_SECONDS",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "secondsToFrames",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "contenderRevealSeconds",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "specBattleSeconds",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

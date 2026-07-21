@@ -1,0 +1,80 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-saas/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-saas/SKILL.md",
+      "summary": "Entry-point document for a vendored Claude Code agent skill on building Remotion-based video SaaS apps; links out to framework selection, Player embedding, and rendering-strategy guides, plus pointers for using Remotion with Vue, Angular, and Svelte. This is bundled third-party skill reference material, not versus-engine's own source.",
+      "tags": ["documentation", "external-reference", "vendored", "remotion", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Uses Claude Code agent-skill frontmatter (description/metadata tags) rather than being a typical project README."
+    },
+    {
+      "id": "document:agent/skills/remotion-saas/framework.md",
+      "type": "document",
+      "name": "framework.md",
+      "filePath": "agent/skills/remotion-saas/framework.md",
+      "summary": "Reference list of official Remotion SaaS/video-app starter templates (Next.js App Router with/without Tailwind, Next.js Pages Router, Vercel Sandbox, React Router 7, Express render server) with each template's default rendering backend, to help choose a starting framework for a Remotion app.",
+      "tags": ["documentation", "external-reference", "vendored", "remotion", "templates"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-saas/player.md",
+      "type": "document",
+      "name": "player.md",
+      "filePath": "agent/skills/remotion-saas/player.md",
+      "summary": "Guide for embedding an interactive Remotion video preview in a React app via the `<Player>` component from `@remotion/player`, including a usage code sample and notes on syncing dynamic metadata with Player props.",
+      "tags": ["documentation", "external-reference", "vendored", "remotion", "player"],
+      "complexity": "simple",
+      "languageNotes": "Contains a minimal TSX code sample demonstrating <Player> composition props (component, durationInFrames, compositionWidth/Height, fps, controls)."
+    },
+    {
+      "id": "document:agent/skills/remotion-saas/rendering.md",
+      "type": "document",
+      "name": "rendering.md",
+      "filePath": "agent/skills/remotion-saas/rendering.md",
+      "summary": "Comparison of programmatic Remotion rendering options — plain Node.js SSR, Remotion Lambda, Vercel, GitHub Actions, Azure Container Apps, and Cloudflare Containers — with a detailed step-by-step checklist for setting up Remotion Lambda (IAM roles, credentials, deploying the function and site, quota checks).",
+      "tags": ["documentation", "external-reference", "vendored", "remotion", "rendering", "lambda"],
+      "complexity": "moderate",
+      "languageNotes": "Longest and most structured doc in this skill bundle, with 8 H2/H3 sections including a numbered operational runbook for AWS Lambda setup."
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-saas/SKILL.md",
+      "target": "document:agent/skills/remotion-saas/framework.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-saas/SKILL.md",
+      "target": "document:agent/skills/remotion-saas/player.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-saas/SKILL.md",
+      "target": "document:agent/skills/remotion-saas/rendering.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-saas/player.md",
+      "target": "document:agent/skills/remotion-saas/framework.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-saas/player.md",
+      "target": "document:agent/skills/remotion-saas/rendering.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

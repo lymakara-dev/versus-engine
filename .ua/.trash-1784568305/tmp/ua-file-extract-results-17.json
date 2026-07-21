@@ -1,0 +1,1016 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 20,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 20
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/3d.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 86,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "Using Three.js and React Three Fiber in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Using ThreeCanvas",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "No animations not driven by `useCurrentFrame()`",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Animate using `useCurrentFrame()`",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "Using `<Sequence>` inside `<ThreeCanvas>`",
+          "level": 2,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 281,
+      "nonEmptyLines": 188,
+      "sections": [
+        {
+          "heading": "General rules",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Maps",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Text highlights and annotations",
+          "level": 2,
+          "line": 143
+        },
+        {
+          "heading": "Voiceover",
+          "level": 2,
+          "line": 147
+        },
+        {
+          "heading": "Trimming",
+          "level": 2,
+          "line": 151
+        },
+        {
+          "heading": "Embedding Videos",
+          "level": 2,
+          "line": 155
+        },
+        {
+          "heading": "Video editing",
+          "level": 2,
+          "line": 159
+        },
+        {
+          "heading": "Embedding Audio",
+          "level": 2,
+          "line": 163
+        },
+        {
+          "heading": "Transitions",
+          "level": 2,
+          "line": 167
+        },
+        {
+          "heading": "Visual and pixel effects",
+          "level": 2,
+          "line": 171
+        },
+        {
+          "heading": "3D content",
+          "level": 2,
+          "line": 179
+        },
+        {
+          "heading": "Sound effects",
+          "level": 2,
+          "line": 183
+        },
+        {
+          "heading": "Audio visualization",
+          "level": 2,
+          "line": 187
+        },
+        {
+          "heading": "Captions",
+          "level": 2,
+          "line": 191
+        },
+        {
+          "heading": "Google Fonts",
+          "level": 2,
+          "line": 195
+        },
+        {
+          "heading": "Local fonts",
+          "level": 2,
+          "line": 199
+        },
+        {
+          "heading": "GIFs",
+          "level": 2,
+          "line": 203
+        },
+        {
+          "heading": "Advanced Images",
+          "level": 2,
+          "line": 207
+        },
+        {
+          "heading": "Lottie animations",
+          "level": 2,
+          "line": 211
+        },
+        {
+          "heading": "Advanced timing",
+          "level": 2,
+          "line": 215
+        },
+        {
+          "heading": "Parameterized videos",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "Measuring DOM nodes",
+          "level": 2,
+          "line": 223
+        },
+        {
+          "heading": "Measuring text",
+          "level": 2,
+          "line": 227
+        },
+        {
+          "heading": "Using FFmpeg",
+          "level": 2,
+          "line": 231
+        },
+        {
+          "heading": "Silence detection",
+          "level": 2,
+          "line": 235
+        },
+        {
+          "heading": "Dynamic duration, dimensions and data",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "Advanced compositions",
+          "level": 2,
+          "line": 243
+        },
+        {
+          "heading": "Advanced sequencing",
+          "level": 2,
+          "line": 247
+        },
+        {
+          "heading": "Install modules",
+          "level": 2,
+          "line": 251
+        },
+        {
+          "heading": "Previewing markup",
+          "level": 2,
+          "line": 261
+        },
+        {
+          "heading": "Optional: one-frame render check",
+          "level": 2,
+          "line": 272
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 198,
+      "nonEmptyLines": 156,
+      "sections": [
+        {
+          "heading": "Audio Visualization in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Loading Audio Data",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Spectrum Bar Visualization",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Waveform Visualization",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "Bass-Reactive Effects",
+          "level": 2,
+          "line": 139
+        },
+        {
+          "heading": "Volume-Based Waveform",
+          "level": 2,
+          "line": 161
+        },
+        {
+          "heading": "Postprocessing",
+          "level": 2,
+          "line": 186
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/audio.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 169,
+      "nonEmptyLines": 121,
+      "sections": [
+        {
+          "heading": "Using audio in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Importing Audio",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Trimming",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Delaying",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "Volume",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "Muting",
+          "level": 2,
+          "line": 105
+        },
+        {
+          "heading": "Speed",
+          "level": 2,
+          "line": 121
+        },
+        {
+          "heading": "Looping",
+          "level": 2,
+          "line": 132
+        },
+        {
+          "heading": "Pitch",
+          "level": 2,
+          "line": 154
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 136,
+      "nonEmptyLines": 108,
+      "sections": [
+        {
+          "heading": "Using calculateMetadata",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Setting duration based on a video",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Matching dimensions of a video",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Setting duration based on multiple videos",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Setting a default outName",
+          "level": 2,
+          "line": 89
+        },
+        {
+          "heading": "Transforming props",
+          "level": 2,
+          "line": 103
+        },
+        {
+          "heading": "Return value",
+          "level": 2,
+          "line": 126
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 108,
+      "nonEmptyLines": 86,
+      "sections": [
+        {
+          "heading": "Default Props and scaffold metadata",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Folders",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Stills",
+          "level": 2,
+          "line": 79
+        },
+        {
+          "heading": "Dynamic duration, width, and height",
+          "level": 2,
+          "line": 94
+        },
+        {
+          "heading": "Nesting compositions within another",
+          "level": 2,
+          "line": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 235,
+      "nonEmptyLines": 192,
+      "sections": [
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Custom effects",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 171,
+      "nonEmptyLines": 126,
+      "sections": [
+        {
+          "heading": "Using videos in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Trimming",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "Delaying",
+          "level": 2,
+          "line": 55
+        },
+        {
+          "heading": "Sizing and Position",
+          "level": 2,
+          "line": 74
+        },
+        {
+          "heading": "Volume",
+          "level": 2,
+          "line": 92
+        },
+        {
+          "heading": "Speed",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "Looping",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "Pitch",
+          "level": 2,
+          "line": 156
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 34,
+      "nonEmptyLines": 24,
+      "sections": [
+        {
+          "heading": "FFmpeg in Remotion",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Trimming videos",
+          "level": 3,
+          "line": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 141,
+      "nonEmptyLines": 104,
+      "sections": [
+        {
+          "heading": "Using Animated images in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Basic usage",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Sizing and fit",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Playback speed",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Looping behavior",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "Styling",
+          "level": 2,
+          "line": 73
+        },
+        {
+          "heading": "Getting GIF duration",
+          "level": 2,
+          "line": 91
+        },
+        {
+          "heading": "Alternative",
+          "level": 2,
+          "line": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 72,
+      "nonEmptyLines": 55,
+      "sections": [
+        {
+          "heading": "Using fonts in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Google Fonts with @remotion/google-fonts",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Using in components",
+          "level": 2,
+          "line": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 119,
+      "nonEmptyLines": 89,
+      "sections": [
+        {
+          "heading": "Using `<HtmlInCanvas>` in Remotion",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Nesting",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Enabling WebGL during renders",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Basic usage",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "2D effect with `onPaint`",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "WebGL effects",
+          "level": 2,
+          "line": 90
+        },
+        {
+          "heading": "Async `onPaint`",
+          "level": 2,
+          "line": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/images.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 71,
+      "nonEmptyLines": 53,
+      "sections": [
+        {
+          "heading": "Sizing and positioning",
+          "level": 2,
+          "line": 1
+        },
+        {
+          "heading": "Dynamic image paths",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Getting image dimensions",
+          "level": 2,
+          "line": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 73,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "Light Leaks",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Basic usage with TransitionSeries",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Props",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Customizing the look",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "Standalone usage",
+          "level": 2,
+          "line": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 65,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 3
+        },
+        {
+          "heading": "Loading a local font",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "Loading multiple weights",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Available options",
+          "level": 3,
+          "line": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 70,
+      "nonEmptyLines": 54,
+      "sections": [
+        {
+          "heading": "Using Lottie Animations in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Displaying a Lottie file",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Styling and animating",
+          "level": 2,
+          "line": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 442,
+      "nonEmptyLines": 359,
+      "sections": [
+        {
+          "heading": "Core rules",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Basic map example",
+          "level": 2,
+          "line": 66
+        },
+        {
+          "heading": "Animated flight route example",
+          "level": 2,
+          "line": 125
+        },
+        {
+          "heading": "Camera guidance",
+          "level": 2,
+          "line": 345
+        },
+        {
+          "heading": "Lines",
+          "level": 2,
+          "line": 360
+        },
+        {
+          "heading": "Markers and labels",
+          "level": 2,
+          "line": 379
+        },
+        {
+          "heading": "Styles",
+          "level": 2,
+          "line": 424
+        },
+        {
+          "heading": "Rendering",
+          "level": 2,
+          "line": 434
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 458,
+      "nonEmptyLines": 377,
+      "sections": [
+        {
+          "heading": "Core rules",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Basic map example",
+          "level": 2,
+          "line": 54
+        },
+        {
+          "heading": "Animated flight route example",
+          "level": 2,
+          "line": 106
+        },
+        {
+          "heading": "Camera guidance",
+          "level": 2,
+          "line": 346
+        },
+        {
+          "heading": "Lines",
+          "level": 2,
+          "line": 376
+        },
+        {
+          "heading": "Markers and labels",
+          "level": 2,
+          "line": 395
+        },
+        {
+          "heading": "Styles",
+          "level": 2,
+          "line": 440
+        },
+        {
+          "heading": "Rendering",
+          "level": 2,
+          "line": 450
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 34,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "Measuring DOM nodes in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Measuring element dimensions",
+          "level": 2,
+          "line": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "summary": "Top-level index for the vendored 'remotion-saas' Claude Code agent skill, linking out to framework, Player, and rendering guidance plus Vue/Angular/Svelte docs for building Remotion-based apps.",
+      "tags": ["documentation", "entry-point", "remotion", "external-reference", "skill-index"],
+      "complexity": "simple",
+      "languageNotes": "This is bundled third-party agent-skill documentation (installed under agent/skills/remotion-best-practices/), not part of versus-engine's own source tree."
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-saas/framework.md",
+      "type": "document",
+      "name": "framework.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-saas/framework.md",
+      "summary": "Lists official Remotion starter templates (Next.js App/Pages Router, Vercel Sandbox, React Router 7, Express render server) to help choose a framework for a Remotion SaaS app.",
+      "tags": ["documentation", "remotion", "templates", "external-reference", "nextjs"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "type": "document",
+      "name": "player.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "summary": "Explains how to embed a Remotion preview in a React app using `@remotion/player`, with a minimal usage example and notes on dynamic metadata syncing.",
+      "tags": ["documentation", "remotion", "player", "react", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "type": "document",
+      "name": "rendering.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "summary": "Advice on programmatic server-side rendering options for Remotion (plain Node.js APIs, Remotion Lambda with a detailed setup checklist, Vercel, GitHub Actions, Azure Container Apps, Cloudflare Containers).",
+      "tags": ["documentation", "remotion", "ssr", "deployment", "external-reference"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-saas/framework.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-saas/framework.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-best-practices/SKILL.md",
+      "summary": "Top-level entry point for the bundled Remotion best-practices agent skill, indexing sub-guides for project setup, React Markup, Mediabunny, interactivity, rendering, captions, SaaS patterns, docs lookup, and upgrading. Vendored reference material, not part of versus-engine's own source.",
+      "tags": ["documentation", "vendored", "remotion", "skill-index", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "summary": "Reference guide explaining how to search and fetch Remotion's official documentation pages as Markdown, plus a recommended workflow for consulting docs while coding. Bundled third-party skill content.",
+      "tags": ["documentation", "vendored", "remotion", "reference", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "summary": "Reference notes on writing Remotion animations that stay intuitive for agents and editable in Remotion Studio's Visual Mode, covering video-editing-style interactivity patterns.",
+      "tags": ["documentation", "vendored", "remotion", "interactivity", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "summary": "Reference guide covering general Remotion rendering strategy and an overview of transparent-video output options.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "type": "document",
+      "name": "transparent-videos.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "summary": "Detailed guide for rendering transparent videos in Remotion using ProRes and WebM (VP9) codecs, including the relevant CLI flags and encoder settings.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "video-codecs"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "summary": "Reference guide for upgrading a project's Remotion version and related packages.",
+      "tags": ["documentation", "vendored", "remotion", "upgrade-guide", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-docs/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-docs/SKILL.md",
+      "summary": "Standalone Claude Code skill definition for searching and fetching Remotion documentation pages as Markdown, duplicating the reference content bundled under remotion-best-practices.",
+      "tags": ["documentation", "vendored", "remotion", "skill-definition", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-interactivity/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-interactivity/SKILL.md",
+      "summary": "Standalone skill definition for writing Remotion animations that remain agent-friendly and editable in Visual Mode.",
+      "tags": ["documentation", "vendored", "remotion", "interactivity", "skill-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-render/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-render/SKILL.md",
+      "summary": "Standalone skill definition covering Remotion's general rendering strategy and a transparent-video overview.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "skill-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-render/transparent-videos.md",
+      "type": "document",
+      "name": "transparent-videos.md",
+      "filePath": ".agents/skills/remotion-render/transparent-videos.md",
+      "summary": "Standalone copy of the transparent-video rendering guide (ProRes and WebM/VP9) for the remotion-render skill.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "video-codecs"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-upgrade/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-upgrade/SKILL.md",
+      "summary": "Standalone skill definition for upgrading Remotion and its related packages.",
+      "tags": ["documentation", "vendored", "remotion", "upgrade-guide", "skill-definition"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".ua/.understandignore",
+      "summary": "Ignore-pattern configuration for the Understand-Anything analysis tool itself, listing generated/output directories (build artifacts, .next cache, Prisma generated client, narration assets) and optional test-file patterns to exclude from codebase scanning. Tooling configuration, not part of versus-engine's runtime.",
+      "tags": ["configuration", "tooling", "ignore-patterns", "analysis-tool"],
+      "complexity": "simple",
+      "languageNotes": "Uses gitignore-style glob syntax with commented-out suggestions the user can uncomment to activate."
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-best-practices/SKILL.md",
+      "summary": "Mirror copy of the Remotion best-practices skill index under the agent/skills tree instead of .agents/skills, indexing the same sub-guides for setup, interactivity, rendering, captions, and upgrading. Vendored duplicate maintained for a second agent-tooling integration path.",
+      "tags": ["documentation", "vendored", "remotion", "skill-index", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "summary": "Mirror copy of the Remotion docs-lookup reference guide under the agent/skills tree, duplicating the .agents/skills version.",
+      "tags": ["documentation", "vendored", "remotion", "reference", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "summary": "Mirror copy of the Remotion interactivity reference guide under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "interactivity", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "summary": "Mirror copy of the Remotion rendering-strategy reference guide under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "type": "document",
+      "name": "transparent-videos.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "summary": "Mirror copy of the transparent-video (ProRes/WebM) rendering guide under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "video-codecs", "duplicate"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "summary": "Mirror copy of the Remotion upgrade reference guide under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "upgrade-guide", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-docs/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-docs/SKILL.md",
+      "summary": "Mirror copy of the standalone Remotion docs-lookup skill definition, duplicated under agent/skills for the second agent-tooling integration.",
+      "tags": ["documentation", "vendored", "remotion", "skill-definition", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-interactivity/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-interactivity/SKILL.md",
+      "summary": "Mirror copy of the standalone Remotion interactivity skill definition under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "interactivity", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-render/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-render/SKILL.md",
+      "summary": "Mirror copy of the standalone Remotion rendering-strategy skill definition under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "rendering", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-render/transparent-videos.md",
+      "type": "document",
+      "name": "transparent-videos.md",
+      "filePath": "agent/skills/remotion-render/transparent-videos.md",
+      "summary": "Mirror copy of the transparent-video rendering guide for the standalone remotion-render skill under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "video-codecs", "duplicate"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-upgrade/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-upgrade/SKILL.md",
+      "summary": "Mirror copy of the standalone Remotion upgrade skill definition under agent/skills.",
+      "tags": ["documentation", "vendored", "remotion", "upgrade-guide", "duplicate"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "type": "file",
+      "name": "route.ts",
+      "filePath": "apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "summary": "Next.js dynamic API route that returns the current status, progress, output URL, thumbnail URLs, and error message for a single render job by id, used by the dashboard to poll render progress.",
+      "tags": ["api-handler", "nextjs", "render-jobs", "status-polling", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/api/render-jobs/[id]/route.ts:GET",
+      "type": "function",
+      "name": "GET",
+      "filePath": "apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "lineRange": [4, 17],
+      "summary": "Async GET handler that looks up a RenderJob by id via Prisma, returning a 404 JSON error when the job is missing or a JSON payload with status, progress, outputUrl, thumbnailUrls, and error otherwise.",
+      "tags": ["api-handler", "prisma", "render-jobs", "status-polling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/comparisons/new/actions.ts",
+      "type": "file",
+      "name": "actions.ts",
+      "filePath": "apps/dashboard/app/comparisons/new/actions.ts",
+      "summary": "Next.js Server Action module exposing createComparison, the mutation invoked by the new-comparison form to validate selected product ids, optionally attach an Anthropic client for AI-assisted narration, build and persist the comparison, then redirect to its detail page.",
+      "tags": ["server-action", "nextjs", "comparison", "form-handler", "anthropic"],
+      "complexity": "simple",
+      "languageNotes": "The \"use server\" directive marks this module's exports as Next.js Server Actions, callable directly from a <form action={createComparison}> without a separate API route."
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/new/actions.ts:createComparison",
+      "type": "function",
+      "name": "createComparison",
+      "filePath": "apps/dashboard/app/comparisons/new/actions.ts",
+      "lineRange": [7, 17],
+      "summary": "Validates that at least two product ids were selected, builds an optional Anthropic client from ANTHROPIC_API_KEY, delegates comparison construction and persistence to buildAndSaveComparison, then redirects to the newly created comparison's page.",
+      "tags": ["server-action", "validation", "comparison", "anthropic"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "target": "function:apps/dashboard/app/api/render-jobs/[id]/route.ts:GET",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "target": "function:apps/dashboard/app/api/render-jobs/[id]/route.ts:GET",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/new/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/new/actions.ts:createComparison",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/new/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/new/actions.ts:createComparison",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "target": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-docs/SKILL.md",
+      "target": "document:agent/skills/remotion-docs/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-interactivity/SKILL.md",
+      "target": "document:agent/skills/remotion-interactivity/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-render/SKILL.md",
+      "target": "document:agent/skills/remotion-render/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-render/transparent-videos.md",
+      "target": "document:agent/skills/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-upgrade/SKILL.md",
+      "target": "document:agent/skills/remotion-upgrade/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-docs/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-interactivity/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-render/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "target": "document:.agents/skills/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-upgrade/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "target": "document:agent/skills/remotion-docs/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "target": "document:agent/skills/remotion-interactivity/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "target": "document:agent/skills/remotion-render/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "target": "document:agent/skills/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "target": "document:agent/skills/remotion-upgrade/SKILL.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/SKILL.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/SKILL.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

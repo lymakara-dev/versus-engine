@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-captions/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-captions/SKILL.md",
+      "summary": "Entry-point skill document for handling captions in Remotion: defines the shared `Caption` JSON type and routes readers to sub-guides for generating, displaying, and importing captions. This is vendored Claude Code agent-skill reference documentation, not part of Versus Engine's own application source.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-captions/display-captions.md",
+      "type": "document",
+      "name": "display-captions.md",
+      "filePath": "agent/skills/remotion-captions/display-captions.md",
+      "summary": "Reference guide explaining how to fetch, paginate, and render `Caption` arrays in a Remotion composition, covering `<Sequence>`-based rendering, white-space preservation, per-word highlighting, and overlaying captions on top of video content. Vendored external skill documentation for the Remotion captions package.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "ui-rendering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-captions/import-srt-captions.md",
+      "type": "document",
+      "name": "import-srt-captions.md",
+      "filePath": "agent/skills/remotion-captions/import-srt-captions.md",
+      "summary": "Reference guide for importing existing `.srt` subtitle files into a Remotion project using `parseSrt()` from `@remotion/captions`, including fetching the file via `staticFile()` or a remote URL. Vendored external skill documentation, not Versus Engine application code.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "srt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-captions/transcribe-captions.md",
+      "type": "document",
+      "name": "transcribe-captions.md",
+      "filePath": "agent/skills/remotion-captions/transcribe-captions.md",
+      "summary": "Reference guide for transcribing audio or video into captions using Whisper.cpp via the `@remotion/install-whisper-cpp` package, showing how to download the model, run transcription, and write the resulting caption JSON for use in Remotion. Vendored external skill documentation.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "transcription"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-captions/SKILL.md",
+      "target": "document:agent/skills/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-captions/SKILL.md",
+      "target": "document:agent/skills/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-captions/SKILL.md",
+      "target": "document:agent/skills/remotion-captions/import-srt-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-captions/import-srt-captions.md",
+      "target": "document:agent/skills/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-captions/transcribe-captions.md",
+      "target": "document:agent/skills/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

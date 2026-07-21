@@ -1,0 +1,1318 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 12,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 12,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 12,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/workers/src/cli/analytics-sync.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 209,
+      "nonEmptyLines": 188,
+      "functions": [
+        {
+          "name": "isoDate",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "findColumnIndex",
+          "startLine": 21,
+          "endLine": 25,
+          "params": [
+            "columnHeaders",
+            "name"
+          ]
+        },
+        {
+          "name": "fetchHeadlineStats",
+          "startLine": 27,
+          "endLine": 50,
+          "params": [
+            "videoId",
+            "startDate",
+            "endDate"
+          ]
+        },
+        {
+          "name": "fetchImpressionStats",
+          "startLine": 53,
+          "endLine": 80,
+          "params": [
+            "videoId",
+            "startDate",
+            "endDate"
+          ]
+        },
+        {
+          "name": "fetchRetentionCurve",
+          "startLine": 82,
+          "endLine": 101,
+          "params": [
+            "videoId",
+            "startDate",
+            "endDate"
+          ]
+        },
+        {
+          "name": "syncUpload",
+          "startLine": 103,
+          "endLine": 171,
+          "params": [
+            "upload"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 173,
+          "endLine": 200,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isoDate",
+          "callee": "date.toISOString().slice",
+          "lineNumber": 18
+        },
+        {
+          "caller": "isoDate",
+          "callee": "date.toISOString",
+          "lineNumber": 18
+        },
+        {
+          "caller": "findColumnIndex",
+          "callee": "columnHeaders.findIndex",
+          "lineNumber": 22
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "getYoutubeAnalyticsClient",
+          "lineNumber": 32
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "analytics.reports.query",
+          "lineNumber": 33
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "Number",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "findColumnIndex",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "Number",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "findColumnIndex",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "Number",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fetchHeadlineStats",
+          "callee": "findColumnIndex",
+          "lineNumber": 48
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "getYoutubeAnalyticsClient",
+          "lineNumber": 59
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "analytics.reports.query",
+          "lineNumber": 60
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "Number",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "findColumnIndex",
+          "lineNumber": 71
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "Number",
+          "lineNumber": 72
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "findColumnIndex",
+          "lineNumber": 72
+        },
+        {
+          "caller": "fetchImpressionStats",
+          "callee": "console.warn",
+          "lineNumber": 75
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "getYoutubeAnalyticsClient",
+          "lineNumber": 83
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "analytics.reports.query",
+          "lineNumber": 84
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "findColumnIndex",
+          "lineNumber": 94
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "findColumnIndex",
+          "lineNumber": 95
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "(response.data.rows ?? []).map",
+          "lineNumber": 97
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "Number",
+          "lineNumber": 98
+        },
+        {
+          "caller": "fetchRetentionCurve",
+          "callee": "Number",
+          "lineNumber": 99
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "prisma.comparison.findUniqueOrThrow",
+          "lineNumber": 109
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "console.warn",
+          "lineNumber": 111
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "parseVideoInput",
+          "lineNumber": 114
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "isoDate",
+          "lineNumber": 116
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "isoDate",
+          "lineNumber": 117
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "Promise.all",
+          "lineNumber": 119
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "fetchHeadlineStats",
+          "lineNumber": 120
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "fetchImpressionStats",
+          "lineNumber": 121
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "fetchRetentionCurve",
+          "lineNumber": 122
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "prisma.videoAnalytics.upsert",
+          "lineNumber": 125
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "computeTotalDurationSec",
+          "lineNumber": 147
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "computeRoundTimeRangesSec",
+          "lineNumber": 148
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "computeRoundRetention",
+          "lineNumber": 149
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "prisma.$transaction",
+          "lineNumber": 151
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "prisma.roundRetention.deleteMany",
+          "lineNumber": 152
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "prisma.roundRetention.createMany",
+          "lineNumber": 153
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "roundRetention.map",
+          "lineNumber": 154
+        },
+        {
+          "caller": "syncUpload",
+          "callee": "console.log",
+          "lineNumber": 168
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.upload.findMany",
+          "lineNumber": 174
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 184
+        },
+        {
+          "caller": "main",
+          "callee": "syncUpload",
+          "lineNumber": 189
+        },
+        {
+          "caller": "main",
+          "callee": "console.error",
+          "lineNumber": 192
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 196
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/lambda-deploy-function.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 13,
+          "endLine": 26,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "getLambdaRegion",
+          "lineNumber": 14
+        },
+        {
+          "caller": "main",
+          "callee": "deployFunction",
+          "lineNumber": 15
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 24
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/lambda-deploy-site.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 38,
+      "nonEmptyLines": 33,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 33,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "getLambdaRegion",
+          "lineNumber": 20
+        },
+        {
+          "caller": "main",
+          "callee": "getOrCreateBucket",
+          "lineNumber": 21
+        },
+        {
+          "caller": "main",
+          "callee": "deploySite",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 30
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/worker.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "shutdown",
+          "startLine": 10,
+          "endLine": 13,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "shutdown",
+          "callee": "Promise.all",
+          "lineNumber": 11
+        },
+        {
+          "caller": "shutdown",
+          "callee": "renderWorker.close",
+          "lineNumber": 11
+        },
+        {
+          "caller": "shutdown",
+          "callee": "publishWorker.close",
+          "lineNumber": 11
+        },
+        {
+          "caller": "shutdown",
+          "callee": "process.exit",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/lambda-config.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "requireEnv",
+          "startLine": 11,
+          "endLine": 17,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "isLambdaRenderTarget",
+          "startLine": 19,
+          "endLine": 21,
+          "params": []
+        },
+        {
+          "name": "getLambdaRegion",
+          "startLine": 23,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "getLambdaRenderConfig",
+          "startLine": 38,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "isLambdaRenderTarget",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "getLambdaRegion",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "getLambdaRenderConfig",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getLambdaRegion",
+          "callee": "(getRegions() as readonly string[]).includes",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getLambdaRegion",
+          "callee": "getRegions",
+          "lineNumber": 25
+        },
+        {
+          "caller": "getLambdaRenderConfig",
+          "callee": "getLambdaRegion",
+          "lineNumber": 40
+        },
+        {
+          "caller": "getLambdaRenderConfig",
+          "callee": "requireEnv",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getLambdaRenderConfig",
+          "callee": "requireEnv",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/publish-queue-client.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "getPublishQueue",
+          "startLine": 9,
+          "endLine": 13,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getPublishQueue",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/retention-correlation.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 47,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/retention-correlation.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 65,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "retentionAtRatio",
+          "startLine": 15,
+          "endLine": 33,
+          "params": [
+            "curve",
+            "ratio"
+          ]
+        },
+        {
+          "name": "computeRoundRetention",
+          "startLine": 44,
+          "endLine": 65,
+          "params": [
+            "curve",
+            "totalDurationSec",
+            "rounds",
+            "roundRanges"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "retentionAtRatio",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "computeRoundRetention",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "retentionAtRatio",
+          "callee": "[...curve].sort",
+          "lineNumber": 17
+        },
+        {
+          "caller": "computeRoundRetention",
+          "callee": "rounds.map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "computeRoundRetention",
+          "callee": "retentionAtRatio",
+          "lineNumber": 54
+        },
+        {
+          "caller": "computeRoundRetention",
+          "callee": "retentionAtRatio",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/youtube-analytics-client.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 14,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "getYoutubeAnalyticsClient",
+          "startLine": 10,
+          "endLine": 14,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getYoutubeAnalyticsClient",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getYoutubeAnalyticsClient",
+          "callee": "getOAuthClient",
+          "lineNumber": 11
+        },
+        {
+          "caller": "getYoutubeAnalyticsClient",
+          "callee": "oauth2Client.setCredentials",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getYoutubeAnalyticsClient",
+          "callee": "requireEnv",
+          "lineNumber": 12
+        },
+        {
+          "caller": "getYoutubeAnalyticsClient",
+          "callee": "google.youtubeAnalytics",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/youtube-client.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 25,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "requireEnv",
+          "startLine": 3,
+          "endLine": 9,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "getOAuthClient",
+          "startLine": 12,
+          "endLine": 18,
+          "params": []
+        },
+        {
+          "name": "getYoutubeClient",
+          "startLine": 21,
+          "endLine": 25,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "requireEnv",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "getOAuthClient",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "getYoutubeClient",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getOAuthClient",
+          "callee": "requireEnv",
+          "lineNumber": 14
+        },
+        {
+          "caller": "getOAuthClient",
+          "callee": "requireEnv",
+          "lineNumber": 15
+        },
+        {
+          "caller": "getOAuthClient",
+          "callee": "requireEnv",
+          "lineNumber": 16
+        },
+        {
+          "caller": "getYoutubeClient",
+          "callee": "getOAuthClient",
+          "lineNumber": 22
+        },
+        {
+          "caller": "getYoutubeClient",
+          "callee": "oauth2Client.setCredentials",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getYoutubeClient",
+          "callee": "requireEnv",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getYoutubeClient",
+          "callee": "google.youtube",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/workers/publish-worker.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 126,
+      "nonEmptyLines": 111,
+      "functions": [
+        {
+          "name": "readableFor",
+          "startLine": 24,
+          "endLine": 33,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "processPublishJob",
+          "startLine": 35,
+          "endLine": 95,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "startPublishWorker",
+          "startLine": 97,
+          "endLine": 126,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "startPublishWorker",
+          "line": 97,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "readableFor",
+          "callee": "source.startsWith",
+          "lineNumber": 25
+        },
+        {
+          "caller": "readableFor",
+          "callee": "source.startsWith",
+          "lineNumber": 25
+        },
+        {
+          "caller": "readableFor",
+          "callee": "createReadStream",
+          "lineNumber": 26
+        },
+        {
+          "caller": "readableFor",
+          "callee": "fetch",
+          "lineNumber": 28
+        },
+        {
+          "caller": "readableFor",
+          "callee": "Readable.fromWeb",
+          "lineNumber": 32
+        },
+        {
+          "caller": "readableFor",
+          "callee": "import",
+          "lineNumber": 32
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.upload.findUniqueOrThrow",
+          "lineNumber": 38
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.upload.update",
+          "lineNumber": 41
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.upload.update",
+          "lineNumber": 46
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.comparison.findUniqueOrThrow",
+          "lineNumber": 48
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.renderJob.findFirst",
+          "lineNumber": 49
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "getYoutubeClient",
+          "lineNumber": 57
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "scheduledAt.getTime",
+          "lineNumber": 59
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "Date.now",
+          "lineNumber": 59
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "youtube.videos.insert",
+          "lineNumber": 61
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "scheduledAt.toISOString",
+          "lineNumber": 72
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "readableFor",
+          "lineNumber": 76
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "youtube.thumbnails.set",
+          "lineNumber": 88
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "readableFor",
+          "lineNumber": 88
+        },
+        {
+          "caller": "processPublishJob",
+          "callee": "prisma.upload.update",
+          "lineNumber": 91
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "publishJobPayloadSchema.parse",
+          "lineNumber": 105
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "processPublishJob",
+          "lineNumber": 107
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "prisma.upload.update",
+          "lineNumber": 109
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "String",
+          "lineNumber": 113
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "worker.on",
+          "lineNumber": 122
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "console.log",
+          "lineNumber": 122
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "worker.on",
+          "lineNumber": 123
+        },
+        {
+          "caller": "startPublishWorker",
+          "callee": "console.error",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/workers/render-worker.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 256,
+      "nonEmptyLines": 230,
+      "functions": [
+        {
+          "name": "getBundleLocation",
+          "startLine": 43,
+          "endLine": 64,
+          "params": []
+        },
+        {
+          "name": "renderLocally",
+          "startLine": 66,
+          "endLine": 113,
+          "params": [
+            "renderJobId",
+            "comparisonSlug",
+            "composition",
+            "inputProps"
+          ]
+        },
+        {
+          "name": "renderOnLambda",
+          "startLine": 121,
+          "endLine": 173,
+          "params": [
+            "renderJobId",
+            "composition",
+            "inputProps"
+          ]
+        },
+        {
+          "name": "processRenderJob",
+          "startLine": 175,
+          "endLine": 205,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "enqueuePendingPublish",
+          "startLine": 214,
+          "endLine": 224,
+          "params": [
+            "comparisonId"
+          ]
+        },
+        {
+          "name": "startRenderWorker",
+          "startLine": 226,
+          "endLine": 256,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "startRenderWorker",
+          "line": 226,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getBundleLocation",
+          "callee": "bundle",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getBundleLocation",
+          "callee": "path.resolve",
+          "lineNumber": 48
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "getBundleLocation",
+          "lineNumber": 72
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "selectComposition",
+          "lineNumber": 73
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "mkdir",
+          "lineNumber": 75
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "path.join",
+          "lineNumber": 76
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "renderMedia",
+          "lineNumber": 79
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "Date.now",
+          "lineNumber": 87
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "prisma.renderJob.update({ where: { id: renderJobId }, data: { progress } }).catch",
+          "lineNumber": 90
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "prisma.renderJob.update",
+          "lineNumber": 90
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "THUMBNAIL_COMPOSITION_IDS.entries",
+          "lineNumber": 95
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "selectComposition",
+          "lineNumber": 96
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "String.fromCharCode",
+          "lineNumber": 101
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "path.join",
+          "lineNumber": 102
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "renderStill",
+          "lineNumber": 103
+        },
+        {
+          "caller": "renderLocally",
+          "callee": "thumbnailUrls.push",
+          "lineNumber": 109
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "getLambdaRenderConfig",
+          "lineNumber": 126
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "renderMediaOnLambda",
+          "lineNumber": 128
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "setTimeout",
+          "lineNumber": 142
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "getRenderProgress",
+          "lineNumber": 143
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "progress.errors.map((e) => e.message).join",
+          "lineNumber": 146
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "progress.errors.map",
+          "lineNumber": 146
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "prisma.renderJob.update",
+          "lineNumber": 149
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "renderStillOnLambda",
+          "lineNumber": 160
+        },
+        {
+          "caller": "renderOnLambda",
+          "callee": "thumbnailUrls.push",
+          "lineNumber": 169
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "prisma.renderJob.update",
+          "lineNumber": 178
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "prisma.comparison.findUniqueOrThrow",
+          "lineNumber": 183
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "isLambdaRenderTarget",
+          "lineNumber": 189
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "renderOnLambda",
+          "lineNumber": 190
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "renderLocally",
+          "lineNumber": 191
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "prisma.renderJob.update",
+          "lineNumber": 193
+        },
+        {
+          "caller": "processRenderJob",
+          "callee": "enqueuePendingPublish",
+          "lineNumber": 204
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "prisma.upload.findFirst",
+          "lineNumber": 215
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "Math.max",
+          "lineNumber": 221
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "upload.scheduledAt.getTime",
+          "lineNumber": 221
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "Date.now",
+          "lineNumber": 221
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "publishJobPayloadSchema.parse",
+          "lineNumber": 222
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "getPublishQueue().add",
+          "lineNumber": 223
+        },
+        {
+          "caller": "enqueuePendingPublish",
+          "callee": "getPublishQueue",
+          "lineNumber": 223
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "renderJobPayloadSchema.parse",
+          "lineNumber": 234
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "processRenderJob",
+          "lineNumber": 236
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "prisma.renderJob.update",
+          "lineNumber": 238
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "String",
+          "lineNumber": 242
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "worker.on",
+          "lineNumber": 252
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "console.log",
+          "lineNumber": 252
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "worker.on",
+          "lineNumber": 253
+        },
+        {
+          "caller": "startRenderWorker",
+          "callee": "console.error",
+          "lineNumber": 253
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,362 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "queueRender",
+          "startLine": 14,
+          "endLine": 47,
+          "params": [
+            "comparisonId"
+          ]
+        },
+        {
+          "name": "setThumbnailVariant",
+          "startLine": 50,
+          "endLine": 56,
+          "params": [
+            "comparisonId",
+            "uploadId",
+            "variant"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "queueRender",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "setThumbnailVariant",
+          "line": 50,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "queueRender",
+          "callee": "prisma.comparison.findUniqueOrThrow",
+          "lineNumber": 15
+        },
+        {
+          "caller": "queueRender",
+          "callee": "prisma.renderJob.findFirst",
+          "lineNumber": 20
+        },
+        {
+          "caller": "queueRender",
+          "callee": "revalidatePath",
+          "lineNumber": 30
+        },
+        {
+          "caller": "queueRender",
+          "callee": "prisma.renderJob.create",
+          "lineNumber": 34
+        },
+        {
+          "caller": "queueRender",
+          "callee": "renderJobPayloadSchema.parse",
+          "lineNumber": 38
+        },
+        {
+          "caller": "queueRender",
+          "callee": "getRenderQueue().add",
+          "lineNumber": 43
+        },
+        {
+          "caller": "queueRender",
+          "callee": "getRenderQueue",
+          "lineNumber": 43
+        },
+        {
+          "caller": "queueRender",
+          "callee": "revalidatePath",
+          "lineNumber": 45
+        },
+        {
+          "caller": "setThumbnailVariant",
+          "callee": "prisma.upload.update",
+          "lineNumber": 51
+        },
+        {
+          "caller": "setThumbnailVariant",
+          "callee": "revalidatePath",
+          "lineNumber": 55
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/[id]/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "ComparisonDetailPage",
+          "startLine": 8,
+          "endLine": 111,
+          "params": [
+            "{ params }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ComparisonDetailPage",
+          "line": 8,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "prisma.comparison.findUnique",
+          "lineNumber": 11
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "notFound",
+          "lineNumber": 21
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "parseVideoInput",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "comparison.contenders.map((c) => c.product.name).join",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "comparison.contenders.map",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "comparison.tags.map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "queueRender",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "latestRenderJob.thumbnailUrls.map",
+          "lineNumber": 84
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "setThumbnailVariant",
+          "lineNumber": 89
+        },
+        {
+          "caller": "ComparisonDetailPage",
+          "callee": "String.fromCharCode",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/dashboard/components/PreviewPlayer.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "PreviewPlayer",
+          "startLine": 6,
+          "endLine": 19,
+          "params": [
+            "{ videoInput }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PreviewPlayer",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PreviewPlayer",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 11
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/dashboard/components/RenderStatus.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "RenderStatus",
+          "startLine": 15,
+          "endLine": 58,
+          "params": [
+            "{ renderJobId, initial }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RenderStatus",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RenderStatus",
+          "callee": "useState",
+          "lineNumber": 16
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "useEffect",
+          "lineNumber": 18
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "setInterval",
+          "lineNumber": 21
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "fetch",
+          "lineNumber": 22
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "setState",
+          "lineNumber": 23
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "res.json",
+          "lineNumber": 23
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "clearInterval",
+          "lineNumber": 26
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "Math.round",
+          "lineNumber": 35
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "Math.round",
+          "lineNumber": 40
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "state.thumbnailUrls.map",
+          "lineNumber": 48
+        },
+        {
+          "caller": "RenderStatus",
+          "callee": "String.fromCharCode",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/dashboard/lib/queue.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "getConnection",
+          "startLine": 10,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "getRenderQueue",
+          "startLine": 17,
+          "endLine": 20,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRenderQueue",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getRenderQueue",
+          "callee": "getConnection",
+          "lineNumber": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

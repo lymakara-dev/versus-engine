@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-markup/measuring-text.md",
+      "type": "document",
+      "name": "measuring-text.md",
+      "filePath": ".agents/skills/remotion-markup/measuring-text.md",
+      "summary": "Vendored Remotion agent-skill reference doc explaining how to measure text dimensions, fit text to a target width, and detect text overflow inside a Remotion composition.",
+      "tags": ["documentation", "reference-doc", "remotion", "text-measurement", "vendored"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/parameters.md",
+      "type": "document",
+      "name": "parameters.md",
+      "filePath": ".agents/skills/remotion-markup/parameters.md",
+      "summary": "Vendored Remotion agent-skill reference doc covering Studio-editable input parameters and controls, including a color-picker parameter example.",
+      "tags": ["documentation", "reference-doc", "remotion", "studio-parameters", "vendored"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/sequencing.md",
+      "type": "document",
+      "name": "sequencing.md",
+      "filePath": ".agents/skills/remotion-markup/sequencing.md",
+      "summary": "Vendored Remotion agent-skill reference doc on sequencing primitives — premounting, Series with and without overlaps, frame references inside sequences, and nesting sequences or compositions.",
+      "tags": ["documentation", "reference-doc", "remotion", "sequencing", "vendored"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/sfx.md",
+      "type": "document",
+      "name": "sfx.md",
+      "filePath": ".agents/skills/remotion-markup/sfx.md",
+      "summary": "Vendored Remotion agent-skill reference doc with a short guide for placing sound-effect cues in a composition.",
+      "tags": ["documentation", "reference-doc", "remotion", "sound-effects", "vendored"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/silence-detection.md",
+      "type": "document",
+      "name": "silence-detection.md",
+      "filePath": ".agents/skills/remotion-markup/silence-detection.md",
+      "summary": "Vendored Remotion agent-skill reference doc describing adaptive silence detection with ffmpeg's loudnorm and silencedetect filters, and applying results to Remotion's Video component.",
+      "tags": ["documentation", "reference-doc", "remotion", "audio-processing", "vendored"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/text-highlights.md",
+      "type": "document",
+      "name": "text-highlights.md",
+      "filePath": ".agents/skills/remotion-markup/text-highlights.md",
+      "summary": "Vendored Remotion agent-skill reference doc explaining how to implement animated text highlight styling in a composition.",
+      "tags": ["documentation", "reference-doc", "remotion", "text-styling", "vendored"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/timing.md",
+      "type": "document",
+      "name": "timing.md",
+      "filePath": ".agents/skills/remotion-markup/timing.md",
+      "summary": "Vendored Remotion agent-skill reference doc on Studio-editable animation patterns, Bézier easing curves, enter/exit easing direction, and composing multiple interpolations.",
+      "tags": ["documentation", "reference-doc", "remotion", "animation-timing", "vendored"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/transitions.md",
+      "type": "document",
+      "name": "transitions.md",
+      "filePath": ".agents/skills/remotion-markup/transitions.md",
+      "summary": "Vendored Remotion agent-skill reference doc covering TransitionSeries usage, transition and overlay examples, available transition types, timing options, and total composition duration calculation.",
+      "tags": ["documentation", "reference-doc", "remotion", "transitions", "vendored"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/trimming.md",
+      "type": "document",
+      "name": "trimming.md",
+      "filePath": ".agents/skills/remotion-markup/trimming.md",
+      "summary": "Vendored Remotion agent-skill reference doc showing how to trim the beginning, end, or beginning-plus-delay of a media clip.",
+      "tags": ["documentation", "reference-doc", "remotion", "clip-trimming", "vendored"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/video-editing.md",
+      "type": "document",
+      "name": "video-editing.md",
+      "filePath": ".agents/skills/remotion-markup/video-editing.md",
+      "summary": "Vendored Remotion agent-skill reference doc explaining independently positioned clips and ripple editing patterns built with TransitionSeries.",
+      "tags": ["documentation", "reference-doc", "remotion", "video-editing", "vendored"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-markup/voiceover.md",
+      "type": "document",
+      "name": "voiceover.md",
+      "filePath": ".agents/skills/remotion-markup/voiceover.md",
+      "summary": "Vendored Remotion agent-skill reference doc on adding AI-generated voiceover via ElevenLabs, computing dynamic composition duration with calculateMetadata, and delaying audio start.",
+      "tags": ["documentation", "reference-doc", "remotion", "voiceover", "vendored"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-markup/trimming.md",
+      "target": "document:.agents/skills/remotion-markup/video-editing.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/video-editing.md",
+      "target": "document:.agents/skills/remotion-markup/transitions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/sequencing.md",
+      "target": "document:.agents/skills/remotion-markup/transitions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/timing.md",
+      "target": "document:.agents/skills/remotion-markup/sequencing.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/sfx.md",
+      "target": "document:.agents/skills/remotion-markup/voiceover.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/silence-detection.md",
+      "target": "document:.agents/skills/remotion-markup/voiceover.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/measuring-text.md",
+      "target": "document:.agents/skills/remotion-markup/text-highlights.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-markup/parameters.md",
+      "target": "document:.agents/skills/remotion-markup/timing.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

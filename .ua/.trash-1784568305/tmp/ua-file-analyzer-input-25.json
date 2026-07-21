@@ -1,0 +1,29 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": ".env.example", "language": "config", "sizeLines": 41, "fileCategory": "config"},
+    {"path": "CLAUDE.md", "language": "markdown", "sizeLines": 53, "fileCategory": "docs"},
+    {"path": "GETTING_STARTED.md", "language": "markdown", "sizeLines": 32, "fileCategory": "docs"},
+    {"path": "PROJECT_PLAN.md", "language": "markdown", "sizeLines": 204, "fileCategory": "docs"},
+    {"path": "README.md", "language": "markdown", "sizeLines": 189, "fileCategory": "docs"},
+    {"path": "docker-compose.yml", "language": "yaml", "sizeLines": 53, "fileCategory": "infra"},
+    {"path": "package.json", "language": "json", "sizeLines": 33, "fileCategory": "config"},
+    {"path": "pnpm-workspace.yaml", "language": "yaml", "sizeLines": 3, "fileCategory": "config"},
+    {"path": "skills-lock.json", "language": "json", "sizeLines": 65, "fileCategory": "config"},
+    {"path": "tsconfig.base.json", "language": "json", "sizeLines": 17, "fileCategory": "config"},
+    {"path": "turbo.json", "language": "json", "sizeLines": 26, "fileCategory": "config"}
+  ],
+  "batchImportData": {
+    ".env.example": [],
+    "CLAUDE.md": [],
+    "GETTING_STARTED.md": [],
+    "PROJECT_PLAN.md": [],
+    "README.md": [],
+    "docker-compose.yml": [],
+    "package.json": [],
+    "pnpm-workspace.yaml": [],
+    "skills-lock.json": [],
+    "tsconfig.base.json": [],
+    "turbo.json": []
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-markup/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-markup/SKILL.md",
+      "summary": "Entry-point skill file for a vendored Claude Code agent skill on Remotion React Markup; lists general animation rules and links out to topic-specific reference docs (maps, effects, audio, fonts, transitions, etc.) in the same directory.",
+      "tags": ["documentation", "external-reference", "entry-point", "remotion", "agent-skill"],
+      "complexity": "moderate",
+      "languageNotes": "Not versus-engine source code — bundled third-party Claude Code skill documentation used to guide Remotion markup authoring."
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/3d.md",
+      "type": "document",
+      "name": "3d.md",
+      "filePath": "agent/skills/remotion-markup/3d.md",
+      "summary": "Reference guide on using Three.js and React Three Fiber inside Remotion via `<ThreeCanvas>`, covering frame-driven animation and nesting `<Sequence>`.",
+      "tags": ["documentation", "external-reference", "remotion", "3d", "threejs"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/audio-visualization.md",
+      "type": "document",
+      "name": "audio-visualization.md",
+      "filePath": "agent/skills/remotion-markup/audio-visualization.md",
+      "summary": "Reference guide for building audio visualizations in Remotion: loading audio data, spectrum bars, waveforms, bass-reactive effects, and postprocessing.",
+      "tags": ["documentation", "external-reference", "remotion", "audio", "visualization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/audio.md",
+      "type": "document",
+      "name": "audio.md",
+      "filePath": "agent/skills/remotion-markup/audio.md",
+      "summary": "Reference guide on embedding and manipulating audio in Remotion, covering import, trimming, delay, volume, muting, speed, looping, and pitch.",
+      "tags": ["documentation", "external-reference", "remotion", "audio"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/calculate-metadata.md",
+      "type": "document",
+      "name": "calculate-metadata.md",
+      "filePath": "agent/skills/remotion-markup/calculate-metadata.md",
+      "summary": "Reference guide on Remotion's `calculateMetadata` API for deriving composition duration and dimensions from video sources and transforming props.",
+      "tags": ["documentation", "external-reference", "remotion", "metadata", "dynamic-duration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/compositions.md",
+      "type": "document",
+      "name": "compositions.md",
+      "filePath": "agent/skills/remotion-markup/compositions.md",
+      "summary": "Reference guide on structuring Remotion compositions, including default props, scaffold metadata, folders, stills, dynamic dimensions, and nested compositions.",
+      "tags": ["documentation", "external-reference", "remotion", "compositions"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/effects.md",
+      "type": "document",
+      "name": "effects.md",
+      "filePath": "agent/skills/remotion-markup/effects.md",
+      "summary": "Reference guide cataloging Remotion's built-in visual/pixel effects (blur, glow, chromatic aberration, halftone, etc.) and how to build custom effects via `createEffect()`.",
+      "tags": ["documentation", "external-reference", "remotion", "visual-effects"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/embedding-videos.md",
+      "type": "document",
+      "name": "embedding-videos.md",
+      "filePath": "agent/skills/remotion-markup/embedding-videos.md",
+      "summary": "Reference guide on embedding video in Remotion, covering trimming, delaying, sizing/position, volume, speed, looping, and pitch adjustments.",
+      "tags": ["documentation", "external-reference", "remotion", "video-embedding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/ffmpeg.md",
+      "type": "document",
+      "name": "ffmpeg.md",
+      "filePath": "agent/skills/remotion-markup/ffmpeg.md",
+      "summary": "Short reference note on using FFmpeg within Remotion projects, focused on trimming videos.",
+      "tags": ["documentation", "external-reference", "remotion", "ffmpeg"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/gifs.md",
+      "type": "document",
+      "name": "gifs.md",
+      "filePath": "agent/skills/remotion-markup/gifs.md",
+      "summary": "Reference guide on displaying animated GIFs in Remotion: basic usage, sizing/fit, playback speed, looping, styling, and retrieving GIF duration.",
+      "tags": ["documentation", "external-reference", "remotion", "gifs", "images"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/google-fonts.md",
+      "type": "document",
+      "name": "google-fonts.md",
+      "filePath": "agent/skills/remotion-markup/google-fonts.md",
+      "summary": "Reference guide on loading and using Google Fonts in Remotion compositions via the `@remotion/google-fonts` package.",
+      "tags": ["documentation", "external-reference", "remotion", "fonts", "typography"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/html-in-canvas.md",
+      "type": "document",
+      "name": "html-in-canvas.md",
+      "filePath": "agent/skills/remotion-markup/html-in-canvas.md",
+      "summary": "Reference guide on the `<HtmlInCanvas>` component for rendering HTML into a canvas, covering nesting, WebGL-during-render setup, `onPaint` 2D/WebGL effects, and async painting.",
+      "tags": ["documentation", "external-reference", "remotion", "canvas", "webgl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/images.md",
+      "type": "document",
+      "name": "images.md",
+      "filePath": "agent/skills/remotion-markup/images.md",
+      "summary": "Reference guide on image handling in Remotion: sizing/positioning, dynamic image paths, and retrieving image dimensions.",
+      "tags": ["documentation", "external-reference", "remotion", "images"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/light-leaks.md",
+      "type": "document",
+      "name": "light-leaks.md",
+      "filePath": "agent/skills/remotion-markup/light-leaks.md",
+      "summary": "Reference guide on adding light leak overlay effects in Remotion, including usage with `TransitionSeries`, prop customization, and standalone usage.",
+      "tags": ["documentation", "external-reference", "remotion", "visual-effects", "transitions"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/local-fonts.md",
+      "type": "document",
+      "name": "local-fonts.md",
+      "filePath": "agent/skills/remotion-markup/local-fonts.md",
+      "summary": "Reference guide on loading local font files in Remotion, including loading multiple weights and available configuration options.",
+      "tags": ["documentation", "external-reference", "remotion", "fonts", "typography"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/lottie.md",
+      "type": "document",
+      "name": "lottie.md",
+      "filePath": "agent/skills/remotion-markup/lottie.md",
+      "summary": "Reference guide on displaying and styling Lottie animations within Remotion compositions.",
+      "tags": ["documentation", "external-reference", "remotion", "lottie", "animation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/map.md",
+      "type": "document",
+      "name": "map.md",
+      "filePath": "agent/skills/remotion-markup/map.md",
+      "summary": "Short routing note directing readers to choose between simple static maps, Mapbox, or MapLibre for map rendering in Remotion.",
+      "tags": ["documentation", "external-reference", "remotion", "maps"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/mapbox.md",
+      "type": "document",
+      "name": "mapbox.md",
+      "filePath": "agent/skills/remotion-markup/mapbox.md",
+      "summary": "Extensive reference guide on building animated Mapbox maps in Remotion, covering setup, basic map examples, animated flight routes, camera guidance, lines, markers/labels, styles, and rendering.",
+      "tags": ["documentation", "external-reference", "remotion", "maps", "mapbox"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/maplibre.md",
+      "type": "document",
+      "name": "maplibre.md",
+      "filePath": "agent/skills/remotion-markup/maplibre.md",
+      "summary": "Extensive reference guide on building animated MapLibre maps in Remotion, covering setup, basic map examples, animated flight routes, camera guidance, lines, markers/labels, styles, and rendering — the open-source alternative to the Mapbox guide.",
+      "tags": ["documentation", "external-reference", "remotion", "maps", "maplibre"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:agent/skills/remotion-markup/measuring-dom-nodes.md",
+      "type": "document",
+      "name": "measuring-dom-nodes.md",
+      "filePath": "agent/skills/remotion-markup/measuring-dom-nodes.md",
+      "summary": "Short reference guide on measuring DOM element dimensions within Remotion compositions.",
+      "tags": ["documentation", "external-reference", "remotion", "dom", "measurement"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/map.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/embedding-videos.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/audio.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/effects.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/html-in-canvas.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/light-leaks.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/3d.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/audio-visualization.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/google-fonts.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/local-fonts.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/gifs.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/images.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/lottie.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/measuring-dom-nodes.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/ffmpeg.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/compositions.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/SKILL.md",
+      "target": "document:agent/skills/remotion-markup/calculate-metadata.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/map.md",
+      "target": "document:agent/skills/remotion-markup/mapbox.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/map.md",
+      "target": "document:agent/skills/remotion-markup/maplibre.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/effects.md",
+      "target": "document:agent/skills/remotion-markup/html-in-canvas.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-markup/effects.md",
+      "target": "document:agent/skills/remotion-markup/light-leaks.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

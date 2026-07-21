@@ -1,0 +1,224 @@
+{
+  "nodes": [
+    {
+      "id": "file:packages/shared/src/video-input.ts",
+      "type": "file",
+      "name": "video-input.ts",
+      "filePath": "packages/shared/src/video-input.ts",
+      "summary": "Defines the sacred Zod-validated VideoInput schema (meta, music, contenders, rounds, verdict, optional narration) that is the single contract the comparison builder produces and the Remotion studio composition consumes — per CLAUDE.md prime directive #1, no category-specific logic may leak past this shape. Exposes parseVideoInput() to validate a raw payload and throw a readable, path-annotated error on failure.",
+      "tags": ["data-model", "validation", "video-contract", "zod", "schema-definition"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Zod's .refine() for cross-field invariants (round.values/displayValues parallel-array lengths, and per-contender array lengths matching contenders.length) rather than encoding them in separate TypeScript types — validation and type inference (z.infer) stay in lockstep from one schema definition."
+    },
+    {
+      "id": "function:packages/shared/src/video-input.ts:parseVideoInput",
+      "type": "function",
+      "name": "parseVideoInput",
+      "filePath": "packages/shared/src/video-input.ts",
+      "lineRange": [106, 116],
+      "summary": "Safely parses an unknown payload against videoInputSchema, throwing a formatted multi-line error listing every Zod validation issue (field path + message) when the payload is invalid, otherwise returning the typed VideoInput.",
+      "tags": ["validation", "error-handling", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/timing.ts",
+      "type": "file",
+      "name": "timing.ts",
+      "filePath": "packages/shared/src/timing.ts",
+      "summary": "Single source of truth for scene durations (TIMING_SECONDS) authored in seconds per the Remotion convention in CLAUDE.md, plus pure helpers that compute absolute scene start times, per-round time ranges, and total composition duration from a VideoInput — reused by the Remotion renderer, the analytics feedback loop, and narration timing without duplicating the arithmetic.",
+      "tags": ["utility", "timing", "video-contract", "pure-functions"],
+      "complexity": "moderate",
+      "languageNotes": "Keeps all timing math in seconds (not frames) so it stays fps-independent; conversion to frames only happens via the separate secondsToFrames() helper at the point of use inside Remotion, matching the CLAUDE.md rule that frame counts must never be hardcoded."
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:secondsToFrames",
+      "type": "function",
+      "name": "secondsToFrames",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [23, 25],
+      "summary": "Converts a duration in seconds to a rounded frame count for a given fps, the sole place frame-count rounding happens.",
+      "tags": ["utility", "timing", "conversion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:contenderRevealSeconds",
+      "type": "function",
+      "name": "contenderRevealSeconds",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [27, 32],
+      "summary": "Computes the ContenderReveal scene's duration in seconds as a base plus a per-contender increment, so the scene scales with however many contenders are in the video.",
+      "tags": ["utility", "timing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:specBattleSeconds",
+      "type": "function",
+      "name": "specBattleSeconds",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [34, 36],
+      "summary": "Computes the total SpecBattle scene duration as a fixed per-round duration multiplied by the number of rounds.",
+      "tags": ["utility", "timing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:computeSceneBoundariesSec",
+      "type": "function",
+      "name": "computeSceneBoundariesSec",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [55, 74],
+      "summary": "Computes the absolute start second of every scene (Intro, ContenderReveal, SpecBattle, WinnerReveal, Outro) on the full composition timeline, overlapping each pair by one sceneTransition — mirrors Comparison16x9.tsx's own scene-start computation and acts as the single source of truth other timing helpers build on.",
+      "tags": ["timing", "video-contract", "core-logic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:computeTotalDurationSec",
+      "type": "function",
+      "name": "computeTotalDurationSec",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [77, 79],
+      "summary": "Returns the total composition duration in seconds by adding the outro's own duration to its computed start second.",
+      "tags": ["timing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/timing.ts:computeRoundTimeRangesSec",
+      "type": "function",
+      "name": "computeRoundTimeRangesSec",
+      "filePath": "packages/shared/src/timing.ts",
+      "lineRange": [85, 94],
+      "summary": "Produces an absolute [startSec, endSec) time range for every SpecBattle round within the full composition timeline, used to correlate narration and retention analytics back to individual rounds.",
+      "tags": ["timing", "video-contract"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/timing.test.ts",
+      "type": "file",
+      "name": "timing.test.ts",
+      "filePath": "packages/shared/src/timing.test.ts",
+      "summary": "Vitest unit tests for packages/shared/src/timing.ts, verifying scene boundary overlap-by-one-transition behavior, per-round time range layout, and that total duration grows correctly with more rounds.",
+      "tags": ["test", "unit-test", "timing"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:packages/shared/src/timing.test.ts",
+      "target": "file:packages/shared/src/timing.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "file:packages/shared/src/video-input.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/shared/src/video-input.ts",
+      "target": "function:packages/shared/src/video-input.ts:parseVideoInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/video-input.ts",
+      "target": "function:packages/shared/src/video-input.ts:parseVideoInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:secondsToFrames",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:contenderRevealSeconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:specBattleSeconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeSceneBoundariesSec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeTotalDurationSec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeRoundTimeRangesSec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:secondsToFrames",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:contenderRevealSeconds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:specBattleSeconds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeSceneBoundariesSec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeTotalDurationSec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "function:packages/shared/src/timing.ts:computeRoundTimeRangesSec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/timing.ts",
+      "target": "file:packages/shared/src/timing.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "apps/studio/src/Root.tsx", "language": "typescript", "sizeLines": 73, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/Crown.tsx", "language": "typescript", "sizeLines": 41, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/Icon.tsx", "language": "typescript", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/PricePill.tsx", "language": "typescript", "sizeLines": 28, "fileCategory": "code"},
+    {"path": "apps/studio/src/compositions/ComparisonShort9x16.tsx", "language": "typescript", "sizeLines": 5, "fileCategory": "code"},
+    {"path": "apps/studio/src/compositions/Thumbnail16x9.tsx", "language": "typescript", "sizeLines": 119, "fileCategory": "code"},
+    {"path": "apps/studio/src/compositions/Thumbnail16x9B.tsx", "language": "typescript", "sizeLines": 129, "fileCategory": "code"},
+    {"path": "apps/studio/src/index.ts", "language": "typescript", "sizeLines": 4, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "apps/studio/src/Root.tsx": ["apps/studio/src/compositions/Comparison16x9.tsx", "apps/studio/src/compositions/ComparisonShort9x16.tsx", "apps/studio/src/compositions/Thumbnail16x9.tsx", "apps/studio/src/compositions/Thumbnail16x9B.tsx", "apps/studio/src/schema.ts", "examples/comparison-example-9x16.json", "examples/comparison-example.json"],
+    "apps/studio/src/components/Crown.tsx": ["apps/studio/src/components/Icon.tsx"],
+    "apps/studio/src/components/Icon.tsx": [],
+    "apps/studio/src/components/PricePill.tsx": ["apps/studio/src/components/Icon.tsx", "apps/studio/src/theme/index.ts"],
+    "apps/studio/src/compositions/ComparisonShort9x16.tsx": [],
+    "apps/studio/src/compositions/Thumbnail16x9.tsx": ["apps/studio/src/components/Background.tsx", "apps/studio/src/components/Icon.tsx", "apps/studio/src/components/PricePill.tsx", "apps/studio/src/schema.ts", "apps/studio/src/theme/index.ts"],
+    "apps/studio/src/compositions/Thumbnail16x9B.tsx": ["apps/studio/src/components/Icon.tsx", "apps/studio/src/schema.ts", "apps/studio/src/theme/index.ts"],
+    "apps/studio/src/index.ts": ["apps/studio/src/Root.tsx"]
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "packages/shared/src/timing.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 47,
+      "functions": [
+        {
+          "name": "fakeInput",
+          "startLine": 10,
+          "endLine": 14,
+          "params": [
+            "contenderCount",
+            "roundCount"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fakeInput",
+          "callee": "new Array(contenderCount).fill",
+          "lineNumber": 12
+        },
+        {
+          "caller": "fakeInput",
+          "callee": "new Array(roundCount).fill",
+          "lineNumber": 13
+        },
+        {
+          "caller": "fakeInput",
+          "callee": "import",
+          "lineNumber": 14
+        },
+        {
+          "caller": "fakeInput",
+          "callee": "import",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/timing.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "secondsToFrames",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "seconds",
+            "fps"
+          ]
+        },
+        {
+          "name": "contenderRevealSeconds",
+          "startLine": 27,
+          "endLine": 32,
+          "params": [
+            "contenderCount"
+          ]
+        },
+        {
+          "name": "specBattleSeconds",
+          "startLine": 34,
+          "endLine": 36,
+          "params": [
+            "roundCount"
+          ]
+        },
+        {
+          "name": "computeSceneBoundariesSec",
+          "startLine": 55,
+          "endLine": 74,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "computeTotalDurationSec",
+          "startLine": 77,
+          "endLine": 79,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "computeRoundTimeRangesSec",
+          "startLine": 85,
+          "endLine": 94,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TIMING_SECONDS",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "secondsToFrames",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "contenderRevealSeconds",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "specBattleSeconds",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "computeSceneBoundariesSec",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "computeTotalDurationSec",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "computeRoundTimeRangesSec",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "secondsToFrames",
+          "callee": "Math.round",
+          "lineNumber": 24
+        },
+        {
+          "caller": "computeSceneBoundariesSec",
+          "callee": "contenderRevealSeconds",
+          "lineNumber": 58
+        },
+        {
+          "caller": "computeSceneBoundariesSec",
+          "callee": "specBattleSeconds",
+          "lineNumber": 59
+        },
+        {
+          "caller": "computeSceneBoundariesSec",
+          "callee": "starts.push",
+          "lineNumber": 65
+        },
+        {
+          "caller": "computeTotalDurationSec",
+          "callee": "computeSceneBoundariesSec",
+          "lineNumber": 78
+        },
+        {
+          "caller": "computeRoundTimeRangesSec",
+          "callee": "computeSceneBoundariesSec",
+          "lineNumber": 88
+        },
+        {
+          "caller": "computeRoundTimeRangesSec",
+          "callee": "input.rounds.map",
+          "lineNumber": 90
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/shared/src/video-input.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 116,
+      "nonEmptyLines": 107,
+      "functions": [
+        {
+          "name": "parseVideoInput",
+          "startLine": 106,
+          "endLine": 116,
+          "params": [
+            "data"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "visualizationSchema",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "contenderSchema",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "roundSchema",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "verdictSchema",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "narrationClipSchema",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "videoInputSchema",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "parseVideoInput",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseVideoInput",
+          "callee": "videoInputSchema.safeParse",
+          "lineNumber": 107
+        },
+        {
+          "caller": "parseVideoInput",
+          "callee": "result.error.issues\n        .map((issue) => `  - ${issue.path.join(\".\") || \"(root)\"}: ${issue.message}`)\n        .join",
+          "lineNumber": 110
+        },
+        {
+          "caller": "parseVideoInput",
+          "callee": "result.error.issues\n        .map",
+          "lineNumber": 110
+        },
+        {
+          "caller": "parseVideoInput",
+          "callee": "issue.path.join",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

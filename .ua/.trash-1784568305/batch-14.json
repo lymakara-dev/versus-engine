@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "summary": "Index page for the vendored Mediabunny skill reference bundled with the remotion-best-practices Claude Code skill; links out to the three task-specific how-to docs for getting audio duration, video dimensions, and video duration with the Mediabunny library.",
+      "tags": ["documentation", "third-party-reference", "agent-skill", "vendored", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Not versus-engine project documentation — this is third-party reference material bundled inside a vendored Claude Code agent skill (.agents/skills/remotion-best-practices), used to inform agent behavior when working with the Mediabunny multimedia library, not part of the app's own architecture."
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "type": "document",
+      "name": "get-audio-duration.md",
+      "filePath": ".agents/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "summary": "Vendored third-party reference doc explaining how to get an audio file's duration in seconds using Mediabunny, with usage examples for staticFile in Remotion and for Node.js/Bun.",
+      "tags": ["documentation", "third-party-reference", "agent-skill", "vendored", "audio"],
+      "complexity": "simple",
+      "languageNotes": "Bundled skill documentation, not versus-engine source; describes Mediabunny API usage patterns (e.g. computing duration from an audio track) for agent reference only."
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "type": "document",
+      "name": "get-video-dimensions.md",
+      "filePath": ".agents/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "summary": "Vendored third-party reference doc explaining how to get a video file's width and height using Mediabunny, covering usage with local files and with staticFile in Remotion.",
+      "tags": ["documentation", "third-party-reference", "agent-skill", "vendored", "video"],
+      "complexity": "simple",
+      "languageNotes": "Bundled skill documentation, not versus-engine source; describes Mediabunny API usage patterns for reading video track dimensions for agent reference only."
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "document",
+      "name": "get-video-duration.md",
+      "filePath": ".agents/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "summary": "Vendored third-party reference doc explaining how to get a video file's duration in seconds using Mediabunny, with usage examples for files in the public/ directory and for Node.js/Bun.",
+      "tags": ["documentation", "third-party-reference", "agent-skill", "vendored", "video"],
+      "complexity": "simple",
+      "languageNotes": "Bundled skill documentation, not versus-engine source; describes Mediabunny API usage patterns for computing video duration for agent reference only."
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

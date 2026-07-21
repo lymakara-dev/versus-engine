@@ -1,0 +1,13 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": ".agents/skills/remotion-best-practices/remotion-create/REFERENCE.md", "language": "markdown", "sizeLines": 49, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-create/tailwind.md", "language": "markdown", "sizeLines": 11, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-create/video-layout.md", "language": "markdown", "sizeLines": 68, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    ".agents/skills/remotion-best-practices/remotion-create/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-create/tailwind.md": [],
+    ".agents/skills/remotion-best-practices/remotion-create/video-layout.md": []
+  }
+}

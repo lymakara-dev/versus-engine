@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "packages/db/src/index.ts", "language": "typescript", "sizeLines": 13, "fileCategory": "code"},
+    {"path": "packages/db/src/seed-data/products.ts", "language": "typescript", "sizeLines": 164, "fileCategory": "code"},
+    {"path": "packages/db/src/seed-data/spec-definitions.ts", "language": "typescript", "sizeLines": 275, "fileCategory": "code"},
+    {"path": "packages/db/src/seed.ts", "language": "typescript", "sizeLines": 361, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "packages/db/src/index.ts": [],
+    "packages/db/src/seed-data/products.ts": [],
+    "packages/db/src/seed-data/spec-definitions.ts": [],
+    "packages/db/src/seed.ts": ["packages/db/src/index.ts", "packages/db/src/seed-data/products.ts", "packages/db/src/seed-data/spec-definitions.ts"]
+  }
+}

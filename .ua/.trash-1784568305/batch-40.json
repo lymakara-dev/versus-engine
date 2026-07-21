@@ -1,0 +1,821 @@
+{
+  "nodes": [
+    {
+      "id": "config:database/migrations/migration_lock.toml",
+      "type": "config",
+      "name": "migration_lock.toml",
+      "filePath": "database/migrations/migration_lock.toml",
+      "summary": "Prisma migration lock file pinning the database provider to PostgreSQL so all generated migrations stay consistent across environments.",
+      "tags": ["configuration", "database", "prisma", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "schema:database/schema.prisma",
+      "type": "schema",
+      "name": "schema.prisma",
+      "filePath": "database/schema.prisma",
+      "summary": "Canonical, category-agnostic data model for Versus Engine: Category/Brand/Product catalog, a scalable SpecDefinition/SpecValue system for arbitrary comparable attributes, Comparison/ComparisonContender/RenderJob/Upload for the video pipeline, and a Phase 5 VideoAnalytics/RoundRetention feedback loop. This is the single source of truth referenced throughout CLAUDE.md.",
+      "tags": ["database", "schema-definition", "data-model", "prisma", "architecture-core"],
+      "complexity": "complex",
+      "languageNotes": "Uses Prisma enums (ProductStatus, SpecDataType, SpecVisualization, ComparisonStatus, JobStatus) to keep category logic entirely data-driven — new product categories are added via SpecDefinition rows rather than schema or code changes, per the project's prime directive against category-specific branching."
+    },
+    {
+      "id": "table:database/schema.prisma:Category",
+      "type": "table",
+      "name": "Category",
+      "filePath": "database/schema.prisma",
+      "lineRange": [15, 24],
+      "summary": "Top-level product category (cars, phones, laptops, motorcycles) that scopes products, spec definitions, and comparisons, and maps to a studio theme.",
+      "tags": ["database", "data-model", "catalog"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:Brand",
+      "type": "table",
+      "name": "Brand",
+      "filePath": "database/schema.prisma",
+      "lineRange": [26, 33],
+      "summary": "Manufacturer/brand record (name, logo, country) associated with one or more products.",
+      "tags": ["database", "data-model", "catalog"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:Product",
+      "type": "table",
+      "name": "Product",
+      "filePath": "database/schema.prisma",
+      "lineRange": [41, 65],
+      "summary": "Core catalog entity for a single product (e.g. a car trim or phone model), storing raw untouched specs as JSON, verification status, source provenance, and the extracted accent color used for theming.",
+      "tags": ["database", "data-model", "catalog", "core-entity"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/schema.prisma:ProductImage",
+      "type": "table",
+      "name": "ProductImage",
+      "filePath": "database/schema.prisma",
+      "lineRange": [67, 78],
+      "summary": "Processed product image asset (hero, side, cutout, etc.) with licensing/attribution metadata, produced by the ingestion image pipeline.",
+      "tags": ["database", "data-model", "media"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:SpecDefinition",
+      "type": "table",
+      "name": "SpecDefinition",
+      "filePath": "database/schema.prisma",
+      "lineRange": [95, 112],
+      "summary": "Per-category definition of a comparable attribute (label, unit, data type, visualization style, priority weight) — the scalability core that lets new product categories be added purely via data rows.",
+      "tags": ["database", "data-model", "spec-system", "architecture-core"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/schema.prisma:SpecValue",
+      "type": "table",
+      "name": "SpecValue",
+      "filePath": "database/schema.prisma",
+      "lineRange": [114, 127],
+      "summary": "Normalized, comparable value of a SpecDefinition for a given product, storing the SI/canonical number alongside the human-readable display string and an AI-confidence score.",
+      "tags": ["database", "data-model", "spec-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:Comparison",
+      "type": "table",
+      "name": "Comparison",
+      "filePath": "database/schema.prisma",
+      "lineRange": [138, 156],
+      "summary": "A generated video comparison between contenders, holding the frozen videoJson payload actually rendered, YouTube metadata, and per-contender round scores for reproducible re-rendering.",
+      "tags": ["database", "data-model", "video-pipeline", "core-entity"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/schema.prisma:ComparisonContender",
+      "type": "table",
+      "name": "ComparisonContender",
+      "filePath": "database/schema.prisma",
+      "lineRange": [158, 167],
+      "summary": "Join table linking a Comparison to the Products competing in it, ordered by position (0 = left/first).",
+      "tags": ["database", "data-model", "video-pipeline"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:RenderJob",
+      "type": "table",
+      "name": "RenderJob",
+      "filePath": "database/schema.prisma",
+      "lineRange": [176, 192],
+      "summary": "Tracks a single Remotion render invocation for a Comparison — composition variant, template version, progress, output URL, and A/B thumbnail variants.",
+      "tags": ["database", "data-model", "video-pipeline", "queue"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/schema.prisma:Upload",
+      "type": "table",
+      "name": "Upload",
+      "filePath": "database/schema.prisma",
+      "lineRange": [194, 208],
+      "summary": "Tracks publishing a rendered comparison to a platform (YouTube), including the selected A/B thumbnail variant and publish scheduling.",
+      "tags": ["database", "data-model", "publishing", "queue"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:VideoAnalytics",
+      "type": "table",
+      "name": "VideoAnalytics",
+      "filePath": "database/schema.prisma",
+      "lineRange": [212, 225],
+      "summary": "Phase 5 feedback-loop entity capturing YouTube performance metrics (views, CTR, retention curve) for an uploaded video.",
+      "tags": ["database", "data-model", "analytics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/schema.prisma:RoundRetention",
+      "type": "table",
+      "name": "RoundRetention",
+      "filePath": "database/schema.prisma",
+      "lineRange": [227, 245],
+      "summary": "Per-round audience retention breakdown (start/end/drop-off) linked back to a SpecDefinition key, letting the round-selection heuristic learn which spec rounds retain viewers across many comparisons.",
+      "tags": ["database", "data-model", "analytics", "round-selection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:examples/comparison-example-9x16.json",
+      "type": "config",
+      "name": "comparison-example-9x16.json",
+      "filePath": "examples/comparison-example-9x16.json",
+      "summary": "The 9:16 Shorts variant of the sacred VideoInput fixture — Toyota GR Corolla vs Honda Civic Type R with meta, music, contenders, rounds, and verdict sections — the exact payload the Remotion Shorts composition must accept.",
+      "tags": ["video-contract", "fixture", "architecture-core", "vertical-video"],
+      "complexity": "moderate",
+      "languageNotes": "Structurally identical to the 16:9 example aside from meta.aspect and meta.resolution, demonstrating that scene components are reused across aspect ratios via layout props rather than duplicated logic."
+    },
+    {
+      "id": "config:examples/comparison-example.json",
+      "type": "config",
+      "name": "comparison-example.json",
+      "filePath": "examples/comparison-example.json",
+      "summary": "The canonical 16:9 VideoInput fixture (Toyota GR Corolla vs Honda Civic Type R) — meta, looping music, two contenders, scored rounds (e.g. horsepower), and a verdict. This is the exact payload `pnpm render` must consume, per the project's Phase-1 acceptance test.",
+      "tags": ["video-contract", "fixture", "architecture-core", "acceptance-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:packages/comparison/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/comparison/package.json",
+      "summary": "Package manifest for @versus-engine/comparison, declaring its dependency on the db and shared workspace packages, the Anthropic SDK, and zod, plus typecheck/lint/test scripts.",
+      "tags": ["configuration", "package-manifest", "workspace"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/comparison/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "packages/comparison/src/index.ts",
+      "summary": "Barrel entry point for the comparison package, re-exporting round-selection, scoring, metadata, video-json-builder, build-comparison, and retention-boost modules.",
+      "tags": ["entry-point", "barrel", "comparison"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/comparison/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/comparison/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the comparison package, extending a shared base config and scoping compilation to its own src directory.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/db/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/db/package.json",
+      "summary": "Package manifest for @versus-engine/db, wiring Prisma generate/migrate/seed scripts (via dotenv-cli against the root .env) and declaring @prisma/client as its runtime dependency.",
+      "tags": ["configuration", "package-manifest", "database", "prisma"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/db/prisma.config.ts",
+      "type": "file",
+      "name": "prisma.config.ts",
+      "filePath": "packages/db/prisma.config.ts",
+      "summary": "Prisma CLI configuration that points the `prisma` toolchain at the canonical schema file located at database/schema.prisma, two directories up from this package.",
+      "tags": ["configuration", "prisma", "database"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/db/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/db/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the db package, extending the shared base config.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/ingestion/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/ingestion/package.json",
+      "summary": "Package manifest for @versus-engine/ingestion, declaring its use of the Anthropic SDK (AI normalization), csv-parse (bulk CSV import), sharp (image pipeline), and zod for validation.",
+      "tags": ["configuration", "package-manifest", "ingestion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/ingestion/src/adapters/csv.test.ts",
+      "type": "file",
+      "name": "csv.test.ts",
+      "filePath": "packages/ingestion/src/adapters/csv.test.ts",
+      "summary": "Vitest suite for parseProductsCsv, reading the products.csv fixture from disk and asserting fixed-column mapping, spec_ column extraction, and DRAFT/VERIFIED status defaulting logic.",
+      "tags": ["test", "csv", "ingestion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/ingestion/src/adapters/csv.ts",
+      "type": "file",
+      "name": "csv.ts",
+      "filePath": "packages/ingestion/src/adapters/csv.ts",
+      "summary": "CSV bulk-import adapter (`pnpm ingest csv`) that parses a spreadsheet of products into normalized Product records, splitting fixed columns from dynamic spec_* columns and defaulting VERIFIED/DRAFT status from a `verified` flag.",
+      "tags": ["ingestion", "adapter", "csv", "data-import"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/ingestion/src/adapters/csv.ts:parseProductsCsv",
+      "type": "function",
+      "name": "parseProductsCsv",
+      "filePath": "packages/ingestion/src/adapters/csv.ts",
+      "lineRange": [22, 30],
+      "summary": "Public entry point that parses raw CSV text into an array of product records, validating each row against a Zod schema before mapping it via rowToProduct.",
+      "tags": ["ingestion", "csv", "parsing", "exported"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/ingestion/src/adapters/csv.ts:rowToProduct",
+      "type": "function",
+      "name": "rowToProduct",
+      "filePath": "packages/ingestion/src/adapters/csv.ts",
+      "lineRange": [32, 56],
+      "summary": "Converts one validated CSV row into a product shape, separating dynamic spec_* columns into a specs map and deriving VERIFIED/DRAFT status from the row's verified flag or a caller-supplied default.",
+      "tags": ["ingestion", "csv", "normalization", "mapping"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/ingestion/src/adapters/fixtures/products.csv",
+      "type": "file",
+      "name": "products.csv",
+      "filePath": "packages/ingestion/src/adapters/fixtures/products.csv",
+      "summary": "On-disk CSV test fixture with three sample phones (iPhone 17 Pro, Galaxy S26 Ultra, Nothing Phone 3) covering both verified and unverified rows plus dynamic spec_ columns, used by csv.test.ts.",
+      "tags": ["fixture", "test-data", "csv", "ingestion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json",
+      "type": "config",
+      "name": "vpic-models-toyota-2026.json",
+      "filePath": "packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json",
+      "summary": "Recorded NHTSA vPIC API response fixture (Toyota 2026 models: Corolla, Camry, RAV4) used as an on-disk fixture for testing the vPIC vehicle ingestion adapter without live network calls.",
+      "tags": ["fixture", "test-data", "vpic", "ingestion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/ingestion/src/images/pipeline.test.ts",
+      "type": "file",
+      "name": "pipeline.test.ts",
+      "filePath": "packages/ingestion/src/images/pipeline.test.ts",
+      "summary": "Vitest suite for the image processing pipeline, using small generated solid-color PNGs and raw alpha-channel sampling helpers to verify resizing, chroma background removal, and palette extraction.",
+      "tags": ["test", "image-processing", "sharp"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/ingestion/src/images/pipeline.ts",
+      "type": "file",
+      "name": "pipeline.ts",
+      "filePath": "packages/ingestion/src/images/pipeline.ts",
+      "summary": "Image processing pipeline built on sharp: resizes source images to standard hero/side/detail sizes, removes chroma-key backgrounds for product cutouts, and extracts a dominant color palette for accentColor theming.",
+      "tags": ["ingestion", "image-processing", "sharp", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:packages/ingestion/src/images/pipeline.ts:resizeToStandardSizes",
+      "type": "function",
+      "name": "resizeToStandardSizes",
+      "filePath": "packages/ingestion/src/images/pipeline.ts",
+      "lineRange": [22, 37],
+      "summary": "Resizes an input image buffer into every configured STANDARD_SIZES variant in parallel, returning a map of size name to PNG buffer with transparent padding.",
+      "tags": ["image-processing", "sharp", "exported"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/ingestion/src/images/pipeline.ts:removeBackgroundChroma",
+      "type": "function",
+      "name": "removeBackgroundChroma",
+      "filePath": "packages/ingestion/src/images/pipeline.ts",
+      "lineRange": [51, 74],
+      "summary": "Removes a solid chroma-key background from a product photo by sampling corner pixels, then zeroing alpha for pixels within a color-distance threshold — producing the transparent cutout images referenced by ProductImage.",
+      "tags": ["image-processing", "sharp", "chroma-key", "exported"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:packages/ingestion/src/images/pipeline.ts:extractPalette",
+      "type": "function",
+      "name": "extractPalette",
+      "filePath": "packages/ingestion/src/images/pipeline.ts",
+      "lineRange": [76, 107],
+      "summary": "Downsamples an image and buckets pixels by quantized color to derive a small dominant-color palette, used to set a product's accentColor for theming.",
+      "tags": ["image-processing", "sharp", "color-extraction", "exported"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:packages/ingestion/src/images/pipeline.ts:pixelAt",
+      "type": "function",
+      "name": "pixelAt",
+      "filePath": "packages/ingestion/src/images/pipeline.ts",
+      "lineRange": [109, 118],
+      "summary": "Reads the RGBA (or RGB) values of a single pixel from a raw decoded image buffer given its x/y coordinates.",
+      "tags": ["image-processing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/ingestion/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "packages/ingestion/src/index.ts",
+      "summary": "Barrel entry point for the ingestion package, re-exporting the HTTP client, vPIC and CSV adapters, AI normalizer, and image pipeline.",
+      "tags": ["entry-point", "barrel", "ingestion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "type": "file",
+      "name": "ai-normalizer.test.ts",
+      "filePath": "packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "summary": "Vitest suite for the AI spec normalizer, using a mocked Anthropic client that returns canned response text to verify prompt construction and response parsing without hitting the real API.",
+      "tags": ["test", "ai", "normalization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "type": "file",
+      "name": "ai-normalizer.ts",
+      "filePath": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "summary": "AI-assisted spec normalizer that prompts an Anthropic model to map messy raw product specs onto a category's canonical SpecDefinition keys and units, producing DRAFT-confidence SpecValue candidates for human review.",
+      "tags": ["ai", "normalization", "ingestion", "anthropic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/ingestion/src/normalize/ai-normalizer.ts:buildNormalizerPrompt",
+      "type": "function",
+      "name": "buildNormalizerPrompt",
+      "filePath": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "lineRange": [42, 55],
+      "summary": "Builds the prompt text instructing the model to convert raw specs into a JSON array matching the target category's SpecDefinitions, including unit conversion instructions.",
+      "tags": ["ai", "prompt-engineering", "exported"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/ingestion/src/normalize/ai-normalizer.ts:parseNormalizerResponse",
+      "type": "function",
+      "name": "parseNormalizerResponse",
+      "filePath": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "lineRange": [58, 62],
+      "summary": "Strips optional markdown code-fence wrapping from the model's response text and parses it as JSON.",
+      "tags": ["ai", "parsing", "exported"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/ingestion/src/normalize/ai-normalizer.ts:normalizeRawSpecs",
+      "type": "function",
+      "name": "normalizeRawSpecs",
+      "filePath": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "lineRange": [64, 96],
+      "summary": "Calls the Anthropic client with the normalizer prompt, parses and validates the response against the AI spec output schema, and converts matched entries into DRAFT-confidence normalized SpecValue candidates.",
+      "tags": ["ai", "normalization", "anthropic", "validation", "exported"],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:packages/ingestion/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/ingestion/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the ingestion package, extending the shared base config.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/narration/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/narration/package.json",
+      "summary": "Package manifest for @versus-engine/narration, declaring music-metadata for audio analysis alongside the shared workspace package.",
+      "tags": ["configuration", "package-manifest", "narration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/narration/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "packages/narration/src/index.ts",
+      "summary": "Barrel entry point for the narration package, re-exporting the provider abstraction, OpenAI provider, script generation, and audio synthesis modules.",
+      "tags": ["entry-point", "barrel", "narration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/narration/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/narration/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the narration package, extending the shared base config.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/shared/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "packages/shared/package.json",
+      "summary": "Package manifest for @versus-engine/shared, the lightweight zod-only foundation package that other workspace packages (comparison, db, ingestion, narration) depend on for cross-package Zod types.",
+      "tags": ["configuration", "package-manifest", "shared-types"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:Category",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:Brand",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:Product",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:ProductImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:SpecDefinition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:SpecValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:Comparison",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:ComparisonContender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:RenderJob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:Upload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:VideoAnalytics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "schema:database/schema.prisma",
+      "target": "table:database/schema.prisma:RoundRetention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "config:database/migrations/migration_lock.toml",
+      "target": "schema:database/schema.prisma",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.ts",
+      "target": "function:packages/ingestion/src/adapters/csv.ts:parseProductsCsv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.ts",
+      "target": "function:packages/ingestion/src/adapters/csv.ts:rowToProduct",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.ts",
+      "target": "function:packages/ingestion/src/adapters/csv.ts:parseProductsCsv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:packages/ingestion/src/adapters/csv.ts:parseProductsCsv",
+      "target": "function:packages/ingestion/src/adapters/csv.ts:rowToProduct",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:resizeToStandardSizes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:removeBackgroundChroma",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:extractPalette",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:pixelAt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:resizeToStandardSizes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:removeBackgroundChroma",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:extractPalette",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:packages/ingestion/src/images/pipeline.ts:removeBackgroundChroma",
+      "target": "function:packages/ingestion/src/images/pipeline.ts:pixelAt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:buildNormalizerPrompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:parseNormalizerResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:normalizeRawSpecs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:buildNormalizerPrompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:parseNormalizerResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:normalizeRawSpecs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:packages/ingestion/src/normalize/ai-normalizer.ts:normalizeRawSpecs",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:buildNormalizerPrompt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:packages/ingestion/src/normalize/ai-normalizer.ts:normalizeRawSpecs",
+      "target": "function:packages/ingestion/src/normalize/ai-normalizer.ts:parseNormalizerResponse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.test.ts",
+      "target": "file:packages/ingestion/src/adapters/csv.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.test.ts",
+      "target": "file:packages/ingestion/src/images/pipeline.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "target": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.ts",
+      "target": "file:packages/ingestion/src/adapters/csv.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:packages/ingestion/src/images/pipeline.ts",
+      "target": "file:packages/ingestion/src/images/pipeline.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "target": "file:packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/csv.test.ts",
+      "target": "file:packages/ingestion/src/adapters/fixtures/products.csv",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:packages/db/prisma.config.ts",
+      "target": "schema:database/schema.prisma",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/comparison/tsconfig.json",
+      "target": "file:packages/comparison/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/comparison/package.json",
+      "target": "file:packages/comparison/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/db/tsconfig.json",
+      "target": "file:packages/db/prisma.config.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/ingestion/tsconfig.json",
+      "target": "file:packages/ingestion/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/ingestion/tsconfig.json",
+      "target": "file:packages/ingestion/src/adapters/csv.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/ingestion/tsconfig.json",
+      "target": "file:packages/ingestion/src/images/pipeline.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/ingestion/tsconfig.json",
+      "target": "file:packages/ingestion/src/normalize/ai-normalizer.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/ingestion/package.json",
+      "target": "file:packages/ingestion/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/narration/tsconfig.json",
+      "target": "file:packages/narration/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:packages/narration/package.json",
+      "target": "file:packages/narration/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:examples/comparison-example.json",
+      "target": "file:apps/studio/src/Root.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:examples/comparison-example-9x16.json",
+      "target": "file:apps/studio/src/Root.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:examples/comparison-example.json",
+      "target": "config:examples/comparison-example-9x16.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

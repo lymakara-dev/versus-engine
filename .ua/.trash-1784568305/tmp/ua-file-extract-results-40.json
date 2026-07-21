@@ -1,0 +1,1357 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 23,
+  "filesSkipped": [
+    "database/schema.prisma",
+    "packages/ingestion/src/adapters/fixtures/products.csv"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 23,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 10,
+      "failed": 0,
+      "skipped": 13
+    }
+  },
+  "results": [
+    {
+      "path": "database/migrations/migration_lock.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "examples/comparison-example-9x16.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 107,
+      "nonEmptyLines": 107,
+      "sections": [
+        {
+          "heading": "meta",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "music",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "contenders",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "rounds",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "verdict",
+          "level": 1,
+          "line": 101
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "examples/comparison-example.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 107,
+      "nonEmptyLines": 107,
+      "sections": [
+        {
+          "heading": "meta",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "music",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "contenders",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "rounds",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "verdict",
+          "level": 1,
+          "line": 101
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "packages/comparison/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 24,
+      "nonEmptyLines": 24,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "packages/comparison/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "packages/db/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 27,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "packages/db/prisma.config.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 6,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/db/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 8,
+      "nonEmptyLines": 8,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 7
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "packages/ingestion/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 25,
+      "nonEmptyLines": 25,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "packages/ingestion/src/adapters/csv.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 40,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/adapters/csv.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "parseProductsCsv",
+          "startLine": 22,
+          "endLine": 30,
+          "params": [
+            "csvText",
+            "options"
+          ]
+        },
+        {
+          "name": "rowToProduct",
+          "startLine": 32,
+          "endLine": 56,
+          "params": [
+            "row",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseProductsCsv",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseProductsCsv",
+          "callee": "parse",
+          "lineNumber": 23
+        },
+        {
+          "caller": "parseProductsCsv",
+          "callee": "records.map",
+          "lineNumber": 29
+        },
+        {
+          "caller": "parseProductsCsv",
+          "callee": "rowToProduct",
+          "lineNumber": 29
+        },
+        {
+          "caller": "parseProductsCsv",
+          "callee": "csvRowSchema.parse",
+          "lineNumber": 29
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "Object.entries",
+          "lineNumber": 34
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "isSpecColumn",
+          "lineNumber": 35
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "specKeyFromColumn",
+          "lineNumber": 36
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "row.verified?.trim().toLowerCase",
+          "lineNumber": 39
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "row.verified?.trim",
+          "lineNumber": 39
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "Number",
+          "lineNumber": 48
+        },
+        {
+          "caller": "rowToProduct",
+          "callee": "Number",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 10,
+      "nonEmptyLines": 10,
+      "sections": [
+        {
+          "heading": "Count",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "Message",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "SearchCriteria",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "Results",
+          "level": 1,
+          "line": 5
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "packages/ingestion/src/images/pipeline.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "solidPng",
+          "startLine": 5,
+          "endLine": 7,
+          "params": [
+            "width",
+            "height",
+            "color"
+          ]
+        },
+        {
+          "name": "readAlphaAt",
+          "startLine": 9,
+          "endLine": 13,
+          "params": [
+            "buffer",
+            "x",
+            "y"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "solidPng",
+          "callee": "sharp({ create: { width, height, channels: 3, background: color } }).png().toBuffer",
+          "lineNumber": 6
+        },
+        {
+          "caller": "solidPng",
+          "callee": "sharp({ create: { width, height, channels: 3, background: color } }).png",
+          "lineNumber": 6
+        },
+        {
+          "caller": "solidPng",
+          "callee": "sharp",
+          "lineNumber": 6
+        },
+        {
+          "caller": "readAlphaAt",
+          "callee": "sharp(buffer).ensureAlpha().raw().toBuffer",
+          "lineNumber": 10
+        },
+        {
+          "caller": "readAlphaAt",
+          "callee": "sharp(buffer).ensureAlpha().raw",
+          "lineNumber": 10
+        },
+        {
+          "caller": "readAlphaAt",
+          "callee": "sharp(buffer).ensureAlpha",
+          "lineNumber": 10
+        },
+        {
+          "caller": "readAlphaAt",
+          "callee": "sharp",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/images/pipeline.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 135,
+      "nonEmptyLines": 117,
+      "functions": [
+        {
+          "name": "resizeToStandardSizes",
+          "startLine": 22,
+          "endLine": 37,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "removeBackgroundChroma",
+          "startLine": 51,
+          "endLine": 74,
+          "params": [
+            "input",
+            "options"
+          ]
+        },
+        {
+          "name": "extractPalette",
+          "startLine": 76,
+          "endLine": 107,
+          "params": [
+            "input",
+            "count"
+          ]
+        },
+        {
+          "name": "pixelAt",
+          "startLine": 109,
+          "endLine": 118,
+          "params": [
+            "data",
+            "width",
+            "channels",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "name": "averageColor",
+          "startLine": 120,
+          "endLine": 126,
+          "params": [
+            "colors"
+          ]
+        },
+        {
+          "name": "colorDistance",
+          "startLine": 128,
+          "endLine": 130,
+          "params": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "name": "rgbToHex",
+          "startLine": 132,
+          "endLine": 135,
+          "params": [
+            "r",
+            "g",
+            "b"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "STANDARD_SIZES",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "resizeToStandardSizes",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "removeBackgroundChroma",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "extractPalette",
+          "line": 76,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "Promise.all",
+          "lineNumber": 25
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "(Object.entries(STANDARD_SIZES) as Array<[StandardSizeName, { width: number; height: number }]>).map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "Object.entries",
+          "lineNumber": 26
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "sharp(input)\n          .resize(size.width, size.height, { fit: \"contain\", background: { r: 0, g: 0, b: 0, alpha: 0 } })\n          .png()\n          .toBuffer",
+          "lineNumber": 28
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "sharp(input)\n          .resize(size.width, size.height, { fit: \"contain\", background: { r: 0, g: 0, b: 0, alpha: 0 } })\n          .png",
+          "lineNumber": 28
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "sharp(input)\n          .resize",
+          "lineNumber": 28
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "sharp",
+          "lineNumber": 28
+        },
+        {
+          "caller": "resizeToStandardSizes",
+          "callee": "Object.fromEntries",
+          "lineNumber": 36
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "sharp(input).ensureAlpha",
+          "lineNumber": 53
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "sharp",
+          "lineNumber": 53
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "image.raw().toBuffer",
+          "lineNumber": 54
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "image.raw",
+          "lineNumber": 54
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "pixelAt",
+          "lineNumber": 58
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "pixelAt",
+          "lineNumber": 59
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "pixelAt",
+          "lineNumber": 60
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "pixelAt",
+          "lineNumber": 61
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "averageColor",
+          "lineNumber": 63
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "Buffer.from",
+          "lineNumber": 65
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "colorDistance",
+          "lineNumber": 67
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "sharp(output, { raw: { width, height, channels: channels as 1 | 2 | 3 | 4 } }).png().toBuffer",
+          "lineNumber": 73
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "sharp(output, { raw: { width, height, channels: channels as 1 | 2 | 3 | 4 } }).png",
+          "lineNumber": 73
+        },
+        {
+          "caller": "removeBackgroundChroma",
+          "callee": "sharp",
+          "lineNumber": 73
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "sharp(input)\n    .resize(sampleSize, sampleSize, { fit: \"cover\" })\n    .removeAlpha()\n    .raw()\n    .toBuffer",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "sharp(input)\n    .resize(sampleSize, sampleSize, { fit: \"cover\" })\n    .removeAlpha()\n    .raw",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "sharp(input)\n    .resize(sampleSize, sampleSize, { fit: \"cover\" })\n    .removeAlpha",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "sharp(input)\n    .resize",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "sharp",
+          "lineNumber": 78
+        },
+        {
+          "caller": "quantize",
+          "callee": "Math.round",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "quantize",
+          "lineNumber": 91
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "quantize",
+          "lineNumber": 92
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "quantize",
+          "lineNumber": 93
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "buckets.get",
+          "lineNumber": 95
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "buckets.set",
+          "lineNumber": 99
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "[...buckets.values()]\n    .sort((a, b) => b.count - a.count)\n    .slice(0, count)\n    .map",
+          "lineNumber": 103
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "[...buckets.values()]\n    .sort((a, b) => b.count - a.count)\n    .slice",
+          "lineNumber": 103
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "[...buckets.values()]\n    .sort",
+          "lineNumber": 103
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "buckets.values",
+          "lineNumber": 103
+        },
+        {
+          "caller": "extractPalette",
+          "callee": "rgbToHex",
+          "lineNumber": 106
+        },
+        {
+          "caller": "averageColor",
+          "callee": "colors.reduce",
+          "lineNumber": 121
+        },
+        {
+          "caller": "colorDistance",
+          "callee": "Math.sqrt",
+          "lineNumber": 129
+        },
+        {
+          "caller": "clamp",
+          "callee": "Math.max",
+          "lineNumber": 133
+        },
+        {
+          "caller": "clamp",
+          "callee": "Math.min",
+          "lineNumber": 133
+        },
+        {
+          "caller": "clamp",
+          "callee": "Math.round",
+          "lineNumber": 133
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "[clamp(r), clamp(g), clamp(b)].map((c) => c.toString(16).padStart(2, \"0\")).join",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "[clamp(r), clamp(g), clamp(b)].map",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "clamp",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "clamp",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "clamp",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "c.toString(16).padStart",
+          "lineNumber": 134
+        },
+        {
+          "caller": "rgbToHex",
+          "callee": "c.toString",
+          "lineNumber": 134
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "mockClient",
+          "startLine": 28,
+          "endLine": 34,
+          "params": [
+            "responseText"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "buildNormalizerPrompt",
+          "startLine": 42,
+          "endLine": 55,
+          "params": [
+            "rawSpecs",
+            "specDefinitions"
+          ]
+        },
+        {
+          "name": "parseNormalizerResponse",
+          "startLine": 58,
+          "endLine": 62,
+          "params": [
+            "responseText"
+          ]
+        },
+        {
+          "name": "normalizeRawSpecs",
+          "startLine": 64,
+          "endLine": 96,
+          "params": [
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildNormalizerPrompt",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "parseNormalizerResponse",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "normalizeRawSpecs",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "buildNormalizerPrompt",
+          "callee": "[\n    \"You normalize messy product specs into a canonical schema for a comparison-video generator.\",\n    \"Given the raw specs and the target SpecDefinitions below, return a JSON array where each element maps\",\n    \"one SpecDefinition key to a value extracted/converted from the raw specs. Convert units to match the\",\n    \"SpecDefinition's `unit` field. Skip SpecDefinitions you cannot confidently fill. Respond with ONLY the JSON array.\",\n    \"\",\n    \"SpecDefinitions:\",\n    JSON.stringify(specDefinitions, null, 2),\n    \"\",\n    \"Raw specs:\",\n    JSON.stringify(rawSpecs, null, 2),\n  ].join",
+          "lineNumber": 43
+        },
+        {
+          "caller": "buildNormalizerPrompt",
+          "callee": "JSON.stringify",
+          "lineNumber": 50
+        },
+        {
+          "caller": "buildNormalizerPrompt",
+          "callee": "JSON.stringify",
+          "lineNumber": 53
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "responseText.trim",
+          "lineNumber": 59
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "trimmed.startsWith",
+          "lineNumber": 60
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "trimmed.replace(/^```(json)?/, \"\").replace(/```$/, \"\").trim",
+          "lineNumber": 60
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "trimmed.replace(/^```(json)?/, \"\").replace",
+          "lineNumber": 60
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "trimmed.replace",
+          "lineNumber": 60
+        },
+        {
+          "caller": "parseNormalizerResponse",
+          "callee": "JSON.parse",
+          "lineNumber": 61
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "client.messages.create",
+          "lineNumber": 67
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "buildNormalizerPrompt",
+          "lineNumber": 70
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "response.content.find",
+          "lineNumber": 73
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "aiSpecOutputSchema.parse",
+          "lineNumber": 78
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "parseNormalizerResponse",
+          "lineNumber": 78
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "specDefinitions.map",
+          "lineNumber": 79
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "parsed\n    .filter((entry) => specDefsByKey.has(entry.key))\n    .map",
+          "lineNumber": 81
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "parsed\n    .filter",
+          "lineNumber": 81
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "specDefsByKey.has",
+          "lineNumber": 82
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "specDefsByKey.get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "Math.min",
+          "lineNumber": 85
+        },
+        {
+          "caller": "normalizeRawSpecs",
+          "callee": "normalizedSpecValueSchema.parse",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "packages/narration/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 22,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "packages/narration/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 4,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/narration/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "sections": [
+        {
+          "heading": "extends",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 8
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "packages/shared/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 21,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "type",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "main",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "types",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 13
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

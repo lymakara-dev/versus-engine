@@ -1,0 +1,177 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/remotion-captions/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 36,
+      "nonEmptyLines": 26,
+      "sections": [
+        {
+          "heading": "Generating captions",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Displaying captions",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Importing captions",
+          "level": 2,
+          "line": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-captions/display-captions.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 184,
+      "nonEmptyLines": 143,
+      "sections": [
+        {
+          "heading": "Displaying captions in Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Fetching captions",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "Creating pages",
+          "level": 2,
+          "line": 61
+        },
+        {
+          "heading": "Rendering with Sequences",
+          "level": 2,
+          "line": 83
+        },
+        {
+          "heading": "White-space preservation",
+          "level": 2,
+          "line": 124
+        },
+        {
+          "heading": "Separate component for captions",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "Word highlighting",
+          "level": 2,
+          "line": 133
+        },
+        {
+          "heading": "Display captions alongside video content",
+          "level": 2,
+          "line": 174
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-captions/import-srt-captions.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 69,
+      "nonEmptyLines": 52,
+      "sections": [
+        {
+          "heading": "Importing .srt subtitles into Remotion",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "Reading an .srt file",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Using imported captions",
+          "level": 2,
+          "line": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-captions/transcribe-captions.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 70,
+      "nonEmptyLines": 53,
+      "sections": [
+        {
+          "heading": "Transcribing audio",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Transcribing",
+          "level": 2,
+          "line": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

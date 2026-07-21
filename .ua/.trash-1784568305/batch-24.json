@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-saas/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-saas/SKILL.md",
+      "summary": "Vendored Claude Code agent-skill index for building Remotion-based SaaS video apps: introduces the Player embed, rendering options, and framework/template choices, and points to the sibling framework.md, player.md, and rendering.md reference docs (plus external Remotion docs for Vue/Angular/Svelte). This is third-party reference documentation bundled for agent guidance, not versus-engine's own source.",
+      "tags": ["documentation", "external-reference", "remotion", "skill-index", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Markdown skill manifest with YAML frontmatter (name/description/tags) used by the Claude Code skill-discovery system; body links out to co-located and external Remotion.dev docs rather than containing substantive content itself."
+    },
+    {
+      "id": "document:.agents/skills/remotion-saas/framework.md",
+      "type": "document",
+      "name": "framework.md",
+      "filePath": ".agents/skills/remotion-saas/framework.md",
+      "summary": "Vendored reference doc listing official Remotion starter templates (Next.js App Router with/without Tailwind, Next.js Pages Router, Vercel Sandbox, React Router 7, Express render server) and their default rendering choices, for use when choosing a framework for a Remotion SaaS app. External reference documentation, not part of versus-engine's own codebase.",
+      "tags": ["documentation", "external-reference", "remotion", "templates", "framework-choice"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-saas/player.md",
+      "type": "document",
+      "name": "player.md",
+      "filePath": ".agents/skills/remotion-saas/player.md",
+      "summary": "Vendored reference doc showing how to embed an interactive Remotion preview in a React app via `@remotion/player`, including a minimal `<Player>` usage example and notes on syncing dynamic metadata. External reference documentation bundled for agent guidance, distinct from versus-engine's own Remotion composition code.",
+      "tags": ["documentation", "external-reference", "remotion", "player", "react"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-saas/rendering.md",
+      "type": "document",
+      "name": "rendering.md",
+      "filePath": ".agents/skills/remotion-saas/rendering.md",
+      "summary": "Vendored reference doc comparing programmatic Remotion rendering options (plain Node.js SSR, Remotion Lambda, Vercel, GitHub Actions, Azure Container Apps, Cloudflare Containers), with a detailed step-by-step Lambda setup checklist. External reference documentation for choosing a rendering backend, not versus-engine's own render pipeline.",
+      "tags": ["documentation", "external-reference", "remotion", "rendering", "deployment", "lambda"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-saas/SKILL.md",
+      "target": "document:.agents/skills/remotion-saas/framework.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-saas/SKILL.md",
+      "target": "document:.agents/skills/remotion-saas/player.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-saas/SKILL.md",
+      "target": "document:.agents/skills/remotion-saas/rendering.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-saas/player.md",
+      "target": "document:.agents/skills/remotion-saas/framework.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-saas/player.md",
+      "target": "document:.agents/skills/remotion-saas/rendering.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

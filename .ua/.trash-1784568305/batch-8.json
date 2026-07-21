@@ -1,0 +1,260 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "type": "file",
+      "name": "actions.ts",
+      "filePath": "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "summary": "Next.js Server Actions for the comparison detail page: idempotently queues a Remotion render job for a comparison's frozen videoJson, and lets a human pick the winning A/B thumbnail variant.",
+      "tags": ["server-action", "render-queue", "idempotent", "bullmq"],
+      "complexity": "moderate",
+      "languageNotes": "Uses a composite dedupe key (comparisonId + composition + templateVer + non-terminal status) before enqueueing, matching CLAUDE.md's 'idempotent jobs' rule for BullMQ workers."
+    },
+    {
+      "id": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "apps/dashboard/app/comparisons/[id]/page.tsx",
+      "summary": "Dynamic Next.js route (`/comparisons/[id]`) that loads a comparison with its contenders, latest render job, and latest upload, then renders the video preview, render status, and thumbnail A/B controls.",
+      "tags": ["page-component", "server-component", "nextjs", "dashboard"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/dashboard/components/PreviewPlayer.tsx",
+      "type": "file",
+      "name": "PreviewPlayer.tsx",
+      "filePath": "apps/dashboard/components/PreviewPlayer.tsx",
+      "summary": "Client component that embeds the Remotion `<Player>` in the dashboard so a comparison's frozen VideoInput can be previewed in-browser before or after rendering.",
+      "tags": ["component", "remotion", "client-component", "preview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/components/RenderStatus.tsx",
+      "type": "file",
+      "name": "RenderStatus.tsx",
+      "filePath": "apps/dashboard/components/RenderStatus.tsx",
+      "summary": "Client component that polls the render-job status API every few seconds while a render is queued or running, showing progress, errors, and generated thumbnail variants.",
+      "tags": ["component", "polling", "client-component", "status"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/dashboard/lib/queue.ts",
+      "type": "file",
+      "name": "queue.ts",
+      "filePath": "apps/dashboard/lib/queue.ts",
+      "summary": "Lazily initializes a process-wide singleton BullMQ Queue and Redis connection used by the dashboard to enqueue render jobs, caching both on globalThis to survive Next.js dev hot-reload.",
+      "tags": ["singleton", "bullmq", "redis", "queue"],
+      "complexity": "simple",
+      "languageNotes": "Uses the `globalThis` caching pattern common in Next.js apps to avoid creating a new Redis connection/Queue instance on every hot-reload in development."
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/[id]/actions.ts:queueRender",
+      "type": "function",
+      "name": "queueRender",
+      "filePath": "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "lineRange": [14, 47],
+      "summary": "Server action that verifies a comparison has a frozen videoJson, returns an existing non-terminal render job if one matches the current template version (idempotency), or else creates a RenderJob row and enqueues it on the BullMQ render queue.",
+      "tags": ["server-action", "idempotent", "render-queue"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/[id]/actions.ts:setThumbnailVariant",
+      "type": "function",
+      "name": "setThumbnailVariant",
+      "filePath": "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "lineRange": [50, 56],
+      "summary": "Server action supporting A/B thumbnail testing: persists which generated thumbnail variant an upload should use and revalidates the comparison page.",
+      "tags": ["server-action", "ab-testing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "type": "function",
+      "name": "ComparisonDetailPage",
+      "filePath": "apps/dashboard/app/comparisons/[id]/page.tsx",
+      "lineRange": [8, 111],
+      "summary": "Async server component for the comparison detail route; fetches the comparison with contenders/renderJobs/uploads, parses its frozen videoJson, and renders the preview player, render-status panel, and queue/A-B-test forms.",
+      "tags": ["page-component", "server-component", "dashboard"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/dashboard/components/PreviewPlayer.tsx:PreviewPlayer",
+      "type": "function",
+      "name": "PreviewPlayer",
+      "filePath": "apps/dashboard/components/PreviewPlayer.tsx",
+      "lineRange": [6, 19],
+      "summary": "Renders the Remotion `<Player>` bound to the `Comparison16x9` composition, sizing and durating it from the given VideoInput's meta fields.",
+      "tags": ["component", "remotion", "preview"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/components/RenderStatus.tsx:RenderStatus",
+      "type": "function",
+      "name": "RenderStatus",
+      "filePath": "apps/dashboard/components/RenderStatus.tsx",
+      "lineRange": [15, 58],
+      "summary": "Client component that seeds state from an initial render-job snapshot, then polls `/api/render-jobs/:id` every 3 seconds while the job is QUEUED or RUNNING, rendering progress, errors, and thumbnail variants.",
+      "tags": ["component", "polling", "status"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/dashboard/lib/queue.ts:getRenderQueue",
+      "type": "function",
+      "name": "getRenderQueue",
+      "filePath": "apps/dashboard/lib/queue.ts",
+      "lineRange": [17, 20],
+      "summary": "Returns the process-wide singleton BullMQ Queue for render jobs, creating it on first call using a lazily-established Redis connection.",
+      "tags": ["singleton", "bullmq", "factory"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "target": "file:apps/dashboard/lib/queue.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "target": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "target": "file:apps/dashboard/components/PreviewPlayer.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "target": "file:apps/dashboard/components/RenderStatus.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:queueRender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:setThumbnailVariant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "target": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/components/PreviewPlayer.tsx",
+      "target": "function:apps/dashboard/components/PreviewPlayer.tsx:PreviewPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/components/RenderStatus.tsx",
+      "target": "function:apps/dashboard/components/RenderStatus.tsx:RenderStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/lib/queue.ts",
+      "target": "function:apps/dashboard/lib/queue.ts:getRenderQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:queueRender",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/actions.ts",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:setThumbnailVariant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/app/comparisons/[id]/page.tsx",
+      "target": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/components/PreviewPlayer.tsx",
+      "target": "function:apps/dashboard/components/PreviewPlayer.tsx:PreviewPlayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/components/RenderStatus.tsx",
+      "target": "function:apps/dashboard/components/RenderStatus.tsx:RenderStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/dashboard/lib/queue.ts",
+      "target": "function:apps/dashboard/lib/queue.ts:getRenderQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:queueRender",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "target": "function:apps/dashboard/app/comparisons/[id]/actions.ts:setThumbnailVariant",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/dashboard/app/comparisons/[id]/actions.ts:queueRender",
+      "target": "function:apps/dashboard/lib/queue.ts:getRenderQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "target": "function:apps/dashboard/components/PreviewPlayer.tsx:PreviewPlayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/dashboard/app/comparisons/[id]/page.tsx:ComparisonDetailPage",
+      "target": "function:apps/dashboard/components/RenderStatus.tsx:RenderStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/3d.md",
+      "type": "document",
+      "name": "3d.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/3d.md",
+      "summary": "Reference guide on integrating Three.js and React Three Fiber into Remotion compositions via <ThreeCanvas>, covering frame-driven animation and nesting <Sequence> inside 3D scenes.",
+      "tags": ["documentation", "remotion", "3d", "threejs", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "summary": "Master reference/index for the Remotion React Markup skill, linking out to topic guides covering maps, visual effects, audio, video, fonts, animations, timing, and rendering workflows.",
+      "tags": ["documentation", "remotion", "reference-index", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "type": "document",
+      "name": "audio-visualization.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "summary": "Guide to building audio-reactive visuals in Remotion, including spectrum bars, waveforms, bass-reactive effects, and postprocessing driven by decoded audio data.",
+      "tags": ["documentation", "remotion", "audio", "visualization", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/audio.md",
+      "type": "document",
+      "name": "audio.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/audio.md",
+      "summary": "Reference covering the Remotion <Audio> component: importing audio assets, trimming, delaying playback, volume control, muting, speed changes, looping, and pitch correction.",
+      "tags": ["documentation", "remotion", "audio", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "type": "document",
+      "name": "calculate-metadata.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "summary": "Explains Remotion's calculateMetadata composition lifecycle hook for dynamically deriving duration, dimensions, output filenames, and transformed props from input data.",
+      "tags": ["documentation", "remotion", "calculate-metadata", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "type": "document",
+      "name": "compositions.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "summary": "Covers structuring Remotion <Composition> definitions, including default props, folder organization, still compositions, dynamic sizing, and nesting compositions within one another.",
+      "tags": ["documentation", "remotion", "compositions", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/effects.md",
+      "type": "document",
+      "name": "effects.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/effects.md",
+      "summary": "Reference for applying built-in and custom visual/pixel effects to Remotion scenes, covering usage patterns and how to author custom effect components.",
+      "tags": ["documentation", "remotion", "effects", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "type": "document",
+      "name": "embedding-videos.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "summary": "Guide to embedding and controlling <Video> elements in Remotion, covering trimming, delay, sizing/position, volume, playback speed, looping, and pitch correction.",
+      "tags": ["documentation", "remotion", "video", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "type": "document",
+      "name": "ffmpeg.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "summary": "Short reference on invoking FFmpeg from within Remotion for tasks such as trimming videos.",
+      "tags": ["documentation", "remotion", "ffmpeg", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "type": "document",
+      "name": "gifs.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "summary": "Reference for displaying animated GIFs in Remotion, covering sizing/fit, playback speed, looping behavior, styling, and retrieving GIF duration.",
+      "tags": ["documentation", "remotion", "gif", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "type": "document",
+      "name": "google-fonts.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "summary": "Explains loading and using Google Fonts in Remotion compositions via the @remotion/google-fonts package.",
+      "tags": ["documentation", "remotion", "fonts", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "type": "document",
+      "name": "html-in-canvas.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "summary": "Reference for the <HtmlInCanvas> component, covering nesting, enabling WebGL during renders, 2D canvas effects via onPaint, WebGL effects, and asynchronous painting.",
+      "tags": ["documentation", "remotion", "canvas", "webgl", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/images.md",
+      "type": "document",
+      "name": "images.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/images.md",
+      "summary": "Covers sizing/positioning Remotion <Img> elements, using dynamic image paths, and retrieving image dimensions programmatically.",
+      "tags": ["documentation", "remotion", "images", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "type": "document",
+      "name": "light-leaks.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "summary": "Guide to adding light-leak visual transitions in Remotion, including usage with <TransitionSeries>, customizable props, and standalone usage outside transitions.",
+      "tags": ["documentation", "remotion", "transitions", "effects", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "type": "document",
+      "name": "local-fonts.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "summary": "Reference for loading local (self-hosted) font files in Remotion, including loading multiple weights and configuring available options.",
+      "tags": ["documentation", "remotion", "fonts", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "type": "document",
+      "name": "lottie.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "summary": "Guide to rendering Lottie animations in Remotion, covering displaying Lottie files and styling/animating them.",
+      "tags": ["documentation", "remotion", "lottie", "animation", "external-reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "type": "document",
+      "name": "map.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "summary": "Short pointer doc directing readers to the Mapbox or MapLibre map integration guides for Remotion.",
+      "tags": ["documentation", "remotion", "maps", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "type": "document",
+      "name": "mapbox.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "summary": "Comprehensive guide to integrating Mapbox maps into Remotion videos, covering setup, basic and animated flight-route map examples, camera guidance, lines, markers/labels, styling, and rendering considerations.",
+      "tags": ["documentation", "remotion", "maps", "mapbox", "external-reference"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "type": "document",
+      "name": "maplibre.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "summary": "Comprehensive guide to integrating MapLibre maps into Remotion videos, covering setup, basic and animated flight-route examples, camera guidance, lines, markers/labels, styling, and rendering considerations.",
+      "tags": ["documentation", "remotion", "maps", "maplibre", "external-reference"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "type": "document",
+      "name": "measuring-dom-nodes.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "summary": "Short reference on measuring DOM element dimensions within Remotion compositions for layout-dependent animations.",
+      "tags": ["documentation", "remotion", "dom", "external-reference"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/audio.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/effects.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/3d.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/images.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

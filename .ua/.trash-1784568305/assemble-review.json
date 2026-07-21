@@ -1,0 +1,19 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 12,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "Mechanical fixes reported by merge-batch-graphs.py (ID normalization, tested_by linker: 18 production nodes tagged 'tested', 0 tested_by edges produced) look sane for this repo size; no dominant-pattern or skew red flags to call out.",
+    "All 12 'could not fix' dropped edges were genuine node-ID/type mismatches, not missing analysis, and all were recovered by rewriting the edge target to the correct existing node id:",
+    "2 imports edges from file:apps/studio/src/Root.tsx were dropped because examples/comparison-example.json and examples/comparison-example-9x16.json were extracted as type 'config' (ids config:examples/comparison-example*.json) rather than 'file' in batch-40; rewrote targets to the config: ids and restored both edges (weight 0.7, forward).",
+    "3 calls edges into function:apps/studio/src/schema.ts:parseVideoInput were dropped because apps/studio/src/schema.ts is a barrel re-export with no function node of its own; the real implementation is function:packages/shared/src/video-input.ts:parseVideoInput (batch 41). Rewrote RemotionRoot, Thumbnail16x9, and Thumbnail16x9B call edges to point there (weight 0.7, forward).",
+    "7 calls edges into apps/studio/src/timing.ts (secondsToFrames x6, specBattleSeconds x1) were dropped for the same barrel-file reason; the real functions live at function:packages/shared/src/timing.ts:secondsToFrames and function:packages/shared/src/timing.ts:specBattleSeconds (batch 12/41). Rewrote AnimatedBar, Counter, Gauge, SpecBattle.getDuration (x2), SpecBattle.getSfxCues, and SpecBattle (component) call edges accordingly, preserving the original weight of 0.8 seen in batch-5.json for these calls edges.",
+    "Verified none of the 12 rewritten edges collided with an already-existing (source, target, type) triple before adding, so no duplicates were introduced.",
+    "Cross-checked all 366 importMap entries (152 non-empty file-to-file import relationships) against existing 'imports' edges in the assembled graph: zero additional gaps found between existing file: nodes. The only importMap targets with no matching file: node were the same 2 examples/comparison-example*.json paths already handled above (they exist as config: nodes) -- no new speculative edges were added.",
+    "Scanned all 552 nodes for missing id, invalid complexity values, and unknown types: none found beyond the 12 edge issues already covered. Node type set in the graph is {class, table, document, config, file, schema, function, service} -- all valid.",
+    "No remaining gaps identified. The apps/studio barrel files (schema.ts, timing.ts) are architecturally thin re-export shims per packages/shared -- future batches analyzing similar barrel patterns will likely need the same treatment."
+  ]
+}

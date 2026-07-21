@@ -1,0 +1,172 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/mediabunny/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 21,
+      "nonEmptyLines": 14,
+      "sections": [
+        {
+          "heading": "Getting audio duration",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Getting video dimensions",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Getting video duration",
+          "level": 2,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-audio-duration.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 58,
+      "nonEmptyLines": 42,
+      "sections": [
+        {
+          "heading": "Getting audio duration with Mediabunny",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Getting audio duration",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Using with staticFile in Remotion",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "In Node.js and Bun",
+          "level": 2,
+          "line": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-video-dimensions.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 68,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "Getting video dimensions with Mediabunny",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Getting video dimensions",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Using with local files",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "Using with staticFile in Remotion",
+          "level": 2,
+          "line": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-video-duration.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 60,
+      "nonEmptyLines": 43,
+      "sections": [
+        {
+          "heading": "Getting video duration with Mediabunny",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Getting video duration",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Video files from the public/ directory",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "In Node.js and Bun",
+          "level": 2,
+          "line": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

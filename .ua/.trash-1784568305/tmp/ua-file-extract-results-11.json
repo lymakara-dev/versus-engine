@@ -1,0 +1,281 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "packages/ingestion/src/adapters/vpic.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "fakeFetch",
+          "startLine": 12,
+          "endLine": 20,
+          "params": [
+            "body",
+            "ok"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fakeFetch",
+          "callee": "vi.fn",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/adapters/vpic.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "fetchModelsForMakeYear",
+          "startLine": 40,
+          "endLine": 53,
+          "params": [
+            "make",
+            "year",
+            "options"
+          ]
+        },
+        {
+          "name": "mapVpicResultsToProducts",
+          "startLine": 55,
+          "endLine": 79,
+          "params": [
+            "results",
+            "year",
+            "categorySlug"
+          ]
+        },
+        {
+          "name": "ingestVpicMakeYears",
+          "startLine": 92,
+          "endLine": 110,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "titleCase",
+          "startLine": 112,
+          "endLine": 118,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "fetchModelsForMakeYear",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "mapVpicResultsToProducts",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "ingestVpicMakeYears",
+          "line": 92,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fetchModelsForMakeYear",
+          "callee": "encodeURIComponent",
+          "lineNumber": 46
+        },
+        {
+          "caller": "fetchModelsForMakeYear",
+          "callee": "fetchImpl",
+          "lineNumber": 47
+        },
+        {
+          "caller": "fetchModelsForMakeYear",
+          "callee": "response.json",
+          "lineNumber": 51
+        },
+        {
+          "caller": "mapVpicResultsToProducts",
+          "callee": "results.map",
+          "lineNumber": 60
+        },
+        {
+          "caller": "mapVpicResultsToProducts",
+          "callee": "titleCase",
+          "lineNumber": 62
+        },
+        {
+          "caller": "mapVpicResultsToProducts",
+          "callee": "encodeURIComponent",
+          "lineNumber": 69
+        },
+        {
+          "caller": "mapVpicResultsToProducts",
+          "callee": "titleCase",
+          "lineNumber": 71
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "createRateLimiter",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "throttle",
+          "lineNumber": 100
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "fetchModelsForMakeYear",
+          "lineNumber": 100
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "mapVpicResultsToProducts",
+          "lineNumber": 101
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "`${product.brand}-${product.name}-${product.releaseYear}`.toLowerCase",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "seen.has",
+          "lineNumber": 103
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "seen.add",
+          "lineNumber": 104
+        },
+        {
+          "caller": "ingestVpicMakeYears",
+          "callee": "products.push",
+          "lineNumber": 105
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .toLowerCase()\n    .split(/\\s+/)\n    .map((word) => (word.length > 0 ? word[0]!.toUpperCase() + word.slice(1) : word))\n    .join",
+          "lineNumber": 113
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .toLowerCase()\n    .split(/\\s+/)\n    .map",
+          "lineNumber": 113
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .toLowerCase()\n    .split",
+          "lineNumber": 113
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .toLowerCase",
+          "lineNumber": 113
+        },
+        {
+          "caller": "titleCase",
+          "callee": "word[0]!.toUpperCase",
+          "lineNumber": 116
+        },
+        {
+          "caller": "titleCase",
+          "callee": "word.slice",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/ingestion/src/http.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 20,
+      "functions": [
+        {
+          "name": "createRateLimiter",
+          "startLine": 7,
+          "endLine": 21,
+          "params": [
+            "minIntervalMs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "createRateLimiter",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "throttle",
+          "callee": "Date.now",
+          "lineNumber": 11
+        },
+        {
+          "caller": "throttle",
+          "callee": "Math.max",
+          "lineNumber": 12
+        },
+        {
+          "caller": "throttle",
+          "callee": "setTimeout",
+          "lineNumber": 14
+        },
+        {
+          "caller": "throttle",
+          "callee": "Date.now",
+          "lineNumber": 16
+        },
+        {
+          "caller": "throttle",
+          "callee": "fn",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

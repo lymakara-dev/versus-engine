@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/mediabunny/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/mediabunny/SKILL.md",
+      "summary": "Vendored Claude Code agent-skill manifest for the Mediabunny multimedia library, giving a compact overview and linking out to task-specific how-to docs for audio duration, video dimensions, and video duration. This is bundled third-party skill documentation under agent/skills/, not versus-engine's own application code.",
+      "tags": ["documentation", "external-reference", "skill-manifest", "multimedia", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/mediabunny/get-audio-duration.md",
+      "type": "document",
+      "name": "get-audio-duration.md",
+      "filePath": "agent/skills/mediabunny/get-audio-duration.md",
+      "summary": "External reference doc showing how to compute an audio file's duration in seconds with Mediabunny's Input/UrlSource API, including staticFile usage in Remotion and FileSource usage in Node.js/Bun.",
+      "tags": ["documentation", "external-reference", "multimedia", "audio", "how-to"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/mediabunny/get-video-dimensions.md",
+      "type": "document",
+      "name": "get-video-dimensions.md",
+      "filePath": "agent/skills/mediabunny/get-video-dimensions.md",
+      "summary": "External reference doc explaining how to read a video's width and height via Mediabunny's primary video track, covering remote URLs, local FileSource files, and Remotion staticFile paths.",
+      "tags": ["documentation", "external-reference", "multimedia", "video", "how-to"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/mediabunny/get-video-duration.md",
+      "type": "document",
+      "name": "get-video-duration.md",
+      "filePath": "agent/skills/mediabunny/get-video-duration.md",
+      "summary": "External reference doc demonstrating how to compute a video file's duration in seconds using Mediabunny's Input.computeDuration(), including public/ staticFile usage in Remotion and Node.js/Bun FileSource usage.",
+      "tags": ["documentation", "external-reference", "multimedia", "video", "how-to"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/mediabunny/SKILL.md",
+      "target": "document:agent/skills/mediabunny/get-audio-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/mediabunny/SKILL.md",
+      "target": "document:agent/skills/mediabunny/get-video-dimensions.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/mediabunny/SKILL.md",
+      "target": "document:agent/skills/mediabunny/get-video-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/mediabunny/get-audio-duration.md",
+      "target": "document:agent/skills/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/mediabunny/get-video-dimensions.md",
+      "target": "document:agent/skills/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

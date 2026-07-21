@@ -1,0 +1,49 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "summary": "Top-level instructions for the vendored Claude Code 'remotion-create' agent skill: scaffolding a new Remotion project, designing the video with React Markup, applying interactivity and TailwindCSS guidance, and starting the Studio preview. This is bundled reference documentation for an external Remotion agent skill, not versus-engine application source.",
+      "tags": ["documentation", "agent-skill", "remotion", "external-reference", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Markdown skill-reference doc with a YAML frontmatter block (name/description/tags) and relative links to sibling skill docs (tailwind.md, video-layout.md, ../SKILL.md, ../remotion-markup/REFERENCE.md, ../remotion-interactivity/REFERENCE.md)."
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "type": "document",
+      "name": "tailwind.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "summary": "Short guidance note on using TailwindCSS inside Remotion projects, warning against CSS `transition-*`/`animate-*` utility classes in favor of frame-driven animation via `useCurrentFrame()`. Bundled external reference doc for the Remotion agent skill, not versus-engine's own Tailwind setup.",
+      "tags": ["documentation", "agent-skill", "remotion", "tailwindcss", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "type": "document",
+      "name": "video-layout.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "summary": "Video-first layout and typography guidance for Remotion compositions: safe-area sizing, default scene structure, preventing element overlap by using layout containers/slots instead of manual absolute positioning, minimum text sizes per composition width, and a pre-render visual checklist. Bundled external reference doc for the Remotion agent skill.",
+      "tags": ["documentation", "agent-skill", "remotion", "layout", "typography"],
+      "complexity": "moderate",
+      "languageNotes": "Structured as 7 heading-level guidance sections (Start from the frame, Default scene structure, Prevent overlap by construction, Text in video, Solve crowding with time, Pre-render check) each with bullet-point rules."
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

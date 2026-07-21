@@ -1,0 +1,53 @@
+{
+  "issues": [],
+  "warnings": [
+    "Node 'document:.agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md' has no edges (orphan)",
+    "Node 'document:.agents/skills/remotion-best-practices/remotion-markup/compositions.md' has no edges (orphan)",
+    "Node 'document:.agents/skills/remotion-best-practices/remotion-markup/parameters.md' has no edges (orphan)",
+    "Node 'config:tsconfig.base.json' has no edges (orphan)",
+    "Node 'document:agent/skills/remotion-best-practices/remotion-markup/html-in-canvas.md' has no edges (orphan)",
+    "Node 'document:agent/skills/remotion-best-practices/remotion-markup/light-leaks.md' has no edges (orphan)",
+    "Node 'document:agent/skills/remotion-markup/measuring-text.md' has no edges (orphan)",
+    "Node 'document:agent/skills/remotion-markup/parameters.md' has no edges (orphan)",
+    "Node 'document:agent/skills/remotion-markup/text-highlights.md' has no edges (orphan)",
+    "Node 'file:.ua/.understandignore' has no edges (orphan)",
+    "Node 'file:apps/dashboard/next-env.d.ts' has no edges (orphan)",
+    "Node 'file:apps/dashboard/tsconfig.tsbuildinfo' has no edges (orphan)",
+    "Node 'document:assets/music/LICENSES.md' has no edges (orphan)",
+    "Node 'config:packages/db/package.json' has no edges (orphan)",
+    "Node 'config:packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json' has no edges (orphan)",
+    "Node 'config:packages/shared/package.json' has no edges (orphan)",
+    "Node 'file:packages/shared/src/publish-queue.ts' has no edges (orphan)",
+    "Node 'file:packages/shared/src/render-queue.ts' has no edges (orphan)",
+    "Node 'file:packages/shared/src/specs.ts' has no edges (orphan)"
+  ],
+  "stats": {
+    "totalNodes": 552,
+    "totalEdges": 863,
+    "totalLayers": 10,
+    "tourSteps": 15,
+    "nodeTypes": {
+      "file": 125,
+      "function": 158,
+      "class": 1,
+      "document": 211,
+      "config": 26,
+      "service": 4,
+      "table": 26,
+      "schema": 1
+    },
+    "edgeTypes": {
+      "imports": 152,
+      "contains": 185,
+      "exports": 120,
+      "calls": 97,
+      "tested_by": 18,
+      "depends_on": 17,
+      "implements": 1,
+      "documents": 37,
+      "related": 199,
+      "configures": 25,
+      "migrates": 12
+    }
+  }
+}

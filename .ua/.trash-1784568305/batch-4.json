@@ -1,0 +1,504 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/studio/src/Root.tsx",
+      "type": "file",
+      "name": "Root.tsx",
+      "filePath": "apps/studio/src/Root.tsx",
+      "summary": "Remotion root component that registers all renderable outputs — the 16:9 and 9:16 comparison video compositions and the two branded thumbnail stills — wiring each to the shared Zod video schema and dynamic duration/resolution calculation.",
+      "tags": ["entry-point", "remotion", "composition-registry", "video"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/studio/src/components/Crown.tsx",
+      "type": "file",
+      "name": "Crown.tsx",
+      "filePath": "apps/studio/src/components/Crown.tsx",
+      "summary": "Animated crown component that drops in with a spring, rotates into place, and gains a colored glow — used to visually mark the winning contender.",
+      "tags": ["component", "animation", "ui", "winner-reveal"],
+      "complexity": "simple",
+      "languageNotes": "Combines spring() for the drop-in motion with two interpolate() calls (rotation, glow) driven off a delay-adjusted local frame, matching the project's convention of spring for entrances and interpolate for value animation."
+    },
+    {
+      "id": "file:apps/studio/src/components/Icon.tsx",
+      "type": "file",
+      "name": "Icon.tsx",
+      "filePath": "apps/studio/src/components/Icon.tsx",
+      "summary": "Thin wrapper around lucide-react that resolves a kebab-case icon name (e.g. \"dollar-sign\") to the matching PascalCase Lucide icon component, falling back to HelpCircle when no match exists.",
+      "tags": ["component", "utility", "icon", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/studio/src/components/PricePill.tsx",
+      "type": "file",
+      "name": "PricePill.tsx",
+      "filePath": "apps/studio/src/components/PricePill.tsx",
+      "summary": "Presentational pill-shaped badge that displays a contender's price with a dollar icon, themed via the shared Theme object and accented with the contender's color.",
+      "tags": ["component", "ui", "pricing", "theme"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "type": "file",
+      "name": "ComparisonShort9x16.tsx",
+      "filePath": "apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "summary": "Barrel re-export that aliases Comparison16x9 as ComparisonShort9x16, reusing the exact same scene component for the 9:16 Shorts variant since layout adapts internally from the `meta.aspect` prop.",
+      "tags": ["barrel", "composition", "shorts", "re-export"],
+      "complexity": "simple",
+      "languageNotes": "Zero-logic re-export — the only difference between the 16:9 and 9:16 outputs lives in the <Composition> registration (id, resolution, example props) in Root.tsx, not in the component itself."
+    },
+    {
+      "id": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "type": "file",
+      "name": "Thumbnail16x9.tsx",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "summary": "Branded 16:9 still-image thumbnail template (per PROJECT_PLAN.md) rendering both contenders side-by-side with a crown on the winner, price pills, and the video title, generated from the same VideoInput data as the video itself.",
+      "tags": ["component", "thumbnail", "still-composition", "marketing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "type": "file",
+      "name": "Thumbnail16x9B.tsx",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "summary": "Alternate 16:9 thumbnail template used for A/B testing, using diagonal color-blocked halves per contender instead of the dark panel style of Thumbnail16x9, driven by the identical VideoInput data.",
+      "tags": ["component", "thumbnail", "still-composition", "ab-testing"],
+      "complexity": "moderate",
+      "languageNotes": "Uses CSS clip-path polygons to create the diagonal split, a distinct visual technique from the boxed-panel layout in Thumbnail16x9."
+    },
+    {
+      "id": "file:apps/studio/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "apps/studio/src/index.ts",
+      "summary": "Remotion bundler entry point that registers RemotionRoot via registerRoot, bootstrapping the studio app.",
+      "tags": ["entry-point", "bootstrap", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "type": "function",
+      "name": "RemotionRoot",
+      "filePath": "apps/studio/src/Root.tsx",
+      "lineRange": [14, 73],
+      "summary": "Declares the Remotion <Composition>/<Still> registry: Comparison16x9, ComparisonShort9x16, Thumbnail16x9, and Thumbnail16x9B, each bound to the videoInputSchema and given dynamically computed duration/resolution via calculateMetadata.",
+      "tags": ["entry-point", "composition-registry", "remotion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/studio/src/components/Crown.tsx:Crown",
+      "type": "function",
+      "name": "Crown",
+      "filePath": "apps/studio/src/components/Crown.tsx",
+      "lineRange": [5, 41],
+      "summary": "Renders a colored crown icon with a spring drop-in, rotation settle, and glow fade-in, offset by an optional delayFrames prop.",
+      "tags": ["component", "animation", "winner-reveal"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "function",
+      "name": "Icon",
+      "filePath": "apps/studio/src/components/Icon.tsx",
+      "lineRange": [12, 16],
+      "summary": "React component that looks up and renders a Lucide icon by kebab-case name, forwarding any remaining props (size, color, strokeWidth) to the underlying icon.",
+      "tags": ["component", "icon", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/studio/src/components/PricePill.tsx:PricePill",
+      "type": "function",
+      "name": "PricePill",
+      "filePath": "apps/studio/src/components/PricePill.tsx",
+      "lineRange": [5, 28],
+      "summary": "Renders a rounded, accent-bordered price badge with a dollar-sign icon, styled from the active theme's surface color, body font, and text color.",
+      "tags": ["component", "ui", "pricing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:ContenderPanel",
+      "type": "function",
+      "name": "ContenderPanel",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "lineRange": [16, 52],
+      "summary": "Renders one contender's column in the thumbnail — an optional crown slot, the product image in an accent-colored rounded card, and a PricePill — keeping both columns visually aligned regardless of who wins.",
+      "tags": ["component", "thumbnail", "layout"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "type": "function",
+      "name": "Thumbnail16x9",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "lineRange": [54, 119],
+      "summary": "Top-level thumbnail still composition: parses and validates VideoInput, resolves the theme, then lays out the title, both ContenderPanels with a VS divider, and a \"WHO WINS?\" call-to-action over the themed Background.",
+      "tags": ["component", "thumbnail", "still-composition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:HalfPanel",
+      "type": "function",
+      "name": "HalfPanel",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "lineRange": [15, 64],
+      "summary": "Renders one diagonal half of the B-variant thumbnail — a bleeding contender product image plus a name pill (with crown if winner) anchored to the left or right side.",
+      "tags": ["component", "thumbnail", "layout"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "type": "function",
+      "name": "Thumbnail16x9B",
+      "filePath": "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "lineRange": [66, 129],
+      "summary": "Top-level B-variant thumbnail still composition: parses VideoInput, resolves the theme, and composes two diagonal clip-path halves per contender with a centered VS mark and title banner, for A/B testing against Thumbnail16x9.",
+      "tags": ["component", "thumbnail", "still-composition", "ab-testing"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:apps/studio/src/compositions/Comparison16x9.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:apps/studio/src/schema.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:examples/comparison-example-9x16.json",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "file:examples/comparison-example.json",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/components/Crown.tsx",
+      "target": "file:apps/studio/src/components/Icon.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/components/PricePill.tsx",
+      "target": "file:apps/studio/src/components/Icon.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/components/PricePill.tsx",
+      "target": "file:apps/studio/src/theme/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "file:apps/studio/src/components/Background.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "file:apps/studio/src/components/Icon.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "file:apps/studio/src/components/PricePill.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "file:apps/studio/src/schema.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "file:apps/studio/src/theme/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "file:apps/studio/src/components/Icon.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "file:apps/studio/src/schema.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "file:apps/studio/src/theme/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/index.ts",
+      "target": "file:apps/studio/src/Root.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/components/Crown.tsx",
+      "target": "function:apps/studio/src/components/Crown.tsx:Crown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/components/Icon.tsx",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/components/PricePill.tsx",
+      "target": "function:apps/studio/src/components/PricePill.tsx:PricePill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:ContenderPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:HalfPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/studio/src/Root.tsx",
+      "target": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/studio/src/components/Crown.tsx",
+      "target": "function:apps/studio/src/components/Crown.tsx:Crown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/studio/src/components/Icon.tsx",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/studio/src/components/PricePill.tsx",
+      "target": "function:apps/studio/src/components/PricePill.tsx:PricePill",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/studio/src/components/Crown.tsx:Crown",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/components/PricePill.tsx:PricePill",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:ContenderPanel",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:ContenderPanel",
+      "target": "function:apps/studio/src/components/PricePill.tsx:PricePill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:HalfPanel",
+      "target": "function:apps/studio/src/components/Icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "target": "function:apps/studio/src/components/Background.tsx:Background",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "target": "function:apps/studio/src/theme/index.ts:getTheme",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:ContenderPanel",
+      "target": "function:apps/studio/src/theme/index.ts:getTheme",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "target": "function:apps/studio/src/theme/index.ts:getTheme",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "target": "function:apps/studio/src/compositions/Comparison16x9.tsx:computeTotalDurationInFrames",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "target": "function:apps/studio/src/schema.ts:parseVideoInput",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "target": "function:apps/studio/src/schema.ts:parseVideoInput",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "target": "function:apps/studio/src/schema.ts:parseVideoInput",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "target": "function:apps/studio/src/compositions/Comparison16x9.tsx:Comparison16x9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9.tsx:Thumbnail16x9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:apps/studio/src/Root.tsx:RemotionRoot",
+      "target": "function:apps/studio/src/compositions/Thumbnail16x9B.tsx:Thumbnail16x9B",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "summary": "Index/reference page for the vendored 'remotion-captions' agent skill, defining the shared Caption JSON type and pointing to the generating, displaying, and importing caption guides. Third-party reference documentation bundled with the repo's agent tooling, not part of Versus Engine's own architecture.",
+      "tags": ["documentation", "vendored", "reference", "captions", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "document",
+      "name": "display-captions.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "summary": "Vendored Remotion agent-skill guide covering how to display captions in a video: fetching caption data, paginating text, rendering with Sequences, preserving white-space, extracting a dedicated caption component, and word-level highlighting alongside video content. Third-party reference documentation, not Versus Engine's own code.",
+      "tags": ["documentation", "vendored", "captions", "remotion", "how-to"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "type": "document",
+      "name": "import-srt-captions.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "summary": "Vendored Remotion agent-skill guide explaining how to read an .srt subtitle file and convert it into the Caption[] format for use inside a Remotion composition. Third-party reference documentation, not Versus Engine's own code.",
+      "tags": ["documentation", "vendored", "captions", "remotion", "how-to"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "type": "document",
+      "name": "transcribe-captions.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "summary": "Vendored Remotion agent-skill guide describing prerequisites and steps for transcribing audio/video into caption data that can be fed into the captions pipeline. Third-party reference documentation, not Versus Engine's own code.",
+      "tags": ["documentation", "vendored", "captions", "remotion", "how-to"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

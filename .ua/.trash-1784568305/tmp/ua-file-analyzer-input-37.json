@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "agent/skills/remotion-saas/SKILL.md", "language": "markdown", "sizeLines": 31, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-saas/framework.md", "language": "markdown", "sizeLines": 21, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-saas/player.md", "language": "markdown", "sizeLines": 33, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-saas/rendering.md", "language": "markdown", "sizeLines": 69, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "agent/skills/remotion-saas/SKILL.md": [],
+    "agent/skills/remotion-saas/framework.md": [],
+    "agent/skills/remotion-saas/player.md": [],
+    "agent/skills/remotion-saas/rendering.md": []
+  }
+}

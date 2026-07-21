@@ -1,0 +1,27 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "packages/shared/src/csv.ts", "language": "typescript", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "packages/shared/src/index.ts", "language": "typescript", "sizeLines": 8, "fileCategory": "code"},
+    {"path": "packages/shared/src/publish-queue.ts", "language": "typescript", "sizeLines": 10, "fileCategory": "code"},
+    {"path": "packages/shared/src/render-queue.ts", "language": "typescript", "sizeLines": 14, "fileCategory": "code"},
+    {"path": "packages/shared/src/slug.test.ts", "language": "typescript", "sizeLines": 22, "fileCategory": "code"},
+    {"path": "packages/shared/src/slug.ts", "language": "typescript", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "packages/shared/src/specs.ts", "language": "typescript", "sizeLines": 62, "fileCategory": "code"},
+    {"path": "packages/shared/src/units.test.ts", "language": "typescript", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "packages/shared/src/units.ts", "language": "typescript", "sizeLines": 38, "fileCategory": "code"},
+    {"path": "packages/shared/tsconfig.json", "language": "json", "sizeLines": 9, "fileCategory": "config"}
+  ],
+  "batchImportData": {
+    "packages/shared/src/csv.ts": [],
+    "packages/shared/src/index.ts": [],
+    "packages/shared/src/publish-queue.ts": [],
+    "packages/shared/src/render-queue.ts": [],
+    "packages/shared/src/slug.test.ts": ["packages/shared/src/slug.ts"],
+    "packages/shared/src/slug.ts": [],
+    "packages/shared/src/specs.ts": [],
+    "packages/shared/src/units.test.ts": ["packages/shared/src/units.ts"],
+    "packages/shared/src/units.ts": [],
+    "packages/shared/tsconfig.json": []
+  }
+}

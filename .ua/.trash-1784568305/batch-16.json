@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "summary": "Vendored Claude Code agent-skill reference for the 'remotion-create' skill: walks through scaffolding a new Remotion project, designing a video with React Markup, applying interactivity best practices, optionally enabling TailwindCSS, and starting the Remotion Studio preview. Cross-links sibling skill docs (tailwind.md, video-layout.md, and skills outside this batch) rather than versus-engine's own source.",
+      "tags": ["documentation", "agent-skill", "external-reference", "remotion", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Frontmatter-driven Claude Code skill doc (YAML frontmatter with name/description/metadata.tags) that chains to other skill markdown files by relative link instead of code imports."
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "type": "document",
+      "name": "tailwind.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "summary": "Short vendored agent-skill note on using TailwindCSS inside a Remotion project: use it if already installed, avoid `transition-*`/`animate-*` classes in favor of `useCurrentFrame()`-driven animation, and set up Tailwind per Remotion's own docs first.",
+      "tags": ["documentation", "agent-skill", "external-reference", "tailwindcss", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "type": "document",
+      "name": "video-layout.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "summary": "Vendored agent-skill guidance on video-first layout, composition, and text sizing for Remotion scenes: framing what the viewer should notice first, using flex/grid layout slots to avoid overlap, minimum text sizes for readability at video distance, and a pre-render checklist.",
+      "tags": ["documentation", "agent-skill", "external-reference", "layout", "remotion"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

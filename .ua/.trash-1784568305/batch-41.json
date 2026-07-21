@@ -1,0 +1,420 @@
+{
+  "nodes": [
+    {
+      "id": "file:packages/shared/src/csv.ts",
+      "type": "file",
+      "name": "csv.ts",
+      "filePath": "packages/shared/src/csv.ts",
+      "summary": "Defines the Zod schema for category-agnostic product-import CSV rows and helper functions that extract raw spec_* columns into SpecValue keys, consumed by packages/ingestion's CSV adapter.",
+      "tags": ["csv-parsing", "validation", "ingestion", "schema", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/csv.ts:isSpecColumn",
+      "type": "function",
+      "name": "isSpecColumn",
+      "filePath": "packages/shared/src/csv.ts",
+      "lineRange": [25, 27],
+      "summary": "Checks whether a CSV column name uses the spec_ prefix, marking it as a raw category spec rather than a fixed product field.",
+      "tags": ["csv-parsing", "predicate", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/csv.ts:specKeyFromColumn",
+      "type": "function",
+      "name": "specKeyFromColumn",
+      "filePath": "packages/shared/src/csv.ts",
+      "lineRange": [29, 31],
+      "summary": "Strips the spec_ prefix from a CSV column name to derive the raw spec key stored on Product.specs.",
+      "tags": ["csv-parsing", "string-formatting", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "packages/shared/src/index.ts",
+      "summary": "Barrel file re-exporting all of packages/shared's public modules (slug, units, specs, csv, video-input, timing, render-queue, publish-queue) as the package's single entry point.",
+      "tags": ["entry-point", "barrel", "exports"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/publish-queue.ts",
+      "type": "file",
+      "name": "publish-queue.ts",
+      "filePath": "packages/shared/src/publish-queue.ts",
+      "summary": "Declares the shared BullMQ 'publish' queue name and Zod payload schema used by the render worker (producer on completion) and the publish worker (consumer).",
+      "tags": ["queue", "bullmq", "schema", "shared-constant"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/render-queue.ts",
+      "type": "file",
+      "name": "render-queue.ts",
+      "filePath": "packages/shared/src/render-queue.ts",
+      "summary": "Declares the shared BullMQ 'render' queue name, the composition id enum, and the render job payload schema used by the dashboard (producer) and render worker (consumer).",
+      "tags": ["queue", "bullmq", "schema", "video-rendering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/slug.test.ts",
+      "type": "file",
+      "name": "slug.test.ts",
+      "filePath": "packages/shared/src/slug.test.ts",
+      "summary": "Vitest unit tests for slugify and keyify, covering lowercasing, dash trimming, and special-character (degree sign, en/em dash) handling.",
+      "tags": ["test", "unit-test", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/slug.ts",
+      "type": "file",
+      "name": "slug.ts",
+      "filePath": "packages/shared/src/slug.ts",
+      "summary": "String helpers for generating URL-safe product slugs (slugify) and SpecDefinition.key identifiers (keyify) used across ingestion and the dashboard.",
+      "tags": ["utility", "string-formatting", "slug"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/slug.ts:slugify",
+      "type": "function",
+      "name": "slugify",
+      "filePath": "packages/shared/src/slug.ts",
+      "lineRange": [2, 7],
+      "summary": "Converts a display name (e.g. \"Toyota GR Corolla\") into a URL-safe lowercase, dash-separated identifier.",
+      "tags": ["slug", "string-formatting", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/slug.ts:keyify",
+      "type": "function",
+      "name": "keyify",
+      "filePath": "packages/shared/src/slug.ts",
+      "lineRange": [10, 16],
+      "summary": "Converts a human-readable spec label (e.g. \"0-100 km/h\") into a snake_case SpecDefinition.key, normalizing degree signs and dashes.",
+      "tags": ["slug", "string-formatting", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/specs.ts",
+      "type": "file",
+      "name": "specs.ts",
+      "filePath": "packages/shared/src/specs.ts",
+      "summary": "Zod schemas defining the common output contract for every ingestion adapter (vPIC, CSV, AI normalizer, scrapers): normalized spec values, normalized products, and category SpecDefinition seed data, all consumed by packages/db upserts.",
+      "tags": ["schema", "data-model", "validation", "ingestion-contract"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/shared/src/units.test.ts",
+      "type": "file",
+      "name": "units.test.ts",
+      "filePath": "packages/shared/src/units.test.ts",
+      "summary": "Vitest unit tests verifying imperial-to-SI unit conversion accuracy for weight (lb to kg), speed (mph to km/h), and torque (ft-lb to Nm).",
+      "tags": ["test", "unit-test", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:packages/shared/src/units.ts",
+      "type": "file",
+      "name": "units.ts",
+      "filePath": "packages/shared/src/units.ts",
+      "summary": "Unit conversion helpers (weight, speed, length, torque, temperature) plus a rounding utility, used to normalize raw imperial specs into canonical SI-ish values once at ingestion time per project convention.",
+      "tags": ["utility", "unit-conversion", "normalization"],
+      "complexity": "moderate",
+      "languageNotes": "Each conversion is a pure one-line arithmetic function, keeping the ingestion-time normalization step easy to audit and test in isolation."
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:lbToKg",
+      "type": "function",
+      "name": "lbToKg",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [7, 9],
+      "summary": "Converts pounds to kilograms using the exact avoirdupois pound conversion factor.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:mphToKmh",
+      "type": "function",
+      "name": "mphToKmh",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [11, 13],
+      "summary": "Converts miles per hour to kilometers per hour.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:inToCm",
+      "type": "function",
+      "name": "inToCm",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [15, 17],
+      "summary": "Converts inches to centimeters.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:inToMm",
+      "type": "function",
+      "name": "inToMm",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [19, 21],
+      "summary": "Converts inches to millimeters.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:ozToG",
+      "type": "function",
+      "name": "ozToG",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [23, 25],
+      "summary": "Converts ounces to grams.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:ftLbToNm",
+      "type": "function",
+      "name": "ftLbToNm",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [27, 29],
+      "summary": "Converts foot-pounds of torque to newton-meters.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:fToC",
+      "type": "function",
+      "name": "fToC",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [31, 33],
+      "summary": "Converts degrees Fahrenheit to degrees Celsius.",
+      "tags": ["unit-conversion", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/shared/src/units.ts:round",
+      "type": "function",
+      "name": "round",
+      "filePath": "packages/shared/src/units.ts",
+      "lineRange": [35, 38],
+      "summary": "Rounds a number to a given decimal precision (default 1), used to tidy converted spec values before display or comparison.",
+      "tags": ["utility", "formatting", "numeric"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:packages/shared/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "packages/shared/tsconfig.json",
+      "summary": "TypeScript project configuration for packages/shared, extending the monorepo's base tsconfig, compiling src to dist with no emitted output during type-checking-only builds.",
+      "tags": ["configuration", "typescript", "build-system", "monorepo"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:packages/shared/src/csv.ts",
+      "target": "function:packages/shared/src/csv.ts:isSpecColumn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/csv.ts",
+      "target": "function:packages/shared/src/csv.ts:specKeyFromColumn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/csv.ts",
+      "target": "function:packages/shared/src/csv.ts:isSpecColumn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/csv.ts",
+      "target": "function:packages/shared/src/csv.ts:specKeyFromColumn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/slug.ts",
+      "target": "function:packages/shared/src/slug.ts:slugify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/slug.ts",
+      "target": "function:packages/shared/src/slug.ts:keyify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/slug.ts",
+      "target": "function:packages/shared/src/slug.ts:slugify",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/slug.ts",
+      "target": "function:packages/shared/src/slug.ts:keyify",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:lbToKg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:mphToKmh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:inToCm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:inToMm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:ozToG",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:ftLbToNm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:fToC",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:round",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:lbToKg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:mphToKmh",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:inToCm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:inToMm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:ozToG",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:ftLbToNm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:fToC",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "function:packages/shared/src/units.ts:round",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/shared/src/slug.test.ts",
+      "target": "file:packages/shared/src/slug.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/shared/src/units.test.ts",
+      "target": "file:packages/shared/src/units.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/shared/src/slug.ts",
+      "target": "file:packages/shared/src/slug.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:packages/shared/src/units.ts",
+      "target": "file:packages/shared/src/units.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:packages/shared/tsconfig.json",
+      "target": "file:packages/shared/src/index.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

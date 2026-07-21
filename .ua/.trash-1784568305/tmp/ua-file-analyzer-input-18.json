@@ -1,0 +1,29 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/measuring-text.md", "language": "markdown", "sizeLines": 140, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/parameters.md", "language": "markdown", "sizeLines": 109, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/sequencing.md", "language": "markdown", "sizeLines": 144, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/sfx.md", "language": "markdown", "sizeLines": 51, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/silence-detection.md", "language": "markdown", "sizeLines": 71, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/text-highlights.md", "language": "markdown", "sizeLines": 56, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/timing.md", "language": "markdown", "sizeLines": 152, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/transitions.md", "language": "markdown", "sizeLines": 197, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/trimming.md", "language": "markdown", "sizeLines": 51, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/video-editing.md", "language": "markdown", "sizeLines": 66, "fileCategory": "docs"},
+    {"path": ".agents/skills/remotion-best-practices/remotion-markup/voiceover.md", "language": "markdown", "sizeLines": 99, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    ".agents/skills/remotion-best-practices/remotion-markup/measuring-text.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/parameters.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/sequencing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/sfx.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/silence-detection.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/text-highlights.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/timing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/transitions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/trimming.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/video-editing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/voiceover.md": []
+  }
+}

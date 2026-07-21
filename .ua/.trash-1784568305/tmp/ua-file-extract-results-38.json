@@ -1,0 +1,782 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 24,
+  "filesSkipped": [
+    ".ua/.understandignore"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 24,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 2,
+      "failed": 0,
+      "skipped": 22
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/remotion-best-practices/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 42,
+      "nonEmptyLines": 24,
+      "sections": [
+        {
+          "heading": "New project setup",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "React Markup Best Practices",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Mediabunny Skills",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Improving Interactivity",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "Rendering",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Captions",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Creating a SaaS, automation or application",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Looking up Remotion APIs and documentation",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Upgrading",
+          "level": 2,
+          "line": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "Searching the docs",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Fetching a page as Markdown",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Workflow",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 18,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Remotion Interactivity",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Video editing",
+          "level": 2,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 28,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "General rendering strategy",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Transparent videos",
+          "level": 2,
+          "line": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 106,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "Rendering Transparent Videos",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Transparent ProRes",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Transparent WebM (VP9)",
+          "level": 2,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 30,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "Upgrade Remotion",
+          "level": 1,
+          "line": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-docs/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "Searching the docs",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Fetching a page as Markdown",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Workflow",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-interactivity/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 18,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Remotion Interactivity",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Video editing",
+          "level": 2,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-render/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 28,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "General rendering strategy",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Transparent videos",
+          "level": 2,
+          "line": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 106,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "Rendering Transparent Videos",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Transparent ProRes",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Transparent WebM (VP9)",
+          "level": 2,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-upgrade/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 30,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "Upgrade Remotion",
+          "level": 1,
+          "line": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 39,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "New project setup",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "React Markup Best Practices",
+          "level": 2,
+          "line": 9
+        },
+        {
+          "heading": "Mediabunny Skills",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Improving Interactivity",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "Rendering",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Captions",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Creating a SaaS, automation or application",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Looking up Remotion APIs and documentation",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Upgrading",
+          "level": 2,
+          "line": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 47,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "Searching the docs",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Fetching a page as Markdown",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Workflow",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 18,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Remotion Interactivity",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Video editing",
+          "level": 2,
+          "line": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 28,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "General rendering strategy",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Transparent videos",
+          "level": 2,
+          "line": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 106,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "Rendering Transparent Videos",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Transparent ProRes",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Transparent WebM (VP9)",
+          "level": 2,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 30,
+      "nonEmptyLines": 22,
+      "sections": [
+        {
+          "heading": "Upgrade Remotion",
+          "level": 1,
+          "line": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "agent/skills/remotion-docs/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 44,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Searching the docs",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Fetching a page as Markdown",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "Workflow",
+          "level": 2,
+          "line": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "agent/skills/remotion-interactivity/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 15,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "Remotion Interactivity",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "Video editing",
+          "level": 2,
+          "line": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "agent/skills/remotion-render/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 25,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "General rendering strategy",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Transparent videos",
+          "level": 2,
+          "line": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "agent/skills/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 106,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "Rendering Transparent Videos",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Transparent ProRes",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Transparent WebM (VP9)",
+          "level": 2,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "agent/skills/remotion-upgrade/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 28,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "Upgrade Remotion",
+          "level": 1,
+          "line": 4
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "GET",
+          "startLine": 4,
+          "endLine": 17,
+          "params": [
+            "_request",
+            "{ params }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GET",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GET",
+          "callee": "prisma.renderJob.findUnique",
+          "lineNumber": 6
+        },
+        {
+          "caller": "GET",
+          "callee": "NextResponse.json",
+          "lineNumber": 8
+        },
+        {
+          "caller": "GET",
+          "callee": "NextResponse.json",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/new/actions.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "createComparison",
+          "startLine": 7,
+          "endLine": 17,
+          "params": [
+            "formData"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "createComparison",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "createComparison",
+          "callee": "formData.getAll(\"productIds\").map",
+          "lineNumber": 8
+        },
+        {
+          "caller": "createComparison",
+          "callee": "formData.getAll",
+          "lineNumber": 8
+        },
+        {
+          "caller": "createComparison",
+          "callee": "buildAndSaveComparison",
+          "lineNumber": 15
+        },
+        {
+          "caller": "createComparison",
+          "callee": "redirect",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

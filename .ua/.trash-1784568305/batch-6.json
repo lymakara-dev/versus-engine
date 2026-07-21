@@ -1,0 +1,322 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/workers/src/cli/batch.ts",
+      "type": "file",
+      "name": "batch.ts",
+      "filePath": "apps/workers/src/cli/batch.ts",
+      "summary": "CLI entry point for `pnpm batch --category <slug> --pairs top-<N>` — resolves top-priced VERIFIED products in a category, pairs them into comparisons, builds/saves each comparison, queues a BullMQ render job, and optionally stages staggered publish scheduling and narration synthesis.",
+      "tags": ["entry-point", "cli", "batch-processing", "scheduling", "queue-producer"],
+      "complexity": "moderate",
+      "languageNotes": "Uses node:util parseArgs for flag parsing and a main().catch().finally() chain to set process.exitCode and disconnect Prisma cleanly on both success and failure."
+    },
+    {
+      "id": "function:apps/workers/src/cli/batch.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "apps/workers/src/cli/batch.ts",
+      "lineRange": [39, 133],
+      "summary": "Parses CLI args, validates the category and pairs/schedule specs, fetches the top-priced VERIFIED products for the category, pairs them, then for each pair builds and saves a comparison, creates a RenderJob, enqueues it on the render queue, and optionally creates a scheduled Upload record.",
+      "tags": ["cli", "orchestration", "batch-processing", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:apps/workers/src/cli/pair-products.ts",
+      "type": "file",
+      "name": "pair-products.ts",
+      "filePath": "apps/workers/src/cli/pair-products.ts",
+      "summary": "Utility that takes the top N ranked products and pairs them consecutively into head-to-head matchups for batch comparison generation, dropping any trailing unpaired item.",
+      "tags": ["utility", "pairing", "batch-processing", "algorithm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/cli/pair-products.ts:pairTopRanked",
+      "type": "function",
+      "name": "pairTopRanked",
+      "filePath": "apps/workers/src/cli/pair-products.ts",
+      "lineRange": [6, 13],
+      "summary": "Slices the top `count` entries from a ranked list and groups them into consecutive [A, B] pairs, dropping an odd leftover item so every video gets exactly two contenders.",
+      "tags": ["utility", "pairing", "generic-function"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/pair-products.test.ts",
+      "type": "file",
+      "name": "pair-products.test.ts",
+      "filePath": "apps/workers/src/cli/pair-products.test.ts",
+      "summary": "Vitest unit tests covering pairTopRanked's consecutive pairing, count capping, odd-item dropping, and empty/short-list edge cases.",
+      "tags": ["test", "unit-test", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "type": "file",
+      "name": "parse-pairs-spec.ts",
+      "filePath": "apps/workers/src/cli/parse-pairs-spec.ts",
+      "summary": "Parses the `--pairs` CLI flag (e.g. \"top-20\") into a structured PairsSpec, validating the strategy syntax and enforcing a minimum count of 2.",
+      "tags": ["cli", "validation", "parsing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/cli/parse-pairs-spec.ts:parsePairsSpec",
+      "type": "function",
+      "name": "parsePairsSpec",
+      "filePath": "apps/workers/src/cli/parse-pairs-spec.ts",
+      "lineRange": [7, 17],
+      "summary": "Validates and parses a `top-<N>` pairs-strategy string into a `{ strategy, count }` spec, throwing a descriptive error for invalid syntax or counts below 2.",
+      "tags": ["parsing", "validation", "cli"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "type": "file",
+      "name": "parse-pairs-spec.test.ts",
+      "filePath": "apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "summary": "Vitest unit tests verifying parsePairsSpec accepts valid top-N strategies and rejects too-small counts, unknown strategies, and malformed input.",
+      "tags": ["test", "unit-test", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-schedule.ts",
+      "type": "file",
+      "name": "parse-schedule.ts",
+      "filePath": "apps/workers/src/cli/parse-schedule.ts",
+      "summary": "Parses the `--schedule` CLI flag into a stagger interval in milliseconds (or null for immediate publish) and computes each batch item's scheduled publish timestamp.",
+      "tags": ["cli", "scheduling", "parsing", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/cli/parse-schedule.ts:parseScheduleIntervalMs",
+      "type": "function",
+      "name": "parseScheduleIntervalMs",
+      "filePath": "apps/workers/src/cli/parse-schedule.ts",
+      "lineRange": [8, 15],
+      "summary": "Maps a `--schedule` value (now/hourly/daily/weekly) to a millisecond stagger interval, or null for immediate scheduling, throwing on unrecognized cadences.",
+      "tags": ["parsing", "scheduling", "cli"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/cli/parse-schedule.ts:scheduledAtFor",
+      "type": "function",
+      "name": "scheduledAtFor",
+      "filePath": "apps/workers/src/cli/parse-schedule.ts",
+      "lineRange": [18, 20],
+      "summary": "Computes the scheduled publish Date for the i-th batch item by adding `(index + 1) * intervalMs` to the current time.",
+      "tags": ["scheduling", "utility", "date-math"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-schedule.test.ts",
+      "type": "file",
+      "name": "parse-schedule.test.ts",
+      "filePath": "apps/workers/src/cli/parse-schedule.test.ts",
+      "summary": "Vitest unit tests for parseScheduleIntervalMs's cadence parsing and scheduledAtFor's staggered timestamp computation.",
+      "tags": ["test", "unit-test", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/lib/render-queue-client.ts",
+      "type": "file",
+      "name": "render-queue-client.ts",
+      "filePath": "apps/workers/src/lib/render-queue-client.ts",
+      "summary": "Producer-side BullMQ queue client that lazily creates a singleton Redis connection and render queue, used by the `pnpm batch` CLI to enqueue render jobs.",
+      "tags": ["queue-producer", "bullmq", "redis", "singleton"],
+      "complexity": "simple",
+      "languageNotes": "Uses module-level lazy singletons (`??=`) to avoid reconnecting to Redis or recreating the Queue instance on repeated calls."
+    },
+    {
+      "id": "function:apps/workers/src/lib/render-queue-client.ts:getRenderQueue",
+      "type": "function",
+      "name": "getRenderQueue",
+      "filePath": "apps/workers/src/lib/render-queue-client.ts",
+      "lineRange": [9, 13],
+      "summary": "Returns a lazily-initialized singleton BullMQ Queue bound to the render queue, creating the underlying Redis connection on first call.",
+      "tags": ["singleton", "queue-producer", "bullmq"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/workers/src/cli/batch.ts",
+      "target": "file:apps/workers/src/cli/pair-products.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/batch.ts",
+      "target": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/batch.ts",
+      "target": "file:apps/workers/src/cli/parse-schedule.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/batch.ts",
+      "target": "file:apps/workers/src/lib/render-queue-client.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/pair-products.test.ts",
+      "target": "file:apps/workers/src/cli/pair-products.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "target": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.test.ts",
+      "target": "file:apps/workers/src/cli/parse-schedule.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/batch.ts",
+      "target": "function:apps/workers/src/cli/batch.ts:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/pair-products.ts",
+      "target": "function:apps/workers/src/cli/pair-products.ts:pairTopRanked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "target": "function:apps/workers/src/cli/parse-pairs-spec.ts:parsePairsSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.ts",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:parseScheduleIntervalMs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.ts",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:scheduledAtFor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/lib/render-queue-client.ts",
+      "target": "function:apps/workers/src/lib/render-queue-client.ts:getRenderQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/pair-products.ts",
+      "target": "function:apps/workers/src/cli/pair-products.ts:pairTopRanked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "target": "function:apps/workers/src/cli/parse-pairs-spec.ts:parsePairsSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.ts",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:parseScheduleIntervalMs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.ts",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:scheduledAtFor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/lib/render-queue-client.ts",
+      "target": "function:apps/workers/src/lib/render-queue-client.ts:getRenderQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/batch.ts:main",
+      "target": "function:apps/workers/src/cli/pair-products.ts:pairTopRanked",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/batch.ts:main",
+      "target": "function:apps/workers/src/cli/parse-pairs-spec.ts:parsePairsSpec",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/batch.ts:main",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:parseScheduleIntervalMs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/batch.ts:main",
+      "target": "function:apps/workers/src/cli/parse-schedule.ts:scheduledAtFor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/batch.ts:main",
+      "target": "function:apps/workers/src/lib/render-queue-client.ts:getRenderQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/cli/pair-products.ts",
+      "target": "file:apps/workers/src/cli/pair-products.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-pairs-spec.ts",
+      "target": "file:apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-schedule.ts",
+      "target": "file:apps/workers/src/cli/parse-schedule.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

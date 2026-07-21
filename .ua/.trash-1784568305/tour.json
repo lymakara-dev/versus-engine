@@ -1,0 +1,96 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start with the README to understand what Versus Engine is: a category-agnostic engine that turns Postgres records into animated \"X vs Y\" comparison videos for any product category using Remotion. It introduces the architectural idea that recurs throughout the codebase — a strict separation between category-agnostic data (Category -> Brand -> Product -> SpecValue) and a renderer that only knows about a Zod-validated video contract, never about \"cars\" or \"phones\" specifically. Keep this data/rendering split in mind; nearly every subsequent stop on this tour exists either to produce that contract or to consume it.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Architecture Blueprint & Prime Directives",
+    "description": "PROJECT_PLAN.md is the project's source of truth for architecture and the six-phase build roadmap, detailing the data layer design and the Zod VideoInput contract at a level of detail the README only summarizes. CLAUDE.md translates that plan into enforceable engineering rules: the video JSON contract is \"sacred\" and must never leak category-specific logic, Phase 1 (a single polished rendered MP4) comes before any dashboard or scraper work, rendered payloads are frozen for reproducible re-renders, and all BullMQ jobs must be idempotent. These two documents govern every design decision you'll see in the rest of the tour, especially the boundary between the comparison engine and the renderer.",
+    "nodeIds": ["document:PROJECT_PLAN.md", "document:CLAUDE.md"]
+  },
+  {
+    "order": 3,
+    "title": "The Category-Agnostic Data Model",
+    "description": "database/schema.prisma is the canonical Postgres schema implementing the Category -> Brand -> Product -> SpecValue design from Step 2. The key scalability trick is SpecDefinition: instead of hardcoding columns like \"horsepower\" or \"screen size\", each category declares its own set of comparable attributes (label, unit, dataType, visualization, priorityWeight) as data rows, so adding a new category means inserting SpecDefinition rows, not writing code. Product stores raw scraped specs untouched in JSONB while SpecValue holds the normalized, unit-converted numbers the comparison engine actually compares — a raw/normalized split you'll see enforced again later in the ingestion pipeline.",
+    "nodeIds": ["schema:database/schema.prisma"],
+    "languageLesson": "Prisma schema files declare models that map 1:1 to SQL tables; relations (like Product.specValues) become foreign keys and are turned into type-safe Prisma Client accessors in packages/db, so the ORM layer and the SQL schema never drift apart."
+  },
+  {
+    "order": 4,
+    "title": "The Sacred VideoInput Contract",
+    "description": "This fixture is the exact JSON payload that `pnpm render` must accept — a Toyota GR Corolla vs Honda Civic Type R comparison with meta, looping music, two contenders, scored rounds, and a verdict. It's the tangible artifact of CLAUDE.md's Prime Directive #1: whatever shape this file has is the only shape the Remotion renderer is allowed to understand. Study its structure now, because every remaining stop either produces a payload like this (the comparison engine) or consumes one (the studio renderer) — nothing in between ever branches on \"is this a car.\"",
+    "nodeIds": ["config:examples/comparison-example.json"]
+  },
+  {
+    "order": 5,
+    "title": "The Zod Schema Enforcing the Contract",
+    "description": "packages/shared/src/video-input.ts turns the informal JSON shape from Step 4 into an enforced Zod schema — the actual sacred contract referenced everywhere else in the codebase — with parseVideoInput() throwing a readable, path-annotated error the instant a payload strays from it. packages/shared/src/timing.ts is the single source of truth for scene durations in seconds (never hardcoded frame counts), plus helpers that compute absolute scene start times and per-round time ranges from a VideoInput. Both live in packages/shared specifically so the comparison engine, the Remotion renderer, and the narration/analytics packages can all import the exact same math and validation instead of re-deriving it.",
+    "nodeIds": ["file:packages/shared/src/video-input.ts", "file:packages/shared/src/timing.ts"],
+    "languageLesson": "Zod schemas act as both a runtime validator and, via z.infer<typeof Schema>, a compile-time TypeScript type generator — this is how the project gets one source of truth for a shape instead of a hand-written interface and a separate validator that could drift apart."
+  },
+  {
+    "order": 6,
+    "title": "The Remotion Entry Point",
+    "description": "apps/studio/src/index.ts is the literal entry point Remotion's bundler loads — it just calls registerRoot() with the component from Root.tsx. Root.tsx is where every renderable output is declared: the 16:9 and 9:16 comparison video compositions plus the two branded thumbnail stills, each wired to the shared Zod video schema from Step 5 for dynamic duration/resolution calculation. This is the first place category-agnostic data and rendering formally meet — Root.tsx doesn't know what a comparison is about, only that it needs a valid VideoInput.",
+    "nodeIds": ["file:apps/studio/src/index.ts", "file:apps/studio/src/Root.tsx"]
+  },
+  {
+    "order": 7,
+    "title": "The Root Composition",
+    "description": "Comparison16x9.tsx is the composition Phase 1 must render end-to-end per CLAUDE.md: it validates the incoming VideoInput, resolves the category theme and portrait/landscape layout, sequences all six scenes with TransitionSeries, overlays the persistent Scoreboard, and mounts the audio track. schema.ts simply re-exports the Zod schema from packages/shared so the renderer validates against the exact same contract the comparison engine produces — never a locally drifted copy. Notice the fan-in here: nearly every scene and component you'll see next imports schema.ts, timing.ts, and theme/index.ts, making this composition the structural hub of the entire studio app.",
+    "nodeIds": ["file:apps/studio/src/compositions/Comparison16x9.tsx", "file:apps/studio/src/schema.ts"]
+  },
+  {
+    "order": 8,
+    "title": "The Six-Scene Video Template",
+    "description": "These three scenes illustrate the six-scene template (Hook Intro -> Contender Reveal -> Spec Battles -> Scoreboard -> Winner Reveal -> Outro) that Comparison16x9.tsx sequences. Intro.tsx splits the \"X VS Y\" title from the video's title string with spring-animated entrances; SpecBattle.tsx is the core scene, sequencing each spec round and picking a bar/gauge/counter/badge visualization based on the round's data type; WinnerReveal.tsx reveals the winner with a Crown and a Confetti burst colored by the contender's accent. Each scene exports getDuration() and getSfxCues() per the CLAUDE.md scene contract, so audio placement is computed from the data rather than eyeballed.",
+    "nodeIds": ["file:apps/studio/src/scenes/Intro.tsx", "file:apps/studio/src/scenes/SpecBattle.tsx", "file:apps/studio/src/scenes/WinnerReveal.tsx"],
+    "languageLesson": "Remotion scenes drive all animation from useVideoConfig().fps and useCurrentFrame() rather than wall-clock time — spring() handles entrances and interpolate() with eased curves handles value animations like the bar races in SpecBattle, so the same code produces a deterministic frame at render time regardless of render speed."
+  },
+  {
+    "order": 9,
+    "title": "Theming & Audio Design Patterns",
+    "description": "theme/index.ts defines the Theme interface and four built-in category themes (speed, circuit, grid, default) with gradients, fonts, and motifs — this is why colors are never hardcoded in any scene component you saw in Step 8; they always come from getTheme() plus the contender's own accentColor. music.ts is the pure audio-math module building the per-frame music volume envelope described in CLAUDE.md: a base level, -6dB ducking around SFX/narration cues, and a 2-second fade-out, all computed rather than manually keyframed. Together these two files show the project's general pattern of pushing \"what to draw\" into data-driven configuration and \"how it changes over time\" into small, independently testable pure functions.",
+    "nodeIds": ["file:apps/studio/src/theme/index.ts", "file:apps/studio/src/audio/music.ts"]
+  },
+  {
+    "order": 10,
+    "title": "The Comparison Engine",
+    "description": "This is where the category-agnostic data from Step 3 becomes a VideoInput payload. round-selection.ts implements the CLAUDE.md heuristic verbatim: score each SpecDefinition candidate by priorityWeight x normalizedDifference, take the top 6-8, always include price, cap badge rounds at one, and guarantee each contender wins at least one round. video-json-builder.ts is the pure function that turns those selected rounds into the Zod-validated shape from Step 5, and build-comparison.ts is the Prisma-backed orchestrator that ties it together — loading VERIFIED products, running selection and scoring, generating AI metadata (with a deterministic fallback), and idempotently freezing the result by slug so it can be re-rendered identically later.",
+    "nodeIds": ["file:packages/comparison/src/round-selection.ts", "file:packages/comparison/src/video-json-builder.ts", "file:packages/comparison/src/build-comparison.ts"]
+  },
+  {
+    "order": 11,
+    "title": "Getting Data Into the Model",
+    "description": "vpic.ts shows one concrete source adapter: it fetches vehicle data from the NHTSA vPIC API and maps it into DRAFT NormalizedProduct records — always DRAFT until a human approves it in the dashboard, per CLAUDE.md's AI-content rule. upsert-product.ts is the single choke point where that source-agnostic output actually touches Prisma, idempotently upserting Category/Brand/Product/SpecValue rows keyed on natural keys, so re-running the same ingest twice is always safe. seed.ts uses the same idempotent-upsert pattern to load the demo catalog (4 cars, 4 phones, 2 laptops) from comparison-example.json and hand-written seed data, which is how the project guarantees demos work out of the box.",
+    "nodeIds": ["file:packages/ingestion/src/adapters/vpic.ts", "file:apps/workers/src/db/upsert-product.ts", "file:packages/db/src/seed.ts"]
+  },
+  {
+    "order": 12,
+    "title": "BullMQ Workers & Batch CLI",
+    "description": "render-worker.ts is the consumer that actually invokes Remotion — either a local bundle or Remotion Lambda depending on RENDER_TARGET — on the frozen videoJson produced by build-comparison.ts in Step 10, then enqueues a follow-up publish job. publish-worker.ts uploads that finished render to YouTube via the Data API, honoring scheduled publish times, and safely no-ops if the upload already has a videoId — a direct application of CLAUDE.md's idempotent-jobs directive. batch.ts is the `pnpm batch` CLI entry point that ties the whole pipeline together operationally: pick top-priced VERIFIED products in a category, pair them up, build/save each comparison, and queue the renders.",
+    "nodeIds": ["file:apps/workers/src/workers/render-worker.ts", "file:apps/workers/src/workers/publish-worker.ts", "file:apps/workers/src/cli/batch.ts"]
+  },
+  {
+    "order": 13,
+    "title": "The Admin Dashboard",
+    "description": "The Next.js dashboard is where a human closes the loop the automated pipeline can't: page.tsx shows category counts and DRAFT/VERIFIED product stats, new/actions.ts is the Server Action that validates selected products and calls the same build-comparison.ts orchestrator from Step 10 to create a new comparison, and PreviewPlayer.tsx embeds Remotion's own <Player> component so a comparison's frozen VideoInput can be previewed in-browser before committing to a full render. This is the same VideoInput contract from Step 4 the whole way through — the dashboard never has its own notion of what a video looks like, it just previews and triggers the same renderer.",
+    "nodeIds": ["file:apps/dashboard/app/page.tsx", "file:apps/dashboard/app/comparisons/new/actions.ts", "file:apps/dashboard/components/PreviewPlayer.tsx"]
+  },
+  {
+    "order": 14,
+    "title": "Optional AI Narration",
+    "description": "script.ts turns a frozen VideoInput into timestamped narration lines (one hook, one per round, one verdict), anchoring each line to the exact scene and round timeline boundaries computed by packages/shared/src/timing.ts from Step 5 — so narration timing and visual timing can never drift apart. synthesize.ts orchestrates the rest: it builds the script, calls an injectable TTS provider per line, writes the resulting mp3 files to disk, and probes their real audio duration so the final NarrationClip[] can be attached back onto the VideoInput before it's rendered. This package is a good example of the project's plug-in philosophy — a narrow NarrationProvider interface means swapping TTS vendors never touches script-building or studio playback code.",
+    "nodeIds": ["file:packages/narration/src/script.ts", "file:packages/narration/src/synthesize.ts"]
+  },
+  {
+    "order": 15,
+    "title": "Local Development Infrastructure",
+    "description": "docker-compose.yml provisions the three stateful services every other step in this tour depends on locally: Postgres 16 for the schema from Step 3, Redis 7 for the BullMQ queues from Step 12, and MinIO as an S3-compatible store for product images and rendered videos. Each service has a health check and a persistent named volume, and the exposed ports/credentials match exactly what .env.example expects — this is the file that makes `pnpm dev` actually work end-to-end on a laptop before anything touches real cloud infrastructure.",
+    "nodeIds": ["service:docker-compose.yml"],
+    "languageLesson": "Docker Compose's depends_on plus healthcheck blocks let dependent containers (or dependent pnpm scripts) wait for Postgres/Redis to be truly ready to accept connections, not just for the container process to have started — a common source of flaky local-dev races when skipped."
+  }
+]

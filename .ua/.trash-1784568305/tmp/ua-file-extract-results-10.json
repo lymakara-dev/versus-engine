@@ -1,0 +1,413 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "packages/db/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 9,
+      "exports": [
+        {
+          "name": "prisma",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/db/src/seed-data/products.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 164,
+      "nonEmptyLines": 160,
+      "exports": [
+        {
+          "name": "EXTRA_CAR_PRODUCTS",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "PHONE_PRODUCTS",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "LAPTOP_PRODUCTS",
+          "line": 130,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/db/src/seed-data/spec-definitions.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 275,
+      "nonEmptyLines": 271,
+      "exports": [
+        {
+          "name": "CAR_SPEC_DEFINITIONS",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "PHONE_SPEC_DEFINITIONS",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "LAPTOP_SPEC_DEFINITIONS",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "SPEC_DEFINITIONS_BY_CATEGORY",
+          "line": 271,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/db/src/seed.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 361,
+      "nonEmptyLines": 331,
+      "functions": [
+        {
+          "name": "parsePriceUsd",
+          "startLine": 45,
+          "endLine": 47,
+          "params": [
+            "price"
+          ]
+        },
+        {
+          "name": "upsertCategory",
+          "startLine": 49,
+          "endLine": 55,
+          "params": [
+            "slug",
+            "name",
+            "themeKey"
+          ]
+        },
+        {
+          "name": "upsertSpecDefinitions",
+          "startLine": 57,
+          "endLine": 93,
+          "params": [
+            "categoryId",
+            "defs"
+          ]
+        },
+        {
+          "name": "seedDemoProduct",
+          "startLine": 100,
+          "endLine": 162,
+          "params": [
+            "categoryId",
+            "specDefsByKey",
+            "demo"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 164,
+          "endLine": 352,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parsePriceUsd",
+          "callee": "Number",
+          "lineNumber": 46
+        },
+        {
+          "caller": "parsePriceUsd",
+          "callee": "price.replace",
+          "lineNumber": 46
+        },
+        {
+          "caller": "upsertCategory",
+          "callee": "prisma.category.upsert",
+          "lineNumber": 50
+        },
+        {
+          "caller": "upsertSpecDefinitions",
+          "callee": "prisma.specDefinition.upsert",
+          "lineNumber": 63
+        },
+        {
+          "caller": "upsertSpecDefinitions",
+          "callee": "byKey.set",
+          "lineNumber": 90
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "prisma.brand.upsert",
+          "lineNumber": 105
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "slugify",
+          "lineNumber": 106
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "slugify",
+          "lineNumber": 108
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "slugify",
+          "lineNumber": 111
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "Object.entries",
+          "lineNumber": 113
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "prisma.product.upsert",
+          "lineNumber": 131
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "Object.entries",
+          "lineNumber": 137
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "specDefsByKey.get",
+          "lineNumber": 138
+        },
+        {
+          "caller": "seedDemoProduct",
+          "callee": "prisma.specValue.upsert",
+          "lineNumber": 142
+        },
+        {
+          "caller": "main",
+          "callee": "readFileSync",
+          "lineNumber": 165
+        },
+        {
+          "caller": "main",
+          "callee": "JSON.parse",
+          "lineNumber": 166
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.category.upsert",
+          "lineNumber": 168
+        },
+        {
+          "caller": "main",
+          "callee": "Promise.all",
+          "lineNumber": 179
+        },
+        {
+          "caller": "main",
+          "callee": "videoInput.rounds.map",
+          "lineNumber": 180
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.specDefinition.upsert",
+          "lineNumber": 181
+        },
+        {
+          "caller": "main",
+          "callee": "keyify",
+          "lineNumber": 182
+        },
+        {
+          "caller": "main",
+          "callee": "keyify",
+          "lineNumber": 195
+        },
+        {
+          "caller": "main",
+          "callee": "Promise.all",
+          "lineNumber": 209
+        },
+        {
+          "caller": "main",
+          "callee": "videoInput.contenders.map",
+          "lineNumber": 210
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.brand.upsert",
+          "lineNumber": 211
+        },
+        {
+          "caller": "main",
+          "callee": "slugify",
+          "lineNumber": 212
+        },
+        {
+          "caller": "main",
+          "callee": "slugify",
+          "lineNumber": 215
+        },
+        {
+          "caller": "main",
+          "callee": "keyify",
+          "lineNumber": 223
+        },
+        {
+          "caller": "main",
+          "callee": "videoInput.contenders.indexOf",
+          "lineNumber": 223
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.product.upsert",
+          "lineNumber": 226
+        },
+        {
+          "caller": "main",
+          "callee": "slugify",
+          "lineNumber": 227
+        },
+        {
+          "caller": "main",
+          "callee": "parsePriceUsd",
+          "lineNumber": 230
+        },
+        {
+          "caller": "main",
+          "callee": "slugify",
+          "lineNumber": 240
+        },
+        {
+          "caller": "main",
+          "callee": "parsePriceUsd",
+          "lineNumber": 243
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.productImage.upsert",
+          "lineNumber": 252
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.specValue.upsert",
+          "lineNumber": 275
+        },
+        {
+          "caller": "main",
+          "callee": "slugify",
+          "lineNumber": 293
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.comparison.upsert",
+          "lineNumber": 294
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.comparisonContender.upsert",
+          "lineNumber": 317
+        },
+        {
+          "caller": "main",
+          "callee": "upsertSpecDefinitions",
+          "lineNumber": 330
+        },
+        {
+          "caller": "main",
+          "callee": "seedDemoProduct",
+          "lineNumber": 332
+        },
+        {
+          "caller": "main",
+          "callee": "upsertCategory",
+          "lineNumber": 335
+        },
+        {
+          "caller": "main",
+          "callee": "upsertSpecDefinitions",
+          "lineNumber": 336
+        },
+        {
+          "caller": "main",
+          "callee": "seedDemoProduct",
+          "lineNumber": 338
+        },
+        {
+          "caller": "main",
+          "callee": "upsertCategory",
+          "lineNumber": 341
+        },
+        {
+          "caller": "main",
+          "callee": "upsertSpecDefinitions",
+          "lineNumber": 342
+        },
+        {
+          "caller": "main",
+          "callee": "seedDemoProduct",
+          "lineNumber": 344
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 347
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 350
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 351
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

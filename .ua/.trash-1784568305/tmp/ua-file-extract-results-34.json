@@ -1,0 +1,129 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "agent/skills/remotion-create/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 46,
+      "nonEmptyLines": 30,
+      "sections": [
+        {
+          "heading": "Scaffold a project",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Designing a video",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "Interactivity Best Practices",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "TailwindCSS",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Starting preview",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Follow-up",
+          "level": 2,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "agent/skills/remotion-create/tailwind.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 11,
+      "nonEmptyLines": 8,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "agent/skills/remotion-create/video-layout.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 68,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "Video layout",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "Start from the frame",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Default scene structure",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "Prevent overlap by construction",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Text in video",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "Solve crowding with time",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Pre-render check",
+          "level": 2,
+          "line": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    }
+  ]
+}

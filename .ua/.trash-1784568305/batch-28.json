@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "summary": "Index/reference page for the vendored 'remotion-captions' Claude agent skill; defines the Remotion `Caption` JSON type and routes to the transcribe, display, and import-srt sub-guides. This is bundled third-party skill documentation, not part of versus-engine's own source.",
+      "tags": ["documentation", "external-reference", "entry-point", "remotion", "captions"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "document",
+      "name": "display-captions.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "summary": "External reference guide (vendored Claude agent skill doc) explaining how to fetch, paginate, and render Caption data inside Remotion using Sequences, including white-space preservation, a dedicated caption component, per-word highlighting, and combining captions with underlying video content.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "ui-rendering"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "type": "document",
+      "name": "import-srt-captions.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "summary": "External reference guide (vendored Claude agent skill doc) covering prerequisites and code for reading an .srt subtitle file and converting it into Remotion `Caption` objects for use in a composition.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "srt-import"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "type": "document",
+      "name": "transcribe-captions.md",
+      "filePath": "agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "summary": "External reference guide (vendored Claude agent skill doc) describing prerequisites and the transcription workflow for generating Caption JSON from audio/video sources, feeding into the display and import guides.",
+      "tags": ["documentation", "external-reference", "remotion", "captions", "transcription"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "target": "document:agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

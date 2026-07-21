@@ -1,0 +1,1321 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 10,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 10,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "packages/comparison/src/build-comparison.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 216,
+      "nonEmptyLines": 191,
+      "functions": [
+        {
+          "name": "formatUsd",
+          "startLine": 50,
+          "endLine": 53,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "pickImageUrl",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "images"
+          ]
+        },
+        {
+          "name": "buildComparison",
+          "startLine": 62,
+          "endLine": 175,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "saveComparison",
+          "startLine": 178,
+          "endLine": 208,
+          "params": [
+            "built"
+          ]
+        },
+        {
+          "name": "buildAndSaveComparison",
+          "startLine": 210,
+          "endLine": 216,
+          "params": [
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildComparison",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "saveComparison",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "buildAndSaveComparison",
+          "line": 210,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatUsd",
+          "callee": "Number",
+          "lineNumber": 51
+        },
+        {
+          "caller": "formatUsd",
+          "callee": "Number.isFinite",
+          "lineNumber": 52
+        },
+        {
+          "caller": "formatUsd",
+          "callee": "numeric.toLocaleString",
+          "lineNumber": 52
+        },
+        {
+          "caller": "pickImageUrl",
+          "callee": "images.find",
+          "lineNumber": 56
+        },
+        {
+          "caller": "pickImageUrl",
+          "callee": "images.find",
+          "lineNumber": 57
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "prisma.product.findMany",
+          "lineNumber": 68
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "products.map",
+          "lineNumber": 73
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "productIds.map",
+          "lineNumber": 74
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "byId.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "prisma.specDefinition.findMany",
+          "lineNumber": 91
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "ordered.map",
+          "lineNumber": 95
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "product.specValues.find",
+          "lineNumber": 95
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "values.some",
+          "lineNumber": 96
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "candidates.push",
+          "lineNumber": 97
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "values.map",
+          "lineNumber": 107
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "getRetentionBoosts",
+          "lineNumber": 116
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "selectRounds",
+          "lineNumber": 117
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "selectedRounds.map",
+          "lineNumber": 122
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "computeRoundWinner",
+          "lineNumber": 122
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "computeVerdict",
+          "lineNumber": 123
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "ordered.map",
+          "lineNumber": 125
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "formatUsd",
+          "lineNumber": 128
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "pickImageUrl",
+          "lineNumber": 129
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "contenderInputs.map",
+          "lineNumber": 136
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "selectedRounds.map",
+          "lineNumber": 137
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "candidate.values.map",
+          "lineNumber": 139
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "generateComparisonMetadata",
+          "lineNumber": 146
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "fallbackComparisonMetadata",
+          "lineNumber": 147
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "buildVideoInput",
+          "lineNumber": 149
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "ordered.map((p) => p.name).join",
+          "lineNumber": 150
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "ordered.map",
+          "lineNumber": 150
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "videoInputSchema.parse",
+          "lineNumber": 161
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "options.narration.synthesize",
+          "lineNumber": 163
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "slugify",
+          "lineNumber": 163
+        },
+        {
+          "caller": "buildComparison",
+          "callee": "ordered.map",
+          "lineNumber": 173
+        },
+        {
+          "caller": "saveComparison",
+          "callee": "slugify",
+          "lineNumber": 179
+        },
+        {
+          "caller": "saveComparison",
+          "callee": "prisma.comparison.upsert",
+          "lineNumber": 193
+        },
+        {
+          "caller": "saveComparison",
+          "callee": "prisma.comparisonContender.upsert",
+          "lineNumber": 200
+        },
+        {
+          "caller": "buildAndSaveComparison",
+          "callee": "buildComparison",
+          "lineNumber": 213
+        },
+        {
+          "caller": "buildAndSaveComparison",
+          "callee": "saveComparison",
+          "lineNumber": 214
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/metadata.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "mockClient",
+          "startLine": 23,
+          "endLine": 29,
+          "params": [
+            "responseText"
+          ]
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/metadata.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 121,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "buildMetadataPrompt",
+          "startLine": 46,
+          "endLine": 64,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "parseMetadataResponse",
+          "startLine": 66,
+          "endLine": 70,
+          "params": [
+            "responseText"
+          ]
+        },
+        {
+          "name": "generateComparisonMetadata",
+          "startLine": 78,
+          "endLine": 93,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "fallbackComparisonMetadata",
+          "startLine": 96,
+          "endLine": 121,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildMetadataPrompt",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "parseMetadataResponse",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "generateComparisonMetadata",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "fallbackComparisonMetadata",
+          "line": 96,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "buildMetadataPrompt",
+          "callee": "[\n    \"You write YouTube metadata for a faceless product-comparison channel. Given the\",\n    \"category, contenders, per-round results, and final verdict below, return ONLY a\",\n    \"JSON object with these keys:\",\n    '  \"title\": a punchy YouTube title under 100 characters (e.g. \"GR Corolla vs Civic Type R — There\\'s a Clear Winner\")',\n    '  \"description\": a 2-4 sentence YouTube description summarizing the matchup and verdict',\n    '  \"tags\": an array of 8-15 lowercase YouTube search tags',\n    '  \"tagline\": a single on-screen verdict line under 90 characters, shown during the winner reveal',\n    \"\",\n    `Category: ${input.category}`,\n    \"Contenders:\",\n    JSON.stringify(input.contenders, null, 2),\n    \"Round results:\",\n    JSON.stringify(input.rounds, null, 2),\n    \"Verdict:\",\n    JSON.stringify(input.verdict, null, 2),\n  ].join",
+          "lineNumber": 47
+        },
+        {
+          "caller": "buildMetadataPrompt",
+          "callee": "JSON.stringify",
+          "lineNumber": 58
+        },
+        {
+          "caller": "buildMetadataPrompt",
+          "callee": "JSON.stringify",
+          "lineNumber": 60
+        },
+        {
+          "caller": "buildMetadataPrompt",
+          "callee": "JSON.stringify",
+          "lineNumber": 62
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "responseText.trim",
+          "lineNumber": 67
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "trimmed.startsWith",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "trimmed.replace(/^```(json)?/, \"\").replace(/```$/, \"\").trim",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "trimmed.replace(/^```(json)?/, \"\").replace",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "trimmed.replace",
+          "lineNumber": 68
+        },
+        {
+          "caller": "parseMetadataResponse",
+          "callee": "JSON.parse",
+          "lineNumber": 69
+        },
+        {
+          "caller": "generateComparisonMetadata",
+          "callee": "client.messages.create",
+          "lineNumber": 81
+        },
+        {
+          "caller": "generateComparisonMetadata",
+          "callee": "buildMetadataPrompt",
+          "lineNumber": 84
+        },
+        {
+          "caller": "generateComparisonMetadata",
+          "callee": "response.content.find",
+          "lineNumber": 87
+        },
+        {
+          "caller": "generateComparisonMetadata",
+          "callee": "comparisonMetadataSchema.parse",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generateComparisonMetadata",
+          "callee": "parseMetadataResponse",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "input.contenders.map",
+          "lineNumber": 97
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "names.join",
+          "lineNumber": 98
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "input.verdict.scores.join",
+          "lineNumber": 100
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "input.rounds.map((r) => r.label).join",
+          "lineNumber": 107
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "input.rounds.map",
+          "lineNumber": 107
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "Array.from(\n    new Set([\n      input.category,\n      \"comparison\",\n      \"vs\",\n      ...names.flatMap((name) => name.toLowerCase().split(/\\s+/)),\n      ...input.contenders.map((c) => c.brand.toLowerCase()),\n    ]),\n  ).filter",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "Array.from",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "names.flatMap",
+          "lineNumber": 115
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "name.toLowerCase().split",
+          "lineNumber": 115
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "name.toLowerCase",
+          "lineNumber": 115
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "input.contenders.map",
+          "lineNumber": 116
+        },
+        {
+          "caller": "fallbackComparisonMetadata",
+          "callee": "c.brand.toLowerCase",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/retention-boost.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "clamp",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "value",
+            "min",
+            "max"
+          ]
+        },
+        {
+          "name": "getRetentionBoosts",
+          "startLine": 27,
+          "endLine": 53,
+          "params": [
+            "categoryId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRetentionBoosts",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "clamp",
+          "callee": "Math.min",
+          "lineNumber": 16
+        },
+        {
+          "caller": "clamp",
+          "callee": "Math.max",
+          "lineNumber": 16
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "prisma.roundRetention.findMany",
+          "lineNumber": 28
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "bySpecKey.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "list.push",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "bySpecKey.set",
+          "lineNumber": 38
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "[...bySpecKey.entries()].filter",
+          "lineNumber": 41
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "bySpecKey.entries",
+          "lineNumber": 41
+        },
+        {
+          "caller": "average",
+          "callee": "values.reduce",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "average",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "eligible.flatMap",
+          "lineNumber": 45
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "average",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getRetentionBoosts",
+          "callee": "clamp",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/round-selection.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 189,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "numberCandidate",
+          "startLine": 10,
+          "endLine": 25,
+          "params": [
+            "overrides"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "numberCandidate",
+          "callee": "overrides.values.map",
+          "lineNumber": 23
+        },
+        {
+          "caller": "numberCandidate",
+          "callee": "String",
+          "lineNumber": 23
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 96
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 97
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 98
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 99
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 100
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 101
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 102
+        },
+        {
+          "caller": "candidates",
+          "callee": "numberCandidate",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/round-selection.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 232,
+      "nonEmptyLines": 201,
+      "functions": [
+        {
+          "name": "numericEncoding",
+          "startLine": 33,
+          "endLine": 43,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "normalizedDifference",
+          "startLine": 51,
+          "endLine": 63,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "scoreCandidate",
+          "startLine": 73,
+          "endLine": 76,
+          "params": [
+            "candidate",
+            "retentionBoosts"
+          ]
+        },
+        {
+          "name": "computeRoundWinner",
+          "startLine": 84,
+          "endLine": 95,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "selectRounds",
+          "startLine": 111,
+          "endLine": 157,
+          "params": [
+            "candidates",
+            "options"
+          ]
+        },
+        {
+          "name": "guaranteeEachContenderAWin",
+          "startLine": 159,
+          "endLine": 202,
+          "params": [
+            "selected",
+            "allCandidates",
+            "badgeCount",
+            "retentionBoosts"
+          ]
+        },
+        {
+          "name": "isBadgeCandidate",
+          "startLine": 204,
+          "endLine": 206,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "findSwapOutIndex",
+          "startLine": 208,
+          "endLine": 232,
+          "params": [
+            "selected",
+            "contenderCount",
+            "retentionBoosts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "normalizedDifference",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "scoreCandidate",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "computeRoundWinner",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "selectRounds",
+          "line": 111,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "numericEncoding",
+          "callee": "candidate.values.map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "numericEncoding",
+          "callee": "numbers.every",
+          "lineNumber": 36
+        },
+        {
+          "caller": "numericEncoding",
+          "callee": "candidate.values.map",
+          "lineNumber": 39
+        },
+        {
+          "caller": "numericEncoding",
+          "callee": "bools.every",
+          "lineNumber": 40
+        },
+        {
+          "caller": "numericEncoding",
+          "callee": "bools.map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "normalizedDifference",
+          "callee": "numericEncoding",
+          "lineNumber": 52
+        },
+        {
+          "caller": "normalizedDifference",
+          "callee": "Math.min",
+          "lineNumber": 54
+        },
+        {
+          "caller": "normalizedDifference",
+          "callee": "Math.max",
+          "lineNumber": 55
+        },
+        {
+          "caller": "normalizedDifference",
+          "callee": "Math.abs",
+          "lineNumber": 58
+        },
+        {
+          "caller": "normalizedDifference",
+          "callee": "candidate.values.map",
+          "lineNumber": 61
+        },
+        {
+          "caller": "scoreCandidate",
+          "callee": "normalizedDifference",
+          "lineNumber": 75
+        },
+        {
+          "caller": "computeRoundWinner",
+          "callee": "numericEncoding",
+          "lineNumber": 85
+        },
+        {
+          "caller": "computeRoundWinner",
+          "callee": "Math.max",
+          "lineNumber": 88
+        },
+        {
+          "caller": "computeRoundWinner",
+          "callee": "Math.min",
+          "lineNumber": 88
+        },
+        {
+          "caller": "computeRoundWinner",
+          "callee": "numbers.reduce",
+          "lineNumber": 89
+        },
+        {
+          "caller": "computeRoundWinner",
+          "callee": "acc.push",
+          "lineNumber": 90
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates.find",
+          "lineNumber": 116
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates\n    .filter((c) => c !== priceCandidate)\n    .map((c) => ({ candidate: c, score: scoreCandidate(c, retentionBoosts) }))\n    .sort",
+          "lineNumber": 119
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates\n    .filter((c) => c !== priceCandidate)\n    .map",
+          "lineNumber": 119
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates\n    .filter",
+          "lineNumber": 119
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "scoreCandidate",
+          "lineNumber": 121
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "selected.push",
+          "lineNumber": 125
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "selected.filter",
+          "lineNumber": 127
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "scored.filter",
+          "lineNumber": 129
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "isBadge",
+          "lineNumber": 132
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "selected.push",
+          "lineNumber": 133
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "isBadge",
+          "lineNumber": 134
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates.filter",
+          "lineNumber": 141
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "selected.includes",
+          "lineNumber": 141
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "isBadge",
+          "lineNumber": 144
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "selected.push",
+          "lineNumber": 145
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "isBadge",
+          "lineNumber": 146
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "guaranteeEachContenderAWin",
+          "lineNumber": 150
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates\n    .filter((c) => withGuarantees.includes(c))\n    .sort",
+          "lineNumber": 154
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "candidates\n    .filter",
+          "lineNumber": 154
+        },
+        {
+          "caller": "selectRounds",
+          "callee": "withGuarantees.includes",
+          "lineNumber": 155
+        },
+        {
+          "caller": "winsFor",
+          "callee": "new Array(contenderCount).fill",
+          "lineNumber": 172
+        },
+        {
+          "caller": "winsFor",
+          "callee": "computeRoundWinner",
+          "lineNumber": 174
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "winsFor",
+          "lineNumber": 181
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "allCandidates.filter",
+          "lineNumber": 184
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "result.includes",
+          "lineNumber": 184
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "notSelected\n      .filter((c) => (!isBadgeCandidate(c) || currentBadgeCount < 1) && computeRoundWinner(c) === contenderIndex)\n      .sort",
+          "lineNumber": 185
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "notSelected\n      .filter",
+          "lineNumber": 185
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "isBadgeCandidate",
+          "lineNumber": 186
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "computeRoundWinner",
+          "lineNumber": 186
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "scoreCandidate",
+          "lineNumber": 187
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "scoreCandidate",
+          "lineNumber": 187
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "findSwapOutIndex",
+          "lineNumber": 192
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "result.splice",
+          "lineNumber": 196
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "isBadgeCandidate",
+          "lineNumber": 197
+        },
+        {
+          "caller": "guaranteeEachContenderAWin",
+          "callee": "isBadgeCandidate",
+          "lineNumber": 198
+        },
+        {
+          "caller": "findSwapOutIndex",
+          "callee": "new Array(contenderCount).fill",
+          "lineNumber": 213
+        },
+        {
+          "caller": "findSwapOutIndex",
+          "callee": "selected.map",
+          "lineNumber": 214
+        },
+        {
+          "caller": "findSwapOutIndex",
+          "callee": "computeRoundWinner",
+          "lineNumber": 214
+        },
+        {
+          "caller": "findSwapOutIndex",
+          "callee": "selected.forEach",
+          "lineNumber": 221
+        },
+        {
+          "caller": "findSwapOutIndex",
+          "callee": "scoreCandidate",
+          "lineNumber": 225
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/scoring.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 13,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/scoring.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "computeVerdict",
+          "startLine": 2,
+          "endLine": 21,
+          "params": [
+            "winnerIndexes",
+            "contenderCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "computeVerdict",
+          "line": 2,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "computeVerdict",
+          "callee": "new Array(contenderCount).fill",
+          "lineNumber": 6
+        },
+        {
+          "caller": "computeVerdict",
+          "callee": "Math.max",
+          "lineNumber": 11
+        },
+        {
+          "caller": "computeVerdict",
+          "callee": "scores.reduce",
+          "lineNumber": 12
+        },
+        {
+          "caller": "computeVerdict",
+          "callee": "acc.push",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/video-json-builder.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 93,
+      "nonEmptyLines": 84,
+      "functions": [
+        {
+          "name": "numberRound",
+          "startLine": 24,
+          "endLine": 37,
+          "params": [
+            "overrides"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "numberRound",
+          "callee": "overrides.nums.map",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/comparison/src/video-json-builder.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 107,
+      "functions": [
+        {
+          "name": "pickSfxForRound",
+          "startLine": 7,
+          "endLine": 11,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "encodeValues",
+          "startLine": 19,
+          "endLine": 27,
+          "params": [
+            "candidate",
+            "winnerIndex"
+          ]
+        },
+        {
+          "name": "buildRound",
+          "startLine": 29,
+          "endLine": 43,
+          "params": [
+            "candidate"
+          ]
+        },
+        {
+          "name": "buildVideoInput",
+          "startLine": 74,
+          "endLine": 119,
+          "params": [
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildVideoInput",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "encodeValues",
+          "callee": "candidate.values.map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "encodeValues",
+          "callee": "candidate.values.map",
+          "lineNumber": 24
+        },
+        {
+          "caller": "encodeValues",
+          "callee": "candidate.values.map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "buildRound",
+          "callee": "computeRoundWinner",
+          "lineNumber": 30
+        },
+        {
+          "caller": "buildRound",
+          "callee": "candidate.visualization.toLowerCase",
+          "lineNumber": 34
+        },
+        {
+          "caller": "buildRound",
+          "callee": "encodeValues",
+          "lineNumber": 37
+        },
+        {
+          "caller": "buildRound",
+          "callee": "candidate.values.map",
+          "lineNumber": 38
+        },
+        {
+          "caller": "buildRound",
+          "callee": "pickSfxForRound",
+          "lineNumber": 40
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "options.selectedRounds.map",
+          "lineNumber": 76
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "new Array(options.contenders.length).fill",
+          "lineNumber": 78
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "Math.max",
+          "lineNumber": 82
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "scores.reduce",
+          "lineNumber": 83
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "acc.push",
+          "lineNumber": 84
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "options.contenders.map",
+          "lineNumber": 96
+        },
+        {
+          "caller": "buildVideoInput",
+          "callee": "videoInputSchema.parse",
+          "lineNumber": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

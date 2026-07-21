@@ -1,0 +1,23 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "apps/workers/src/cli/batch.ts", "language": "typescript", "sizeLines": 142, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/pair-products.test.ts", "language": "typescript", "sizeLines": 27, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/pair-products.ts", "language": "typescript", "sizeLines": 13, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/parse-pairs-spec.test.ts", "language": "typescript", "sizeLines": 20, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/parse-pairs-spec.ts", "language": "typescript", "sizeLines": 17, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/parse-schedule.test.ts", "language": "typescript", "sizeLines": 27, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/parse-schedule.ts", "language": "typescript", "sizeLines": 20, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/render-queue-client.ts", "language": "typescript", "sizeLines": 13, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "apps/workers/src/cli/batch.ts": ["apps/workers/src/cli/pair-products.ts", "apps/workers/src/cli/parse-pairs-spec.ts", "apps/workers/src/cli/parse-schedule.ts", "apps/workers/src/lib/render-queue-client.ts"],
+    "apps/workers/src/cli/pair-products.test.ts": ["apps/workers/src/cli/pair-products.ts"],
+    "apps/workers/src/cli/pair-products.ts": [],
+    "apps/workers/src/cli/parse-pairs-spec.test.ts": ["apps/workers/src/cli/parse-pairs-spec.ts"],
+    "apps/workers/src/cli/parse-pairs-spec.ts": [],
+    "apps/workers/src/cli/parse-schedule.test.ts": ["apps/workers/src/cli/parse-schedule.ts"],
+    "apps/workers/src/cli/parse-schedule.ts": [],
+    "apps/workers/src/lib/render-queue-client.ts": []
+  }
+}

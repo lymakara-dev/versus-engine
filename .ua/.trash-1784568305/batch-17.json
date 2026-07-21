@@ -1,0 +1,319 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/3d.md",
+      "type": "document",
+      "name": "3d.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/3d.md",
+      "summary": "Vendored Remotion agent-skill reference explaining how to render 3D content in Remotion using Three.js and React Three Fiber's ThreeCanvas, driven by useCurrentFrame().",
+      "tags": ["documentation", "remotion", "3d", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "summary": "Index/reference doc for the vendored remotion-markup agent skill, linking out to topic-specific guides on maps, audio, video, effects, fonts, and other Remotion markup patterns.",
+      "tags": ["documentation", "remotion", "index", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "type": "document",
+      "name": "audio-visualization.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "summary": "Vendored Remotion agent-skill guide covering audio data loading and rendering spectrum bar, waveform, and bass-reactive visualizations.",
+      "tags": ["documentation", "remotion", "audio", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/audio.md",
+      "type": "document",
+      "name": "audio.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/audio.md",
+      "summary": "Vendored Remotion agent-skill guide on embedding audio, covering trimming, delaying, volume, muting, speed, looping, and pitch control.",
+      "tags": ["documentation", "remotion", "audio", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "type": "document",
+      "name": "calculate-metadata.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "summary": "Vendored Remotion agent-skill guide explaining calculateMetadata usage for dynamic duration, dimensions, outName, and prop transformation.",
+      "tags": ["documentation", "remotion", "compositions", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "type": "document",
+      "name": "compositions.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "summary": "Vendored Remotion agent-skill guide on structuring compositions, default props, folders, stills, and nesting compositions within one another.",
+      "tags": ["documentation", "remotion", "compositions", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "type": "document",
+      "name": "effects.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "summary": "Vendored Remotion agent-skill guide covering the built-in visual/pixel effects library and how to author custom effects via createEffect().",
+      "tags": ["documentation", "remotion", "effects", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "type": "document",
+      "name": "embedding-videos.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "summary": "Vendored Remotion agent-skill guide on embedding videos with trimming, delaying, sizing/position, volume, speed, looping, and pitch controls.",
+      "tags": ["documentation", "remotion", "video", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "type": "document",
+      "name": "ffmpeg.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "summary": "Short vendored Remotion agent-skill note on using FFmpeg for operations like trimming videos.",
+      "tags": ["documentation", "remotion", "ffmpeg", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "type": "document",
+      "name": "gifs.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "summary": "Vendored Remotion agent-skill guide on displaying animated GIFs synchronized with Remotion's timeline, covering sizing, speed, looping, styling, and duration.",
+      "tags": ["documentation", "remotion", "gifs", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "type": "document",
+      "name": "google-fonts.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "summary": "Vendored Remotion agent-skill guide on loading Google Fonts via @remotion/google-fonts and using them in components.",
+      "tags": ["documentation", "remotion", "fonts", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "type": "document",
+      "name": "html-in-canvas.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "summary": "Vendored Remotion agent-skill guide on using HtmlInCanvas for custom 2D/WebGL effects via onPaint, including nesting and async painting.",
+      "tags": ["documentation", "remotion", "effects", "vendored-skill", "reference"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/images.md",
+      "type": "document",
+      "name": "images.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/images.md",
+      "summary": "Vendored Remotion agent-skill guide on sizing/positioning images, dynamic image paths, and retrieving image dimensions.",
+      "tags": ["documentation", "remotion", "images", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "type": "document",
+      "name": "light-leaks.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "summary": "Vendored Remotion agent-skill guide on adding light leak overlays with TransitionSeries, including standalone usage and look customization.",
+      "tags": ["documentation", "remotion", "effects", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "type": "document",
+      "name": "local-fonts.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "summary": "Vendored Remotion agent-skill guide on loading local fonts and multiple font weights in Remotion compositions.",
+      "tags": ["documentation", "remotion", "fonts", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "type": "document",
+      "name": "lottie.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "summary": "Vendored Remotion agent-skill guide on displaying and styling Lottie animations within Remotion compositions.",
+      "tags": ["documentation", "remotion", "lottie", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "type": "document",
+      "name": "map.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "summary": "Short vendored Remotion agent-skill routing note that helps choose between static map images, Mapbox, and MapLibre renderers, linking to detailed guides for each.",
+      "tags": ["documentation", "remotion", "maps", "vendored-skill", "reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "type": "document",
+      "name": "mapbox.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "summary": "Vendored Remotion agent-skill guide on rendering Mapbox GL JS maps in Remotion, covering basic maps, animated flight routes, camera guidance, lines, markers, and styles.",
+      "tags": ["documentation", "remotion", "maps", "vendored-skill", "reference"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "type": "document",
+      "name": "maplibre.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "summary": "Vendored Remotion agent-skill guide on rendering MapLibre GL JS maps in Remotion, covering basic maps, animated flight routes, camera guidance, lines, markers, and styles.",
+      "tags": ["documentation", "remotion", "maps", "vendored-skill", "reference"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "type": "document",
+      "name": "measuring-dom-nodes.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "summary": "Short vendored Remotion agent-skill note on measuring DOM element dimensions within a Remotion composition.",
+      "tags": ["documentation", "remotion", "dom", "vendored-skill", "reference"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/audio.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/3d.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/images.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.4
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.4
+    }
+  ]
+}

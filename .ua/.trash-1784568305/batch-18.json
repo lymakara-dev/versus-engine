@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/measuring-text.md",
+      "type": "document",
+      "name": "measuring-text.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/measuring-text.md",
+      "summary": "Vendored Remotion agent-skill reference explaining how to measure text dimensions, fit text to a target width, and detect text overflow in a Remotion composition.",
+      "tags": ["documentation", "external-reference", "remotion", "text-measurement"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/parameters.md",
+      "type": "document",
+      "name": "parameters.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/parameters.md",
+      "summary": "Vendored Remotion agent-skill reference on defining Studio-editable component parameters, including a color-picker parameter example.",
+      "tags": ["documentation", "external-reference", "remotion", "studio-parameters"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "type": "document",
+      "name": "sequencing.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "summary": "Vendored Remotion agent-skill reference covering premounting, Series and Series-with-overlaps, nested Sequences, frame references, and nesting compositions.",
+      "tags": ["documentation", "external-reference", "remotion", "sequencing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "type": "document",
+      "name": "sfx.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "summary": "Vendored Remotion agent-skill reference on placing sound-effect cues and audio triggers within a video composition.",
+      "tags": ["documentation", "external-reference", "remotion", "audio", "sfx"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "type": "document",
+      "name": "silence-detection.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "summary": "Vendored Remotion agent-skill reference describing an adaptive silence-detection workflow using ffmpeg loudnorm to measure loudness and identify leading/trailing silence for use with the Video component.",
+      "tags": ["documentation", "external-reference", "audio-processing", "ffmpeg", "remotion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/text-highlights.md",
+      "type": "document",
+      "name": "text-highlights.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/text-highlights.md",
+      "summary": "Vendored Remotion agent-skill reference on applying animated text highlight styling within Remotion markup.",
+      "tags": ["documentation", "external-reference", "remotion", "text-styling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/timing.md",
+      "type": "document",
+      "name": "timing.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/timing.md",
+      "summary": "Vendored Remotion agent-skill reference on Studio-editable animation timing patterns, Bezier easing curves, enter/exit easing direction, and composing interpolations.",
+      "tags": ["documentation", "external-reference", "remotion", "animation-timing", "easing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "type": "document",
+      "name": "transitions.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "summary": "Vendored Remotion agent-skill reference on TransitionSeries and overlay usage, available transition types, timing options, and calculating transition/composition durations.",
+      "tags": ["documentation", "external-reference", "remotion", "transitions"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/trimming.md",
+      "type": "document",
+      "name": "trimming.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/trimming.md",
+      "summary": "Vendored Remotion agent-skill reference on trimming the beginning, end, and applying a trim-and-delay to a clip.",
+      "tags": ["documentation", "external-reference", "remotion", "video-editing", "trimming"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "type": "document",
+      "name": "video-editing.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "summary": "Vendored Remotion agent-skill reference on independently positioned clips and ripple editing using TransitionSeries.",
+      "tags": ["documentation", "external-reference", "remotion", "video-editing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "type": "document",
+      "name": "voiceover.md",
+      "filePath": ".agents/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "summary": "Vendored Remotion agent-skill reference on generating AI voiceover audio with ElevenLabs, computing dynamic composition duration via calculateMetadata, and delaying audio start.",
+      "tags": ["documentation", "external-reference", "remotion", "voiceover", "ai-audio"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/trimming.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/timing.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-best-practices/remotion-markup/text-highlights.md",
+      "target": "document:.agents/skills/remotion-best-practices/remotion-markup/measuring-text.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

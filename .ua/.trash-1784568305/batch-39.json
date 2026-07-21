@@ -1,0 +1,494 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/dashboard/app/comparisons/new/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "apps/dashboard/app/comparisons/new/page.tsx",
+      "summary": "Next.js server component for the \"new comparison\" route; loads categories and VERIFIED products from Prisma and renders a product-picker form that submits to the createComparison server action.",
+      "tags": ["route", "server-component", "form", "data-fetching"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/new/page.tsx:NewComparisonPage",
+      "type": "function",
+      "name": "NewComparisonPage",
+      "filePath": "apps/dashboard/app/comparisons/new/page.tsx",
+      "lineRange": [5, 79],
+      "summary": "Default export for the new-comparison page; fetches categories and category-filtered VERIFIED products, then renders a checkbox form wired to the createComparison server action.",
+      "tags": ["server-component", "form-handler", "prisma"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/dashboard/app/comparisons/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "apps/dashboard/app/comparisons/page.tsx",
+      "summary": "Dashboard route listing all Comparison records with their contenders, used as the comparisons index/overview page.",
+      "tags": ["route", "server-component", "listing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/comparisons/page.tsx:ComparisonsPage",
+      "type": "function",
+      "name": "ComparisonsPage",
+      "filePath": "apps/dashboard/app/comparisons/page.tsx",
+      "lineRange": [11, 49],
+      "summary": "Queries Prisma for all comparisons with their contender products and renders a summary list linking to each comparison's detail.",
+      "tags": ["server-component", "prisma", "listing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "apps/dashboard/app/globals.css",
+      "summary": "Global Tailwind entry stylesheet for the dashboard app; imports Tailwind's base/components/utilities layers and sets a dark color scheme with base body colors.",
+      "tags": ["stylesheet", "tailwind", "global-styles", "css"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "apps/dashboard/app/layout.tsx",
+      "summary": "Root layout for the Next.js App Router dashboard; sets page metadata, imports the global stylesheet, and wraps every route in shared HTML/body chrome.",
+      "tags": ["entry-point", "layout", "server-component"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "apps/dashboard/app/layout.tsx",
+      "lineRange": [10, 32],
+      "summary": "Root layout component that renders the shared <html>/<body> shell and navigation chrome around all dashboard pages.",
+      "tags": ["layout", "entry-point"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "apps/dashboard/app/page.tsx",
+      "summary": "Dashboard home page; shows category counts and aggregate VERIFIED/DRAFT product stats pulled from Prisma as a landing overview.",
+      "tags": ["entry-point", "route", "server-component", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/page.tsx:HomePage",
+      "type": "function",
+      "name": "HomePage",
+      "filePath": "apps/dashboard/app/page.tsx",
+      "lineRange": [4, 43],
+      "summary": "Fetches categories plus VERIFIED and DRAFT product counts and renders the dashboard's landing overview cards.",
+      "tags": ["server-component", "prisma", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/products/actions.ts",
+      "type": "file",
+      "name": "actions.ts",
+      "filePath": "apps/dashboard/app/products/actions.ts",
+      "summary": "Server actions module for the products route; exposes approveProduct to flip a Product's status to VERIFIED and revalidate the products page.",
+      "tags": ["server-action", "api-handler", "mutation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/dashboard/app/products/actions.ts:approveProduct",
+      "type": "function",
+      "name": "approveProduct",
+      "filePath": "apps/dashboard/app/products/actions.ts",
+      "lineRange": [6, 12],
+      "summary": "Server action that updates a Product's status to VERIFIED by id and calls revalidatePath so the products list reflects the approval immediately.",
+      "tags": ["server-action", "mutation", "prisma"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/app/products/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "apps/dashboard/app/products/page.tsx",
+      "summary": "Admin/moderation route listing products (including DRAFT AI-researched ones) filterable by category, with an approve action per row to promote drafts to VERIFIED.",
+      "tags": ["route", "server-component", "moderation", "admin-page"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/dashboard/app/products/page.tsx:ProductsPage",
+      "type": "function",
+      "name": "ProductsPage",
+      "filePath": "apps/dashboard/app/products/page.tsx",
+      "lineRange": [11, 100],
+      "summary": "Fetches categories and category-filtered products, rendering a moderation table with a per-product approve button bound to the approveProduct server action.",
+      "tags": ["server-component", "prisma", "moderation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/dashboard/next-env.d.ts",
+      "type": "file",
+      "name": "next-env.d.ts",
+      "filePath": "apps/dashboard/next-env.d.ts",
+      "summary": "Auto-generated Next.js TypeScript ambient declaration file that wires up Next.js and image-types global typings; not meant to be edited by hand.",
+      "tags": ["type-definition", "auto-generated", "next-js"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/next.config.mjs",
+      "type": "file",
+      "name": "next.config.mjs",
+      "filePath": "apps/dashboard/next.config.mjs",
+      "summary": "Next.js build configuration for the dashboard app, controlling framework-level build/runtime options for all routes.",
+      "tags": ["configuration", "next-js", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/dashboard/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "apps/dashboard/package.json",
+      "summary": "Package manifest for the dashboard Next.js app, defining its dev/build/start scripts and its Next.js, React, Prisma, and Tailwind dependencies within the pnpm workspace.",
+      "tags": ["configuration", "npm", "dependencies", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/postcss.config.mjs",
+      "type": "file",
+      "name": "postcss.config.mjs",
+      "filePath": "apps/dashboard/postcss.config.mjs",
+      "summary": "PostCSS configuration enabling the Tailwind CSS plugin for the dashboard's stylesheet build pipeline.",
+      "tags": ["configuration", "postcss", "tailwind", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/tailwind.config.ts",
+      "type": "file",
+      "name": "tailwind.config.ts",
+      "filePath": "apps/dashboard/tailwind.config.ts",
+      "summary": "Tailwind CSS configuration for the dashboard app, defining the content globs and theme extension used to generate utility classes.",
+      "tags": ["configuration", "tailwind", "theme", "styling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/dashboard/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/dashboard/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the dashboard app, extending a shared base config and setting Next.js-specific include/exclude paths.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/dashboard/tsconfig.tsbuildinfo",
+      "type": "file",
+      "name": "tsconfig.tsbuildinfo",
+      "filePath": "apps/dashboard/tsconfig.tsbuildinfo",
+      "summary": "TypeScript incremental build cache generated by tsc for the dashboard app; a disposable build artifact, not source code.",
+      "tags": ["build-artifact", "generated", "typescript", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/studio/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "apps/studio/package.json",
+      "summary": "Package manifest for the Remotion studio app, defining its render/preview scripts and Remotion-related dependencies.",
+      "tags": ["configuration", "npm", "dependencies", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/studio/remotion.config.ts",
+      "type": "file",
+      "name": "remotion.config.ts",
+      "filePath": "apps/studio/remotion.config.ts",
+      "summary": "Remotion CLI configuration for the studio app; sets JPEG frame export, output overwrite, render concurrency, and a webpack extension alias so the shared package's \".js\"-suffixed TS imports resolve correctly during bundling.",
+      "tags": ["configuration", "remotion", "webpack", "build-system"],
+      "complexity": "moderate",
+      "languageNotes": "The overrideWebpackConfig extensionAlias hack lets webpack resolve TS's ESM-style '.js' import specifiers back to '.ts'/'.tsx' source, which is needed because @versus-engine/shared is consumed via its relative TS source rather than compiled output."
+    },
+    {
+      "id": "file:apps/studio/scripts/render.mjs",
+      "type": "file",
+      "name": "render.mjs",
+      "filePath": "apps/studio/scripts/render.mjs",
+      "summary": "CLI entry point behind `pnpm render <json>`; resolves the given VideoInput JSON path, derives an output filename and composition id (16x9 vs 9x16), and shells out to the Remotion CLI to render the MP4 into output/.",
+      "tags": ["cli", "entry-point", "render-pipeline", "script"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/studio/src/exports.ts",
+      "type": "file",
+      "name": "exports.ts",
+      "filePath": "apps/studio/src/exports.ts",
+      "summary": "Library entry point re-exporting the Comparison16x9 composition, its duration helper, and the video schema for consumers (like the dashboard's <Player>) that embed the composition directly without registering a Remotion root.",
+      "tags": ["barrel", "entry-point", "library-api", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/studio/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/studio/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the Remotion studio app, extending the shared base config for its src/ sources.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:apps/workers/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "apps/workers/package.json",
+      "summary": "Package manifest for the BullMQ/CLI workers app, defining ingestion, batch, render-queue, and YouTube auth/publish scripts plus their dependencies.",
+      "tags": ["configuration", "npm", "dependencies", "workers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/youtube-auth.ts",
+      "type": "file",
+      "name": "youtube-auth.ts",
+      "filePath": "apps/workers/src/cli/youtube-auth.ts",
+      "summary": "One-time interactive CLI (`pnpm youtube:auth`) that runs a local OAuth loopback server to mint a YOUTUBE_REFRESH_TOKEN for the publish worker, covering both upload and yt-analytics.readonly scopes.",
+      "tags": ["cli", "entry-point", "oauth", "youtube"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/workers/src/cli/youtube-auth.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "apps/workers/src/cli/youtube-auth.ts",
+      "lineRange": [19, 69],
+      "summary": "Drives the interactive OAuth flow: builds the Google consent URL, spins up a loopback HTTP server to catch the redirect callback, exchanges the auth code for tokens, and prints the resulting refresh token for the operator to save in .env.",
+      "tags": ["oauth", "cli", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:apps/workers/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "apps/workers/tsconfig.json",
+      "summary": "TypeScript compiler configuration for the workers app, extending the shared base config for its CLI and worker sources.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:assets/music/LICENSES.md",
+      "type": "document",
+      "name": "LICENSES.md",
+      "filePath": "assets/music/LICENSES.md",
+      "summary": "Licensing notes for the looping background music and SFX assets used in rendered comparison videos, documenting usage rights/attribution for each audio file.",
+      "tags": ["documentation", "licensing", "assets", "music"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql",
+      "type": "table",
+      "name": "20260720081004_init/migration.sql",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "summary": "Initial Prisma migration establishing the core Versus Engine schema: Category, Brand, Product, ProductImage, SpecDefinition, SpecValue, Comparison, ComparisonContender, RenderJob, and Upload tables plus their unique and lookup indexes.",
+      "tags": ["database", "migration", "schema-definition", "postgresql"],
+      "complexity": "complex"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:Category",
+      "type": "table",
+      "name": "Category",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [17, 25],
+      "summary": "Top-level product category (cars, phones, laptops, ...) keyed by slug, carrying a themeKey used to select the category's Remotion visual theme.",
+      "tags": ["database", "table", "core-entity"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:Brand",
+      "type": "table",
+      "name": "Brand",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [28, 36],
+      "summary": "Manufacturer/brand reference table (name, slug, logo, country) referenced by Product rows.",
+      "tags": ["database", "table", "reference-data"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:Product",
+      "type": "table",
+      "name": "Product",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [39, 58],
+      "summary": "Core product entity (e.g. a specific car/phone/laptop model) storing raw specs as JSONB, provenance fields (source, sourceUrl, verifiedAt), status, and accentColor for video theming; only VERIFIED rows are eligible for rendering.",
+      "tags": ["database", "table", "core-entity"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:ProductImage",
+      "type": "table",
+      "name": "ProductImage",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [61, 73],
+      "summary": "Product image assets (hero shots, thumbnails, etc.) with license/attribution metadata and dimensions, linked to a Product.",
+      "tags": ["database", "table", "media"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:SpecDefinition",
+      "type": "table",
+      "name": "SpecDefinition",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [76, 91],
+      "summary": "Category-scoped definition of a comparable spec (key, unit, dataType, visualization, priorityWeight) that drives the round-selection heuristic and how a spec is rendered as a video scene.",
+      "tags": ["database", "table", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:SpecValue",
+      "type": "table",
+      "name": "SpecValue",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [94, 105],
+      "summary": "Normalized, SI-unit comparable value for one Product/SpecDefinition pair, storing numeric/text/bool forms plus a display string and confidence score for AI-assisted extraction.",
+      "tags": ["database", "table", "normalization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:Comparison",
+      "type": "table",
+      "name": "Comparison",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [108, 124],
+      "summary": "A generated comparison video record: title/tagline/tags, the frozen videoJson payload used to re-render identically, computed winnerIndex/scores, and publish status.",
+      "tags": ["database", "table", "core-entity", "video"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:ComparisonContender",
+      "type": "table",
+      "name": "ComparisonContender",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [127, 134],
+      "summary": "Join table linking a Comparison to its contending Products in a fixed left/right position order.",
+      "tags": ["database", "table", "join-table"],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:RenderJob",
+      "type": "table",
+      "name": "RenderJob",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [137, 152],
+      "summary": "Tracks a BullMQ render job for a Comparison (composition, template version, progress, output/thumbnail URLs, error), designed to be idempotently keyed by comparisonId + templateVer.",
+      "tags": ["database", "table", "job-queue"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720081004_init/migration.sql:Upload",
+      "type": "table",
+      "name": "Upload",
+      "filePath": "database/migrations/20260720081004_init/migration.sql",
+      "lineRange": [155, 167],
+      "summary": "Tracks publishing a rendered Comparison to an external platform (e.g. YouTube), recording platform videoId, scheduling, and publish status/errors.",
+      "tags": ["database", "table", "publishing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "type": "table",
+      "name": "20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "filePath": "database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "summary": "Phase 5 migration adding YouTube analytics tracking: VideoAnalytics (view/impression/retention metrics per upload) and RoundRetention (per-round audience retention and drop-off tied to comparisons and spec categories) tables.",
+      "tags": ["database", "migration", "analytics", "schema-definition"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:VideoAnalytics",
+      "type": "table",
+      "name": "VideoAnalytics",
+      "filePath": "database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "lineRange": [9, 21],
+      "summary": "Aggregate YouTube performance metrics (views, impressions, CTR, average view duration/percentage, retention curve) fetched for a single Upload.",
+      "tags": ["database", "table", "analytics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:RoundRetention",
+      "type": "table",
+      "name": "RoundRetention",
+      "filePath": "database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "lineRange": [24, 37],
+      "summary": "Per-round audience retention breakdown (retention at start/end, drop-off) for a specific comparison round/spec, used to feed the round-selection heuristic with real viewer-retention data.",
+      "tags": ["database", "table", "analytics"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    { "source": "file:apps/dashboard/app/comparisons/new/page.tsx", "target": "function:apps/dashboard/app/comparisons/new/page.tsx:NewComparisonPage", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/comparisons/new/page.tsx", "target": "function:apps/dashboard/app/comparisons/new/page.tsx:NewComparisonPage", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:apps/dashboard/app/comparisons/new/page.tsx", "target": "file:apps/dashboard/app/comparisons/new/actions.ts", "type": "imports", "direction": "forward", "weight": 0.7 },
+    { "source": "function:apps/dashboard/app/comparisons/new/page.tsx:NewComparisonPage", "target": "function:apps/dashboard/app/comparisons/new/actions.ts:createComparison", "type": "calls", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/dashboard/app/comparisons/page.tsx", "target": "function:apps/dashboard/app/comparisons/page.tsx:ComparisonsPage", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/comparisons/page.tsx", "target": "function:apps/dashboard/app/comparisons/page.tsx:ComparisonsPage", "type": "exports", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/dashboard/app/layout.tsx", "target": "function:apps/dashboard/app/layout.tsx:RootLayout", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/layout.tsx", "target": "function:apps/dashboard/app/layout.tsx:RootLayout", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:apps/dashboard/app/layout.tsx", "target": "file:apps/dashboard/app/globals.css", "type": "imports", "direction": "forward", "weight": 0.7 },
+
+    { "source": "file:apps/dashboard/app/page.tsx", "target": "function:apps/dashboard/app/page.tsx:HomePage", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/page.tsx", "target": "function:apps/dashboard/app/page.tsx:HomePage", "type": "exports", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/dashboard/app/products/actions.ts", "target": "function:apps/dashboard/app/products/actions.ts:approveProduct", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/products/actions.ts", "target": "function:apps/dashboard/app/products/actions.ts:approveProduct", "type": "exports", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/dashboard/app/products/page.tsx", "target": "function:apps/dashboard/app/products/page.tsx:ProductsPage", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/dashboard/app/products/page.tsx", "target": "function:apps/dashboard/app/products/page.tsx:ProductsPage", "type": "exports", "direction": "forward", "weight": 0.8 },
+    { "source": "file:apps/dashboard/app/products/page.tsx", "target": "file:apps/dashboard/app/products/actions.ts", "type": "imports", "direction": "forward", "weight": 0.7 },
+    { "source": "function:apps/dashboard/app/products/page.tsx:ProductsPage", "target": "function:apps/dashboard/app/products/actions.ts:approveProduct", "type": "calls", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/workers/src/cli/youtube-auth.ts", "target": "function:apps/workers/src/cli/youtube-auth.ts:main", "type": "contains", "direction": "forward", "weight": 1.0 },
+    { "source": "file:apps/workers/src/cli/youtube-auth.ts", "target": "file:apps/workers/src/lib/youtube-client.ts", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "function:apps/workers/src/cli/youtube-auth.ts:main", "target": "function:apps/workers/src/lib/youtube-client.ts:getOAuthClient", "type": "calls", "direction": "forward", "weight": 0.8 },
+
+    { "source": "file:apps/studio/src/exports.ts", "target": "function:apps/studio/src/compositions/Comparison16x9.tsx:Comparison16x9", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/studio/src/exports.ts", "target": "function:apps/studio/src/compositions/Comparison16x9.tsx:computeTotalDurationInFrames", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/studio/src/exports.ts", "target": "file:apps/studio/src/schema.ts", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "file:apps/studio/scripts/render.mjs", "target": "file:apps/studio/src/index.ts", "type": "depends_on", "direction": "forward", "weight": 0.6 },
+
+    { "source": "config:apps/dashboard/package.json", "target": "file:apps/dashboard/app/layout.tsx", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:apps/dashboard/tsconfig.json", "target": "file:apps/dashboard/app/layout.tsx", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/dashboard/next.config.mjs", "target": "file:apps/dashboard/app/layout.tsx", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/dashboard/postcss.config.mjs", "target": "file:apps/dashboard/app/globals.css", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/dashboard/tailwind.config.ts", "target": "file:apps/dashboard/app/globals.css", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:apps/studio/package.json", "target": "file:apps/studio/src/exports.ts", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:apps/studio/tsconfig.json", "target": "file:apps/studio/src/exports.ts", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "file:apps/studio/remotion.config.ts", "target": "file:apps/studio/src/exports.ts", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:apps/workers/package.json", "target": "file:apps/workers/src/cli/youtube-auth.ts", "type": "configures", "direction": "forward", "weight": 0.6 },
+    { "source": "config:apps/workers/tsconfig.json", "target": "file:apps/workers/src/cli/youtube-auth.ts", "type": "configures", "direction": "forward", "weight": 0.6 },
+
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:Category", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:Brand", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:Product", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:ProductImage", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:SpecDefinition", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:SpecValue", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:ComparisonContender", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:RenderJob", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql", "target": "table:database/migrations/20260720081004_init/migration.sql:Upload", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql", "target": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:VideoAnalytics", "type": "migrates", "direction": "forward", "weight": 0.7 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql", "target": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:RoundRetention", "type": "migrates", "direction": "forward", "weight": 0.7 },
+
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:Product", "target": "table:database/migrations/20260720081004_init/migration.sql:Category", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:Product", "target": "table:database/migrations/20260720081004_init/migration.sql:Brand", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:ProductImage", "target": "table:database/migrations/20260720081004_init/migration.sql:Product", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:SpecDefinition", "target": "table:database/migrations/20260720081004_init/migration.sql:Category", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:SpecValue", "target": "table:database/migrations/20260720081004_init/migration.sql:Product", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:SpecValue", "target": "table:database/migrations/20260720081004_init/migration.sql:SpecDefinition", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "target": "table:database/migrations/20260720081004_init/migration.sql:Category", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:ComparisonContender", "target": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:ComparisonContender", "target": "table:database/migrations/20260720081004_init/migration.sql:Product", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:RenderJob", "target": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720081004_init/migration.sql:Upload", "target": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:VideoAnalytics", "target": "table:database/migrations/20260720081004_init/migration.sql:Upload", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:RoundRetention", "target": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:VideoAnalytics", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:RoundRetention", "target": "table:database/migrations/20260720081004_init/migration.sql:Comparison", "type": "related", "direction": "forward", "weight": 0.5 },
+    { "source": "table:database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql:RoundRetention", "target": "table:database/migrations/20260720081004_init/migration.sql:Category", "type": "related", "direction": "forward", "weight": 0.5 }
+  ]
+}

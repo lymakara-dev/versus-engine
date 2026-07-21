@@ -1,0 +1,393 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/studio/src/Root.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 73,
+      "nonEmptyLines": 71,
+      "functions": [
+        {
+          "name": "RemotionRoot",
+          "startLine": 14,
+          "endLine": 73,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "RemotionRoot",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RemotionRoot",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 22
+        },
+        {
+          "caller": "RemotionRoot",
+          "callee": "parseVideoInput",
+          "lineNumber": 27
+        },
+        {
+          "caller": "RemotionRoot",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 29
+        },
+        {
+          "caller": "RemotionRoot",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 41
+        },
+        {
+          "caller": "RemotionRoot",
+          "callee": "parseVideoInput",
+          "lineNumber": 46
+        },
+        {
+          "caller": "RemotionRoot",
+          "callee": "computeTotalDurationInFrames",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Crown.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "Crown",
+          "startLine": 5,
+          "endLine": 41,
+          "params": [
+            "{\n  color,\n  delayFrames = 0,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Crown",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Crown",
+          "callee": "useCurrentFrame",
+          "lineNumber": 9
+        },
+        {
+          "caller": "Crown",
+          "callee": "useVideoConfig",
+          "lineNumber": 10
+        },
+        {
+          "caller": "Crown",
+          "callee": "spring",
+          "lineNumber": 13
+        },
+        {
+          "caller": "Crown",
+          "callee": "interpolate",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Crown",
+          "callee": "interpolate",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Icon.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 14,
+      "functions": [
+        {
+          "name": "toPascalCase",
+          "startLine": 5,
+          "endLine": 10,
+          "params": [
+            "kebab"
+          ]
+        },
+        {
+          "name": "Icon",
+          "startLine": 12,
+          "endLine": 16,
+          "params": [
+            "{ name, ...props }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Icon",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "toPascalCase",
+          "callee": "kebab\n    .split(\"-\")\n    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))\n    .join",
+          "lineNumber": 6
+        },
+        {
+          "caller": "toPascalCase",
+          "callee": "kebab\n    .split(\"-\")\n    .map",
+          "lineNumber": 6
+        },
+        {
+          "caller": "toPascalCase",
+          "callee": "kebab\n    .split",
+          "lineNumber": 6
+        },
+        {
+          "caller": "toPascalCase",
+          "callee": "part.charAt(0).toUpperCase",
+          "lineNumber": 8
+        },
+        {
+          "caller": "toPascalCase",
+          "callee": "part.charAt",
+          "lineNumber": 8
+        },
+        {
+          "caller": "toPascalCase",
+          "callee": "part.slice",
+          "lineNumber": 8
+        },
+        {
+          "caller": "Icon",
+          "callee": "toPascalCase",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/PricePill.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "PricePill",
+          "startLine": 5,
+          "endLine": 28,
+          "params": [
+            "{\n  price,\n  color,\n  theme,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PricePill",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 5,
+      "exports": [
+        {
+          "name": "ComparisonShort9x16",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "computeTotalDurationInFrames",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 119,
+      "nonEmptyLines": 113,
+      "functions": [
+        {
+          "name": "ContenderPanel",
+          "startLine": 16,
+          "endLine": 52,
+          "params": [
+            "{\n  contender,\n  isWinner,\n}"
+          ]
+        },
+        {
+          "name": "Thumbnail16x9",
+          "startLine": 54,
+          "endLine": 119,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Thumbnail16x9",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ContenderPanel",
+          "callee": "staticFile",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ContenderPanel",
+          "callee": "getTheme",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Thumbnail16x9",
+          "callee": "parseVideoInput",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Thumbnail16x9",
+          "callee": "getTheme",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 129,
+      "nonEmptyLines": 122,
+      "functions": [
+        {
+          "name": "HalfPanel",
+          "startLine": 15,
+          "endLine": 64,
+          "params": [
+            "{ contender, isWinner, side }"
+          ]
+        },
+        {
+          "name": "Thumbnail16x9B",
+          "startLine": 66,
+          "endLine": 129,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Thumbnail16x9B",
+          "line": 66,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "HalfPanel",
+          "callee": "staticFile",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Thumbnail16x9B",
+          "callee": "parseVideoInput",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Thumbnail16x9B",
+          "callee": "getTheme",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 4,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

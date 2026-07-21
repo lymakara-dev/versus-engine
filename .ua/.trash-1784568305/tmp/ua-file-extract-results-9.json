@@ -1,0 +1,299 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "packages/narration/src/openai-provider.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 49,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "OpenAiTtsProvider",
+          "startLine": 12,
+          "endLine": 49,
+          "methods": [
+            "constructor",
+            "synthesize"
+          ],
+          "properties": [
+            "apiKey",
+            "model",
+            "voice"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "OpenAiTtsProvider",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "synthesize",
+          "callee": "fetch",
+          "lineNumber": 28
+        },
+        {
+          "caller": "synthesize",
+          "callee": "JSON.stringify",
+          "lineNumber": 34
+        },
+        {
+          "caller": "synthesize",
+          "callee": "response.text().catch",
+          "lineNumber": 43
+        },
+        {
+          "caller": "synthesize",
+          "callee": "response.text",
+          "lineNumber": 43
+        },
+        {
+          "caller": "synthesize",
+          "callee": "Buffer.from",
+          "lineNumber": 47
+        },
+        {
+          "caller": "synthesize",
+          "callee": "response.arrayBuffer",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "packages/narration/src/provider.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 9,
+      "nonEmptyLines": 9,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/narration/src/script.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 65,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/narration/src/script.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "describeRound",
+          "startLine": 15,
+          "endLine": 20,
+          "params": [
+            "round",
+            "contenders"
+          ]
+        },
+        {
+          "name": "buildNarrationScript",
+          "startLine": 29,
+          "endLine": 54,
+          "params": [
+            "input"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "buildNarrationScript",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "describeRound",
+          "callee": "contenders.map((c, i) => `${c.name}: ${round.displayValues[i]}`).join",
+          "lineNumber": 16
+        },
+        {
+          "caller": "describeRound",
+          "callee": "contenders.map",
+          "lineNumber": 16
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "computeSceneBoundariesSec",
+          "lineNumber": 32
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "computeRoundTimeRangesSec",
+          "lineNumber": 33
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "input.rounds.forEach",
+          "lineNumber": 39
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "lines.push",
+          "lineNumber": 40
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "describeRound",
+          "lineNumber": 42
+        },
+        {
+          "caller": "buildNarrationScript",
+          "callee": "lines.push",
+          "lineNumber": 47
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "packages/narration/src/synthesize.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 50,
+      "functions": [
+        {
+          "name": "estimateDurationSec",
+          "startLine": 20,
+          "endLine": 23,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "synthesizeNarration",
+          "startLine": 33,
+          "endLine": 57,
+          "params": [
+            "input",
+            "options"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "synthesizeNarration",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "estimateDurationSec",
+          "callee": "text.trim().split(/\\s+/).filter",
+          "lineNumber": 21
+        },
+        {
+          "caller": "estimateDurationSec",
+          "callee": "text.trim().split",
+          "lineNumber": 21
+        },
+        {
+          "caller": "estimateDurationSec",
+          "callee": "text.trim",
+          "lineNumber": 21
+        },
+        {
+          "caller": "estimateDurationSec",
+          "callee": "Math.max",
+          "lineNumber": 22
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "buildNarrationScript",
+          "lineNumber": 37
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "mkdir",
+          "lineNumber": 38
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "options.provider.synthesize",
+          "lineNumber": 42
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "writeFile",
+          "lineNumber": 44
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "path.join",
+          "lineNumber": 44
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "parseBuffer(audio, \"audio/mpeg\").catch",
+          "lineNumber": 46
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "parseBuffer",
+          "lineNumber": 46
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "estimateDurationSec",
+          "lineNumber": 47
+        },
+        {
+          "caller": "synthesizeNarration",
+          "callee": "clips.push",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

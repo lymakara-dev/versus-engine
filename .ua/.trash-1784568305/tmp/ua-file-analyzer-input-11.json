@@ -1,0 +1,13 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "packages/ingestion/src/adapters/vpic.test.ts", "language": "typescript", "sizeLines": 73, "fileCategory": "code"},
+    {"path": "packages/ingestion/src/adapters/vpic.ts", "language": "typescript", "sizeLines": 118, "fileCategory": "code"},
+    {"path": "packages/ingestion/src/http.ts", "language": "typescript", "sizeLines": 23, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "packages/ingestion/src/adapters/vpic.test.ts": ["packages/ingestion/src/adapters/vpic.ts"],
+    "packages/ingestion/src/adapters/vpic.ts": ["packages/ingestion/src/http.ts"],
+    "packages/ingestion/src/http.ts": []
+  }
+}

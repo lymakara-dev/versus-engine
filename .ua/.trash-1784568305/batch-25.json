@@ -1,0 +1,271 @@
+{
+  "nodes": [
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Template for local environment variables covering Postgres/Redis/MinIO connection strings, Anthropic and OpenAI API keys, YouTube Data API OAuth credentials, and Remotion Lambda deployment settings (RENDER_TARGET, AWS creds, function/serve URLs).",
+      "tags": ["configuration", "environment-variables", "secrets", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Authoritative instructions doc for Claude Code defining the project's prime directives (sacred video JSON contract, Phase-1-first, frozen payloads, idempotent jobs), locked stack decisions, Remotion animation conventions, data conventions, the round-selection scoring heuristic, and quality bars that must pass before any phase is done.",
+      "tags": ["documentation", "governance", "project-conventions", "ai-agent-instructions"],
+      "complexity": "moderate",
+      "languageNotes": "Written as a directive spec for an AI coding agent rather than human onboarding docs — every rule is phrased as an enforceable constraint (\"never\", \"must\", \"do not re-litigate\")."
+    },
+    {
+      "id": "document:GETTING_STARTED.md",
+      "type": "document",
+      "name": "GETTING_STARTED.md",
+      "filePath": "GETTING_STARTED.md",
+      "summary": "Step-by-step walkthrough for handing the project to Claude Code: prerequisites, repo creation, the exact Phase 0+1 kickoff prompt to paste in, how to iterate on visuals via Remotion Studio, running later phases, and which legally-sourced assets (music, SFX, fonts, product images) must be sourced manually.",
+      "tags": ["documentation", "onboarding", "ai-agent-instructions", "setup-guide"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:PROJECT_PLAN.md",
+      "type": "document",
+      "name": "PROJECT_PLAN.md",
+      "filePath": "PROJECT_PLAN.md",
+      "summary": "The project's source-of-truth architecture and roadmap document: product vision, full technology stack rationale, system architecture diagram, monorepo layout, data layer design (Category/Brand/Product/SpecDefinition/SpecValue/Comparison), the Zod VideoInput video-JSON contract, the end-to-end pipeline walkthrough, audio/legal licensing checklist, and the six-phase build roadmap (skeleton through scale-and-polish).",
+      "tags": ["documentation", "architecture", "roadmap", "source-of-truth"],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Public-facing project overview describing Versus Engine's category-agnostic data/rendering split, its six key features (six-scene video template, per-category theming, data-driven round selection, A/B thumbnails, dashboard, optional AI narration, Lambda scaling, analytics feedback loop, automation), architecture diagram, tech stack table, getting-started commands, and monorepo project layout.",
+      "tags": ["documentation", "entry-point", "overview", "getting-started"],
+      "complexity": "complex"
+    },
+    {
+      "id": "service:docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "Local development stack definition provisioning Postgres 16, Redis 7, and MinIO (S3-compatible object store) with health checks and persistent named volumes, matching the connection settings expected by .env.example.",
+      "tags": ["containerization", "infrastructure", "orchestration", "local-dev"],
+      "complexity": "moderate",
+      "languageNotes": "Each service defines a healthcheck (pg_isready, redis-cli ping, mc ready) so dependent workers/dashboard can wait for true readiness rather than just port availability."
+    },
+    {
+      "id": "service:docker-compose.yml:postgres",
+      "type": "service",
+      "name": "postgres",
+      "summary": "Postgres 16 Alpine service for the primary relational datastore (Category/Brand/Product/Comparison/etc.), exposed on 5432 with a persistent volume and pg_isready healthcheck.",
+      "tags": ["database", "infrastructure", "postgresql"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:redis",
+      "type": "service",
+      "name": "redis",
+      "summary": "Redis 7 Alpine service backing BullMQ job queues (ingest/render/publish workers), exposed on 6379 with a persistent volume.",
+      "tags": ["cache", "queue", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml:minio",
+      "type": "service",
+      "name": "minio",
+      "summary": "MinIO service acting as an S3-compatible dev asset store for product images, rendered videos, and thumbnails, exposing the API on 9002 and the console on 9003.",
+      "tags": ["storage", "s3-compatible", "infrastructure"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Root pnpm workspace manifest declaring the private monorepo, Node 20+/pnpm 9.15.0 engine constraints, and the top-level scripts (dev/build/lint/typecheck/test/render/db:*/ingest/batch/worker/youtube:auth/lambda:*/analytics:sync) that delegate to Turborepo and per-package filters.",
+      "tags": ["configuration", "build-system", "monorepo", "scripts"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:pnpm-workspace.yaml",
+      "type": "config",
+      "name": "pnpm-workspace.yaml",
+      "filePath": "pnpm-workspace.yaml",
+      "summary": "Declares the pnpm workspace scope, including all packages under apps/ and packages/ so the monorepo resolves internal dependencies via workspace links.",
+      "tags": ["configuration", "monorepo", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:skills-lock.json",
+      "type": "config",
+      "name": "skills-lock.json",
+      "filePath": "skills-lock.json",
+      "summary": "Lockfile pinning the exact versions (via content hashes) of ten Remotion agent skills (mediabunny, remotion-best-practices, remotion-captions, remotion-create, remotion-docs, remotion-interactivity, remotion-markup, remotion-render, remotion-saas, remotion-upgrade) installed from remotion-dev/skills for Claude Code, ensuring reproducible AI-assisted Remotion development.",
+      "tags": ["configuration", "dependency-lock", "ai-tooling", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.base.json",
+      "type": "config",
+      "name": "tsconfig.base.json",
+      "filePath": "tsconfig.base.json",
+      "summary": "Shared base TypeScript compiler configuration for the monorepo: ES2022 target/module with Bundler resolution, strict mode enabled, isolated modules, and relaxed unused-locals/params checks, intended to be extended by each app/package's own tsconfig.",
+      "tags": ["configuration", "typescript", "build-system"],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:turbo.json",
+      "type": "config",
+      "name": "turbo.json",
+      "filePath": "turbo.json",
+      "summary": "Turborepo task-pipeline configuration defining build/dev/lint/typecheck/test/render tasks, their cross-package dependency ordering (`^build`), output caching globs, and which tasks (dev, render) are persistent/uncached.",
+      "tags": ["configuration", "build-system", "monorepo", "ci-cd"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:docker-compose.yml",
+      "target": "service:docker-compose.yml:postgres",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "service:docker-compose.yml",
+      "target": "service:docker-compose.yml:redis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "service:docker-compose.yml",
+      "target": "service:docker-compose.yml:minio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:GETTING_STARTED.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:PROJECT_PLAN.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:.env.example",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "service:docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "document:PROJECT_PLAN.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "config:skills-lock.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:GETTING_STARTED.md",
+      "target": "document:PROJECT_PLAN.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:GETTING_STARTED.md",
+      "target": "document:CLAUDE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:GETTING_STARTED.md",
+      "target": "config:skills-lock.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:PROJECT_PLAN.md",
+      "target": "document:CLAUDE.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:PROJECT_PLAN.md",
+      "target": "service:docker-compose.yml",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:PROJECT_PLAN.md",
+      "target": "config:package.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:PROJECT_PLAN.md",
+      "target": "config:turbo.json",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:turbo.json",
+      "target": "config:package.json",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:pnpm-workspace.yaml",
+      "target": "config:package.json",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:.env.example",
+      "target": "service:docker-compose.yml",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

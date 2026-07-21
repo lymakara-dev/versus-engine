@@ -1,0 +1,29 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "agent/skills/remotion-markup/measuring-text.md", "language": "markdown", "sizeLines": 140, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/parameters.md", "language": "markdown", "sizeLines": 109, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/sequencing.md", "language": "markdown", "sizeLines": 144, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/sfx.md", "language": "markdown", "sizeLines": 51, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/silence-detection.md", "language": "markdown", "sizeLines": 71, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/text-highlights.md", "language": "markdown", "sizeLines": 56, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/timing.md", "language": "markdown", "sizeLines": 152, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/transitions.md", "language": "markdown", "sizeLines": 197, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/trimming.md", "language": "markdown", "sizeLines": 51, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/video-editing.md", "language": "markdown", "sizeLines": 66, "fileCategory": "docs"},
+    {"path": "agent/skills/remotion-markup/voiceover.md", "language": "markdown", "sizeLines": 99, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    "agent/skills/remotion-markup/measuring-text.md": [],
+    "agent/skills/remotion-markup/parameters.md": [],
+    "agent/skills/remotion-markup/sequencing.md": [],
+    "agent/skills/remotion-markup/sfx.md": [],
+    "agent/skills/remotion-markup/silence-detection.md": [],
+    "agent/skills/remotion-markup/text-highlights.md": [],
+    "agent/skills/remotion-markup/timing.md": [],
+    "agent/skills/remotion-markup/transitions.md": [],
+    "agent/skills/remotion-markup/trimming.md": [],
+    "agent/skills/remotion-markup/video-editing.md": [],
+    "agent/skills/remotion-markup/voiceover.md": []
+  }
+}

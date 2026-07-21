@@ -1,0 +1,159 @@
+{
+  "nodes": [
+    {
+      "id": "file:packages/ingestion/src/adapters/vpic.test.ts",
+      "type": "file",
+      "name": "vpic.test.ts",
+      "filePath": "packages/ingestion/src/adapters/vpic.test.ts",
+      "summary": "Unit tests for the vPIC vehicle adapter, covering model fetching against a JSON fixture, mapping raw results into DRAFT NormalizedProduct records, and the rate-limited/deduped multi-year ingest flow.",
+      "tags": ["test", "vitest", "ingestion", "vpic"],
+      "complexity": "moderate",
+      "languageNotes": "Uses a fixture file (vpic-models-toyota-2026.json) and a vi.fn-based fake fetch to avoid real network calls, asserting on elapsed time to verify rate-limiting."
+    },
+    {
+      "id": "file:packages/ingestion/src/adapters/vpic.ts",
+      "type": "file",
+      "name": "vpic.ts",
+      "filePath": "packages/ingestion/src/adapters/vpic.ts",
+      "summary": "NHTSA vPIC adapter that fetches make/model vehicle data for a given year and maps it into DRAFT NormalizedProduct records; enrichment (price, specs) happens later via CSV import or AI normalizer per PROJECT_PLAN.md.",
+      "tags": ["adapter", "ingestion", "external-api", "rate-limiting", "vpic"],
+      "complexity": "moderate",
+      "languageNotes": "Self-imposes a rate limit via createRateLimiter even though vPIC publishes no rate limit, to stay a polite consumer across large batch ingests."
+    },
+    {
+      "id": "file:packages/ingestion/src/http.ts",
+      "type": "file",
+      "name": "http.ts",
+      "filePath": "packages/ingestion/src/http.ts",
+      "summary": "Shared HTTP utility module providing createRateLimiter, a minimal throttling helper, and the FetchLike type alias used to inject fetch implementations across ingestion adapters.",
+      "tags": ["utility", "rate-limiting", "http", "shared"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/ingestion/src/adapters/vpic.ts:fetchModelsForMakeYear",
+      "type": "function",
+      "name": "fetchModelsForMakeYear",
+      "filePath": "packages/ingestion/src/adapters/vpic.ts",
+      "lineRange": [40, 53],
+      "summary": "Calls the vPIC GetModelsForMakeYear endpoint for a given make and year, throwing an error on a non-ok response and returning the parsed Results array.",
+      "tags": ["api-handler", "http-request", "ingestion", "vpic"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:packages/ingestion/src/adapters/vpic.ts:mapVpicResultsToProducts",
+      "type": "function",
+      "name": "mapVpicResultsToProducts",
+      "filePath": "packages/ingestion/src/adapters/vpic.ts",
+      "lineRange": [55, 79],
+      "summary": "Transforms raw vPIC model results into DRAFT NormalizedProduct objects, title-casing the brand and stashing the raw vPIC make/model IDs into the specs blob for traceability.",
+      "tags": ["data-mapping", "transformation", "ingestion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/ingestion/src/adapters/vpic.ts:ingestVpicMakeYears",
+      "type": "function",
+      "name": "ingestVpicMakeYears",
+      "filePath": "packages/ingestion/src/adapters/vpic.ts",
+      "lineRange": [92, 110],
+      "summary": "Orchestrates a rate-limited vPIC ingest across multiple model years for one make, deduplicating products by (brand, model, year) before returning the combined list; safe to re-run since downstream upserts key on the product slug.",
+      "tags": ["orchestration", "rate-limiting", "deduplication", "ingestion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/ingestion/src/http.ts:createRateLimiter",
+      "type": "function",
+      "name": "createRateLimiter",
+      "filePath": "packages/ingestion/src/http.ts",
+      "lineRange": [7, 21],
+      "summary": "Factory that produces a throttle() helper enforcing a minimum interval between the start of consecutive async calls, used by ingestion adapters to avoid hammering external sources.",
+      "tags": ["rate-limiting", "utility", "factory"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.test.ts",
+      "target": "file:packages/ingestion/src/adapters/vpic.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "file:packages/ingestion/src/http.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "file:packages/ingestion/src/adapters/vpic.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:fetchModelsForMakeYear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:mapVpicResultsToProducts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:ingestVpicMakeYears",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:fetchModelsForMakeYear",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:mapVpicResultsToProducts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/adapters/vpic.ts",
+      "target": "function:packages/ingestion/src/adapters/vpic.ts:ingestVpicMakeYears",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:packages/ingestion/src/http.ts",
+      "target": "function:packages/ingestion/src/http.ts:createRateLimiter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/ingestion/src/http.ts",
+      "target": "function:packages/ingestion/src/http.ts:createRateLimiter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:packages/ingestion/src/adapters/vpic.ts:ingestVpicMakeYears",
+      "target": "function:packages/ingestion/src/http.ts:createRateLimiter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

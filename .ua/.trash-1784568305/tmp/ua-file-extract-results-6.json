@@ -1,0 +1,350 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/workers/src/cli/batch.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 142,
+      "nonEmptyLines": 125,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 39,
+          "endLine": 133,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "parseArgs",
+          "lineNumber": 40
+        },
+        {
+          "caller": "main",
+          "callee": "synthesizeNarration",
+          "lineNumber": 57
+        },
+        {
+          "caller": "main",
+          "callee": "parsePairsSpec",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "parseScheduleIntervalMs",
+          "lineNumber": 67
+        },
+        {
+          "caller": "main",
+          "callee": "compositionIdSchema.parse",
+          "lineNumber": 69
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.category.findUnique",
+          "lineNumber": 73
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.product.findMany",
+          "lineNumber": 81
+        },
+        {
+          "caller": "main",
+          "callee": "pairTopRanked",
+          "lineNumber": 86
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main",
+          "callee": "pairs.entries",
+          "lineNumber": 98
+        },
+        {
+          "caller": "main",
+          "callee": "buildAndSaveComparison",
+          "lineNumber": 100
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.renderJob.create",
+          "lineNumber": 102
+        },
+        {
+          "caller": "main",
+          "callee": "renderJobPayloadSchema.parse",
+          "lineNumber": 105
+        },
+        {
+          "caller": "main",
+          "callee": "getRenderQueue().add",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main",
+          "callee": "getRenderQueue",
+          "lineNumber": 110
+        },
+        {
+          "caller": "main",
+          "callee": "scheduledAtFor",
+          "lineNumber": 112
+        },
+        {
+          "caller": "main",
+          "callee": "prisma.upload.create",
+          "lineNumber": 113
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 118
+        },
+        {
+          "caller": "main",
+          "callee": "scheduledAt.toISOString",
+          "lineNumber": 120
+        },
+        {
+          "caller": "main",
+          "callee": "console.error",
+          "lineNumber": 123
+        },
+        {
+          "caller": "main",
+          "callee": "console.log",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/pair-products.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/pair-products.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "pairTopRanked",
+          "startLine": 6,
+          "endLine": 13,
+          "params": [
+            "ranked",
+            "count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "pairTopRanked",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "pairTopRanked",
+          "callee": "ranked.slice",
+          "lineNumber": 7
+        },
+        {
+          "caller": "pairTopRanked",
+          "callee": "pairs.push",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-pairs-spec.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "parsePairsSpec",
+          "startLine": 7,
+          "endLine": 17,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parsePairsSpec",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parsePairsSpec",
+          "callee": "value.match",
+          "lineNumber": 8
+        },
+        {
+          "caller": "parsePairsSpec",
+          "callee": "Number",
+          "lineNumber": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-schedule.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-schedule.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "parseScheduleIntervalMs",
+          "startLine": 8,
+          "endLine": 15,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "scheduledAtFor",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "index",
+            "intervalMs",
+            "now"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseScheduleIntervalMs",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "scheduledAtFor",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "scheduledAtFor",
+          "callee": "now.getTime",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/lib/render-queue-client.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "getRenderQueue",
+          "startLine": 9,
+          "endLine": 13,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getRenderQueue",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

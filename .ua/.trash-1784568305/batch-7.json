@@ -1,0 +1,262 @@
+{
+  "nodes": [
+    {
+      "id": "file:apps/workers/src/cli/ingest.ts",
+      "type": "file",
+      "name": "ingest.ts",
+      "filePath": "apps/workers/src/cli/ingest.ts",
+      "summary": "CLI entry point for the `pnpm ingest` command, dispatching to vPIC-based vehicle ingestion or CSV bulk import and upserting the resulting normalized products into the database.",
+      "tags": ["entry-point", "cli", "ingestion", "database"],
+      "complexity": "moderate",
+      "languageNotes": "Uses Node's built-in `node:util` parseArgs for lightweight CLI argument parsing instead of a third-party library."
+    },
+    {
+      "id": "function:apps/workers/src/cli/ingest.ts:runVpic",
+      "type": "function",
+      "name": "runVpic",
+      "filePath": "apps/workers/src/cli/ingest.ts",
+      "lineRange": [14, 39],
+      "summary": "Parses `--make`, `--years`, and `--category` CLI flags, fetches vehicle data via the vPIC ingestion adapter, and upserts each resulting product.",
+      "tags": ["cli", "ingestion", "vpic"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/workers/src/cli/ingest.ts:runCsv",
+      "type": "function",
+      "name": "runCsv",
+      "filePath": "apps/workers/src/cli/ingest.ts",
+      "lineRange": [41, 67],
+      "summary": "Reads a CSV file path from CLI positionals, resolves it relative to the invoking shell's cwd, parses it into normalized products, and upserts each one.",
+      "tags": ["cli", "ingestion", "csv"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:apps/workers/src/cli/ingest.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "apps/workers/src/cli/ingest.ts",
+      "lineRange": [69, 83],
+      "summary": "Top-level CLI dispatcher that reads the subcommand (`vpic` or `csv`) from argv and routes to the matching handler.",
+      "tags": ["cli", "entry-point", "dispatcher"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-years.test.ts",
+      "type": "file",
+      "name": "parse-years.test.ts",
+      "filePath": "apps/workers/src/cli/parse-years.test.ts",
+      "summary": "Vitest unit tests covering parseYears' range expansion, comma-separated list parsing, and error cases for backwards ranges and invalid input.",
+      "tags": ["test", "cli", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/cli/parse-years.ts",
+      "type": "file",
+      "name": "parse-years.ts",
+      "filePath": "apps/workers/src/cli/parse-years.ts",
+      "summary": "Small CLI helper that parses the `--years` flag, accepting either an inclusive range (\"2024-2026\") or an explicit comma-separated list of years.",
+      "tags": ["utility", "cli", "parsing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/cli/parse-years.ts:parseYears",
+      "type": "function",
+      "name": "parseYears",
+      "filePath": "apps/workers/src/cli/parse-years.ts",
+      "lineRange": [2, 26],
+      "summary": "Converts a year-range or comma-separated year string from CLI input into an array of integer years, throwing on malformed or backwards ranges.",
+      "tags": ["utility", "parsing", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/db/coerce-spec-value.test.ts",
+      "type": "file",
+      "name": "coerce-spec-value.test.ts",
+      "filePath": "apps/workers/src/db/coerce-spec-value.test.ts",
+      "summary": "Vitest unit tests verifying coerceSpecValue correctly parses numbers, booleans, and text, and returns null for blank or unparseable input.",
+      "tags": ["test", "database", "vitest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "type": "file",
+      "name": "coerce-spec-value.ts",
+      "filePath": "apps/workers/src/db/coerce-spec-value.ts",
+      "summary": "Coerces a raw string spec value (sourced from CSV or vPIC) into the typed number/text/boolean shape expected by a SpecDefinition's declared dataType.",
+      "tags": ["utility", "database", "validation", "type-coercion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:apps/workers/src/db/coerce-spec-value.ts:coerceSpecValue",
+      "type": "function",
+      "name": "coerceSpecValue",
+      "filePath": "apps/workers/src/db/coerce-spec-value.ts",
+      "lineRange": [14, 34],
+      "summary": "Given a SpecDataType and a raw string, returns a TypedSpecValue with the appropriate numberValue/textValue/boolValue populated, or null if the value can't be coerced.",
+      "tags": ["utility", "validation", "type-coercion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:apps/workers/src/db/upsert-product.ts",
+      "type": "file",
+      "name": "upsert-product.ts",
+      "filePath": "apps/workers/src/db/upsert-product.ts",
+      "summary": "The single point where packages/ingestion's source-agnostic NormalizedProduct output touches Prisma: idempotently upserts category, brand, product, and SpecValue rows keyed on natural keys so re-running an ingest is always safe.",
+      "tags": ["database", "ingestion", "upsert", "prisma"],
+      "complexity": "complex",
+      "languageNotes": "Follows the project's idempotent-jobs convention (CLAUDE.md) by keying every upsert on natural keys (slug, productId+specDefId) rather than surrogate IDs."
+    },
+    {
+      "id": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "type": "function",
+      "name": "upsertNormalizedProduct",
+      "filePath": "apps/workers/src/db/upsert-product.ts",
+      "lineRange": [27, 106],
+      "summary": "Upserts a NormalizedProduct's category, brand, and product rows, then writes SpecValue rows for both raw string specs (coerced against existing SpecDefinitions) and pre-typed AI-normalized specs.",
+      "tags": ["database", "upsert", "prisma", "ingestion"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:apps/workers/src/cli/ingest.ts",
+      "target": "file:apps/workers/src/cli/parse-years.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/ingest.ts",
+      "target": "file:apps/workers/src/db/upsert-product.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-years.test.ts",
+      "target": "file:apps/workers/src/cli/parse-years.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/db/coerce-spec-value.test.ts",
+      "target": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/db/upsert-product.ts",
+      "target": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:apps/workers/src/cli/ingest.ts",
+      "target": "function:apps/workers/src/cli/ingest.ts:runVpic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/ingest.ts",
+      "target": "function:apps/workers/src/cli/ingest.ts:runCsv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/ingest.ts",
+      "target": "function:apps/workers/src/cli/ingest.ts:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-years.ts",
+      "target": "function:apps/workers/src/cli/parse-years.ts:parseYears",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-years.ts",
+      "target": "function:apps/workers/src/cli/parse-years.ts:parseYears",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "target": "function:apps/workers/src/db/coerce-spec-value.ts:coerceSpecValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "target": "function:apps/workers/src/db/coerce-spec-value.ts:coerceSpecValue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/db/upsert-product.ts",
+      "target": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:apps/workers/src/db/upsert-product.ts",
+      "target": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/ingest.ts:runVpic",
+      "target": "function:apps/workers/src/cli/parse-years.ts:parseYears",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/ingest.ts:runVpic",
+      "target": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/cli/ingest.ts:runCsv",
+      "target": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:apps/workers/src/db/upsert-product.ts:upsertNormalizedProduct",
+      "target": "function:apps/workers/src/db/coerce-spec-value.ts:coerceSpecValue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:apps/workers/src/cli/parse-years.ts",
+      "target": "file:apps/workers/src/cli/parse-years.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:apps/workers/src/db/coerce-spec-value.ts",
+      "target": "file:apps/workers/src/db/coerce-spec-value.test.ts",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

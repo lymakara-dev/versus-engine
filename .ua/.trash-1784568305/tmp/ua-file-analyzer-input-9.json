@@ -1,0 +1,17 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "packages/narration/src/openai-provider.ts", "language": "typescript", "sizeLines": 49, "fileCategory": "code"},
+    {"path": "packages/narration/src/provider.ts", "language": "typescript", "sizeLines": 9, "fileCategory": "code"},
+    {"path": "packages/narration/src/script.test.ts", "language": "typescript", "sizeLines": 70, "fileCategory": "code"},
+    {"path": "packages/narration/src/script.ts", "language": "typescript", "sizeLines": 54, "fileCategory": "code"},
+    {"path": "packages/narration/src/synthesize.ts", "language": "typescript", "sizeLines": 57, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "packages/narration/src/openai-provider.ts": ["packages/narration/src/provider.ts"],
+    "packages/narration/src/provider.ts": [],
+    "packages/narration/src/script.test.ts": ["packages/narration/src/script.ts"],
+    "packages/narration/src/script.ts": [],
+    "packages/narration/src/synthesize.ts": ["packages/narration/src/provider.ts", "packages/narration/src/script.ts"]
+  }
+}

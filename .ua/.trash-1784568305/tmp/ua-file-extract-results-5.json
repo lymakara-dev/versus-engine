@@ -1,0 +1,593 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/studio/src/components/AnimatedBar.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "AnimatedBar",
+          "startLine": 10,
+          "endLine": 95,
+          "params": [
+            "{ contenders, theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnimatedBar",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AnimatedBar",
+          "callee": "useCurrentFrame",
+          "lineNumber": 14
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "useVideoConfig",
+          "lineNumber": 15
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "secondsToFrames",
+          "lineNumber": 17
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "secondsToFrames",
+          "lineNumber": 18
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "Math.max",
+          "lineNumber": 19
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "contenders.map",
+          "lineNumber": 19
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "Math.abs",
+          "lineNumber": 19
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "contenders.map",
+          "lineNumber": 23
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "Math.abs",
+          "lineNumber": 24
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "interpolate",
+          "lineNumber": 27
+        },
+        {
+          "caller": "AnimatedBar",
+          "callee": "Easing.out",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Badge.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "Badge",
+          "startLine": 6,
+          "endLine": 55,
+          "params": [
+            "{ contenders, theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Badge",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Badge",
+          "callee": "useCurrentFrame",
+          "lineNumber": 10
+        },
+        {
+          "caller": "Badge",
+          "callee": "useVideoConfig",
+          "lineNumber": 11
+        },
+        {
+          "caller": "Badge",
+          "callee": "contenders.map",
+          "lineNumber": 15
+        },
+        {
+          "caller": "Badge",
+          "callee": "spring",
+          "lineNumber": 16
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Counter.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 57,
+      "functions": [
+        {
+          "name": "suffixOf",
+          "startLine": 10,
+          "endLine": 12,
+          "params": [
+            "displayValue"
+          ]
+        },
+        {
+          "name": "decimalsOf",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "displayValue"
+          ]
+        },
+        {
+          "name": "Counter",
+          "startLine": 18,
+          "endLine": 64,
+          "params": [
+            "{ contenders, theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Counter",
+          "line": 18,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "suffixOf",
+          "callee": "displayValue.replace",
+          "lineNumber": 11
+        },
+        {
+          "caller": "decimalsOf",
+          "callee": "displayValue.match",
+          "lineNumber": 15
+        },
+        {
+          "caller": "Counter",
+          "callee": "useCurrentFrame",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Counter",
+          "callee": "useVideoConfig",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Counter",
+          "callee": "secondsToFrames",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Counter",
+          "callee": "secondsToFrames",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Counter",
+          "callee": "contenders.map",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Counter",
+          "callee": "decimalsOf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Counter",
+          "callee": "suffixOf",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Counter",
+          "callee": "interpolate",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Counter",
+          "callee": "Easing.out",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Counter",
+          "callee": "animatedValue.toFixed",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Counter",
+          "callee": "suffix.trim",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/Gauge.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "Gauge",
+          "startLine": 13,
+          "endLine": 83,
+          "params": [
+            "{ contenders, theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Gauge",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Gauge",
+          "callee": "useCurrentFrame",
+          "lineNumber": 17
+        },
+        {
+          "caller": "Gauge",
+          "callee": "useVideoConfig",
+          "lineNumber": 18
+        },
+        {
+          "caller": "Gauge",
+          "callee": "secondsToFrames",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Gauge",
+          "callee": "secondsToFrames",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Gauge",
+          "callee": "Math.max",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Gauge",
+          "callee": "contenders.map",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Gauge",
+          "callee": "Math.abs",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Gauge",
+          "callee": "contenders.map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Gauge",
+          "callee": "Math.abs",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Gauge",
+          "callee": "interpolate",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Gauge",
+          "callee": "Easing.out",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/LogoSting.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 58,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "LogoSting",
+          "startLine": 5,
+          "endLine": 58,
+          "params": [
+            "{ theme }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LogoSting",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LogoSting",
+          "callee": "useCurrentFrame",
+          "lineNumber": 6
+        },
+        {
+          "caller": "LogoSting",
+          "callee": "useVideoConfig",
+          "lineNumber": 7
+        },
+        {
+          "caller": "LogoSting",
+          "callee": "interpolate",
+          "lineNumber": 9
+        },
+        {
+          "caller": "LogoSting",
+          "callee": "interpolate",
+          "lineNumber": 14
+        },
+        {
+          "caller": "LogoSting",
+          "callee": "Easing.out",
+          "lineNumber": 15
+        },
+        {
+          "caller": "LogoSting",
+          "callee": "interpolate",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/components/types.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 7,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/scenes/SpecBattle.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "getDuration",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "getSfxCues",
+          "startLine": 22,
+          "endLine": 30,
+          "params": [
+            "input"
+          ]
+        },
+        {
+          "name": "RoundCard",
+          "startLine": 39,
+          "endLine": 99,
+          "params": [
+            "{ round, contenders, theme, isPortrait }"
+          ]
+        },
+        {
+          "name": "SpecBattle",
+          "startLine": 101,
+          "endLine": 120,
+          "params": [
+            "{\n  input,\n  theme,\n  layout,\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getDuration",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "getSfxCues",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "SpecBattle",
+          "line": 101,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getDuration",
+          "callee": "secondsToFrames",
+          "lineNumber": 19
+        },
+        {
+          "caller": "getDuration",
+          "callee": "specBattleSeconds",
+          "lineNumber": 19
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "secondsToFrames",
+          "lineNumber": 23
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "secondsToFrames",
+          "lineNumber": 24
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "input.rounds.map",
+          "lineNumber": 26
+        },
+        {
+          "caller": "getSfxCues",
+          "callee": "sfxSrc",
+          "lineNumber": 28
+        },
+        {
+          "caller": "RoundCard",
+          "callee": "useCurrentFrame",
+          "lineNumber": 45
+        },
+        {
+          "caller": "RoundCard",
+          "callee": "useVideoConfig",
+          "lineNumber": 46
+        },
+        {
+          "caller": "RoundCard",
+          "callee": "spring",
+          "lineNumber": 48
+        },
+        {
+          "caller": "RoundCard",
+          "callee": "contenders.map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "SpecBattle",
+          "callee": "useVideoConfig",
+          "lineNumber": 106
+        },
+        {
+          "caller": "SpecBattle",
+          "callee": "secondsToFrames",
+          "lineNumber": 107
+        },
+        {
+          "caller": "SpecBattle",
+          "callee": "input.rounds.map",
+          "lineNumber": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/studio/src/theme/index.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 67,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "getTheme",
+          "startLine": 65,
+          "endLine": 67,
+          "params": [
+            "themeKey"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getTheme",
+          "line": 65,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

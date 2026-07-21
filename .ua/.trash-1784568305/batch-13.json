@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/mediabunny/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/mediabunny/SKILL.md",
+      "summary": "Index page for a vendored Claude Code agent skill covering the Mediabunny multimedia library, pointing to sub-guides for reading audio duration, video dimensions, and video duration.",
+      "tags": ["documentation", "agent-skill", "third-party", "multimedia", "external-reference"],
+      "complexity": "simple",
+      "languageNotes": "This is bundled third-party agent-skill documentation (not versus-engine application code) that teaches an AI agent how to use the Mediabunny library within this repo's tooling."
+    },
+    {
+      "id": "document:.agents/skills/mediabunny/get-audio-duration.md",
+      "type": "document",
+      "name": "get-audio-duration.md",
+      "filePath": ".agents/skills/mediabunny/get-audio-duration.md",
+      "summary": "Reference snippet showing how to compute an audio file's duration in seconds with Mediabunny's Input/UrlSource API, including variants for Remotion's staticFile() and Node.js/Bun FileSource.",
+      "tags": ["documentation", "agent-skill", "third-party", "multimedia", "audio"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/mediabunny/get-video-dimensions.md",
+      "type": "document",
+      "name": "get-video-dimensions.md",
+      "filePath": ".agents/skills/mediabunny/get-video-dimensions.md",
+      "summary": "Reference snippet showing how to read a video file's width and height via Mediabunny's primary video track, with variants for remote URLs, local files, and Remotion's staticFile().",
+      "tags": ["documentation", "agent-skill", "third-party", "multimedia", "video"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/mediabunny/get-video-duration.md",
+      "type": "document",
+      "name": "get-video-duration.md",
+      "filePath": ".agents/skills/mediabunny/get-video-duration.md",
+      "summary": "Reference snippet showing how to compute a video file's duration in seconds with Mediabunny's Input/UrlSource API, including variants for Remotion's public/ staticFile() usage and Node.js/Bun FileSource.",
+      "tags": ["documentation", "agent-skill", "third-party", "multimedia", "video"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/mediabunny/SKILL.md",
+      "target": "document:.agents/skills/mediabunny/get-audio-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/mediabunny/SKILL.md",
+      "target": "document:.agents/skills/mediabunny/get-video-dimensions.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/mediabunny/SKILL.md",
+      "target": "document:.agents/skills/mediabunny/get-video-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/mediabunny/get-audio-duration.md",
+      "target": "document:.agents/skills/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/mediabunny/get-video-dimensions.md",
+      "target": "document:.agents/skills/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

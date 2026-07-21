@@ -1,0 +1,486 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "apps/workers/src/cli/ingest.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "runVpic",
+          "startLine": 14,
+          "endLine": 39,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "runCsv",
+          "startLine": 41,
+          "endLine": 67,
+          "params": [
+            "args"
+          ]
+        },
+        {
+          "name": "main",
+          "startLine": 69,
+          "endLine": 83,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "runVpic",
+          "callee": "parseArgs",
+          "lineNumber": 15
+        },
+        {
+          "caller": "runVpic",
+          "callee": "ingestVpicMakeYears",
+          "lineNumber": 28
+        },
+        {
+          "caller": "runVpic",
+          "callee": "parseYears",
+          "lineNumber": 30
+        },
+        {
+          "caller": "runVpic",
+          "callee": "upsertNormalizedProduct",
+          "lineNumber": 35
+        },
+        {
+          "caller": "runVpic",
+          "callee": "console.log",
+          "lineNumber": 38
+        },
+        {
+          "caller": "runCsv",
+          "callee": "parseArgs",
+          "lineNumber": 42
+        },
+        {
+          "caller": "runCsv",
+          "callee": "values.status?.toUpperCase",
+          "lineNumber": 55
+        },
+        {
+          "caller": "runCsv",
+          "callee": "path.resolve",
+          "lineNumber": 58
+        },
+        {
+          "caller": "runCsv",
+          "callee": "process.cwd",
+          "lineNumber": 58
+        },
+        {
+          "caller": "runCsv",
+          "callee": "readFileSync",
+          "lineNumber": 59
+        },
+        {
+          "caller": "runCsv",
+          "callee": "parseProductsCsv",
+          "lineNumber": 60
+        },
+        {
+          "caller": "runCsv",
+          "callee": "upsertNormalizedProduct",
+          "lineNumber": 63
+        },
+        {
+          "caller": "runCsv",
+          "callee": "console.log",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "process.argv.slice",
+          "lineNumber": 70
+        },
+        {
+          "caller": "main",
+          "callee": "runVpic",
+          "lineNumber": 74
+        },
+        {
+          "caller": "main",
+          "callee": "runCsv",
+          "lineNumber": 77
+        },
+        {
+          "caller": "main",
+          "callee": "console.error",
+          "lineNumber": 80
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-years.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 19,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/cli/parse-years.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "parseYears",
+          "startLine": 2,
+          "endLine": 26,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "parseYears",
+          "line": 2,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "parseYears",
+          "callee": "value.match",
+          "lineNumber": 3
+        },
+        {
+          "caller": "parseYears",
+          "callee": "Number",
+          "lineNumber": 5
+        },
+        {
+          "caller": "parseYears",
+          "callee": "Number",
+          "lineNumber": 6
+        },
+        {
+          "caller": "parseYears",
+          "callee": "Array.from",
+          "lineNumber": 10
+        },
+        {
+          "caller": "parseYears",
+          "callee": "value.split(\",\").map",
+          "lineNumber": 13
+        },
+        {
+          "caller": "parseYears",
+          "callee": "value.split",
+          "lineNumber": 13
+        },
+        {
+          "caller": "parseYears",
+          "callee": "Number",
+          "lineNumber": 14
+        },
+        {
+          "caller": "parseYears",
+          "callee": "part.trim",
+          "lineNumber": 14
+        },
+        {
+          "caller": "parseYears",
+          "callee": "Number.isInteger",
+          "lineNumber": 15
+        },
+        {
+          "caller": "parseYears",
+          "callee": "part.trim",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/db/coerce-spec-value.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 31,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/db/coerce-spec-value.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "coerceSpecValue",
+          "startLine": 14,
+          "endLine": 34,
+          "params": [
+            "dataType",
+            "rawValue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "coerceSpecValue",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "coerceSpecValue",
+          "callee": "rawValue.trim",
+          "lineNumber": 15
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "trimmed.replace",
+          "lineNumber": 19
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "/\\d/.test",
+          "lineNumber": 20
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "Number",
+          "lineNumber": 21
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "Number.isNaN",
+          "lineNumber": 22
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "trimmed.toLowerCase",
+          "lineNumber": 27
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "TRUE_VALUES.has",
+          "lineNumber": 28
+        },
+        {
+          "caller": "coerceSpecValue",
+          "callee": "FALSE_VALUES.has",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "apps/workers/src/db/upsert-product.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 106,
+      "nonEmptyLines": 96,
+      "functions": [
+        {
+          "name": "titleCase",
+          "startLine": 11,
+          "endLine": 17,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "upsertCategory",
+          "startLine": 19,
+          "endLine": 25,
+          "params": [
+            "slug"
+          ]
+        },
+        {
+          "name": "upsertNormalizedProduct",
+          "startLine": 27,
+          "endLine": 106,
+          "params": [
+            "product"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "upsertNormalizedProduct",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .split(/[-_\\s]+/)\n    .filter(Boolean)\n    .map((word) => word[0]!.toUpperCase() + word.slice(1))\n    .join",
+          "lineNumber": 12
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .split(/[-_\\s]+/)\n    .filter(Boolean)\n    .map",
+          "lineNumber": 12
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .split(/[-_\\s]+/)\n    .filter",
+          "lineNumber": 12
+        },
+        {
+          "caller": "titleCase",
+          "callee": "value\n    .split",
+          "lineNumber": 12
+        },
+        {
+          "caller": "titleCase",
+          "callee": "word[0]!.toUpperCase",
+          "lineNumber": 15
+        },
+        {
+          "caller": "titleCase",
+          "callee": "word.slice",
+          "lineNumber": 15
+        },
+        {
+          "caller": "upsertCategory",
+          "callee": "prisma.category.upsert",
+          "lineNumber": 20
+        },
+        {
+          "caller": "upsertCategory",
+          "callee": "titleCase",
+          "lineNumber": 23
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "upsertCategory",
+          "lineNumber": 28
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "prisma.brand.upsert",
+          "lineNumber": 30
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "slugify",
+          "lineNumber": 31
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "slugify",
+          "lineNumber": 33
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "slugify",
+          "lineNumber": 36
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "prisma.product.upsert",
+          "lineNumber": 39
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "prisma.specDefinition.findMany",
+          "lineNumber": 68
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "specDefs.map",
+          "lineNumber": 69
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "Object.entries",
+          "lineNumber": 74
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "specDefsByKey.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "coerceSpecValue",
+          "lineNumber": 78
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "String",
+          "lineNumber": 78
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "prisma.specValue.upsert",
+          "lineNumber": 80
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "specDefsByKey.get",
+          "lineNumber": 89
+        },
+        {
+          "caller": "upsertNormalizedProduct",
+          "callee": "prisma.specValue.upsert",
+          "lineNumber": 98
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

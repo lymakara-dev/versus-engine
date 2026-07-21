@@ -1,0 +1,116 @@
+{
+  "nodes": [
+    {
+      "id": "file:packages/db/src/index.ts",
+      "type": "file",
+      "name": "index.ts",
+      "filePath": "packages/db/src/index.ts",
+      "summary": "Prisma client singleton for the db package, memoized on the global object outside production to survive dev hot-reload without exhausting database connections, and re-exports all generated Prisma types and enums for use across the monorepo.",
+      "tags": ["entry-point", "singleton", "database", "prisma", "barrel"],
+      "complexity": "simple",
+      "languageNotes": "Classic Node/Prisma singleton pattern: stash the client on globalThis in dev so hot-reload doesn't spawn a new PrismaClient (and new connection pool) on every file change."
+    },
+    {
+      "id": "file:packages/db/src/seed-data/products.ts",
+      "type": "file",
+      "name": "products.ts",
+      "filePath": "packages/db/src/seed-data/products.ts",
+      "summary": "Hand-written demo catalog data providing extra cars plus a full phone and laptop roster (with per-spec numeric/text/bool values), satisfying CLAUDE.md's requirement to seed 4 cars, 4 phones, and 2 laptops with complete specs out of the box.",
+      "tags": ["seed-data", "fixture", "data-model", "demo-data", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:packages/db/src/seed-data/spec-definitions.ts",
+      "type": "file",
+      "name": "spec-definitions.ts",
+      "filePath": "packages/db/src/seed-data/spec-definitions.ts",
+      "summary": "Defines the full SpecDefinition catalogs (label, unit, data type, visualization, priority weight, sort order) for the cars, phones, and laptops demo categories, exposed per-category via SPEC_DEFINITIONS_BY_CATEGORY.",
+      "tags": ["seed-data", "data-model", "schema-definition", "database", "fixture"],
+      "complexity": "complex",
+      "languageNotes": "The car SpecDefinition set is deliberately kept in sync with the rounds in examples/comparison-example.json so the video payload seed and this catalog seed upsert the same rows rather than diverging."
+    },
+    {
+      "id": "file:packages/db/src/seed.ts",
+      "type": "file",
+      "name": "seed.ts",
+      "filePath": "packages/db/src/seed.ts",
+      "summary": "Database seed script run via `pnpm db:seed`: loads examples/comparison-example.json to upsert the cars category, its SpecDefinitions, Products, and Comparison, then seeds the additional cars, phones, and laptops demo catalogs — all as idempotent upserts keyed by natural keys per CLAUDE.md's idempotent-jobs directive.",
+      "tags": ["entry-point", "seed-data", "database", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:packages/db/src/seed.ts:upsertSpecDefinitions",
+      "type": "function",
+      "name": "upsertSpecDefinitions",
+      "filePath": "packages/db/src/seed.ts",
+      "lineRange": [57, 93],
+      "summary": "Upserts a category's list of SpecDefinition seed rows and returns a Map from spec key to the persisted SpecDefinition record so callers can look up spec def ids by key.",
+      "tags": ["database", "upsert", "seed-data", "utility"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/db/src/seed.ts:seedDemoProduct",
+      "type": "function",
+      "name": "seedDemoProduct",
+      "filePath": "packages/db/src/seed.ts",
+      "lineRange": [100, 162],
+      "summary": "Upserts one hand-authored demo Product, its Brand, and each of its SpecValue rows for a given category; deliberately skips creating a ProductImage since these catalog rows have no licensed image asset yet.",
+      "tags": ["database", "upsert", "seed-data", "product"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:packages/db/src/seed.ts:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "packages/db/src/seed.ts",
+      "lineRange": [164, 352],
+      "summary": "Entry point of the seed script: loads the example video payload, upserts the cars category/SpecDefinitions/Products/Comparison from it, then seeds the phones and laptops categories from the demo catalogs, logging a summary of what was seeded.",
+      "tags": ["entry-point", "orchestration", "database", "seed-data"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "function:packages/db/src/seed.ts:upsertSpecDefinitions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "function:packages/db/src/seed.ts:seedDemoProduct",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "function:packages/db/src/seed.ts:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "file:packages/db/src/index.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "file:packages/db/src/seed-data/products.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:packages/db/src/seed.ts",
+      "target": "file:packages/db/src/seed-data/spec-definitions.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

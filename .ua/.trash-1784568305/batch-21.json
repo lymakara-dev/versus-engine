@@ -1,0 +1,47 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-create/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-create/SKILL.md",
+      "summary": "Vendored Claude Code agent-skill guide for creating a new Remotion video project: scaffolding with create-video, adding React Markup for scene design, wiring interactivity best practices, optionally enabling TailwindCSS, and launching the Remotion Studio preview server. This is external reference documentation bundled with the repo's agent tooling, not versus-engine's own application source.",
+      "tags": ["documentation", "agent-skill", "remotion", "scaffolding", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-create/tailwind.md",
+      "type": "document",
+      "name": "tailwind.md",
+      "filePath": ".agents/skills/remotion-create/tailwind.md",
+      "summary": "Short vendored skill note on using TailwindCSS inside Remotion projects, warning against `transition-*`/`animate-*` classes in favor of `useCurrentFrame()`-driven animation and pointing to Remotion's Tailwind setup docs. Bundled external reference documentation, not versus-engine application code.",
+      "tags": ["documentation", "tailwind", "remotion", "agent-skill", "external-reference"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-create/video-layout.md",
+      "type": "document",
+      "name": "video-layout.md",
+      "filePath": ".agents/skills/remotion-create/video-layout.md",
+      "summary": "Vendored skill guide covering video-first layout, composition, and text-sizing rules for Remotion scenes: safe-area margins, default scene structure, preventing overlap through flex/grid slots instead of manual absolute positioning, minimum readable text sizes at 1080px width, and a pre-render crowding checklist. Bundled external reference documentation, not versus-engine application code.",
+      "tags": ["documentation", "layout", "typography", "remotion", "agent-skill"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-create/SKILL.md",
+      "target": "document:.agents/skills/remotion-create/tailwind.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-create/SKILL.md",
+      "target": "document:.agents/skills/remotion-create/video-layout.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

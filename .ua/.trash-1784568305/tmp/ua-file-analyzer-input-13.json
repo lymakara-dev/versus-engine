@@ -1,0 +1,15 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": ".agents/skills/mediabunny/SKILL.md", "language": "markdown", "sizeLines": 21, "fileCategory": "docs"},
+    {"path": ".agents/skills/mediabunny/get-audio-duration.md", "language": "markdown", "sizeLines": 58, "fileCategory": "docs"},
+    {"path": ".agents/skills/mediabunny/get-video-dimensions.md", "language": "markdown", "sizeLines": 68, "fileCategory": "docs"},
+    {"path": ".agents/skills/mediabunny/get-video-duration.md", "language": "markdown", "sizeLines": 60, "fileCategory": "docs"}
+  ],
+  "batchImportData": {
+    ".agents/skills/mediabunny/SKILL.md": [],
+    ".agents/skills/mediabunny/get-audio-duration.md": [],
+    ".agents/skills/mediabunny/get-video-dimensions.md": [],
+    ".agents/skills/mediabunny/get-video-duration.md": []
+  }
+}

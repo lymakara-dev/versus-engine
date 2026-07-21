@@ -1,0 +1,31 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "apps/workers/src/cli/analytics-sync.ts", "language": "typescript", "sizeLines": 209, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/lambda-deploy-function.ts", "language": "typescript", "sizeLines": 31, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/lambda-deploy-site.ts", "language": "typescript", "sizeLines": 38, "fileCategory": "code"},
+    {"path": "apps/workers/src/cli/worker.ts", "language": "typescript", "sizeLines": 16, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/lambda-config.ts", "language": "typescript", "sizeLines": 44, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/publish-queue-client.ts", "language": "typescript", "sizeLines": 13, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/retention-correlation.test.ts", "language": "typescript", "sizeLines": 56, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/retention-correlation.ts", "language": "typescript", "sizeLines": 65, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/youtube-analytics-client.ts", "language": "typescript", "sizeLines": 14, "fileCategory": "code"},
+    {"path": "apps/workers/src/lib/youtube-client.ts", "language": "typescript", "sizeLines": 25, "fileCategory": "code"},
+    {"path": "apps/workers/src/workers/publish-worker.ts", "language": "typescript", "sizeLines": 126, "fileCategory": "code"},
+    {"path": "apps/workers/src/workers/render-worker.ts", "language": "typescript", "sizeLines": 256, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "apps/workers/src/cli/analytics-sync.ts": ["apps/workers/src/lib/retention-correlation.ts", "apps/workers/src/lib/youtube-analytics-client.ts"],
+    "apps/workers/src/cli/lambda-deploy-function.ts": ["apps/workers/src/lib/lambda-config.ts"],
+    "apps/workers/src/cli/lambda-deploy-site.ts": ["apps/workers/src/lib/lambda-config.ts"],
+    "apps/workers/src/cli/worker.ts": ["apps/workers/src/workers/publish-worker.ts", "apps/workers/src/workers/render-worker.ts"],
+    "apps/workers/src/lib/lambda-config.ts": [],
+    "apps/workers/src/lib/publish-queue-client.ts": [],
+    "apps/workers/src/lib/retention-correlation.test.ts": ["apps/workers/src/lib/retention-correlation.ts"],
+    "apps/workers/src/lib/retention-correlation.ts": [],
+    "apps/workers/src/lib/youtube-analytics-client.ts": ["apps/workers/src/lib/youtube-client.ts"],
+    "apps/workers/src/lib/youtube-client.ts": [],
+    "apps/workers/src/workers/publish-worker.ts": ["apps/workers/src/lib/youtube-client.ts"],
+    "apps/workers/src/workers/render-worker.ts": ["apps/workers/src/lib/lambda-config.ts", "apps/workers/src/lib/publish-queue-client.ts"]
+  }
+}

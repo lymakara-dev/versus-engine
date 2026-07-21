@@ -1,0 +1,629 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 11
+    }
+  },
+  "results": [
+    {
+      "path": ".env.example",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 41,
+      "nonEmptyLines": 35,
+      "definitions": [
+        {
+          "name": "DATABASE_URL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 2,
+          "endLine": 2
+        },
+        {
+          "name": "REDIS_URL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "S3_ENDPOINT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "S3_ACCESS_KEY_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "S3_SECRET_ACCESS_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "S3_BUCKET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "S3_REGION",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "S3_FORCE_PATH_STYLE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 19,
+          "endLine": 19
+        },
+        {
+          "name": "YOUTUBE_CLIENT_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "YOUTUBE_CLIENT_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        },
+        {
+          "name": "YOUTUBE_REDIRECT_URI",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "YOUTUBE_REFRESH_TOKEN",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 28,
+          "endLine": 28
+        },
+        {
+          "name": "RENDER_TARGET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "REMOTION_AWS_ACCESS_KEY_ID",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 35,
+          "endLine": 35
+        },
+        {
+          "name": "REMOTION_AWS_SECRET_ACCESS_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 36,
+          "endLine": 36
+        },
+        {
+          "name": "REMOTION_AWS_REGION",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "REMOTION_LAMBDA_FUNCTION_NAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 39,
+          "endLine": 39
+        },
+        {
+          "name": "REMOTION_LAMBDA_SERVE_URL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 41,
+          "endLine": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 20
+      }
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 53,
+      "nonEmptyLines": 38,
+      "sections": [
+        {
+          "heading": "CLAUDE.md — Versus Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Prime directives",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Stack decisions (do not re-litigate without asking)",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Remotion conventions",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Data conventions",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Round selection heuristic (comparison package)",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Quality bars",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "Commands to implement",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "GETTING_STARTED.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 32,
+      "nonEmptyLines": 19,
+      "sections": [
+        {
+          "heading": "Getting Started — Handing This to Claude Code",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Step 1 — Create the repo",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Step 2 — Kickoff prompt (Phase 0 + 1)",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Step 3 — Iterate on the visuals",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Step 4 — Later phases",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Assets you must source yourself (legal reasons)",
+          "level": 2,
+          "line": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "PROJECT_PLAN.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 204,
+      "nonEmptyLines": 158,
+      "sections": [
+        {
+          "heading": "VERSUS ENGINE — Faceless Comparison Video Automation Platform",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Vision & Product Definition",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "2. Technology Stack (2026-modern, all TypeScript)",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "3. System Architecture",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Monorepo layout",
+          "level": 3,
+          "line": 74
+        },
+        {
+          "heading": "4. Data Layer",
+          "level": 2,
+          "line": 113
+        },
+        {
+          "heading": "Data sources per category",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "5. The Video JSON Contract (the heart of scalability)",
+          "level": 2,
+          "line": 132
+        },
+        {
+          "heading": "Animation system inside Remotion",
+          "level": 3,
+          "line": 159
+        },
+        {
+          "heading": "6. Pipeline Walkthrough (one video, end to end)",
+          "level": 2,
+          "line": 169
+        },
+        {
+          "heading": "7. Audio & Legal Checklist",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "8. Build Roadmap for Claude Code",
+          "level": 2,
+          "line": 190
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 12
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 189,
+      "nonEmptyLines": 141,
+      "sections": [
+        {
+          "heading": "Versus Engine",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Why",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Key features",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "🎬 Six-scene animated video template, in any theme",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "🎨 Per-category themes, zero hardcoded colors",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "🧮 Data-driven round selection",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "🖼️ A/B thumbnail testing",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "📊 Dashboard: browse, build, preview, render",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "🔊 Optional AI narration track",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "☁️ Scales from a laptop to Remotion Lambda",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "📈 Analytics feedback loop",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "🤖 Built for automation",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 99
+        },
+        {
+          "heading": "Tech stack",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "Getting started",
+          "level": 2,
+          "line": 142
+        },
+        {
+          "heading": "Project layout",
+          "level": 2,
+          "line": 172
+        },
+        {
+          "heading": "License",
+          "level": 2,
+          "line": 187
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 17
+      }
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 53,
+      "nonEmptyLines": 50,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 33,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "engines",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "packageManager",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "packages",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "skills-lock.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 65,
+      "nonEmptyLines": 65,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "skills",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "tsconfig.base.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 17,
+      "nonEmptyLines": 17,
+      "sections": [
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "turbo.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 26,
+      "nonEmptyLines": 26,
+      "sections": [
+        {
+          "heading": "$schema",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "tasks",
+          "level": 1,
+          "line": 3
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

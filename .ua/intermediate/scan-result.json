@@ -1,0 +1,2810 @@
+{
+  "name": "versus-engine",
+  "description": "A category-agnostic engine that turns database records into animated \"X vs Y\" comparison videos \u2014 cars, phones, laptops, or anything else \u2014 without writing a line of category-specific code. Note: this project has over 100 source files; consider scoping analysis to a subdirectory for faster results.",
+  "languages": [
+    "config",
+    "css",
+    "csv",
+    "javascript",
+    "json",
+    "markdown",
+    "prisma",
+    "sql",
+    "toml",
+    "tsbuildinfo",
+    "typescript",
+    "unknown",
+    "yaml"
+  ],
+  "frameworks": [
+    "Next.js",
+    "Prisma",
+    "React",
+    "Tailwind CSS",
+    "Vitest",
+    "Docker Compose"
+  ],
+  "files": [
+    {
+      "path": ".agents/skills/mediabunny/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-audio-duration.md",
+      "language": "markdown",
+      "sizeLines": 58,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-video-dimensions.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/mediabunny/get-video-duration.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 42,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "language": "markdown",
+      "sizeLines": 58,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 36,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "language": "markdown",
+      "sizeLines": 184,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 47,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 18,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/3d.md",
+      "language": "markdown",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 281,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "language": "markdown",
+      "sizeLines": 198,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/audio.md",
+      "language": "markdown",
+      "sizeLines": 169,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "language": "markdown",
+      "sizeLines": 136,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "language": "markdown",
+      "sizeLines": 108,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/effects.md",
+      "language": "markdown",
+      "sizeLines": 235,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "language": "markdown",
+      "sizeLines": 171,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "language": "markdown",
+      "sizeLines": 141,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "language": "markdown",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "language": "markdown",
+      "sizeLines": 119,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/images.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "language": "markdown",
+      "sizeLines": 73,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/map.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "language": "markdown",
+      "sizeLines": 442,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "language": "markdown",
+      "sizeLines": 458,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/measuring-text.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/parameters.md",
+      "language": "markdown",
+      "sizeLines": 109,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/text-highlights.md",
+      "language": "markdown",
+      "sizeLines": 56,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/timing.md",
+      "language": "markdown",
+      "sizeLines": 152,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "language": "markdown",
+      "sizeLines": 197,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/trimming.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "language": "markdown",
+      "sizeLines": 66,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "language": "markdown",
+      "sizeLines": 99,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 28,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-saas/framework.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-saas/player.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 30,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-captions/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 36,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-captions/display-captions.md",
+      "language": "markdown",
+      "sizeLines": 184,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-captions/import-srt-captions.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-captions/transcribe-captions.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-create/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-create/tailwind.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-create/video-layout.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-docs/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 47,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-interactivity/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 18,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/3d.md",
+      "language": "markdown",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 281,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/audio-visualization.md",
+      "language": "markdown",
+      "sizeLines": 198,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/audio.md",
+      "language": "markdown",
+      "sizeLines": 169,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/calculate-metadata.md",
+      "language": "markdown",
+      "sizeLines": 136,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/compositions.md",
+      "language": "markdown",
+      "sizeLines": 108,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/effects.md",
+      "language": "markdown",
+      "sizeLines": 235,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/embedding-videos.md",
+      "language": "markdown",
+      "sizeLines": 171,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/ffmpeg.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/gifs.md",
+      "language": "markdown",
+      "sizeLines": 141,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/google-fonts.md",
+      "language": "markdown",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/html-in-canvas.md",
+      "language": "markdown",
+      "sizeLines": 119,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/images.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/light-leaks.md",
+      "language": "markdown",
+      "sizeLines": 73,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/local-fonts.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/lottie.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/map.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/mapbox.md",
+      "language": "markdown",
+      "sizeLines": 442,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/maplibre.md",
+      "language": "markdown",
+      "sizeLines": 458,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/measuring-dom-nodes.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/measuring-text.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/parameters.md",
+      "language": "markdown",
+      "sizeLines": 109,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/sequencing.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/sfx.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/silence-detection.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/text-highlights.md",
+      "language": "markdown",
+      "sizeLines": 56,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/timing.md",
+      "language": "markdown",
+      "sizeLines": 152,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/transitions.md",
+      "language": "markdown",
+      "sizeLines": 197,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/trimming.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/video-editing.md",
+      "language": "markdown",
+      "sizeLines": 66,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-markup/voiceover.md",
+      "language": "markdown",
+      "sizeLines": 99,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-render/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 28,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-saas/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-saas/framework.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-saas/player.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-saas/rendering.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".agents/skills/remotion-upgrade/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 30,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".env.example",
+      "language": "config",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "CLAUDE.md",
+      "language": "markdown",
+      "sizeLines": 53,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "GETTING_STARTED.md",
+      "language": "markdown",
+      "sizeLines": 32,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "PROJECT_PLAN.md",
+      "language": "markdown",
+      "sizeLines": 204,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 189,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/mediabunny/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 18,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/mediabunny/get-audio-duration.md",
+      "language": "markdown",
+      "sizeLines": 58,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/mediabunny/get-video-dimensions.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/mediabunny/get-video-duration.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 39,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "language": "markdown",
+      "sizeLines": 58,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 36,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-captions/display-captions.md",
+      "language": "markdown",
+      "sizeLines": 184,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-create/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-create/tailwind.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-create/video-layout.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 47,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 18,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/3d.md",
+      "language": "markdown",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 281,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/audio-visualization.md",
+      "language": "markdown",
+      "sizeLines": 198,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/audio.md",
+      "language": "markdown",
+      "sizeLines": 169,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/calculate-metadata.md",
+      "language": "markdown",
+      "sizeLines": 136,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/compositions.md",
+      "language": "markdown",
+      "sizeLines": 108,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/effects.md",
+      "language": "markdown",
+      "sizeLines": 235,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/embedding-videos.md",
+      "language": "markdown",
+      "sizeLines": 171,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/ffmpeg.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/gifs.md",
+      "language": "markdown",
+      "sizeLines": 141,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/google-fonts.md",
+      "language": "markdown",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/html-in-canvas.md",
+      "language": "markdown",
+      "sizeLines": 119,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/images.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/light-leaks.md",
+      "language": "markdown",
+      "sizeLines": 73,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/local-fonts.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/lottie.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/map.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/mapbox.md",
+      "language": "markdown",
+      "sizeLines": 442,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/maplibre.md",
+      "language": "markdown",
+      "sizeLines": 458,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/measuring-text.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/parameters.md",
+      "language": "markdown",
+      "sizeLines": 109,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/sequencing.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/sfx.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/silence-detection.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/text-highlights.md",
+      "language": "markdown",
+      "sizeLines": 56,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/timing.md",
+      "language": "markdown",
+      "sizeLines": 152,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/transitions.md",
+      "language": "markdown",
+      "sizeLines": 197,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/trimming.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/video-editing.md",
+      "language": "markdown",
+      "sizeLines": 66,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-markup/voiceover.md",
+      "language": "markdown",
+      "sizeLines": 99,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-render/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 28,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-saas/framework.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-saas/player.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-saas/rendering.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md",
+      "language": "markdown",
+      "sizeLines": 30,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-captions/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-captions/display-captions.md",
+      "language": "markdown",
+      "sizeLines": 184,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-captions/import-srt-captions.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-captions/transcribe-captions.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-create/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 46,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-create/tailwind.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-create/video-layout.md",
+      "language": "markdown",
+      "sizeLines": 68,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-docs/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 44,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-interactivity/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/3d.md",
+      "language": "markdown",
+      "sizeLines": 86,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 278,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/audio-visualization.md",
+      "language": "markdown",
+      "sizeLines": 198,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/audio.md",
+      "language": "markdown",
+      "sizeLines": 169,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/calculate-metadata.md",
+      "language": "markdown",
+      "sizeLines": 136,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/compositions.md",
+      "language": "markdown",
+      "sizeLines": 108,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/effects.md",
+      "language": "markdown",
+      "sizeLines": 235,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/embedding-videos.md",
+      "language": "markdown",
+      "sizeLines": 171,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/ffmpeg.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/gifs.md",
+      "language": "markdown",
+      "sizeLines": 141,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/google-fonts.md",
+      "language": "markdown",
+      "sizeLines": 72,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/html-in-canvas.md",
+      "language": "markdown",
+      "sizeLines": 119,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/images.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/light-leaks.md",
+      "language": "markdown",
+      "sizeLines": 73,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/local-fonts.md",
+      "language": "markdown",
+      "sizeLines": 65,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/lottie.md",
+      "language": "markdown",
+      "sizeLines": 70,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/map.md",
+      "language": "markdown",
+      "sizeLines": 15,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/mapbox.md",
+      "language": "markdown",
+      "sizeLines": 442,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/maplibre.md",
+      "language": "markdown",
+      "sizeLines": 458,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/measuring-dom-nodes.md",
+      "language": "markdown",
+      "sizeLines": 34,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/measuring-text.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/parameters.md",
+      "language": "markdown",
+      "sizeLines": 109,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/sequencing.md",
+      "language": "markdown",
+      "sizeLines": 144,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/sfx.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/silence-detection.md",
+      "language": "markdown",
+      "sizeLines": 71,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/text-highlights.md",
+      "language": "markdown",
+      "sizeLines": 56,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/timing.md",
+      "language": "markdown",
+      "sizeLines": 152,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/transitions.md",
+      "language": "markdown",
+      "sizeLines": 197,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/trimming.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/video-editing.md",
+      "language": "markdown",
+      "sizeLines": 66,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-markup/voiceover.md",
+      "language": "markdown",
+      "sizeLines": 99,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-render/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 25,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-render/transparent-videos.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-saas/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 31,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-saas/framework.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-saas/player.md",
+      "language": "markdown",
+      "sizeLines": 33,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-saas/rendering.md",
+      "language": "markdown",
+      "sizeLines": 69,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "agent/skills/remotion-upgrade/SKILL.md",
+      "language": "markdown",
+      "sizeLines": 28,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "apps/dashboard/app/api/render-jobs/[id]/route.ts",
+      "language": "typescript",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "language": "typescript",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/[id]/page.tsx",
+      "language": "typescript",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/new/actions.ts",
+      "language": "typescript",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/new/page.tsx",
+      "language": "typescript",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/comparisons/page.tsx",
+      "language": "typescript",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/globals.css",
+      "language": "css",
+      "sizeLines": 12,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "apps/dashboard/app/layout.tsx",
+      "language": "typescript",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/page.tsx",
+      "language": "typescript",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/products/actions.ts",
+      "language": "typescript",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/app/products/page.tsx",
+      "language": "typescript",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/components/PreviewPlayer.tsx",
+      "language": "typescript",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/components/RenderStatus.tsx",
+      "language": "typescript",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/lib/queue.ts",
+      "language": "typescript",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/next-env.d.ts",
+      "language": "typescript",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/next.config.mjs",
+      "language": "javascript",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/package.json",
+      "language": "json",
+      "sizeLines": 37,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/dashboard/postcss.config.mjs",
+      "language": "javascript",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/tailwind.config.ts",
+      "language": "typescript",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/dashboard/tsconfig.json",
+      "language": "json",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/dashboard/tsconfig.tsbuildinfo",
+      "language": "tsbuildinfo",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/package.json",
+      "language": "json",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/studio/remotion.config.ts",
+      "language": "typescript",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/scripts/render.mjs",
+      "language": "javascript",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/Root.tsx",
+      "language": "typescript",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/audio/AudioTrack.tsx",
+      "language": "typescript",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/audio/music.ts",
+      "language": "typescript",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/audio/types.ts",
+      "language": "typescript",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/AnimatedBar.tsx",
+      "language": "typescript",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Background.tsx",
+      "language": "typescript",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Badge.tsx",
+      "language": "typescript",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Confetti.tsx",
+      "language": "typescript",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Counter.tsx",
+      "language": "typescript",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Crown.tsx",
+      "language": "typescript",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Gauge.tsx",
+      "language": "typescript",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/Icon.tsx",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/LogoSting.tsx",
+      "language": "typescript",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/PricePill.tsx",
+      "language": "typescript",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/components/types.ts",
+      "language": "typescript",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/compositions/Comparison16x9.tsx",
+      "language": "typescript",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "language": "typescript",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "language": "typescript",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "language": "typescript",
+      "sizeLines": 129,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/exports.ts",
+      "language": "typescript",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/layout.ts",
+      "language": "typescript",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/ContenderReveal.tsx",
+      "language": "typescript",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/Intro.tsx",
+      "language": "typescript",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/Outro.tsx",
+      "language": "typescript",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/Scoreboard.tsx",
+      "language": "typescript",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/SpecBattle.tsx",
+      "language": "typescript",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/scenes/WinnerReveal.tsx",
+      "language": "typescript",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/schema.ts",
+      "language": "typescript",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/theme/index.ts",
+      "language": "typescript",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/src/timing.ts",
+      "language": "typescript",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/studio/tsconfig.json",
+      "language": "json",
+      "sizeLines": 12,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/workers/package.json",
+      "language": "json",
+      "sizeLines": 38,
+      "fileCategory": "config"
+    },
+    {
+      "path": "apps/workers/src/cli/analytics-sync.ts",
+      "language": "typescript",
+      "sizeLines": 209,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/batch.ts",
+      "language": "typescript",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/ingest.ts",
+      "language": "typescript",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/lambda-deploy-function.ts",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/lambda-deploy-site.ts",
+      "language": "typescript",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/pair-products.test.ts",
+      "language": "typescript",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/pair-products.ts",
+      "language": "typescript",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-pairs-spec.test.ts",
+      "language": "typescript",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-pairs-spec.ts",
+      "language": "typescript",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-schedule.test.ts",
+      "language": "typescript",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-schedule.ts",
+      "language": "typescript",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-years.test.ts",
+      "language": "typescript",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/parse-years.ts",
+      "language": "typescript",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/worker.ts",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/cli/youtube-auth.ts",
+      "language": "typescript",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/db/coerce-spec-value.test.ts",
+      "language": "typescript",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/db/coerce-spec-value.ts",
+      "language": "typescript",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/db/upsert-product.ts",
+      "language": "typescript",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/lambda-config.ts",
+      "language": "typescript",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/publish-queue-client.ts",
+      "language": "typescript",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/render-queue-client.ts",
+      "language": "typescript",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/retention-correlation.test.ts",
+      "language": "typescript",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/retention-correlation.ts",
+      "language": "typescript",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/youtube-analytics-client.ts",
+      "language": "typescript",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/lib/youtube-client.ts",
+      "language": "typescript",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/workers/publish-worker.ts",
+      "language": "typescript",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/src/workers/render-worker.ts",
+      "language": "typescript",
+      "sizeLines": 256,
+      "fileCategory": "code"
+    },
+    {
+      "path": "apps/workers/tsconfig.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "assets/music/LICENSES.md",
+      "language": "markdown",
+      "sizeLines": 14,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "database/migrations/20260720081004_init/migration.sql",
+      "language": "sql",
+      "sizeLines": 224,
+      "fileCategory": "data"
+    },
+    {
+      "path": "database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql",
+      "language": "sql",
+      "sizeLines": 50,
+      "fileCategory": "data"
+    },
+    {
+      "path": "database/migrations/migration_lock.toml",
+      "language": "toml",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "database/schema.prisma",
+      "language": "prisma",
+      "sizeLines": 245,
+      "fileCategory": "data"
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "sizeLines": 53,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "examples/comparison-example-9x16.json",
+      "language": "json",
+      "sizeLines": 107,
+      "fileCategory": "config"
+    },
+    {
+      "path": "examples/comparison-example.json",
+      "language": "json",
+      "sizeLines": 107,
+      "fileCategory": "config"
+    },
+    {
+      "path": "package.json",
+      "language": "json",
+      "sizeLines": 33,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/comparison/package.json",
+      "language": "json",
+      "sizeLines": 24,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/comparison/src/build-comparison.ts",
+      "language": "typescript",
+      "sizeLines": 216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/metadata.test.ts",
+      "language": "typescript",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/metadata.ts",
+      "language": "typescript",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/retention-boost.ts",
+      "language": "typescript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/round-selection.test.ts",
+      "language": "typescript",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/round-selection.ts",
+      "language": "typescript",
+      "sizeLines": 232,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/scoring.test.ts",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/scoring.ts",
+      "language": "typescript",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/video-json-builder.test.ts",
+      "language": "typescript",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/src/video-json-builder.ts",
+      "language": "typescript",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/comparison/tsconfig.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/db/package.json",
+      "language": "json",
+      "sizeLines": 27,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/db/prisma.config.ts",
+      "language": "typescript",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/db/src/seed-data/products.ts",
+      "language": "typescript",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/db/src/seed-data/spec-definitions.ts",
+      "language": "typescript",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/db/src/seed.ts",
+      "language": "typescript",
+      "sizeLines": 361,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/db/tsconfig.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/ingestion/package.json",
+      "language": "json",
+      "sizeLines": 25,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/csv.test.ts",
+      "language": "typescript",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/csv.ts",
+      "language": "typescript",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/fixtures/products.csv",
+      "language": "csv",
+      "sizeLines": 4,
+      "fileCategory": "data"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json",
+      "language": "json",
+      "sizeLines": 10,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/vpic.test.ts",
+      "language": "typescript",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/adapters/vpic.ts",
+      "language": "typescript",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/http.ts",
+      "language": "typescript",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/images/pipeline.test.ts",
+      "language": "typescript",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/images/pipeline.ts",
+      "language": "typescript",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/normalize/ai-normalizer.test.ts",
+      "language": "typescript",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/src/normalize/ai-normalizer.ts",
+      "language": "typescript",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/ingestion/tsconfig.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/narration/package.json",
+      "language": "json",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/narration/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/src/openai-provider.ts",
+      "language": "typescript",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/src/provider.ts",
+      "language": "typescript",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/src/script.test.ts",
+      "language": "typescript",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/src/script.ts",
+      "language": "typescript",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/src/synthesize.ts",
+      "language": "typescript",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/narration/tsconfig.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "language": "json",
+      "sizeLines": 21,
+      "fileCategory": "config"
+    },
+    {
+      "path": "packages/shared/src/csv.ts",
+      "language": "typescript",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "language": "typescript",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/publish-queue.ts",
+      "language": "typescript",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/render-queue.ts",
+      "language": "typescript",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/slug.test.ts",
+      "language": "typescript",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/slug.ts",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/specs.ts",
+      "language": "typescript",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/timing.test.ts",
+      "language": "typescript",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/timing.ts",
+      "language": "typescript",
+      "sizeLines": 94,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/units.test.ts",
+      "language": "typescript",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/units.ts",
+      "language": "typescript",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/src/video-input.ts",
+      "language": "typescript",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "packages/shared/tsconfig.json",
+      "language": "json",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "language": "yaml",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "skills-lock.json",
+      "language": "json",
+      "sizeLines": 65,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "language": "json",
+      "sizeLines": 17,
+      "fileCategory": "config"
+    },
+    {
+      "path": "turbo.json",
+      "language": "json",
+      "sizeLines": 26,
+      "fileCategory": "config"
+    }
+  ],
+  "totalFiles": 366,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "large",
+  "importMap": {
+    ".agents/skills/mediabunny/SKILL.md": [],
+    ".agents/skills/mediabunny/get-audio-duration.md": [],
+    ".agents/skills/mediabunny/get-video-dimensions.md": [],
+    ".agents/skills/mediabunny/get-video-duration.md": [],
+    ".agents/skills/remotion-best-practices/SKILL.md": [],
+    ".agents/skills/remotion-best-practices/mediabunny/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/mediabunny/get-audio-duration.md": [],
+    ".agents/skills/remotion-best-practices/mediabunny/get-video-dimensions.md": [],
+    ".agents/skills/remotion-best-practices/mediabunny/get-video-duration.md": [],
+    ".agents/skills/remotion-best-practices/remotion-captions/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-captions/display-captions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-captions/import-srt-captions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-captions/transcribe-captions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-create/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-create/tailwind.md": [],
+    ".agents/skills/remotion-best-practices/remotion-create/video-layout.md": [],
+    ".agents/skills/remotion-best-practices/remotion-docs/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/3d.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/audio-visualization.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/audio.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/calculate-metadata.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/compositions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/effects.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/embedding-videos.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/ffmpeg.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/gifs.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/google-fonts.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/html-in-canvas.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/images.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/light-leaks.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/local-fonts.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/lottie.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/map.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/mapbox.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/maplibre.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/measuring-text.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/parameters.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/sequencing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/sfx.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/silence-detection.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/text-highlights.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/timing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/transitions.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/trimming.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/video-editing.md": [],
+    ".agents/skills/remotion-best-practices/remotion-markup/voiceover.md": [],
+    ".agents/skills/remotion-best-practices/remotion-render/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-render/transparent-videos.md": [],
+    ".agents/skills/remotion-best-practices/remotion-saas/REFERENCE.md": [],
+    ".agents/skills/remotion-best-practices/remotion-saas/framework.md": [],
+    ".agents/skills/remotion-best-practices/remotion-saas/player.md": [],
+    ".agents/skills/remotion-best-practices/remotion-saas/rendering.md": [],
+    ".agents/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md": [],
+    ".agents/skills/remotion-captions/SKILL.md": [],
+    ".agents/skills/remotion-captions/display-captions.md": [],
+    ".agents/skills/remotion-captions/import-srt-captions.md": [],
+    ".agents/skills/remotion-captions/transcribe-captions.md": [],
+    ".agents/skills/remotion-create/SKILL.md": [],
+    ".agents/skills/remotion-create/tailwind.md": [],
+    ".agents/skills/remotion-create/video-layout.md": [],
+    ".agents/skills/remotion-docs/SKILL.md": [],
+    ".agents/skills/remotion-interactivity/SKILL.md": [],
+    ".agents/skills/remotion-markup/3d.md": [],
+    ".agents/skills/remotion-markup/SKILL.md": [],
+    ".agents/skills/remotion-markup/audio-visualization.md": [],
+    ".agents/skills/remotion-markup/audio.md": [],
+    ".agents/skills/remotion-markup/calculate-metadata.md": [],
+    ".agents/skills/remotion-markup/compositions.md": [],
+    ".agents/skills/remotion-markup/effects.md": [],
+    ".agents/skills/remotion-markup/embedding-videos.md": [],
+    ".agents/skills/remotion-markup/ffmpeg.md": [],
+    ".agents/skills/remotion-markup/gifs.md": [],
+    ".agents/skills/remotion-markup/google-fonts.md": [],
+    ".agents/skills/remotion-markup/html-in-canvas.md": [],
+    ".agents/skills/remotion-markup/images.md": [],
+    ".agents/skills/remotion-markup/light-leaks.md": [],
+    ".agents/skills/remotion-markup/local-fonts.md": [],
+    ".agents/skills/remotion-markup/lottie.md": [],
+    ".agents/skills/remotion-markup/map.md": [],
+    ".agents/skills/remotion-markup/mapbox.md": [],
+    ".agents/skills/remotion-markup/maplibre.md": [],
+    ".agents/skills/remotion-markup/measuring-dom-nodes.md": [],
+    ".agents/skills/remotion-markup/measuring-text.md": [],
+    ".agents/skills/remotion-markup/parameters.md": [],
+    ".agents/skills/remotion-markup/sequencing.md": [],
+    ".agents/skills/remotion-markup/sfx.md": [],
+    ".agents/skills/remotion-markup/silence-detection.md": [],
+    ".agents/skills/remotion-markup/text-highlights.md": [],
+    ".agents/skills/remotion-markup/timing.md": [],
+    ".agents/skills/remotion-markup/transitions.md": [],
+    ".agents/skills/remotion-markup/trimming.md": [],
+    ".agents/skills/remotion-markup/video-editing.md": [],
+    ".agents/skills/remotion-markup/voiceover.md": [],
+    ".agents/skills/remotion-render/SKILL.md": [],
+    ".agents/skills/remotion-render/transparent-videos.md": [],
+    ".agents/skills/remotion-saas/SKILL.md": [],
+    ".agents/skills/remotion-saas/framework.md": [],
+    ".agents/skills/remotion-saas/player.md": [],
+    ".agents/skills/remotion-saas/rendering.md": [],
+    ".agents/skills/remotion-upgrade/SKILL.md": [],
+    ".env.example": [],
+    ".ua/.understandignore": [],
+    "CLAUDE.md": [],
+    "GETTING_STARTED.md": [],
+    "PROJECT_PLAN.md": [],
+    "README.md": [],
+    "agent/skills/mediabunny/SKILL.md": [],
+    "agent/skills/mediabunny/get-audio-duration.md": [],
+    "agent/skills/mediabunny/get-video-dimensions.md": [],
+    "agent/skills/mediabunny/get-video-duration.md": [],
+    "agent/skills/remotion-best-practices/SKILL.md": [],
+    "agent/skills/remotion-best-practices/mediabunny/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md": [],
+    "agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md": [],
+    "agent/skills/remotion-best-practices/mediabunny/get-video-duration.md": [],
+    "agent/skills/remotion-best-practices/remotion-captions/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-captions/display-captions.md": [],
+    "agent/skills/remotion-best-practices/remotion-captions/import-srt-captions.md": [],
+    "agent/skills/remotion-best-practices/remotion-captions/transcribe-captions.md": [],
+    "agent/skills/remotion-best-practices/remotion-create/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-create/tailwind.md": [],
+    "agent/skills/remotion-best-practices/remotion-create/video-layout.md": [],
+    "agent/skills/remotion-best-practices/remotion-docs/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-interactivity/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/3d.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/audio-visualization.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/audio.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/calculate-metadata.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/compositions.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/effects.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/embedding-videos.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/ffmpeg.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/gifs.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/google-fonts.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/html-in-canvas.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/images.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/light-leaks.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/local-fonts.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/lottie.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/map.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/mapbox.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/maplibre.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/measuring-dom-nodes.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/measuring-text.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/parameters.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/sequencing.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/sfx.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/silence-detection.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/text-highlights.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/timing.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/transitions.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/trimming.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/video-editing.md": [],
+    "agent/skills/remotion-best-practices/remotion-markup/voiceover.md": [],
+    "agent/skills/remotion-best-practices/remotion-render/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-render/transparent-videos.md": [],
+    "agent/skills/remotion-best-practices/remotion-saas/REFERENCE.md": [],
+    "agent/skills/remotion-best-practices/remotion-saas/framework.md": [],
+    "agent/skills/remotion-best-practices/remotion-saas/player.md": [],
+    "agent/skills/remotion-best-practices/remotion-saas/rendering.md": [],
+    "agent/skills/remotion-best-practices/remotion-upgrade/REFERENCE.md": [],
+    "agent/skills/remotion-captions/SKILL.md": [],
+    "agent/skills/remotion-captions/display-captions.md": [],
+    "agent/skills/remotion-captions/import-srt-captions.md": [],
+    "agent/skills/remotion-captions/transcribe-captions.md": [],
+    "agent/skills/remotion-create/SKILL.md": [],
+    "agent/skills/remotion-create/tailwind.md": [],
+    "agent/skills/remotion-create/video-layout.md": [],
+    "agent/skills/remotion-docs/SKILL.md": [],
+    "agent/skills/remotion-interactivity/SKILL.md": [],
+    "agent/skills/remotion-markup/3d.md": [],
+    "agent/skills/remotion-markup/SKILL.md": [],
+    "agent/skills/remotion-markup/audio-visualization.md": [],
+    "agent/skills/remotion-markup/audio.md": [],
+    "agent/skills/remotion-markup/calculate-metadata.md": [],
+    "agent/skills/remotion-markup/compositions.md": [],
+    "agent/skills/remotion-markup/effects.md": [],
+    "agent/skills/remotion-markup/embedding-videos.md": [],
+    "agent/skills/remotion-markup/ffmpeg.md": [],
+    "agent/skills/remotion-markup/gifs.md": [],
+    "agent/skills/remotion-markup/google-fonts.md": [],
+    "agent/skills/remotion-markup/html-in-canvas.md": [],
+    "agent/skills/remotion-markup/images.md": [],
+    "agent/skills/remotion-markup/light-leaks.md": [],
+    "agent/skills/remotion-markup/local-fonts.md": [],
+    "agent/skills/remotion-markup/lottie.md": [],
+    "agent/skills/remotion-markup/map.md": [],
+    "agent/skills/remotion-markup/mapbox.md": [],
+    "agent/skills/remotion-markup/maplibre.md": [],
+    "agent/skills/remotion-markup/measuring-dom-nodes.md": [],
+    "agent/skills/remotion-markup/measuring-text.md": [],
+    "agent/skills/remotion-markup/parameters.md": [],
+    "agent/skills/remotion-markup/sequencing.md": [],
+    "agent/skills/remotion-markup/sfx.md": [],
+    "agent/skills/remotion-markup/silence-detection.md": [],
+    "agent/skills/remotion-markup/text-highlights.md": [],
+    "agent/skills/remotion-markup/timing.md": [],
+    "agent/skills/remotion-markup/transitions.md": [],
+    "agent/skills/remotion-markup/trimming.md": [],
+    "agent/skills/remotion-markup/video-editing.md": [],
+    "agent/skills/remotion-markup/voiceover.md": [],
+    "agent/skills/remotion-render/SKILL.md": [],
+    "agent/skills/remotion-render/transparent-videos.md": [],
+    "agent/skills/remotion-saas/SKILL.md": [],
+    "agent/skills/remotion-saas/framework.md": [],
+    "agent/skills/remotion-saas/player.md": [],
+    "agent/skills/remotion-saas/rendering.md": [],
+    "agent/skills/remotion-upgrade/SKILL.md": [],
+    "apps/dashboard/app/api/render-jobs/[id]/route.ts": [],
+    "apps/dashboard/app/comparisons/[id]/actions.ts": [
+      "apps/dashboard/lib/queue.ts"
+    ],
+    "apps/dashboard/app/comparisons/[id]/page.tsx": [
+      "apps/dashboard/app/comparisons/[id]/actions.ts",
+      "apps/dashboard/components/PreviewPlayer.tsx",
+      "apps/dashboard/components/RenderStatus.tsx"
+    ],
+    "apps/dashboard/app/comparisons/new/actions.ts": [],
+    "apps/dashboard/app/comparisons/new/page.tsx": [
+      "apps/dashboard/app/comparisons/new/actions.ts"
+    ],
+    "apps/dashboard/app/comparisons/page.tsx": [],
+    "apps/dashboard/app/globals.css": [],
+    "apps/dashboard/app/layout.tsx": [
+      "apps/dashboard/app/globals.css"
+    ],
+    "apps/dashboard/app/page.tsx": [],
+    "apps/dashboard/app/products/actions.ts": [],
+    "apps/dashboard/app/products/page.tsx": [
+      "apps/dashboard/app/products/actions.ts"
+    ],
+    "apps/dashboard/components/PreviewPlayer.tsx": [],
+    "apps/dashboard/components/RenderStatus.tsx": [],
+    "apps/dashboard/lib/queue.ts": [],
+    "apps/dashboard/next-env.d.ts": [],
+    "apps/dashboard/next.config.mjs": [],
+    "apps/dashboard/package.json": [],
+    "apps/dashboard/postcss.config.mjs": [],
+    "apps/dashboard/tailwind.config.ts": [],
+    "apps/dashboard/tsconfig.json": [],
+    "apps/dashboard/tsconfig.tsbuildinfo": [],
+    "apps/studio/package.json": [],
+    "apps/studio/remotion.config.ts": [],
+    "apps/studio/scripts/render.mjs": [],
+    "apps/studio/src/Root.tsx": [
+      "apps/studio/src/compositions/Comparison16x9.tsx",
+      "apps/studio/src/compositions/ComparisonShort9x16.tsx",
+      "apps/studio/src/compositions/Thumbnail16x9.tsx",
+      "apps/studio/src/compositions/Thumbnail16x9B.tsx",
+      "apps/studio/src/schema.ts",
+      "examples/comparison-example-9x16.json",
+      "examples/comparison-example.json"
+    ],
+    "apps/studio/src/audio/AudioTrack.tsx": [
+      "apps/studio/src/audio/music.ts",
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/schema.ts"
+    ],
+    "apps/studio/src/audio/music.ts": [
+      "apps/studio/src/audio/types.ts"
+    ],
+    "apps/studio/src/audio/types.ts": [],
+    "apps/studio/src/components/AnimatedBar.tsx": [
+      "apps/studio/src/components/types.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/components/Background.tsx": [
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/components/Badge.tsx": [
+      "apps/studio/src/components/types.ts",
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/components/Confetti.tsx": [],
+    "apps/studio/src/components/Counter.tsx": [
+      "apps/studio/src/components/types.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/components/Crown.tsx": [
+      "apps/studio/src/components/Icon.tsx"
+    ],
+    "apps/studio/src/components/Gauge.tsx": [
+      "apps/studio/src/components/types.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/components/Icon.tsx": [],
+    "apps/studio/src/components/LogoSting.tsx": [
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/components/PricePill.tsx": [
+      "apps/studio/src/components/Icon.tsx",
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/components/types.ts": [],
+    "apps/studio/src/compositions/Comparison16x9.tsx": [
+      "apps/studio/src/audio/AudioTrack.tsx",
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/scenes/ContenderReveal.tsx",
+      "apps/studio/src/scenes/Intro.tsx",
+      "apps/studio/src/scenes/Outro.tsx",
+      "apps/studio/src/scenes/Scoreboard.tsx",
+      "apps/studio/src/scenes/SpecBattle.tsx",
+      "apps/studio/src/scenes/WinnerReveal.tsx",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/compositions/ComparisonShort9x16.tsx": [],
+    "apps/studio/src/compositions/Thumbnail16x9.tsx": [
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/Icon.tsx",
+      "apps/studio/src/components/PricePill.tsx",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/compositions/Thumbnail16x9B.tsx": [
+      "apps/studio/src/components/Icon.tsx",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts"
+    ],
+    "apps/studio/src/exports.ts": [],
+    "apps/studio/src/index.ts": [
+      "apps/studio/src/Root.tsx"
+    ],
+    "apps/studio/src/layout.ts": [
+      "apps/studio/src/schema.ts"
+    ],
+    "apps/studio/src/scenes/ContenderReveal.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/PricePill.tsx",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/scenes/Intro.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/LogoSting.tsx",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/scenes/Outro.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/Icon.tsx",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/scenes/Scoreboard.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/scenes/SpecBattle.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/components/AnimatedBar.tsx",
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/Badge.tsx",
+      "apps/studio/src/components/Counter.tsx",
+      "apps/studio/src/components/Gauge.tsx",
+      "apps/studio/src/components/Icon.tsx",
+      "apps/studio/src/components/types.ts",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/scenes/WinnerReveal.tsx": [
+      "apps/studio/src/audio/types.ts",
+      "apps/studio/src/components/Background.tsx",
+      "apps/studio/src/components/Confetti.tsx",
+      "apps/studio/src/components/Crown.tsx",
+      "apps/studio/src/layout.ts",
+      "apps/studio/src/schema.ts",
+      "apps/studio/src/theme/index.ts",
+      "apps/studio/src/timing.ts"
+    ],
+    "apps/studio/src/schema.ts": [],
+    "apps/studio/src/theme/index.ts": [],
+    "apps/studio/src/timing.ts": [],
+    "apps/studio/tsconfig.json": [],
+    "apps/workers/package.json": [],
+    "apps/workers/src/cli/analytics-sync.ts": [
+      "apps/workers/src/lib/retention-correlation.ts",
+      "apps/workers/src/lib/youtube-analytics-client.ts"
+    ],
+    "apps/workers/src/cli/batch.ts": [
+      "apps/workers/src/cli/pair-products.ts",
+      "apps/workers/src/cli/parse-pairs-spec.ts",
+      "apps/workers/src/cli/parse-schedule.ts",
+      "apps/workers/src/lib/render-queue-client.ts"
+    ],
+    "apps/workers/src/cli/ingest.ts": [
+      "apps/workers/src/cli/parse-years.ts",
+      "apps/workers/src/db/upsert-product.ts"
+    ],
+    "apps/workers/src/cli/lambda-deploy-function.ts": [
+      "apps/workers/src/lib/lambda-config.ts"
+    ],
+    "apps/workers/src/cli/lambda-deploy-site.ts": [
+      "apps/workers/src/lib/lambda-config.ts"
+    ],
+    "apps/workers/src/cli/pair-products.test.ts": [
+      "apps/workers/src/cli/pair-products.ts"
+    ],
+    "apps/workers/src/cli/pair-products.ts": [],
+    "apps/workers/src/cli/parse-pairs-spec.test.ts": [
+      "apps/workers/src/cli/parse-pairs-spec.ts"
+    ],
+    "apps/workers/src/cli/parse-pairs-spec.ts": [],
+    "apps/workers/src/cli/parse-schedule.test.ts": [
+      "apps/workers/src/cli/parse-schedule.ts"
+    ],
+    "apps/workers/src/cli/parse-schedule.ts": [],
+    "apps/workers/src/cli/parse-years.test.ts": [
+      "apps/workers/src/cli/parse-years.ts"
+    ],
+    "apps/workers/src/cli/parse-years.ts": [],
+    "apps/workers/src/cli/worker.ts": [
+      "apps/workers/src/workers/publish-worker.ts",
+      "apps/workers/src/workers/render-worker.ts"
+    ],
+    "apps/workers/src/cli/youtube-auth.ts": [],
+    "apps/workers/src/db/coerce-spec-value.test.ts": [
+      "apps/workers/src/db/coerce-spec-value.ts"
+    ],
+    "apps/workers/src/db/coerce-spec-value.ts": [],
+    "apps/workers/src/db/upsert-product.ts": [
+      "apps/workers/src/db/coerce-spec-value.ts"
+    ],
+    "apps/workers/src/lib/lambda-config.ts": [],
+    "apps/workers/src/lib/publish-queue-client.ts": [],
+    "apps/workers/src/lib/render-queue-client.ts": [],
+    "apps/workers/src/lib/retention-correlation.test.ts": [
+      "apps/workers/src/lib/retention-correlation.ts"
+    ],
+    "apps/workers/src/lib/retention-correlation.ts": [],
+    "apps/workers/src/lib/youtube-analytics-client.ts": [
+      "apps/workers/src/lib/youtube-client.ts"
+    ],
+    "apps/workers/src/lib/youtube-client.ts": [],
+    "apps/workers/src/workers/publish-worker.ts": [
+      "apps/workers/src/lib/youtube-client.ts"
+    ],
+    "apps/workers/src/workers/render-worker.ts": [
+      "apps/workers/src/lib/lambda-config.ts",
+      "apps/workers/src/lib/publish-queue-client.ts"
+    ],
+    "apps/workers/tsconfig.json": [],
+    "assets/music/LICENSES.md": [],
+    "database/migrations/20260720081004_init/migration.sql": [],
+    "database/migrations/20260720190000_phase_5_ab_thumbnails_and_analytics/migration.sql": [],
+    "database/migrations/migration_lock.toml": [],
+    "database/schema.prisma": [],
+    "docker-compose.yml": [],
+    "examples/comparison-example-9x16.json": [],
+    "examples/comparison-example.json": [],
+    "package.json": [],
+    "packages/comparison/package.json": [],
+    "packages/comparison/src/build-comparison.ts": [
+      "packages/comparison/src/metadata.ts",
+      "packages/comparison/src/retention-boost.ts",
+      "packages/comparison/src/round-selection.ts",
+      "packages/comparison/src/scoring.ts",
+      "packages/comparison/src/video-json-builder.ts"
+    ],
+    "packages/comparison/src/index.ts": [],
+    "packages/comparison/src/metadata.test.ts": [
+      "packages/comparison/src/metadata.ts"
+    ],
+    "packages/comparison/src/metadata.ts": [],
+    "packages/comparison/src/retention-boost.ts": [],
+    "packages/comparison/src/round-selection.test.ts": [
+      "packages/comparison/src/round-selection.ts"
+    ],
+    "packages/comparison/src/round-selection.ts": [],
+    "packages/comparison/src/scoring.test.ts": [
+      "packages/comparison/src/scoring.ts"
+    ],
+    "packages/comparison/src/scoring.ts": [],
+    "packages/comparison/src/video-json-builder.test.ts": [
+      "packages/comparison/src/round-selection.ts",
+      "packages/comparison/src/video-json-builder.ts"
+    ],
+    "packages/comparison/src/video-json-builder.ts": [
+      "packages/comparison/src/round-selection.ts"
+    ],
+    "packages/comparison/tsconfig.json": [],
+    "packages/db/package.json": [],
+    "packages/db/prisma.config.ts": [],
+    "packages/db/src/index.ts": [],
+    "packages/db/src/seed-data/products.ts": [],
+    "packages/db/src/seed-data/spec-definitions.ts": [],
+    "packages/db/src/seed.ts": [
+      "packages/db/src/index.ts",
+      "packages/db/src/seed-data/products.ts",
+      "packages/db/src/seed-data/spec-definitions.ts"
+    ],
+    "packages/db/tsconfig.json": [],
+    "packages/ingestion/package.json": [],
+    "packages/ingestion/src/adapters/csv.test.ts": [
+      "packages/ingestion/src/adapters/csv.ts"
+    ],
+    "packages/ingestion/src/adapters/csv.ts": [],
+    "packages/ingestion/src/adapters/fixtures/products.csv": [],
+    "packages/ingestion/src/adapters/fixtures/vpic-models-toyota-2026.json": [],
+    "packages/ingestion/src/adapters/vpic.test.ts": [
+      "packages/ingestion/src/adapters/vpic.ts"
+    ],
+    "packages/ingestion/src/adapters/vpic.ts": [
+      "packages/ingestion/src/http.ts"
+    ],
+    "packages/ingestion/src/http.ts": [],
+    "packages/ingestion/src/images/pipeline.test.ts": [
+      "packages/ingestion/src/images/pipeline.ts"
+    ],
+    "packages/ingestion/src/images/pipeline.ts": [],
+    "packages/ingestion/src/index.ts": [],
+    "packages/ingestion/src/normalize/ai-normalizer.test.ts": [
+      "packages/ingestion/src/normalize/ai-normalizer.ts"
+    ],
+    "packages/ingestion/src/normalize/ai-normalizer.ts": [],
+    "packages/ingestion/tsconfig.json": [],
+    "packages/narration/package.json": [],
+    "packages/narration/src/index.ts": [],
+    "packages/narration/src/openai-provider.ts": [
+      "packages/narration/src/provider.ts"
+    ],
+    "packages/narration/src/provider.ts": [],
+    "packages/narration/src/script.test.ts": [
+      "packages/narration/src/script.ts"
+    ],
+    "packages/narration/src/script.ts": [],
+    "packages/narration/src/synthesize.ts": [
+      "packages/narration/src/provider.ts",
+      "packages/narration/src/script.ts"
+    ],
+    "packages/narration/tsconfig.json": [],
+    "packages/shared/package.json": [],
+    "packages/shared/src/csv.ts": [],
+    "packages/shared/src/index.ts": [],
+    "packages/shared/src/publish-queue.ts": [],
+    "packages/shared/src/render-queue.ts": [],
+    "packages/shared/src/slug.test.ts": [
+      "packages/shared/src/slug.ts"
+    ],
+    "packages/shared/src/slug.ts": [],
+    "packages/shared/src/specs.ts": [],
+    "packages/shared/src/timing.test.ts": [
+      "packages/shared/src/timing.ts"
+    ],
+    "packages/shared/src/timing.ts": [
+      "packages/shared/src/video-input.ts"
+    ],
+    "packages/shared/src/units.test.ts": [
+      "packages/shared/src/units.ts"
+    ],
+    "packages/shared/src/units.ts": [],
+    "packages/shared/src/video-input.ts": [],
+    "packages/shared/tsconfig.json": [],
+    "pnpm-workspace.yaml": [],
+    "skills-lock.json": [],
+    "tsconfig.base.json": [],
+    "turbo.json": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "apps/studio/src/components/AnimatedBar.tsx", "language": "typescript", "sizeLines": 95, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/Badge.tsx", "language": "typescript", "sizeLines": 55, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/Counter.tsx", "language": "typescript", "sizeLines": 64, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/Gauge.tsx", "language": "typescript", "sizeLines": 83, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/LogoSting.tsx", "language": "typescript", "sizeLines": 58, "fileCategory": "code"},
+    {"path": "apps/studio/src/components/types.ts", "language": "typescript", "sizeLines": 7, "fileCategory": "code"},
+    {"path": "apps/studio/src/scenes/SpecBattle.tsx", "language": "typescript", "sizeLines": 120, "fileCategory": "code"},
+    {"path": "apps/studio/src/theme/index.ts", "language": "typescript", "sizeLines": 67, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "apps/studio/src/components/AnimatedBar.tsx": ["apps/studio/src/components/types.ts", "apps/studio/src/theme/index.ts", "apps/studio/src/timing.ts"],
+    "apps/studio/src/components/Badge.tsx": ["apps/studio/src/components/types.ts", "apps/studio/src/theme/index.ts"],
+    "apps/studio/src/components/Counter.tsx": ["apps/studio/src/components/types.ts", "apps/studio/src/theme/index.ts", "apps/studio/src/timing.ts"],
+    "apps/studio/src/components/Gauge.tsx": ["apps/studio/src/components/types.ts", "apps/studio/src/theme/index.ts", "apps/studio/src/timing.ts"],
+    "apps/studio/src/components/LogoSting.tsx": ["apps/studio/src/theme/index.ts"],
+    "apps/studio/src/components/types.ts": [],
+    "apps/studio/src/scenes/SpecBattle.tsx": ["apps/studio/src/audio/types.ts", "apps/studio/src/components/AnimatedBar.tsx", "apps/studio/src/components/Background.tsx", "apps/studio/src/components/Badge.tsx", "apps/studio/src/components/Counter.tsx", "apps/studio/src/components/Gauge.tsx", "apps/studio/src/components/Icon.tsx", "apps/studio/src/components/types.ts", "apps/studio/src/layout.ts", "apps/studio/src/schema.ts", "apps/studio/src/theme/index.ts", "apps/studio/src/timing.ts"],
+    "apps/studio/src/theme/index.ts": []
+  }
+}

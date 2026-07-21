@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-create/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": "agent/skills/remotion-create/SKILL.md",
+      "summary": "Vendored Claude Code agent-skill instructions for scaffolding a new Remotion project and composition, covering project setup via create-video, React Markup design guidance, interactivity best practices, optional TailwindCSS usage, and starting the Remotion Studio preview. External reference documentation, not part of versus-engine's own application source.",
+      "tags": ["documentation", "external-reference", "ai-skill", "remotion", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Structured as a Claude Code agent skill with frontmatter metadata and cross-links to sibling skill docs (tailwind.md, video-layout.md) and to other skills outside this directory (remotion-best-practices, remotion-markup, remotion-interactivity)."
+    },
+    {
+      "id": "document:agent/skills/remotion-create/tailwind.md",
+      "type": "document",
+      "name": "tailwind.md",
+      "filePath": "agent/skills/remotion-create/tailwind.md",
+      "summary": "Short vendored agent-skill note on using TailwindCSS inside a Remotion project: allowed when Tailwind is already installed, but CSS transition/animate utility classes must be avoided in favor of driving animation from useCurrentFrame(). External reference documentation, not part of versus-engine's own application source.",
+      "tags": ["documentation", "external-reference", "ai-skill", "tailwind", "remotion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-create/video-layout.md",
+      "type": "document",
+      "name": "video-layout.md",
+      "filePath": "agent/skills/remotion-create/video-layout.md",
+      "summary": "Vendored agent-skill guidance on video-first layout, composition, and text sizing for Remotion scenes: designing around a single focal point, using flex/grid slots instead of manual absolute positioning to prevent overlap, minimum text sizes for 1080px-wide compositions, and a pre-render crowding checklist. External reference documentation, not part of versus-engine's own application source.",
+      "tags": ["documentation", "external-reference", "ai-skill", "layout", "remotion"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-create/SKILL.md",
+      "target": "document:agent/skills/remotion-create/video-layout.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-create/SKILL.md",
+      "target": "document:agent/skills/remotion-create/tailwind.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

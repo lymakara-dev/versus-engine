@@ -1,0 +1,148 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": ".agents/skills/remotion-saas/SKILL.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 34,
+      "nonEmptyLines": 21,
+      "sections": [
+        {
+          "heading": "Choosing a template or a framework",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "The `<Player>`",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Rendering",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "With Vue",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "Angular",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Svelte",
+          "level": 2,
+          "line": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-saas/framework.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 21,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-saas/player.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 33,
+      "nonEmptyLines": 27,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": ".agents/skills/remotion-saas/rendering.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 69,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "Comparison of SSR methods",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Plain Node.js APIs",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Remotion Lambda",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Steps to set up Lambda",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Vercel",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "GitHub Actions",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "Azure Container Apps",
+          "level": 2,
+          "line": 62
+        },
+        {
+          "heading": "Cloudflare Containers",
+          "level": 2,
+          "line": 67
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

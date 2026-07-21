@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "id": "document:agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "type": "document",
+      "name": "REFERENCE.md",
+      "filePath": "agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "summary": "Index page for the vendored Mediabunny agent-skill reference (bundled inside the remotion-best-practices skill install), linking out to short how-to guides for getting audio duration, video dimensions, and video duration with the Mediabunny library.",
+      "tags": ["documentation", "external-reference", "vendored", "mediabunny", "entry-point"],
+      "complexity": "simple",
+      "languageNotes": "Not part of versus-engine's own source — this is third-party agent-skill documentation vendored under agent/skills/remotion-best-practices/, included for AI-agent guidance on using the Mediabunny multimedia library alongside Remotion."
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "type": "document",
+      "name": "get-audio-duration.md",
+      "filePath": "agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "summary": "Vendored Mediabunny how-to guide showing how to compute an audio file's duration in seconds, including usage with Remotion's staticFile() and standalone usage in Node.js/Bun.",
+      "tags": ["documentation", "external-reference", "vendored", "mediabunny", "audio"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "type": "document",
+      "name": "get-video-dimensions.md",
+      "filePath": "agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "summary": "Vendored Mediabunny how-to guide showing how to read a video file's width and height, covering local files and Remotion staticFile() usage.",
+      "tags": ["documentation", "external-reference", "vendored", "mediabunny", "video"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "document",
+      "name": "get-video-duration.md",
+      "filePath": "agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "summary": "Vendored Mediabunny how-to guide showing how to compute a video file's duration in seconds, covering usage with files in Remotion's public/ directory and standalone usage in Node.js/Bun.",
+      "tags": ["documentation", "external-reference", "vendored", "mediabunny", "video"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/mediabunny/REFERENCE.md",
+      "target": "document:agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/mediabunny/get-audio-duration.md",
+      "target": "document:agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:agent/skills/remotion-best-practices/mediabunny/get-video-dimensions.md",
+      "target": "document:agent/skills/remotion-best-practices/mediabunny/get-video-duration.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

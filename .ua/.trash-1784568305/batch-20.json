@@ -1,0 +1,85 @@
+{
+  "nodes": [
+    {
+      "id": "document:.agents/skills/remotion-captions/SKILL.md",
+      "type": "document",
+      "name": "SKILL.md",
+      "filePath": ".agents/skills/remotion-captions/SKILL.md",
+      "summary": "Vendored Claude Code agent-skill index for handling Remotion captions; defines the JSON-based `Caption` type contract and links out to the transcribe, display, and import sub-guides. This is bundled third-party agent tooling documentation, not versus-engine's own source.",
+      "tags": ["documentation", "external-reference", "agent-skill", "remotion", "captions"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-captions/display-captions.md",
+      "type": "document",
+      "name": "display-captions.md",
+      "filePath": ".agents/skills/remotion-captions/display-captions.md",
+      "summary": "Vendored Remotion agent-skill guide explaining how to render TikTok-style caption pages with `@remotion/captions`, covering fetching caption JSON, grouping into pages, rendering via `<Sequence>`, and per-word highlighting. External reference documentation bundled with the repo's agent tooling, not project-specific code.",
+      "tags": ["documentation", "external-reference", "agent-skill", "remotion", "captions"],
+      "complexity": "moderate",
+      "languageNotes": "Illustrates Remotion patterns (useDelayRender, Sequence timing math, TikTokPage token highlighting) that could inform this project's own caption rendering if Versus Engine later adds spoken narration or subtitles."
+    },
+    {
+      "id": "document:.agents/skills/remotion-captions/import-srt-captions.md",
+      "type": "document",
+      "name": "import-srt-captions.md",
+      "filePath": ".agents/skills/remotion-captions/import-srt-captions.md",
+      "summary": "Vendored Remotion agent-skill guide on importing existing .srt subtitle files into Remotion via `parseSrt()` from `@remotion/captions`, including install instructions and a fetch-and-parse example component. External reference documentation bundled with the repo's agent tooling.",
+      "tags": ["documentation", "external-reference", "agent-skill", "remotion", "srt-subtitles"],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:.agents/skills/remotion-captions/transcribe-captions.md",
+      "type": "document",
+      "name": "transcribe-captions.md",
+      "filePath": ".agents/skills/remotion-captions/transcribe-captions.md",
+      "summary": "Vendored Remotion agent-skill guide on transcribing audio into caption JSON using `@remotion/install-whisper-cpp` (downloading Whisper.cpp, running a model, and post-processing with `toCaptions()`). External reference documentation bundled with the repo's agent tooling.",
+      "tags": ["documentation", "external-reference", "agent-skill", "remotion", "whisper-transcription"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "document:.agents/skills/remotion-captions/SKILL.md",
+      "target": "document:.agents/skills/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-captions/SKILL.md",
+      "target": "document:.agents/skills/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-captions/SKILL.md",
+      "target": "document:.agents/skills/remotion-captions/import-srt-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-captions/display-captions.md",
+      "target": "document:.agents/skills/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-captions/import-srt-captions.md",
+      "target": "document:.agents/skills/remotion-captions/transcribe-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:.agents/skills/remotion-captions/transcribe-captions.md",
+      "target": "document:.agents/skills/remotion-captions/display-captions.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

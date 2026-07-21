@@ -1,0 +1,17 @@
+{
+  "projectRoot": "/home/makara/Documents/side-projects/versus-engine",
+  "batchFiles": [
+    {"path": "apps/dashboard/app/comparisons/[id]/actions.ts", "language": "typescript", "sizeLines": 56, "fileCategory": "code"},
+    {"path": "apps/dashboard/app/comparisons/[id]/page.tsx", "language": "typescript", "sizeLines": 111, "fileCategory": "code"},
+    {"path": "apps/dashboard/components/PreviewPlayer.tsx", "language": "typescript", "sizeLines": 19, "fileCategory": "code"},
+    {"path": "apps/dashboard/components/RenderStatus.tsx", "language": "typescript", "sizeLines": 58, "fileCategory": "code"},
+    {"path": "apps/dashboard/lib/queue.ts", "language": "typescript", "sizeLines": 20, "fileCategory": "code"}
+  ],
+  "batchImportData": {
+    "apps/dashboard/app/comparisons/[id]/actions.ts": ["apps/dashboard/lib/queue.ts"],
+    "apps/dashboard/app/comparisons/[id]/page.tsx": ["apps/dashboard/app/comparisons/[id]/actions.ts", "apps/dashboard/components/PreviewPlayer.tsx", "apps/dashboard/components/RenderStatus.tsx"],
+    "apps/dashboard/components/PreviewPlayer.tsx": [],
+    "apps/dashboard/components/RenderStatus.tsx": [],
+    "apps/dashboard/lib/queue.ts": []
+  }
+}
